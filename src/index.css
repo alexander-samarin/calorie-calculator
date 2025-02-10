@@ -49,3 +49,9 @@
     appearance: textfield;
   }
 }
+
+html,
+body {
+  @apply bg-base-200;
+  height: 100%;
+}

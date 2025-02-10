@@ -40,10 +40,12 @@ function App() {
   }, [weight, height, age, gender, activity, goal]);
 
   return (
-    <main className="flex flex-col items-center gap-8 min-h-screen p-4">
-      <h1 className="text-2xl font-bold text-center">Калькулятор калорий</h1>
+    <main className="flex flex-col items-center min-h-screen p-4">
+      <h1 className="text-2xl font-bold text-center mb-4">
+        Калькулятор калорий
+      </h1>
 
-      <div className="stats stats-vertical md:stats-horizontal w-full max-w-xl border-2 border-base-300 shadow-md">
+      <div className="stats stats-vertical md:stats-horizontal w-full max-w-xl mb-6 bg-base-100 shadow-md">
         <div className="stat place-items-center p-2 pb-0 md:p-4">
           <div className="stat-title text-center">Базовый расход калорий</div>
           <div className="stat-value">{BMR}</div>
@@ -60,7 +62,10 @@ function App() {
         </div>
       </div>
 
-      <form className="flex flex-col gap-4 w-full max-w-md mx-auto" action="">
+      <form
+        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 rounded-4xl shadow-md"
+        action=""
+      >
         <label className="floating-label">
           <input
             type="number"
