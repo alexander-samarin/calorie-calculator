@@ -23,7 +23,6 @@ function App() {
   const [activity, setActivity] = createSignal(initialState.activity);
   const [goal, setGoal] = createSignal(initialState.goal);
 
-  // Memoized calculations for better performance
   const bmr = createMemo(() => {
     const w = Number(weight());
     const h = Number(height());
@@ -46,7 +45,6 @@ function App() {
     return base > 0 ? Math.round(base * goal()) : 0;
   });
 
-  // Persist state to localStorage
   createEffect(() => {
     storage.set("weight", weight());
     storage.set("height", height());
