@@ -65,7 +65,7 @@ function App() {
         Калькулятор калорий
       </h1>
 
-      <div className="stats stats-vertical md:stats-horizontal w-full max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+      <div className="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
         <div className="stat place-items-center p-2 pb-0 md:p-4">
           <div className="stat-title text-center">Базовый расход калорий</div>
           <div className="stat-value">{BMR}</div>
