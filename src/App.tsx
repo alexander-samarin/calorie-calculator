@@ -77,7 +77,7 @@ function App() {
         </div>
 
         <div className="stat place-items-center p-2 pb-0 md:p-4">
-          <div className="stat-title text-center">Целевой расход калорий</div>
+          <div className="stat-title text-center">Целевой уровень калорий</div>
           <div className="stat-value text-primary">{TDEE}</div>
         </div>
       </div>
