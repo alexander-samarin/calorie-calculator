@@ -45,7 +45,7 @@ function App() {
         Калькулятор калорий
       </h1>
 
-      <div className="stats stats-vertical md:stats-horizontal w-full max-w-xl mb-6 bg-base-100 shadow-md">
+      <div className="stats stats-vertical md:stats-horizontal w-full max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
         <div className="stat place-items-center p-2 pb-0 md:p-4">
           <div className="stat-title text-center">Базовый расход калорий</div>
           <div className="stat-value">{BMR}</div>
@@ -63,83 +63,86 @@ function App() {
       </div>
 
       <form
-        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 rounded-4xl shadow-md"
+        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 rounded-2xl shadow-md"
         action=""
       >
-        <label className="floating-label">
+        <label>
+          <span className="label pl-4 mb-1">Вес (кг)</span>
           <input
             type="number"
-            placeholder=""
+            placeholder="55"
             className="input input-lg w-full"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
           />
-          <span>Вес (кг)</span>
         </label>
 
-        <label className="floating-label">
+        <label>
+          <span className="label pl-4 mb-1">Рост (см)</span>
           <input
             type="number"
-            placeholder=""
+            placeholder="165"
             className="input input-lg w-full"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
           />
-          <span>Рост (см)</span>
         </label>
 
-        <label className="floating-label">
+        <label>
+          <span className="label pl-4 mb-1">Возраст (лет)</span>
           <input
             type="number"
-            placeholder=""
+            placeholder="25"
             className="input input-lg w-full"
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
-          <span>Возраст (лет)</span>
         </label>
 
-        <select
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-          defaultValue="Пол"
-          className="select select-lg w-full"
-        >
-          <option disabled={true}>Пол</option>
-          {GENDER_OPTIONS.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+        <div>
+          <span className="label pl-4 mb-1">Пол</span>
+          <select
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            className="select select-lg w-full"
+          >
+            {GENDER_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select
-          value={activity}
-          onChange={(e) => setActivity(Number(e.target.value))}
-          defaultValue="Коэффициент активности"
-          className="select select-lg w-full"
-        >
-          <option disabled={true}>Активность</option>
-          {ACTIVITY_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        <div>
+          <span className="label pl-4 mb-1">Активность</span>
+          <select
+            value={activity}
+            onChange={(e) => setActivity(Number(e.target.value))}
+            className="select select-lg w-full"
+          >
+            {ACTIVITY_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <select
-          value={goal}
-          onChange={(e) => setGoal(Number(e.target.value))}
-          defaultValue="Цель"
-          className="select select-lg w-full"
-        >
-          <option disabled={true}>Цель</option>
-          {GOAL_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        <div>
+          <span className="label pl-4 mb-1">Цель</span>
+          <select
+            value={goal}
+            onChange={(e) => setGoal(Number(e.target.value))}
+            className="select select-lg w-full"
+          >
+            {GOAL_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </form>
     </main>
   );
