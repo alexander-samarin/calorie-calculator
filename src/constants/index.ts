@@ -1,5 +1,8 @@
 export const CONSTANTS = {
-  GENDER_OPTIONS: ["Женщина", "Мужчина"] as const,
+  GENDER_OPTIONS: [
+    { label: "Женщина", value: "female" },
+    { label: "Мужчина", value: "male" },
+  ] as const,
   ACTIVITY_OPTIONS: [
     { label: "Сидячий образ жизни", value: 1.2 },
     { label: "Пара тренировок в неделю", value: 1.375 },

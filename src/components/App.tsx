@@ -1,6 +1,7 @@
-import { createSignal, createEffect, createMemo, For } from "solid-js";
+import { createSignal, createEffect, createMemo } from "solid-js";
 import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
+import Select from "./Select";
 import { CONSTANTS } from "../constants";
 import { storage } from "../helpers";
 
@@ -8,7 +9,7 @@ const getInitialState = () => ({
   weight: storage.get("weight") || "",
   height: storage.get("height") || "",
   age: storage.get("age") || "",
-  gender: storage.get("gender") || CONSTANTS.GENDER_OPTIONS[0],
+  gender: storage.get("gender") || CONSTANTS.GENDER_OPTIONS[0].value,
   activity:
     Number(storage.get("activity")) || CONSTANTS.ACTIVITY_OPTIONS[0].value,
   goal: Number(storage.get("goal")) || CONSTANTS.GOAL_OPTIONS[0].value,
@@ -30,7 +31,7 @@ function App() {
 
     if (!w || !h || !a) return 0;
 
-    return gender() === CONSTANTS.GENDER_OPTIONS[0]
+    return gender() === CONSTANTS.GENDER_OPTIONS[0].value
       ? 10 * w + 6.25 * h - 5 * a - 161
       : 10 * w + 6.25 * h - 5 * a + 5;
   });
@@ -75,12 +76,14 @@ function App() {
           onInput={setWeight}
           placeholder="55"
         />
+
         <NumberInput
           label="Рост (см)"
           value={height()}
           onInput={setHeight}
           placeholder="165"
         />
+
         <NumberInput
           label="Возраст (лет)"
           value={age()}
@@ -88,44 +91,26 @@ function App() {
           placeholder="25"
         />
 
-        <div>
-          <span class="label pl-4 mb-1">Пол</span>
-          <select
-            value={gender()}
-            onChange={(e) => setGender(e.currentTarget.value)}
-            class="select select-lg w-full"
-          >
-            <For each={CONSTANTS.GENDER_OPTIONS}>
-              {(option) => <option value={option}>{option}</option>}
-            </For>
-          </select>
-        </div>
+        <Select
+          label="Пол"
+          value={gender()}
+          onChange={(value) => setGender(value)}
+          options={[...CONSTANTS.GENDER_OPTIONS]}
+        />
 
-        <div>
-          <span class="label pl-4 mb-1">Активность</span>
-          <select
-            value={activity()}
-            onChange={(e) => setActivity(Number(e.currentTarget.value))}
-            class="select select-lg w-full"
-          >
-            <For each={CONSTANTS.ACTIVITY_OPTIONS}>
-              {(option) => <option value={option.value}>{option.label}</option>}
-            </For>
-          </select>
-        </div>
+        <Select
+          label="Активность"
+          value={activity()}
+          onChange={(value) => setActivity(Number(value))}
+          options={[...CONSTANTS.ACTIVITY_OPTIONS]}
+        />
 
-        <div>
-          <span class="label pl-4 mb-1">Цель</span>
-          <select
-            value={goal()}
-            onChange={(e) => setGoal(Number(e.currentTarget.value))}
-            class="select select-lg w-full"
-          >
-            <For each={CONSTANTS.GOAL_OPTIONS}>
-              {(option) => <option value={option.value}>{option.label}</option>}
-            </For>
-          </select>
-        </div>
+        <Select
+          label="Цель"
+          value={goal()}
+          onChange={(value) => setGoal(Number(value))}
+          options={[...CONSTANTS.GOAL_OPTIONS]}
+        />
       </form>
     </main>
   );
