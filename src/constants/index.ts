@@ -5,7 +5,7 @@ export const CONSTANTS = {
   ] as const,
   ACTIVITY_OPTIONS: [
     { label: "Сидячий образ жизни", value: 1.2 },
-    { label: "Пара тренировок в неделю", value: 1.375 },
+    { label: "1-2 тренировки в неделю", value: 1.375 },
     { label: "3-5 тренировок в неделю", value: 1.55 },
     { label: "6-7 тренировок в неделю", value: 1.725 },
     { label: "Тренировки 2 раза в день", value: 1.9 },
