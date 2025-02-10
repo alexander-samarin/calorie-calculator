@@ -15,17 +15,37 @@ const GOAL_OPTIONS = [
   { label: "Поддержание веса", value: 1 },
 ];
 
+const getInitialState = () => ({
+  weight: localStorage.getItem("weight") || "",
+  height: localStorage.getItem("height") || "",
+  age: localStorage.getItem("age") || "",
+  gender: localStorage.getItem("gender") || GENDER_OPTIONS[0],
+  activity:
+    Number(localStorage.getItem("activity")) || ACTIVITY_OPTIONS[0].value,
+  goal: Number(localStorage.getItem("goal")) || GOAL_OPTIONS[0].value,
+});
+
 function App() {
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState(GENDER_OPTIONS[0]);
-  const [activity, setActivity] = useState(ACTIVITY_OPTIONS[0].value);
-  const [goal, setGoal] = useState(GOAL_OPTIONS[0].value);
+  const initialState = getInitialState();
+  const [weight, setWeight] = useState(initialState.weight);
+  const [height, setHeight] = useState(initialState.height);
+  const [age, setAge] = useState(initialState.age);
+  const [gender, setGender] = useState(initialState.gender);
+  const [activity, setActivity] = useState(initialState.activity);
+  const [goal, setGoal] = useState(initialState.goal);
 
   const [BMR, setBMR] = useState(0);
   const [baseTDEE, setBaseTDEE] = useState(0);
   const [TDEE, setTDEE] = useState(0);
+
+  useEffect(() => {
+    localStorage.setItem("weight", weight);
+    localStorage.setItem("height", height);
+    localStorage.setItem("age", age);
+    localStorage.setItem("gender", gender);
+    localStorage.setItem("activity", String(activity));
+    localStorage.setItem("goal", String(goal));
+  }, [weight, height, age, gender, activity, goal]);
 
   useEffect(() => {
     const BMR =
@@ -63,7 +83,7 @@ function App() {
       </div>
 
       <form
-        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 rounded-2xl shadow-md"
+        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 pb-6 rounded-2xl shadow-md"
         action=""
       >
         <label>
