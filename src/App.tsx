@@ -60,7 +60,7 @@ function App() {
   }, [weight, height, age, gender, activity, goal]);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-4">
+    <main className="flex flex-col items-center p-4">
       <h1 className="text-2xl font-bold text-center mb-4">
         Калькулятор калорий
       </h1>
