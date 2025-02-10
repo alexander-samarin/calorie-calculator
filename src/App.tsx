@@ -60,7 +60,7 @@ function App() {
   }, [weight, height, age, gender, activity, goal]);
 
   return (
-    <main className="flex flex-col items-center min-h-screen p-4">
+    <main className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-2xl font-bold text-center mb-4">
         Калькулятор калорий
       </h1>
@@ -82,10 +82,7 @@ function App() {
         </div>
       </div>
 
-      <form
-        className="flex flex-col gap-2 w-full max-w-md mx-auto bg-base-100 p-4 pb-6 rounded-2xl shadow-md"
-        action=""
-      >
+      <form className="flex flex-col gap-2 w-full max-w-md mx-auto" action="">
         <label>
           <span className="label pl-4 mb-1">Вес (кг)</span>
           <input
