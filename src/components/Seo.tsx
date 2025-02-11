@@ -1,6 +1,6 @@
 function Seo() {
   return (
-    <section class="prose prose-sm md:prose mt-12 max-w-4xl">
+    <section class="prose prose-sm md:prose mt-8 max-w-4xl">
       <p>
         Добро пожаловать на наш сайт с калькулятором калорий – вашим надежным
         помощником в мире правильного питания, похудения и набора массы! Наш

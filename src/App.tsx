@@ -114,6 +114,14 @@ function App() {
         />
       </form>
 
+      <section class="prose text-center prose-sm mt-8">
+        <p>
+          Сделано с ❤️ для телеграм-канала <br />{" "}
+          <a href="https://t.me/zhirno_ne_budet" target="_blank">
+            Жирно не будет :)
+          </a>
+        </p>
+      </section>
       <Seo />
     </main>
   );
