@@ -2,6 +2,7 @@ import { createSignal, createEffect, createMemo } from "solid-js";
 import NumberInput from "./components/NumberInput";
 import StatCard from "./components/StatCard";
 import Select from "./components/Select";
+import Seo from "./components/Seo";
 import { CONSTANTS } from "./constants";
 import { storage } from "./helpers";
 
@@ -56,8 +57,8 @@ function App() {
   });
 
   return (
-    <main class="flex flex-col items-center p-4">
-      <h1 class="text-2xl font-bold text-center mb-4">Калькулятор калорий</h1>
+    <main class="flex flex-col items-center px-4 py-8">
+      <h1 class="text-2xl font-bold text-center mb-6">Калькулятор калорий</h1>
 
       <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
         <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
@@ -112,6 +113,8 @@ function App() {
           options={[...CONSTANTS.GOAL_OPTIONS]}
         />
       </form>
+
+      <Seo />
     </main>
   );
 }
