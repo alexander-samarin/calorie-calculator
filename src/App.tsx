@@ -1,9 +1,9 @@
 import { createSignal, createEffect, createMemo } from "solid-js";
-import NumberInput from "./NumberInput";
-import StatCard from "./StatCard";
-import Select from "./Select";
-import { CONSTANTS } from "../constants";
-import { storage } from "../helpers";
+import NumberInput from "./components/NumberInput";
+import StatCard from "./components/StatCard";
+import Select from "./components/Select";
+import { CONSTANTS } from "./constants";
+import { storage } from "./helpers";
 
 const getInitialState = () => ({
   weight: storage.get("weight") || "",
