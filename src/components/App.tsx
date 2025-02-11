@@ -60,11 +60,11 @@ function App() {
       <h1 class="text-2xl font-bold text-center mb-4">Калькулятор калорий</h1>
 
       <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
-        <StatCard title="Базовый расход калорий" value={bmr()} />
-        <StatCard title="Общий расход калорий" value={baseTdee()} />
+        <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
+        <StatCard title="Общий расход калорий" value={Math.round(baseTdee())} />
         <StatCard
           title="Целевой уровень калорий"
-          value={tdee()}
+          value={Math.round(tdee())}
           isPrimary={true}
         />
       </div>
