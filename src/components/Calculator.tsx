@@ -143,7 +143,7 @@ function Calculator() {
           options={[...CONSTANTS.GOAL_OPTIONS]}
         />
 
-        <label class="px-2">
+        <label class="px-2 mt-2">
           <span class="label pl-2 mb-1">
             <span class="font-bold">{proteinPerKg()} г</span>
             белков на 1 кг веса
