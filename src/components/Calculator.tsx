@@ -1,4 +1,4 @@
-import { createSignal, createEffect, createMemo } from "solid-js";
+import { createSignal, createEffect, createMemo, For } from "solid-js";
 import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
 import Select from "./Select";
@@ -13,6 +13,7 @@ const getInitialState = () => ({
   activity:
     Number(storage.get("activity")) || CONSTANTS.ACTIVITY_OPTIONS[0].value,
   goal: Number(storage.get("goal")) || CONSTANTS.GOAL_OPTIONS[0].value,
+  proteinPerKg: Number(storage.get("proteinPerKg")) || 1.5,
 });
 
 function Calculator() {
@@ -23,6 +24,9 @@ function Calculator() {
   const [gender, setGender] = createSignal(initialState.gender);
   const [activity, setActivity] = createSignal(initialState.activity);
   const [goal, setGoal] = createSignal(initialState.goal);
+  const [proteinPerKg, setProteinPerKg] = createSignal(
+    initialState.proteinPerKg
+  );
 
   const bmr = createMemo(() => {
     const w = Number(weight());
@@ -46,6 +50,20 @@ function Calculator() {
     return base > 0 ? Math.round(base * goal()) : 0;
   });
 
+  const proteins = createMemo(() => {
+    return bmr() > 0 ? Math.round(Number(weight()) * proteinPerKg()) : 0;
+  });
+
+  const fats = createMemo(() => {
+    return bmr() > 0 ? Math.round(Number(weight())) : 0;
+  });
+
+  const carbs = createMemo(() => {
+    return bmr() > 0
+      ? Math.round((tdee() - proteins() * 4 - fats() * 9) / 4)
+      : 0;
+  });
+
   createEffect(() => {
     storage.set("weight", weight());
     storage.set("height", height());
@@ -53,6 +71,7 @@ function Calculator() {
     storage.set("gender", gender());
     storage.set("activity", String(activity()));
     storage.set("goal", String(goal()));
+    storage.set("proteinPerKg", String(proteinPerKg()));
   });
 
   return (
@@ -67,7 +86,28 @@ function Calculator() {
         />
       </div>
 
-      <form class="flex flex-col gap-2 w-full max-w-md mx-auto">
+      <div class="stats stats-horizontal md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+        <StatCard title="Белки (г)" value={proteins()} />
+        <StatCard title="Жиры (г)" value={fats()} />
+        <StatCard title="Углеводы (г)" value={carbs()} />
+      </div>
+
+      <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
+        <div class="flex gap-2">
+          <For each={CONSTANTS.GENDER_OPTIONS}>
+            {(option) => (
+              <button
+                class={`btn btn-lg ${
+                  gender() === option.value ? "btn-primary" : ""
+                }`}
+                onClick={() => setGender(option.value)}
+              >
+                {option.label}
+              </button>
+            )}
+          </For>
+        </div>
+
         <NumberInput
           label="Вес (кг)"
           value={weight()}
@@ -90,13 +130,6 @@ function Calculator() {
         />
 
         <Select
-          label="Пол"
-          value={gender()}
-          onChange={(value) => setGender(value)}
-          options={[...CONSTANTS.GENDER_OPTIONS]}
-        />
-
-        <Select
           label="Активность"
           value={activity()}
           onChange={(value) => setActivity(Number(value))}
@@ -109,7 +142,23 @@ function Calculator() {
           onChange={(value) => setGoal(Number(value))}
           options={[...CONSTANTS.GOAL_OPTIONS]}
         />
-      </form>
+
+        <label class="px-2">
+          <span class="label pl-2 mb-1">
+            <span class="font-bold">{proteinPerKg()} г</span>
+            белков на 1 кг веса
+          </span>
+          <input
+            class="range range-primary w-full"
+            type="range"
+            min={1.2}
+            max={2.5}
+            step={0.1}
+            value={proteinPerKg()}
+            onInput={(e) => setProteinPerKg(Number(e.target.value))}
+          />
+        </label>
+      </div>
     </section>
   );
 }

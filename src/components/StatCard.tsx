@@ -1,6 +1,6 @@
 interface StatCardProps {
   title: string;
-  value: number;
+  value: number | string;
   isPrimary?: boolean;
 }
 
@@ -19,7 +19,9 @@ function StatCard(props: StatCardProps) {
         {props.title}
       </div>
       <div
-        class={`stat-value ${props.isPrimary ? "text-primary-content" : ""}`}
+        class={`stat-value ${props.isPrimary ? "text-primary-content" : ""} ${
+          props.value === 0 ? "opacity-50" : ""
+        }`}
       >
         {props.value}
       </div>

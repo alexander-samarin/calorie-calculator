@@ -11,8 +11,14 @@ export const CONSTANTS = {
     { label: "Тренировки 2 раза в день", value: 1.9 },
   ] as const,
   GOAL_OPTIONS: [
-    { label: "Похудение", value: 0.85 },
-    { label: "Набор массы", value: 1.15 },
+    { label: "Мягкое похудение", value: 0.9 },
+    { label: "Умеренное похудение", value: 0.85 },
+    { label: "Агрессивное похудение", value: 0.8 },
+    { label: "---", value: 0, disabled: true },
+    { label: "Медленный набор массы", value: 1.1 },
+    { label: "Умеренный набор массы", value: 1.15 },
+    { label: "Быстрый набор массы", value: 1.2 },
+    { label: "---", value: 0, disabled: true },
     { label: "Поддержание веса", value: 1 },
   ] as const,
 } as const;

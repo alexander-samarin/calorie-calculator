@@ -72,18 +72,6 @@
   --noise: 0;
 }
 
-@layer utilities {
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  input[type="number"] {
-    appearance: textfield;
-  }
-}
-
 html {
   @apply bg-base-200;
 }
@@ -101,4 +89,9 @@ h4,
 h5,
 h6 {
   @apply text-balance;
+}
+
+h1,
+h2 {
+  @apply text-center;
 }

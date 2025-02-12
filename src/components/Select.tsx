@@ -3,6 +3,7 @@ import { For } from "solid-js";
 interface SelectOption {
   label: string;
   value: number | string;
+  disabled?: boolean;
 }
 
 interface SelectProps {
@@ -22,7 +23,11 @@ function Select(props: SelectProps) {
         class="select select-lg w-full"
       >
         <For each={props.options}>
-          {(option) => <option value={option.value}>{option.label}</option>}
+          {(option) => (
+            <option value={option.value} disabled={option.disabled}>
+              {option.label}
+            </option>
+          )}
         </For>
       </select>
     </label>
