@@ -2,14 +2,15 @@ import { createSignal } from "solid-js";
 import type { Locale, BaseDict } from "./types";
 import { en } from "./locales/en";
 import { ru } from "./locales/ru";
+import { pl } from "./locales/pl";
 import { storage } from "../helpers";
 
-const dictionaries: Record<Locale, BaseDict> = { en, ru };
+const dictionaries: Record<Locale, BaseDict> = { en, ru, pl };
 
 const STORAGE_KEY = "locale";
 
 const isValidLocale = (value: string | null): value is Locale => {
-  return value === "en" || value === "ru";
+  return value === "en" || value === "ru" || value === "pl";
 };
 
 const getDefaultLocale = (): Locale => {
@@ -18,6 +19,7 @@ const getDefaultLocale = (): Locale => {
 
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith("ru")) return "ru";
+  if (browserLang.startsWith("pl")) return "pl";
   return "en";
 };
 
@@ -30,6 +32,7 @@ const setLocale = (newLocale: Locale) => {
 
 export const AVAILABLE_LOCALES: { value: Locale; label: string }[] = [
   { value: "en", label: "English" },
+  { value: "pl", label: "Polski" },
   { value: "ru", label: "Русский" },
 ];
 
@@ -41,11 +44,14 @@ export const useLocale = () => ({
 
 /**
  * Pluralize for grams based on locale
+ * Slavic languages (ru, pl) have complex plural rules
  */
 export const pluralizeGrams = (n: number): string => {
   const dict = dictionaries[locale()];
+  const currentLocale = locale();
 
-  if (locale() === "ru") {
+  // Slavic plural rules (Russian, Polish)
+  if (currentLocale === "ru" || currentLocale === "pl") {
     const abs = Math.abs(n);
     const mod10 = abs % 10;
     const mod100 = abs % 100;
