@@ -4,14 +4,21 @@ import { en } from "./locales/en";
 import { ru } from "./locales/ru";
 import { pl } from "./locales/pl";
 import { de } from "./locales/de";
+import { es } from "./locales/es";
 import { storage } from "../helpers";
 
-const dictionaries: Record<Locale, BaseDict> = { en, ru, pl, de };
+const dictionaries: Record<Locale, BaseDict> = { en, ru, pl, de, es };
 
 const STORAGE_KEY = "locale";
 
 const isValidLocale = (value: string | null): value is Locale => {
-  return value === "en" || value === "ru" || value === "pl" || value === "de";
+  return (
+    value === "en" ||
+    value === "ru" ||
+    value === "pl" ||
+    value === "de" ||
+    value === "es"
+  );
 };
 
 const getDefaultLocale = (): Locale => {
@@ -22,6 +29,7 @@ const getDefaultLocale = (): Locale => {
   if (browserLang.startsWith("ru")) return "ru";
   if (browserLang.startsWith("pl")) return "pl";
   if (browserLang.startsWith("de")) return "de";
+  if (browserLang.startsWith("es")) return "es";
   return "en";
 };
 
@@ -35,6 +43,7 @@ const setLocale = (newLocale: Locale) => {
 export const AVAILABLE_LOCALES: { value: Locale; label: string }[] = [
   { value: "de", label: "Deutsch" },
   { value: "en", label: "English" },
+  { value: "es", label: "Español" },
   { value: "pl", label: "Polski" },
   { value: "ru", label: "Русский" },
 ];
