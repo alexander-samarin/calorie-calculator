@@ -90,25 +90,20 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center">
-      <div class="sticky flex flex-col items-center top-4 w-full z-10">
-        <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-[0_2rem_1rem_3rem_var(--color-base-200)]">
-          <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
-          <StatCard
-            title="Общий расход калорий"
-            value={Math.round(baseTdee())}
-          />
-          <StatCard
-            title="Целевой уровень калорий"
-            value={Math.round(tdee())}
-            isPrimary={true}
-          />
-        </div>
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+        <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
+        <StatCard title="Общий расход калорий" value={Math.round(baseTdee())} />
+        <StatCard
+          title="Целевой уровень калорий"
+          value={Math.round(tdee())}
+          isPrimary={true}
+        />
+      </div>
 
-        <div class="stats stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
-          <StatCard title="Белки (г)" value={proteins()} />
-          <StatCard title="Жиры (г)" value={fats()} />
-          <StatCard title="Углеводы (г)" value={carbs()} />
-        </div>
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+        <StatCard title="Белки (г)" value={proteins()} />
+        <StatCard title="Жиры (г)" value={fats()} />
+        <StatCard title="Углеводы (г)" value={carbs()} />
       </div>
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto">

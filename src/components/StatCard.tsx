@@ -11,7 +11,7 @@ function StatCard(props: StatCardProps) {
       classList={{ "bg-primary": props.isPrimary }}
     >
       <div
-        class="stat-title text-center"
+        class="stat-title text-center whitespace-normal"
         classList={{ "text-primary-content": props.isPrimary }}
       >
         {props.title}
