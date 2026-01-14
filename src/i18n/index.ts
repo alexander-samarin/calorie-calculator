@@ -8,6 +8,7 @@ import { es } from "./locales/es";
 import { it } from "./locales/it";
 import { fr } from "./locales/fr";
 import { uk } from "./locales/uk";
+import { be } from "./locales/be";
 import { storage } from "../helpers";
 
 const dictionaries: Record<Locale, BaseDict> = {
@@ -19,11 +20,12 @@ const dictionaries: Record<Locale, BaseDict> = {
   it,
   fr,
   uk,
+  be,
 };
 
 const STORAGE_KEY = "locale";
 
-const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk"];
+const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk", "be"];
 
 const isValidLocale = (value: string | null): value is Locale => {
   return (
@@ -34,7 +36,8 @@ const isValidLocale = (value: string | null): value is Locale => {
     value === "es" ||
     value === "it" ||
     value === "fr" ||
-    value === "uk"
+    value === "uk" ||
+    value === "be"
   );
 };
 
@@ -45,6 +48,7 @@ const getDefaultLocale = (): Locale => {
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith("ru")) return "ru";
   if (browserLang.startsWith("uk")) return "uk";
+  if (browserLang.startsWith("be")) return "be";
   if (browserLang.startsWith("pl")) return "pl";
   if (browserLang.startsWith("de")) return "de";
   if (browserLang.startsWith("es")) return "es";
@@ -61,6 +65,7 @@ const setLocale = (newLocale: Locale) => {
 };
 
 export const AVAILABLE_LOCALES: { value: Locale; label: string }[] = [
+  { value: "be", label: "Беларуская" },
   { value: "de", label: "Deutsch" },
   { value: "en", label: "English" },
   { value: "es", label: "Español" },
