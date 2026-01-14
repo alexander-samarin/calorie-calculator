@@ -90,9 +90,12 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center">
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
         <StatCard title="Базовый обмен (ккал)" value={Math.round(bmr())} />
-        <StatCard title="Суточный расход (ккал)" value={Math.round(baseTdee())} />
+        <StatCard
+          title="Суточный расход (ккал)"
+          value={Math.round(baseTdee())}
+        />
         <StatCard
           title="Ваша норма (ккал)"
           value={Math.round(tdee())}
@@ -100,7 +103,7 @@ function Calculator() {
         />
       </div>
 
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
         <StatCard title="Белки (г)" value={proteins()} />
         <StatCard title="Жиры (г)" value={fats()} />
         <StatCard title="Углеводы (г)" value={carbs()} />
