@@ -10,7 +10,7 @@ type SelectProps = {
   label: string;
   value: number | string;
   onChange: (value: string) => void;
-  options: readonly SelectOption[];
+  options: SelectOption[];
 };
 
 function Select(props: SelectProps) {

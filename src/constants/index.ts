@@ -14,27 +14,28 @@ export const CALORIES_PER_GRAM = {
   CARB: 4,
 } as const;
 
-export const CONSTANTS = {
-  GENDER_OPTIONS: [
-    { label: "Женщина", value: "female" },
-    { label: "Мужчина", value: "male" },
-  ] as const,
-  ACTIVITY_OPTIONS: [
-    { label: "Сидячий образ жизни", value: 1.2 },
-    { label: "1-3 тренировки в неделю", value: 1.375 },
-    { label: "3-5 тренировок в неделю", value: 1.55 },
-    { label: "6-7 тренировок в неделю", value: 1.725 },
-    { label: "Тренировки 2 раза в день", value: 1.9 },
-  ] as const,
-  GOAL_OPTIONS: [
-    { label: "Мягкое похудение", value: 0.9 },
-    { label: "Умеренное похудение", value: 0.85 },
-    { label: "Агрессивное похудение", value: 0.8 },
-    { label: "---", value: 0, disabled: true },
-    { label: "Медленный набор массы", value: 1.1 },
-    { label: "Умеренный набор массы", value: 1.15 },
-    { label: "Быстрый набор массы", value: 1.2 },
-    { label: "---", value: 0, disabled: true },
-    { label: "Поддержание веса", value: 1 },
-  ] as const,
-} as const;
+// Keys for i18n translation
+export const GENDER_OPTIONS = [
+  { labelKey: "female" as const, value: "female" },
+  { labelKey: "male" as const, value: "male" },
+];
+
+export const ACTIVITY_OPTIONS = [
+  { labelKey: "sedentary" as const, value: 1.2 },
+  { labelKey: "lightActivity" as const, value: 1.375 },
+  { labelKey: "moderateActivity" as const, value: 1.55 },
+  { labelKey: "highActivity" as const, value: 1.725 },
+  { labelKey: "veryHighActivity" as const, value: 1.9 },
+];
+
+export const GOAL_OPTIONS = [
+  { labelKey: "mildWeightLoss" as const, value: 0.9 },
+  { labelKey: "moderateWeightLoss" as const, value: 0.85 },
+  { labelKey: "aggressiveWeightLoss" as const, value: 0.8 },
+  { labelKey: null, value: 0, disabled: true },
+  { labelKey: "slowBulk" as const, value: 1.1 },
+  { labelKey: "moderateBulk" as const, value: 1.15 },
+  { labelKey: "fastBulk" as const, value: 1.2 },
+  { labelKey: null, value: 0, disabled: true },
+  { labelKey: "maintenance" as const, value: 1 },
+];

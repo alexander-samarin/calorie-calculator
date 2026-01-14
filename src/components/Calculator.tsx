@@ -3,25 +3,28 @@ import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
 import Select from "./Select";
 import {
-  CONSTANTS,
+  GENDER_OPTIONS,
+  ACTIVITY_OPTIONS,
+  GOAL_OPTIONS,
   MIFFLIN_COEFFICIENTS,
   CALORIES_PER_GRAM,
 } from "../constants";
-import { storage, pluralize } from "../helpers";
+import { storage } from "../helpers";
+import { useLocale, pluralizeGrams } from "../i18n";
 
 const getInitialState = () => ({
   weight: storage.get("weight") || "",
   height: storage.get("height") || "",
   age: storage.get("age") || "",
-  gender: storage.get("gender") || CONSTANTS.GENDER_OPTIONS[0].value,
-  activity:
-    Number(storage.get("activity")) || CONSTANTS.ACTIVITY_OPTIONS[0].value,
-  goal: Number(storage.get("goal")) || CONSTANTS.GOAL_OPTIONS[0].value,
+  gender: storage.get("gender") || GENDER_OPTIONS[0].value,
+  activity: Number(storage.get("activity")) || ACTIVITY_OPTIONS[0].value,
+  goal: Number(storage.get("goal")) || GOAL_OPTIONS[0].value,
   proteinPerKg: Number(storage.get("proteinPerKg")) || 1.5,
   fatPerKg: Number(storage.get("fatPerKg")) || 1,
 });
 
 function Calculator() {
+  const { t } = useLocale();
   const initialState = getInitialState();
   const [weight, setWeight] = createSignal(initialState.weight);
   const [height, setHeight] = createSignal(initialState.height);
@@ -45,7 +48,7 @@ function Calculator() {
       MIFFLIN_COEFFICIENTS;
     const baseBmr = WEIGHT * w + HEIGHT * h - AGE * a;
 
-    return gender() === CONSTANTS.GENDER_OPTIONS[0].value
+    return gender() === GENDER_OPTIONS[0].value
       ? baseBmr + FEMALE_OFFSET
       : baseBmr + MALE_OFFSET;
   });
@@ -88,44 +91,61 @@ function Calculator() {
     storage.set("fatPerKg", String(fatPerKg()));
   });
 
+  const activityOptions = () =>
+    ACTIVITY_OPTIONS.map((opt) => ({
+      label: t()[opt.labelKey],
+      value: opt.value,
+    }));
+
+  const goalOptions = () =>
+    GOAL_OPTIONS.map((opt) => ({
+      label: opt.labelKey ? t()[opt.labelKey] : "---",
+      value: opt.value,
+      disabled: opt.disabled,
+    }));
+
   return (
     <section class="flex flex-col items-center w-full">
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-4 bg-base-100 shadow-xl">
-        <StatCard title="Базовый обмен" value={Math.round(bmr())} unit="ккал" />
         <StatCard
-          title="Суточный расход"
-          value={Math.round(baseTdee())}
-          unit="ккал"
+          title={t().basalMetabolism}
+          value={Math.round(bmr())}
+          unit={t().kcal}
         />
         <StatCard
-          title="Ваша норма"
+          title={t().dailyExpenditure}
+          value={Math.round(baseTdee())}
+          unit={t().kcal}
+        />
+        <StatCard
+          title={t().yourNorm}
           value={Math.round(tdee())}
-          unit="ккал"
+          unit={t().kcal}
           isPrimary={true}
         />
       </div>
 
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-8 bg-base-100 shadow-xl">
         <StatCard
-          title="Белки"
+          title={t().proteins}
           value={proteins()}
-          unit={pluralize(proteins(), ["грамм", "грамма", "граммов"])}
+          unit={pluralizeGrams(proteins())}
         />
         <StatCard
-          title="Жиры"
+          title={t().fats}
           value={fats()}
-          unit={pluralize(fats(), ["грамм", "грамма", "граммов"])}
+          unit={pluralizeGrams(fats())}
         />
         <StatCard
-          title="Углеводы"
+          title={t().carbs}
           value={carbs()}
-          unit={pluralize(carbs(), ["грамм", "грамма", "граммов"])}
+          unit={pluralizeGrams(carbs())}
         />
       </div>
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
         <div class="flex gap-2">
-          <For each={CONSTANTS.GENDER_OPTIONS}>
+          <For each={GENDER_OPTIONS}>
             {(option) => (
               <button
                 class={`btn btn-lg ${
@@ -133,51 +153,51 @@ function Calculator() {
                 }`}
                 onClick={() => setGender(option.value)}
               >
-                {option.label}
+                {t()[option.labelKey]}
               </button>
             )}
           </For>
         </div>
 
         <NumberInput
-          label="Вес (кг)"
+          label={t().weight}
           value={weight()}
           onInput={setWeight}
           placeholder="55"
         />
 
         <NumberInput
-          label="Рост (см)"
+          label={t().height}
           value={height()}
           onInput={setHeight}
           placeholder="165"
         />
 
         <NumberInput
-          label="Возраст (лет)"
+          label={t().age}
           value={age()}
           onInput={setAge}
           placeholder="25"
         />
 
         <Select
-          label="Активность"
+          label={t().activity}
           value={activity()}
           onChange={(value) => setActivity(Number(value))}
-          options={CONSTANTS.ACTIVITY_OPTIONS}
+          options={activityOptions()}
         />
 
         <Select
-          label="Цель"
+          label={t().goal}
           value={goal()}
           onChange={(value) => setGoal(Number(value))}
-          options={CONSTANTS.GOAL_OPTIONS}
+          options={goalOptions()}
         />
 
         <label class="px-2 mt-2">
           <span class="label pl-2 mb-1">
-            <span class="font-bold">{proteinPerKg()} г</span>
-            белков на 1 кг веса
+            <span class="font-bold">{proteinPerKg()} g</span>
+            {" "}{t().proteinPerKg}
           </span>
           <input
             class="range range-primary w-full"
@@ -192,8 +212,8 @@ function Calculator() {
 
         <label class="px-2 mt-2">
           <span class="label pl-2 mb-1">
-            <span class="font-bold">{fatPerKg()} г</span>
-            жиров на 1 кг веса
+            <span class="font-bold">{fatPerKg()} g</span>
+            {" "}{t().fatPerKg}
           </span>
           <input
             class="range range-primary w-full"
