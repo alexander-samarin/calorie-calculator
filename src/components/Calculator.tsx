@@ -90,7 +90,7 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center">
-      <div class="sticky top-4 z-10">
+      <div class="sticky flex flex-col items-center top-4 z-10">
         <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-[0_2rem_1rem_3rem_var(--color-base-200)]">
           <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
           <StatCard
