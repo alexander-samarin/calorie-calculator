@@ -1,17 +1,17 @@
 import { For } from "solid-js";
 
-interface SelectOption {
+type SelectOption = {
   label: string;
   value: number | string;
   disabled?: boolean;
-}
+};
 
-interface SelectProps {
+type SelectProps = {
   label: string;
   value: number | string;
   onChange: (value: string) => void;
-  options: SelectOption[];
-}
+  options: readonly SelectOption[];
+};
 
 function Select(props: SelectProps) {
   return (

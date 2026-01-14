@@ -1,11 +1,11 @@
-import { Component } from "solid-js";
+import type { Component } from "solid-js";
 
-interface NumberInputProps {
+type NumberInputProps = {
   label: string;
   value: string;
   onInput: (value: string) => void;
   placeholder: string;
-}
+};
 
 const NumberInput: Component<NumberInputProps> = (props) => {
   const handleBeforeInput = (e: InputEvent): void => {

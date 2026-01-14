@@ -2,7 +2,7 @@ import { createSignal, createEffect, createMemo, For } from "solid-js";
 import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
 import Select from "./Select";
-import { CONSTANTS } from "../constants";
+import { CONSTANTS, MIFFLIN_COEFFICIENTS } from "../constants";
 import { storage } from "../helpers";
 
 const getInitialState = () => ({
@@ -35,9 +35,13 @@ function Calculator() {
 
     if (!w || !h || !a) return 0;
 
+    const { WEIGHT, HEIGHT, AGE, FEMALE_OFFSET, MALE_OFFSET } =
+      MIFFLIN_COEFFICIENTS;
+    const baseBmr = WEIGHT * w + HEIGHT * h - AGE * a;
+
     return gender() === CONSTANTS.GENDER_OPTIONS[0].value
-      ? 10 * w + 6.25 * h - 5 * a - 161
-      : 10 * w + 6.25 * h - 5 * a + 5;
+      ? baseBmr + FEMALE_OFFSET
+      : baseBmr + MALE_OFFSET;
   });
 
   const baseTdee = createMemo(() => {
@@ -86,7 +90,7 @@ function Calculator() {
         />
       </div>
 
-      <div class="stats stats-horizontal md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+      <div class="stats stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
         <StatCard title="Белки (г)" value={proteins()} />
         <StatCard title="Жиры (г)" value={fats()} />
         <StatCard title="Углеводы (г)" value={carbs()} />
@@ -133,14 +137,14 @@ function Calculator() {
           label="Активность"
           value={activity()}
           onChange={(value) => setActivity(Number(value))}
-          options={[...CONSTANTS.ACTIVITY_OPTIONS]}
+          options={CONSTANTS.ACTIVITY_OPTIONS}
         />
 
         <Select
           label="Цель"
           value={goal()}
           onChange={(value) => setGoal(Number(value))}
-          options={[...CONSTANTS.GOAL_OPTIONS]}
+          options={CONSTANTS.GOAL_OPTIONS}
         />
 
         <label class="px-2 mt-2">

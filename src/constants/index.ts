@@ -1,3 +1,12 @@
+// Коэффициенты формулы Миффлина-Сан Жеора для расчёта BMR
+export const MIFFLIN_COEFFICIENTS = {
+  WEIGHT: 10,
+  HEIGHT: 6.25,
+  AGE: 5,
+  FEMALE_OFFSET: -161,
+  MALE_OFFSET: 5,
+} as const;
+
 export const CONSTANTS = {
   GENDER_OPTIONS: [
     { label: "Женщина", value: "female" },
