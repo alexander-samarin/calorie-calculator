@@ -196,8 +196,7 @@ function Calculator() {
 
         <label class="px-2 mt-2">
           <span class="label pl-2 mb-1">
-            <span class="font-bold">{proteinPerKg()} g</span>
-            {" "}{t().proteinPerKg}
+            <span class="font-bold">{proteinPerKg()} g</span> {t().proteinPerKg}
           </span>
           <input
             class="range range-primary w-full"
@@ -212,8 +211,7 @@ function Calculator() {
 
         <label class="px-2 mt-2">
           <span class="label pl-2 mb-1">
-            <span class="font-bold">{fatPerKg()} g</span>
-            {" "}{t().fatPerKg}
+            <span class="font-bold">{fatPerKg()} g</span> {t().fatPerKg}
           </span>
           <input
             class="range range-primary w-full"

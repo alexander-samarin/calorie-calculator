@@ -47,5 +47,5 @@ export const be: BaseDict = {
 
   // Love
   madeWith: "Зроблена з ❤️ для тэлеграм-канала",
-  channelName: "Тоўста не будзе 🥦",
+  channelName: "Жирно не будет 🥦",
 };

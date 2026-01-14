@@ -37,9 +37,9 @@ export const pl: BaseDict = {
   mildWeightLoss: "Łagodne odchudzanie",
   moderateWeightLoss: "Umiarkowane odchudzanie",
   aggressiveWeightLoss: "Intensywne odchudzanie",
-  slowBulk: "Powolna masa",
-  moderateBulk: "Umiarkowana masa",
-  fastBulk: "Szybka masa",
+  slowBulk: "Powolny przyrost masy",
+  moderateBulk: "Umiarkowany przyrost masy",
+  fastBulk: "Szybki przyrost masy",
   maintenance: "Utrzymanie wagi",
 
   // App

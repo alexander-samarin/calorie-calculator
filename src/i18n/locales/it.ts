@@ -36,9 +36,9 @@ export const it: BaseDict = {
   mildWeightLoss: "Dimagrimento leggero",
   moderateWeightLoss: "Dimagrimento moderato",
   aggressiveWeightLoss: "Dimagrimento intenso",
-  slowBulk: "Aumento lento",
-  moderateBulk: "Aumento moderato",
-  fastBulk: "Aumento rapido",
+  slowBulk: "Massa lenta",
+  moderateBulk: "Massa moderata",
+  fastBulk: "Massa rapida",
   maintenance: "Mantenimento",
 
   // App
