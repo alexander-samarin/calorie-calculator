@@ -7,6 +7,13 @@ export const MIFFLIN_COEFFICIENTS = {
   MALE_OFFSET: 5,
 } as const;
 
+// Калорийность макронутриентов (ккал на 1 грамм)
+export const CALORIES_PER_GRAM = {
+  PROTEIN: 4,
+  FAT: 9,
+  CARB: 4,
+} as const;
+
 export const CONSTANTS = {
   GENDER_OPTIONS: [
     { label: "Женщина", value: "female" },

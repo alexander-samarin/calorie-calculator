@@ -2,7 +2,7 @@ import { createSignal, createEffect, createMemo, For } from "solid-js";
 import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
 import Select from "./Select";
-import { CONSTANTS, MIFFLIN_COEFFICIENTS } from "../constants";
+import { CONSTANTS, MIFFLIN_COEFFICIENTS, CALORIES_PER_GRAM } from "../constants";
 import { storage } from "../helpers";
 
 const getInitialState = () => ({
@@ -63,9 +63,12 @@ function Calculator() {
   });
 
   const carbs = createMemo(() => {
-    return bmr() > 0
-      ? Math.round((tdee() - proteins() * 4 - fats() * 9) / 4)
-      : 0;
+    if (bmr() <= 0) return 0;
+
+    const { PROTEIN, FAT, CARB } = CALORIES_PER_GRAM;
+    const remainingCalories = tdee() - proteins() * PROTEIN - fats() * FAT;
+
+    return Math.max(0, Math.round(remainingCalories / CARB));
   });
 
   createEffect(() => {
