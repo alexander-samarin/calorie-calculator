@@ -91,10 +91,10 @@ function Calculator() {
   return (
     <section class="flex flex-col items-center">
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
-        <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
-        <StatCard title="Общий расход калорий" value={Math.round(baseTdee())} />
+        <StatCard title="Базовый обмен (ккал)" value={Math.round(bmr())} />
+        <StatCard title="Суточный расход (ккал)" value={Math.round(baseTdee())} />
         <StatCard
-          title="Целевой уровень калорий"
+          title="Ваша норма (ккал)"
           value={Math.round(tdee())}
           isPrimary={true}
         />
