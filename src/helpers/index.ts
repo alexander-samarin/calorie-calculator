@@ -21,7 +21,10 @@ export const storage = {
  * @param forms - массив форм [для 1, для 2-4, для 5-20]
  * @example pluralize(5, ['грамм', 'грамма', 'граммов']) // 'граммов'
  */
-export const pluralize = (n: number, forms: [string, string, string]): string => {
+export const pluralize = (
+  n: number,
+  forms: [string, string, string]
+): string => {
   const abs = Math.abs(n);
   const mod10 = abs % 10;
   const mod100 = abs % 100;

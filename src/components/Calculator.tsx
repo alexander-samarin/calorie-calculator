@@ -89,7 +89,7 @@ function Calculator() {
   });
 
   return (
-    <section class="flex flex-col items-center">
+    <section class="flex flex-col items-center w-full">
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
         <StatCard title="Базовый обмен" value={Math.round(bmr())} unit="ккал" />
         <StatCard
@@ -106,9 +106,21 @@ function Calculator() {
       </div>
 
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
-        <StatCard title="Белки" value={proteins()} unit={pluralize(proteins(), ['грамм', 'грамма', 'граммов'])} />
-        <StatCard title="Жиры" value={fats()} unit={pluralize(fats(), ['грамм', 'грамма', 'граммов'])} />
-        <StatCard title="Углеводы" value={carbs()} unit={pluralize(carbs(), ['грамм', 'грамма', 'граммов'])} />
+        <StatCard
+          title="Белки"
+          value={proteins()}
+          unit={pluralize(proteins(), ["грамм", "грамма", "граммов"])}
+        />
+        <StatCard
+          title="Жиры"
+          value={fats()}
+          unit={pluralize(fats(), ["грамм", "грамма", "граммов"])}
+        />
+        <StatCard
+          title="Углеводы"
+          value={carbs()}
+          unit={pluralize(carbs(), ["грамм", "грамма", "граммов"])}
+        />
       </div>
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
