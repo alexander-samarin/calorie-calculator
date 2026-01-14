@@ -18,6 +18,7 @@ const getInitialState = () => ({
     Number(storage.get("activity")) || CONSTANTS.ACTIVITY_OPTIONS[0].value,
   goal: Number(storage.get("goal")) || CONSTANTS.GOAL_OPTIONS[0].value,
   proteinPerKg: Number(storage.get("proteinPerKg")) || 1.5,
+  fatPerKg: Number(storage.get("fatPerKg")) || 1,
 });
 
 function Calculator() {
@@ -31,6 +32,7 @@ function Calculator() {
   const [proteinPerKg, setProteinPerKg] = createSignal(
     initialState.proteinPerKg
   );
+  const [fatPerKg, setFatPerKg] = createSignal(initialState.fatPerKg);
 
   const bmr = createMemo(() => {
     const w = Number(weight());
@@ -63,7 +65,7 @@ function Calculator() {
   });
 
   const fats = createMemo(() => {
-    return bmr() > 0 ? Math.round(Number(weight())) : 0;
+    return bmr() > 0 ? Math.round(Number(weight()) * fatPerKg()) : 0;
   });
 
   const carbs = createMemo(() => {
@@ -83,6 +85,7 @@ function Calculator() {
     storage.set("activity", String(activity()));
     storage.set("goal", String(goal()));
     storage.set("proteinPerKg", String(proteinPerKg()));
+    storage.set("fatPerKg", String(fatPerKg()));
   });
 
   return (
@@ -172,6 +175,22 @@ function Calculator() {
             step={0.1}
             value={proteinPerKg()}
             onInput={(e) => setProteinPerKg(Number(e.target.value))}
+          />
+        </label>
+
+        <label class="px-2 mt-2">
+          <span class="label pl-2 mb-1">
+            <span class="font-bold">{fatPerKg()} г</span>
+            жиров на 1 кг веса
+          </span>
+          <input
+            class="range range-primary w-full"
+            type="range"
+            min={0.8}
+            max={1}
+            step={0.1}
+            value={fatPerKg()}
+            onInput={(e) => setFatPerKg(Number(e.target.value))}
           />
         </label>
       </div>
