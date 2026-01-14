@@ -48,4 +48,4 @@ export type BaseDict = {
   channelName: string;
 };
 
-export type Locale = "en" | "ru" | "pl" | "de" | "es";
+export type Locale = "en" | "ru" | "pl" | "de" | "es" | "it";
