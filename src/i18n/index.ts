@@ -65,15 +65,15 @@ const setLocale = (newLocale: Locale) => {
 };
 
 export const AVAILABLE_LOCALES: { value: Locale; label: string }[] = [
-  { value: "be", label: "Беларуская" },
-  { value: "de", label: "Deutsch" },
-  { value: "en", label: "English" },
-  { value: "es", label: "Español" },
-  { value: "fr", label: "Français" },
-  { value: "it", label: "Italiano" },
-  { value: "pl", label: "Polski" },
-  { value: "ru", label: "Русский" },
-  { value: "uk", label: "Українська" },
+  { value: "be", label: "Беларуская" }, // Belarusian
+  { value: "en", label: "English" }, // English
+  { value: "fr", label: "Français" }, // French
+  { value: "de", label: "Deutsch" }, // German
+  { value: "it", label: "Italiano" }, // Italian
+  { value: "pl", label: "Polski" }, // Polish
+  { value: "ru", label: "Русский" }, // Russian
+  { value: "es", label: "Español" }, // Spanish
+  { value: "uk", label: "Українська" }, // Ukrainian
 ];
 
 export const useLocale = () => ({
