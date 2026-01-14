@@ -2,7 +2,11 @@ import { createSignal, createEffect, createMemo, For } from "solid-js";
 import NumberInput from "./NumberInput";
 import StatCard from "./StatCard";
 import Select from "./Select";
-import { CONSTANTS, MIFFLIN_COEFFICIENTS, CALORIES_PER_GRAM } from "../constants";
+import {
+  CONSTANTS,
+  MIFFLIN_COEFFICIENTS,
+  CALORIES_PER_GRAM,
+} from "../constants";
 import { storage } from "../helpers";
 
 const getInitialState = () => ({
@@ -83,20 +87,25 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center">
-      <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
-        <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
-        <StatCard title="Общий расход калорий" value={Math.round(baseTdee())} />
-        <StatCard
-          title="Целевой уровень калорий"
-          value={Math.round(tdee())}
-          isPrimary={true}
-        />
-      </div>
+      <div class="sticky top-4 z-10">
+        <div class="stats stats-vertical md:stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-[0_2rem_1rem_3rem_var(--color-base-200)]">
+          <StatCard title="Базовый расход калорий" value={Math.round(bmr())} />
+          <StatCard
+            title="Общий расход калорий"
+            value={Math.round(baseTdee())}
+          />
+          <StatCard
+            title="Целевой уровень калорий"
+            value={Math.round(tdee())}
+            isPrimary={true}
+          />
+        </div>
 
-      <div class="stats stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
-        <StatCard title="Белки (г)" value={proteins()} />
-        <StatCard title="Жиры (г)" value={fats()} />
-        <StatCard title="Углеводы (г)" value={carbs()} />
+        <div class="stats stats-horizontal w-full max-w-md md:max-w-xl mb-6 bg-base-100 rounded-2xl shadow-md">
+          <StatCard title="Белки (г)" value={proteins()} />
+          <StatCard title="Жиры (г)" value={fats()} />
+          <StatCard title="Углеводы (г)" value={carbs()} />
+        </div>
       </div>
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
