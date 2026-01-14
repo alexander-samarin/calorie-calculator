@@ -7,7 +7,7 @@ import {
   MIFFLIN_COEFFICIENTS,
   CALORIES_PER_GRAM,
 } from "../constants";
-import { storage } from "../helpers";
+import { storage, pluralize } from "../helpers";
 
 const getInitialState = () => ({
   weight: storage.get("weight") || "",
@@ -91,22 +91,24 @@ function Calculator() {
   return (
     <section class="flex flex-col items-center">
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
-        <StatCard title="Базовый обмен (ккал)" value={Math.round(bmr())} />
+        <StatCard title="Базовый обмен" value={Math.round(bmr())} unit="ккал" />
         <StatCard
-          title="Суточный расход (ккал)"
+          title="Суточный расход"
           value={Math.round(baseTdee())}
+          unit="ккал"
         />
         <StatCard
-          title="Ваша норма (ккал)"
+          title="Ваша норма"
           value={Math.round(tdee())}
+          unit="ккал"
           isPrimary={true}
         />
       </div>
 
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-6 bg-base-100 shadow-md">
-        <StatCard title="Белки (г)" value={proteins()} />
-        <StatCard title="Жиры (г)" value={fats()} />
-        <StatCard title="Углеводы (г)" value={carbs()} />
+        <StatCard title="Белки" value={proteins()} unit={pluralize(proteins(), ['грамм', 'грамма', 'граммов'])} />
+        <StatCard title="Жиры" value={fats()} unit={pluralize(fats(), ['грамм', 'грамма', 'граммов'])} />
+        <StatCard title="Углеводы" value={carbs()} unit={pluralize(carbs(), ['грамм', 'грамма', 'граммов'])} />
       </div>
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
