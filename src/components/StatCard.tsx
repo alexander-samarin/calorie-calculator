@@ -8,11 +8,11 @@ type StatCardProps = {
 function StatCard(props: StatCardProps) {
   return (
     <div
-      class="stat place-items-center p-2 md:p-4"
+      class="stat place-items-center px-1 py-2 md:px-2 md:py-4 flex flex-col"
       classList={{ "bg-primary": props.isPrimary }}
     >
       <div
-        class="stat-title mb-2 text-center whitespace-normal"
+        class="stat-title text-center whitespace-normal grow"
         classList={{ "text-primary-content": props.isPrimary }}
       >
         {props.title}

@@ -11,7 +11,7 @@
   "dependencies": {
     "@solid-primitives/i18n": "^2.2.1",
     "@tailwindcss/vite": "^4.0.6",
-    "daisyui": "^5.0.0-beta.7",
+    "daisyui": "^5.5.14",
     "solid-js": "^1.9.4",
     "tailwindcss": "^4.0.6"
   },

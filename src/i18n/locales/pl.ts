@@ -48,4 +48,14 @@ export const pl: BaseDict = {
   // Love
   madeWith: "Stworzone z ❤️ dla kanału Telegram",
   channelName: "Zhirno ne budet 🥦",
+
+  // Theme
+  themeSystem: "Systemowy",
+  themeLight: "Jasny",
+  themeDark: "Ciemny",
+
+  // Settings
+  language: "Język",
+  theme: "Motyw",
+  settings: "Ustawienia",
 };

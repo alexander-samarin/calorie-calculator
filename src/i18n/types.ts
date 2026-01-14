@@ -46,6 +46,16 @@ export type BaseDict = {
   // Love
   madeWith: string;
   channelName: string;
+
+  // Theme
+  themeSystem: string;
+  themeLight: string;
+  themeDark: string;
+
+  // Settings
+  language: string;
+  theme: string;
+  settings: string;
 };
 
 export type Locale =

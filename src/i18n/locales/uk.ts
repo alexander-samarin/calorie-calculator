@@ -48,4 +48,14 @@ export const uk: BaseDict = {
   // Love
   madeWith: "Зроблено з ❤️ для телеграм-каналу",
   channelName: "Жирно не буде 🥦",
+
+  // Theme
+  themeSystem: "Системна",
+  themeLight: "Світла",
+  themeDark: "Темна",
+
+  // Settings
+  language: "Мова",
+  theme: "Тема",
+  settings: "Налаштування",
 };

@@ -1,20 +1,17 @@
-import { For } from "solid-js";
+import Select from "./Select";
 import { useLocale, AVAILABLE_LOCALES } from "../i18n";
 import type { Locale } from "../i18n";
 
 function LanguageSwitcher() {
-  const { locale, setLocale } = useLocale();
+  const { locale, setLocale, t } = useLocale();
 
   return (
-    <select
-      class="select select-sm mt-8 opacity-50 hover:opacity-100 transition-opacity"
+    <Select
+      label={t().language}
       value={locale()}
-      onChange={(e) => setLocale(e.currentTarget.value as Locale)}
-    >
-      <For each={AVAILABLE_LOCALES}>
-        {(lang) => <option value={lang.value}>{lang.label}</option>}
-      </For>
-    </select>
+      onChange={(value) => setLocale(value as Locale)}
+      options={AVAILABLE_LOCALES}
+    />
   );
 }
 

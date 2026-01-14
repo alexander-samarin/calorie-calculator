@@ -48,4 +48,14 @@ export const be: BaseDict = {
   // Love
   madeWith: "Зроблена з ❤️ для тэлеграм-канала",
   channelName: "Жирно не будет 🥦",
+
+  // Theme
+  themeSystem: "Сістэмная",
+  themeLight: "Светлая",
+  themeDark: "Цёмная",
+
+  // Settings
+  language: "Мова",
+  theme: "Тэма",
+  settings: "Налады",
 };
