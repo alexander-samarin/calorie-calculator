@@ -7,11 +7,23 @@ import { de } from "./locales/de";
 import { es } from "./locales/es";
 import { it } from "./locales/it";
 import { fr } from "./locales/fr";
+import { uk } from "./locales/uk";
 import { storage } from "../helpers";
 
-const dictionaries: Record<Locale, BaseDict> = { en, ru, pl, de, es, it, fr };
+const dictionaries: Record<Locale, BaseDict> = {
+  en,
+  ru,
+  pl,
+  de,
+  es,
+  it,
+  fr,
+  uk,
+};
 
 const STORAGE_KEY = "locale";
+
+const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk"];
 
 const isValidLocale = (value: string | null): value is Locale => {
   return (
@@ -21,7 +33,8 @@ const isValidLocale = (value: string | null): value is Locale => {
     value === "de" ||
     value === "es" ||
     value === "it" ||
-    value === "fr"
+    value === "fr" ||
+    value === "uk"
   );
 };
 
@@ -31,6 +44,7 @@ const getDefaultLocale = (): Locale => {
 
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith("ru")) return "ru";
+  if (browserLang.startsWith("uk")) return "uk";
   if (browserLang.startsWith("pl")) return "pl";
   if (browserLang.startsWith("de")) return "de";
   if (browserLang.startsWith("es")) return "es";
@@ -54,6 +68,7 @@ export const AVAILABLE_LOCALES: { value: Locale; label: string }[] = [
   { value: "it", label: "Italiano" },
   { value: "pl", label: "Polski" },
   { value: "ru", label: "Русский" },
+  { value: "uk", label: "Українська" },
 ];
 
 export const useLocale = () => ({
@@ -64,14 +79,14 @@ export const useLocale = () => ({
 
 /**
  * Pluralize for grams based on locale
- * Slavic languages (ru, pl) have complex plural rules
+ * Slavic languages (ru, pl, uk) have complex plural rules
  */
 export const pluralizeGrams = (n: number): string => {
   const dict = dictionaries[locale()];
   const currentLocale = locale();
 
-  // Slavic plural rules (Russian, Polish)
-  if (currentLocale === "ru" || currentLocale === "pl") {
+  // Slavic plural rules (Russian, Polish, Ukrainian)
+  if (SLAVIC_LOCALES.includes(currentLocale)) {
     const abs = Math.abs(n);
     const mod10 = abs % 10;
     const mod100 = abs % 100;
