@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div class="absolute top-2 right-2">
+      <div class="absolute top-2 md:top-4 right-2 md:right-4">
         <SettingsModal />
       </div>
       <main class="flex flex-col items-center px-4 py-8">
