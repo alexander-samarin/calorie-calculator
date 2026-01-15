@@ -4,7 +4,7 @@ function Love() {
   const { t } = useLocale();
 
   return (
-    <section class="prose prose-sm text-center mt-4">
+    <section class="prose prose-sm text-center mt-8 md:mt-12">
       <p>
         {t().madeWith} <br />{" "}
         <a

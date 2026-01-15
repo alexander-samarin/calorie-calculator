@@ -15,7 +15,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="btn btn-ghost gap-2 mt-4"
+        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost p-0 aspect-square"
         onClick={openModal}
         aria-label={t().settings}
       >
@@ -38,7 +38,6 @@ function SettingsModal() {
             d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
           />
         </svg>
-        {t().settings}
       </button>
 
       <dialog id={MODAL_ID} class="modal modal-bottom sm:modal-middle">
