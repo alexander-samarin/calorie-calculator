@@ -1,4 +1,4 @@
-export default function SeoEn() {
+export default () => {
   return (
     <>
       <h1 class="text-lg">
@@ -52,18 +52,18 @@ export default function SeoEn() {
       <h3 class="text-lg">📉 Gewichtsabnahme (Kaloriendefizit)</h3>
       <ul>
         <li>
-          <strong>Sanftes Abnehmen:</strong> Kleines Defizit (~10-15%). Ideal
-          zum Erhalt der Muskulatur und zur komfortablen Gewichtsreduktion ohne
+          <strong>Sanftes Abnehmen:</strong> Kleines Defizit (~10%). Ideal zum
+          Erhalt der Muskulatur und zur komfortablen Gewichtsreduktion ohne
           Stress und Hunger.
         </li>
         <li>
-          <strong>Moderates Abnehmen:</strong> Optimaler Ausgleich (~20%
+          <strong>Moderates Abnehmen:</strong> Optimaler Ausgleich (~15%
           Defizit). Der "Goldstandard" für die meisten Diäten.
         </li>
         <li>
-          <strong>Aggressives Abnehmen:</strong> Großes Defizit (~25%+).
-          Geeignet für schnelle Definition ("Cutting") über einen kurzen
-          Zeitraum. Erfordert eine hohe Proteinzufuhr.
+          <strong>Aggressives Abnehmen:</strong> Großes Defizit (~20%). Geeignet
+          für schnelle Definition ("Cutting") über einen kurzen Zeitraum.
+          Erfordert eine hohe Proteinzufuhr.
         </li>
       </ul>
 
@@ -135,4 +135,4 @@ export default function SeoEn() {
       </div>
     </>
   );
-}
+};

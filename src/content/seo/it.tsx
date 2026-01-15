@@ -1,4 +1,4 @@
-export default function SeoEn() {
+export default () => {
   return (
     <>
       <h1 class="text-lg">
@@ -54,17 +54,17 @@ export default function SeoEn() {
       <h3 class="text-lg">📉 Per perdere peso (Deficit calorico)</h3>
       <ul>
         <li>
-          <strong>Dimagrimento leggero:</strong> Piccolo deficit (~10-15%).
-          Ideale per preservare i muscoli e ridurre il peso comodamente senza
-          stress né fame.
+          <strong>Dimagrimento leggero:</strong> Piccolo deficit (~10%). Ideale
+          per preservare i muscoli e ridurre il peso comodamente senza stress né
+          fame.
         </li>
         <li>
-          <strong>Dimagrimento moderato:</strong> Equilibrio ottimale (~20% di
+          <strong>Dimagrimento moderato:</strong> Equilibrio ottimale (~15% di
           deficit). Lo "standard d'oro" per la maggior parte delle diete.
         </li>
         <li>
           <strong>Dimagrimento aggressivo (Definizione):</strong> Deficit
-          significativo (~25%+). Adatto per una "definizione" rapida a breve
+          significativo (~20%). Adatto per una "definizione" rapida a breve
           termine. Richiede un elevato apporto proteico.
         </li>
       </ul>
@@ -138,4 +138,4 @@ export default function SeoEn() {
       </div>
     </>
   );
-}
+};

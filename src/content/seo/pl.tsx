@@ -1,4 +1,4 @@
-export default function SeoEn() {
+export default () => {
   return (
     <>
       <h1 class="text-lg">
@@ -52,15 +52,15 @@ export default function SeoEn() {
       <h3 class="text-lg">📉 Dla utraty wagi (Deficyt kaloryczny)</h3>
       <ul>
         <li>
-          <strong>Łagodna redukcja:</strong> Mały deficyt (~10-15%). Idealna dla
+          <strong>Łagodna redukcja:</strong> Mały deficyt (~10%). Idealna dla
           zachowania mięśni i komfortowego chudnięcia bez stresu i głodu.
         </li>
         <li>
-          <strong>Umiarkowana redukcja:</strong> Optymalny balans (~20%
+          <strong>Umiarkowana redukcja:</strong> Optymalny balans (~15%
           deficytu). Złoty środek dla większości osób odchudzających się.
         </li>
         <li>
-          <strong>Agresywna redukcja:</strong> Znaczny deficyt (~25%+).
+          <strong>Agresywna redukcja:</strong> Znaczny deficyt (~20%).
           Odpowiednia dla szybkiej „wycinki” na krótki czas. Wymaga wysokiego
           spożycia białka.
         </li>
@@ -133,4 +133,4 @@ export default function SeoEn() {
       </div>
     </>
   );
-}
+};

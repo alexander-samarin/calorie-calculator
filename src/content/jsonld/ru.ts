@@ -1,4 +1,4 @@
-export const jsonLdRu = {
+export default {
   "@context": "https://schema.org",
   "@graph": [
     {

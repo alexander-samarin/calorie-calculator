@@ -1,133 +1,142 @@
-export default function SeoEn() {
+export default () => {
   return (
     <>
       <h1 class="text-lg">
-        Accurate Calorie & Macro Calculator with Custom Settings
+        Calculateur de Calories et Macros Précis avec Réglages Personnalisés
       </h1>
 
       <p>
-        <strong>CalorieCalc.cc</strong> is an advanced nutrition planning tool.
-        Unlike simple calorie counters, our calculator allows you to not only
-        find your daily energy needs but also flexibly adjust goals—from mild
-        weight loss to aggressive cutting—and set individual{" "}
-        <strong>protein and fat targets per kg of body weight</strong>.
+        <strong>CalorieCalc.cc</strong> est un outil avancé de planification
+        nutritionnelle. Contrairement aux compteurs simples, notre calculateur
+        vous permet non seulement de connaître vos besoins énergétiques, mais
+        aussi d'ajuster vos objectifs avec flexibilité — de la perte de poids
+        douce à la sèche aggressive — et de définir des normes individuelles de{" "}
+        <strong>protéines et lipides par kg de poids</strong>.
       </p>
 
-      <h2 class="text-lg">1. Activity Level</h2>
+      <h2 class="text-lg">1. Niveau d'activité physique</h2>
       <p>
-        To accurately calculate your Basal Metabolic Rate (Mifflin-St Jeor
-        equation), select the option that best matches your lifestyle:
+        Pour calculer précisément votre métabolisme de base (formule de
+        Mifflin-St Jeor), choisissez votre mode de vie :
       </p>
       <ul>
         <li>
-          <strong>Sedentary:</strong> Office job, no sports, minimal physical
-          movement.
+          <strong>Sédentaire :</strong> Travail de bureau, pas de sport,
+          mouvement minimal.
         </li>
         <li>
-          <strong>1-3 workouts per week:</strong> Light activity (fitness, long
-          walks, occasional exercise).
+          <strong>1-3 entraînements par semaine :</strong> Activité légère
+          (fitness, longues marches).
         </li>
         <li>
-          <strong>3-5 workouts per week:</strong> Moderate activity (regular gym
-          visits, running).
+          <strong>3-5 entraînements par semaine :</strong> Activité modérée
+          (salle de sport régulière, jogging).
         </li>
         <li>
-          <strong>6-7 workouts per week:</strong> High activity (daily intense
-          training).
+          <strong>6-7 entraînements par semaine :</strong> Activité intense
+          (entraînements quotidiens).
         </li>
         <li>
-          <strong>Workouts 2 times a day:</strong> Extreme activity
-          (professional athletes, heavy physical labor).
+          <strong>Entraînements 2 fois par jour :</strong> Charge extrême (sport
+          professionnel, travail physique pénible).
         </li>
       </ul>
 
       <h2 class="text-lg">
-        2. Goal Selection: Weight Loss, Gain, or Maintenance
+        2. Choix de l'objectif : Perte, Prise de masse ou Maintien
       </h2>
       <p>
-        Our service adapts the calculation to your specific goal. Choose your
-        preferred intensity:
+        Notre service adapte le calcul à votre objectif actuel. Choisissez
+        l'intensité du changement de poids :
       </p>
 
-      <h3 class="text-lg">📉 For Weight Loss (Calorie Deficit)</h3>
+      <h3 class="text-lg">📉 Pour perdre du poids (Déficit calorique)</h3>
       <ul>
         <li>
-          <strong>Mild Weight Loss:</strong> Small deficit (~10-15%). Ideal for
-          muscle preservation and comfortable weight reduction without stress or
-          hunger.
+          <strong>Perte de poids douce :</strong> Petit déficit (~10%). Idéal
+          pour préserver les muscles et réduire le poids confortablement sans
+          stress ni faim.
         </li>
         <li>
-          <strong>Moderate Weight Loss:</strong> Optimal balance (~20% deficit).
-          The "gold standard" for most dieters.
+          <strong>Perte de poids modérée :</strong> Équilibre optimal (~15% de
+          déficit). Le « standard de référence » pour la plupart des régimes.
         </li>
         <li>
-          <strong>Aggressive Weight Loss:</strong> Significant deficit (~25%+).
-          Suitable for quick "cutting" over a short period. Requires high
-          protein intake to protect muscles.
+          <strong>Perte de poids rapide (Sèche) :</strong> Déficit significatif
+          (~20%+). Convient pour une « sèche » rapide sur une courte période.
+          Nécessite un apport élevé en protéines.
         </li>
       </ul>
 
-      <h3 class="text-lg">📈 For Muscle Gain (Calorie Surplus)</h3>
+      <h3 class="text-lg">
+        📈 Pour gagner du muscle (Surplus calorique / Prise de masse)
+      </h3>
       <ul>
         <li>
-          <strong>Slow Bulk:</strong> Minimal surplus ("Lean Bulk"). Allows for
-          muscle growth with minimal fat accumulation.
+          <strong>Prise de masse lente :</strong> Surplus minimal (« Lean Bulk
+          »). Permet de gagner du muscle avec une accumulation minimale de
+          graisse.
         </li>
         <li>
-          <strong>Moderate Bulk:</strong> Standard mode for hypertrophy (muscle
-          growth).
+          <strong>Prise de masse modérée :</strong> Mode standard pour
+          l'hypertrophie musculaire.
         </li>
         <li>
-          <strong>Fast Bulk:</strong> Maximum surplus. Suitable for
-          "hardgainers" (ectomorphs) who struggle to gain weight.
+          <strong>Prise de masse rapide :</strong> Surplus maximal. Convient aux
+          ectomorphes qui ont du mal à prendre du poids.
         </li>
       </ul>
 
       <p>
-        <strong>Maintenance:</strong> Calculates your TDEE (Total Daily Energy
-        Expenditure) to keep your weight stable.
+        <strong>Maintien du poids :</strong> Calcul des calories de maintenance,
+        avec lesquelles votre poids restera stable.
       </p>
 
-      <h2 class="text-lg">3. Professional Macro Settings (Protein & Fat)</h2>
+      <h2 class="text-lg">
+        3. Réglage professionnel des Macros (Protéines et Lipides)
+      </h2>
       <p>
-        The key advantage of <strong>CalorieCalc.cc</strong> is the ability to
-        manually set nutrient intake per kilogram of body weight. This is
-        critical for creating a professional nutrition plan:
+        L'avantage principal de <strong>CalorieCalc.cc</strong> est la
+        possibilité de définir manuellement la quantité de nutriments par
+        kilogramme de poids corporel. C'est essentiel pour créer un plan
+        alimentaire efficace :
       </p>
       <ul>
         <li>
-          <strong>Protein per kg:</strong> Usually recommended between{" "}
-          <i>1.2 to 2.5 g/kg</i>. During weight loss (cutting), protein needs
-          increase to protect muscles from breakdown (catabolism).
+          <strong>Protéines par kg de poids :</strong> Généralement recommandé
+          entre <i>1.2 et 2.5 g/kg</i>. Lors d'une perte de poids et
+          d'entraînements, les besoins en protéines augmentent pour protéger les
+          muscles du catabolisme.
         </li>
         <li>
-          <strong>Fat per kg:</strong> Recommended range is{" "}
-          <i>0.8 - 1.2 g/kg</i>. Dietary fats are essential for hormonal health.
-          We do not recommend dropping below 0.7 g/kg.
+          <strong>Lipides par kg de poids :</strong> La fourchette recommandée
+          est de <i>0.8 - 1.2 g/kg</i>. Les lipides (graisses) sont essentiels
+          pour la santé hormonale. Nous déconseillons de descendre en dessous de
+          0.7 g/kg.
         </li>
         <li>
-          <strong>Carbs:</strong> Calculated automatically from the remaining
-          calories. Carbohydrates provide energy for high-intensity training and
-          brain function.
+          <strong>Glucides :</strong> Calculés automatiquement à partir des
+          calories restantes. Ils fournissent l'énergie pour des entraînements
+          intenses.
         </li>
       </ul>
 
       <div class="faq-section">
-        <h2 class="text-lg">Frequently Asked Questions (FAQ)</h2>
-        <h3 class="text-lg">How much protein should I eat for weight loss?</h3>
+        <h2 class="text-lg">Foire aux questions (FAQ)</h2>
+        <h3 class="text-lg">Combien de protéines pour maigrir ?</h3>
         <p>
-          In a calorie deficit (especially during "Aggressive Weight Loss"), it
-          is recommended to increase protein to 1.8–2.2 g per kg of body weight
-          to ensure your body burns fat, not muscle tissue.
+          En déficit calorique (surtout en « Perte rapide »), il est recommandé
+          d'augmenter les protéines à 1.8–2.2 g par kg de poids pour que le
+          corps brûle les graisses et non le tissu musculaire.
         </p>
 
-        <h3 class="text-lg">Should I choose Slow or Fast Bulk?</h3>
+        <h3 class="text-lg">Que choisir : prise de masse lente ou rapide ?</h3>
         <p>
-          "Fast Bulk" often leads to excessive fat gain. If you aim for a lean,
-          muscular physique, choose "Slow" or "Moderate Bulk" and monitor your
-          progress weekly.
+          La « Prise de masse rapide » conduit souvent à une prise de gras
+          excessive. Si vous visez une musculature de qualité, choisissez «
+          Lente » ou « Modérée » et surveillez vos progrès.
         </p>
       </div>
     </>
   );
-}
+};

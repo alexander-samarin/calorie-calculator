@@ -1,4 +1,4 @@
-export default function SeoEn() {
+export default () => {
   return (
     <>
       <h1 class="text-lg">
@@ -52,16 +52,16 @@ export default function SeoEn() {
       <h3 class="text-lg">📉 For Weight Loss (Calorie Deficit)</h3>
       <ul>
         <li>
-          <strong>Mild Weight Loss:</strong> Small deficit (~10-15%). Ideal for
+          <strong>Mild Weight Loss:</strong> Small deficit (~10%). Ideal for
           muscle preservation and comfortable weight reduction without stress or
           hunger.
         </li>
         <li>
-          <strong>Moderate Weight Loss:</strong> Optimal balance (~20% deficit).
+          <strong>Moderate Weight Loss:</strong> Optimal balance (~15% deficit).
           The "gold standard" for most dieters.
         </li>
         <li>
-          <strong>Aggressive Weight Loss:</strong> Significant deficit (~25%+).
+          <strong>Aggressive Weight Loss:</strong> Significant deficit (~20%).
           Suitable for quick "cutting" over a short period. Requires high
           protein intake to protect muscles.
         </li>
@@ -130,4 +130,4 @@ export default function SeoEn() {
       </div>
     </>
   );
-}
+};

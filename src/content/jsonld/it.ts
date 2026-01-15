@@ -1,4 +1,4 @@
-export const jsonLdIt = {
+export default {
   "@context": "https://schema.org",
   "@graph": [
     {

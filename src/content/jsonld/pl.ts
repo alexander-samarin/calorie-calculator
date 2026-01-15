@@ -1,4 +1,4 @@
-export const jsonLdPl = {
+export default {
   "@context": "https://schema.org",
   "@graph": [
     {

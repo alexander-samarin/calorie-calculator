@@ -1,4 +1,4 @@
-export const jsonLdFr = {
+export default {
   "@context": "https://schema.org",
   "@graph": [
     {

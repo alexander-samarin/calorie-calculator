@@ -1,4 +1,4 @@
-export const jsonLdUk = {
+export default {
   "@context": "https://schema.org",
   "@graph": [
     {
