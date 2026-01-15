@@ -50,7 +50,7 @@ export const en: BaseDict = {
 
   // Love
   madeWith: "Made with ❤️ for Telegram channel",
-  channelName: "Zhirno ne budet 🥦",
+  channelName: "Zhirno\u00A0ne\u00A0budet\u00A0🥦",
 
   // Theme
   themeSystem: "System",

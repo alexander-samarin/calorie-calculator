@@ -11,10 +11,10 @@ export default function LangHome() {
   return (
     <>
       <main class="flex flex-col items-center px-4 py-8">
-        <div class="text-2xl font-bold text-center mb-6">{t().title}</div>
+        <div class="text-2xl font-bold text-center mb-4">{t().title}</div>
+        <Love />
         <Calculator />
         <SettingsModal />
-        <Love />
         <Seo />
       </main>
       <Footer />

@@ -7,7 +7,13 @@ import Head from "~/components/Head";
 import Love from "~/components/Love";
 import SettingsModal from "~/components/SettingsModal";
 import Seo from "~/components/Seo";
-import { LocaleProvider, useLocale, LOCALES, isValidLocale, type Locale } from "~/i18n";
+import {
+  LocaleProvider,
+  useLocale,
+  LOCALES,
+  isValidLocale,
+  type Locale,
+} from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 
@@ -49,10 +55,10 @@ function HomeContent() {
     <>
       <Head />
       <main class="flex flex-col items-center px-4 py-8">
-        <div class="text-2xl font-bold text-center mb-6">{t().title}</div>
+        <div class="text-2xl font-bold text-center mb-4">{t().title}</div>
+        <Love />
         <Calculator />
         <SettingsModal />
-        <Love />
         <Seo />
       </main>
       <Footer />
