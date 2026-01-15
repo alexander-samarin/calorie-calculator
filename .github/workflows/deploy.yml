@@ -1,8 +1,8 @@
-name: Deploy SolidJS to GitHub Pages
+name: Deploy SolidStart to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Проверьте, что ваша ветка называется main (или master)
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -24,21 +24,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20" # Используем свежий Node.js для Tailwind v4
-          cache: 'npm'
+          node-version: "22"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
-        # Эта команда запустит "tsc -b && vite build" из вашего package.json
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Vite собирает проект в папку dist
-          path: ./dist
+          path: ./.output/public
 
   deploy:
     environment:

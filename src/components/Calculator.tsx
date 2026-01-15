@@ -1,16 +1,19 @@
 import { createSignal, createEffect, createMemo, For } from "solid-js";
 import NumberInput from "./NumberInput";
-import StatCard from "./StatCard";
+import RangeInput from "./RangeInput";
 import Select from "./Select";
+import StatCard from "./StatCard";
 import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
   GOAL_OPTIONS,
   MIFFLIN_COEFFICIENTS,
   CALORIES_PER_GRAM,
-} from "../constants";
-import { storage } from "../helpers";
-import { useLocale, pluralizeGrams } from "../i18n";
+  PROTEIN_PER_KG,
+  FAT_PER_KG,
+} from "~/constants";
+import { storage } from "~/helpers";
+import { useLocale, usePluralizeGrams } from "~/i18n";
 
 const getInitialState = () => ({
   weight: storage.get("weight") || "",
@@ -19,12 +22,13 @@ const getInitialState = () => ({
   gender: storage.get("gender") || GENDER_OPTIONS[0].value,
   activity: Number(storage.get("activity")) || ACTIVITY_OPTIONS[0].value,
   goal: Number(storage.get("goal")) || GOAL_OPTIONS[0].value,
-  proteinPerKg: Number(storage.get("proteinPerKg")) || 1.5,
-  fatPerKg: Number(storage.get("fatPerKg")) || 1,
+  proteinPerKg: Number(storage.get("proteinPerKg")) || PROTEIN_PER_KG.DEFAULT,
+  fatPerKg: Number(storage.get("fatPerKg")) || FAT_PER_KG.DEFAULT,
 });
 
 function Calculator() {
   const { t } = useLocale();
+  const pluralizeGrams = usePluralizeGrams();
   const initialState = getInitialState();
   const [weight, setWeight] = createSignal(initialState.weight);
   const [height, setHeight] = createSignal(initialState.height);
@@ -194,35 +198,25 @@ function Calculator() {
           options={goalOptions()}
         />
 
-        <label class="px-2 mt-2">
-          <span class="label pl-2 mb-1">
-            <span class="font-bold">{proteinPerKg()} g</span> {t().proteinPerKg}
-          </span>
-          <input
-            class="range range-primary w-full"
-            type="range"
-            min={1.2}
-            max={2.5}
-            step={0.1}
-            value={proteinPerKg()}
-            onInput={(e) => setProteinPerKg(Number(e.target.value))}
-          />
-        </label>
+        <RangeInput
+          label={t().proteinPerKg}
+          valueLabel={`${proteinPerKg()} ${t().gramShort}`}
+          value={proteinPerKg()}
+          min={PROTEIN_PER_KG.MIN}
+          max={PROTEIN_PER_KG.MAX}
+          step={PROTEIN_PER_KG.STEP}
+          onChange={setProteinPerKg}
+        />
 
-        <label class="px-2 mt-2">
-          <span class="label pl-2 mb-1">
-            <span class="font-bold">{fatPerKg()} g</span> {t().fatPerKg}
-          </span>
-          <input
-            class="range range-primary w-full"
-            type="range"
-            min={0.8}
-            max={1}
-            step={0.1}
-            value={fatPerKg()}
-            onInput={(e) => setFatPerKg(Number(e.target.value))}
-          />
-        </label>
+        <RangeInput
+          label={t().fatPerKg}
+          valueLabel={`${fatPerKg()} ${t().gramShort}`}
+          value={fatPerKg()}
+          min={FAT_PER_KG.MIN}
+          max={FAT_PER_KG.MAX}
+          step={FAT_PER_KG.STEP}
+          onChange={setFatPerKg}
+        />
       </div>
     </section>
   );

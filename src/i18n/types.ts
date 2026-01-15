@@ -7,6 +7,7 @@ export type BaseDict = {
   fats: string;
   carbs: string;
   kcal: string;
+  gramShort: string;
   gram_one: string;
   gram_few?: string; // Only for languages with "few" form (like Russian)
   gram_other: string;
@@ -40,8 +41,10 @@ export type BaseDict = {
   fastBulk: string;
   maintenance: string;
 
-  // App
+  // App / SEO
   title: string;
+  description: string;
+  appName: string;
 
   // Love
   madeWith: string;

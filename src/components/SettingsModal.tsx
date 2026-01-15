@@ -1,6 +1,6 @@
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
-import { useLocale } from "../i18n";
+import { useLocale } from "~/i18n";
 
 const MODAL_ID = "settings-modal";
 
@@ -15,7 +15,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="btn btn-ghost btn-circle opacity-50 hover:opacity-100 transition-opacity"
+        class="btn btn-ghost gap-2"
         onClick={openModal}
         aria-label={t().settings}
       >
@@ -38,6 +38,7 @@ function SettingsModal() {
             d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
           />
         </svg>
+        {t().settings}
       </button>
 
       <dialog id={MODAL_ID} class="modal modal-bottom sm:modal-middle">

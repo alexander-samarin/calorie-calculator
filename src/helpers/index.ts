@@ -1,5 +1,8 @@
+const isBrowser = typeof window !== "undefined";
+
 export const storage = {
   get: (key: string): string | null => {
+    if (!isBrowser) return null;
     try {
       return localStorage.getItem(key);
     } catch {
@@ -7,6 +10,7 @@ export const storage = {
     }
   },
   set: (key: string, value: string): void => {
+    if (!isBrowser) return;
     try {
       localStorage.setItem(key, value);
     } catch {

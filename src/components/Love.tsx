@@ -1,4 +1,4 @@
-import { useLocale } from "../i18n";
+import { useLocale } from "~/i18n";
 
 function Love() {
   const { t } = useLocale();

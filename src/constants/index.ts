@@ -14,6 +14,21 @@ export const CALORIES_PER_GRAM = {
   CARB: 4,
 } as const;
 
+// Диапазоны для белков и жиров на кг веса
+export const PROTEIN_PER_KG = {
+  MIN: 1.2,
+  MAX: 2.5,
+  STEP: 0.1,
+  DEFAULT: 1.5,
+} as const;
+
+export const FAT_PER_KG = {
+  MIN: 0.8,
+  MAX: 1.2,
+  STEP: 0.1,
+  DEFAULT: 1,
+} as const;
+
 // Keys for i18n translation
 export const GENDER_OPTIONS = [
   { labelKey: "female" as const, value: "female" },

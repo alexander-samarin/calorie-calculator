@@ -18,13 +18,16 @@ function Select(props: SelectProps) {
     <label>
       <span class="label pl-4 mb-1">{props.label}</span>
       <select
-        value={props.value}
         onChange={(e) => props.onChange(e.currentTarget.value)}
         class="select select-lg w-full"
       >
         <For each={props.options}>
           {(option) => (
-            <option value={option.value} disabled={option.disabled}>
+            <option
+              value={option.value}
+              disabled={option.disabled}
+              selected={option.value === props.value}
+            >
               {option.label}
             </option>
           )}

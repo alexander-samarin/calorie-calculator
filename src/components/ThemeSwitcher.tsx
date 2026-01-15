@@ -1,7 +1,7 @@
 import Select from "./Select";
-import { useTheme } from "../theme";
-import { useLocale } from "../i18n";
-import type { Theme } from "../theme";
+import { useTheme } from "~/theme";
+import { useLocale } from "~/i18n";
+import type { Theme } from "~/theme";
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

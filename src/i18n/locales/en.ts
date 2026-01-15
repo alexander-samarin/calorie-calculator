@@ -9,6 +9,7 @@ export const en: BaseDict = {
   fats: "Fats",
   carbs: "Carbs",
   kcal: "kcal",
+  gramShort: "g",
   gram_one: "gram",
   gram_other: "grams",
 
@@ -41,8 +42,11 @@ export const en: BaseDict = {
   fastBulk: "Fast bulk",
   maintenance: "Maintenance",
 
-  // App
+  // App / SEO
   title: "Calorie Calculator",
+  description:
+    "Simple and accurate calculator for daily calorie calculation from the Telegram channel «Zhirno ne budet 🥦»",
+  appName: "Calories",
 
   // Love
   madeWith: "Made with ❤️ for Telegram channel",
