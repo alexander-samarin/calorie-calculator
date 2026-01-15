@@ -61,4 +61,8 @@ export const de: BaseDict = {
   language: "Sprache",
   theme: "Thema",
   settings: "Einstellungen",
+
+  // Footer
+  copyright:
+    "Alle Rechte vorbehalten. Die Informationen dienen ausschließlich Informationszwecken und ersetzen keine ärztliche Beratung.",
 };

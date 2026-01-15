@@ -59,6 +59,9 @@ export type BaseDict = {
   language: string;
   theme: string;
   settings: string;
+
+  // Footer
+  copyright: string;
 };
 
 export type Locale =

@@ -1,11 +1,15 @@
 import { For } from "solid-js";
-import { AVAILABLE_LOCALES } from "~/i18n";
+import { AVAILABLE_LOCALES, useLocale } from "~/i18n";
 
 const getLocalePath = (code: string): string => {
   return code === "en" ? "/" : `/${code}`;
 };
 
+const currentYear = new Date().getFullYear();
+
 function Footer() {
+  const { t } = useLocale();
+
   return (
     <footer class="w-full border-t border-base-300 py-6">
       <nav class="max-w-2xl mx-auto px-4">
@@ -25,6 +29,9 @@ function Footer() {
           </For>
         </ul>
       </nav>
+      <p class="text-center text-xs text-base-content/50 mt-4 px-4">
+        © {currentYear} CalorieCalc.cc. {t().copyright}
+      </p>
     </footer>
   );
 }

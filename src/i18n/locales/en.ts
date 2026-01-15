@@ -61,4 +61,8 @@ export const en: BaseDict = {
   language: "Language",
   theme: "Theme",
   settings: "Settings",
+
+  // Footer
+  copyright:
+    "All rights reserved. This tool is for informational purposes only and does not constitute medical advice.",
 };

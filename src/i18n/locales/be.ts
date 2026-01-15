@@ -62,4 +62,8 @@ export const be: BaseDict = {
   language: "Мова",
   theme: "Тэма",
   settings: "Налады",
+
+  // Footer
+  copyright:
+    "Усе правы абаронены. Інфармацыя мае даведачны характар і не замяняе кансультацыю ўрача.",
 };

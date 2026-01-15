@@ -62,4 +62,8 @@ export const pl: BaseDict = {
   language: "Język",
   theme: "Motyw",
   settings: "Ustawienia",
+
+  // Footer
+  copyright:
+    "Wszelkie prawa zastrzeżone. Informacje mają charakter wyłącznie informacyjny i nie zastępują porady lekarskiej.",
 };

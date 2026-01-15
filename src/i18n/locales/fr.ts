@@ -61,4 +61,8 @@ export const fr: BaseDict = {
   language: "Langue",
   theme: "Thème",
   settings: "Paramètres",
+
+  // Footer
+  copyright:
+    "Tous droits réservés. Les informations sont fournies à titre indicatif et ne remplacent pas un avis médical.",
 };
