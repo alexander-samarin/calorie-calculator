@@ -7,13 +7,21 @@ import Head from "~/components/Head";
 import Love from "~/components/Love";
 import SettingsModal from "~/components/SettingsModal";
 import Seo from "~/components/Seo";
-import { LocaleProvider, useLocale, LOCALES, type Locale } from "~/i18n";
+import { LocaleProvider, useLocale, LOCALES, isValidLocale, type Locale } from "~/i18n";
+import { storage } from "~/helpers";
+import { LOCALE_STORAGE_KEY } from "~/constants";
 
-const detectBrowserLocale = (): Locale => {
+const detectLocale = (): Locale => {
   if (isServer) return "en";
 
-  const browserLang = navigator.language.toLowerCase();
+  // Check saved locale first
+  const savedLocale = storage.get(LOCALE_STORAGE_KEY);
+  if (savedLocale && isValidLocale(savedLocale)) {
+    return savedLocale;
+  }
 
+  // Fall back to browser language detection
+  const browserLang = navigator.language.toLowerCase();
   for (const locale of LOCALES) {
     if (browserLang.startsWith(locale)) {
       return locale;
@@ -28,10 +36,12 @@ function HomeContent() {
   const navigate = useNavigate();
 
   onMount(() => {
-    const locale = detectBrowserLocale();
-    // Only redirect if browser language is not English
+    const locale = detectLocale();
     if (locale !== "en") {
       navigate(`/${locale}`, { replace: true });
+    } else {
+      // Save English as preferred locale
+      storage.set(LOCALE_STORAGE_KEY, "en");
     }
   });
 

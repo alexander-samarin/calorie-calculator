@@ -1,8 +1,9 @@
 import { useParams, Navigate } from "@solidjs/router";
-import { type ParentProps } from "solid-js";
+import { type ParentProps, onMount } from "solid-js";
 import Head from "~/components/Head";
-import { LocaleProvider, isValidLocale } from "~/i18n";
-import type { Locale } from "~/i18n";
+import { LocaleProvider, isValidLocale, type Locale } from "~/i18n";
+import { storage } from "~/helpers";
+import { LOCALE_STORAGE_KEY } from "~/constants";
 
 export default function LangLayout(props: ParentProps) {
   const params = useParams<{ lang: string }>();
@@ -14,6 +15,13 @@ export default function LangLayout(props: ParentProps) {
 
   const locale = () =>
     (isValidLocale(params.lang) ? params.lang : "en") as Locale;
+
+  // Save locale preference
+  onMount(() => {
+    if (isValidLocale(params.lang)) {
+      storage.set(LOCALE_STORAGE_KEY, params.lang);
+    }
+  });
 
   return (
     <LocaleProvider locale={locale}>

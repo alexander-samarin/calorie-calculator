@@ -1,3 +1,6 @@
+// Storage keys
+export const LOCALE_STORAGE_KEY = "locale";
+
 // Коэффициенты формулы Миффлина-Сан Жеора для расчёта BMR
 export const MIFFLIN_COEFFICIENTS = {
   WEIGHT: 10,
