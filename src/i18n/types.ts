@@ -62,6 +62,10 @@ export type BaseDict = {
 
   // Footer
   copyright: string;
+
+  // Privacy
+  privacyNote: string;
+  clearData: string;
 };
 
 export type Locale =

@@ -65,4 +65,9 @@ export const it: BaseDict = {
   // Footer
   copyright:
     "Tutti i diritti riservati. Le informazioni hanno carattere puramente informativo e non sostituiscono il parere medico.",
+
+  // Privacy
+  privacyNote:
+    "Tutti i dati sono memorizzati solo nel tuo browser e non vengono mai inviati a un server.",
+  clearData: "Cancella dati",
 };

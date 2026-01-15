@@ -15,7 +15,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost p-0 aspect-square"
+        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost p-0 aspect-square opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
         onClick={openModal}
         aria-label={t().settings}
       >

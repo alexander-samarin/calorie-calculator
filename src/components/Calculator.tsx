@@ -132,6 +132,28 @@ function Calculator() {
       disabled: opt.disabled,
     }));
 
+  const clearData = () => {
+    // Reset all values to defaults
+    setWeight("");
+    setHeight("");
+    setAge("");
+    setGender(GENDER_OPTIONS[0].value);
+    setActivity(ACTIVITY_OPTIONS[0].value);
+    setGoal(GOAL_OPTIONS[0].value);
+    setProteinPerKg(PROTEIN_PER_KG.DEFAULT);
+    setFatPerKg(FAT_PER_KG.DEFAULT);
+
+    // Clear localStorage
+    storage.set("weight", "");
+    storage.set("height", "");
+    storage.set("age", "");
+    storage.set("gender", "");
+    storage.set("activity", "");
+    storage.set("goal", "");
+    storage.set("proteinPerKg", "");
+    storage.set("fatPerKg", "");
+  };
+
   return (
     <section class="flex flex-col items-center w-full">
       <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-4 bg-base-100 shadow-xl">
@@ -242,6 +264,17 @@ function Calculator() {
           onChange={setFatPerKg}
         />
       </div>
+
+      <button
+        class="btn btn-ghost btn-sm text-base-content/50 mt-4 mb-2 max-w-fit"
+        onClick={clearData}
+      >
+        {t().clearData}
+      </button>
+
+      <p class="text-xs w-full max-w-sm text-base-content/50 text-center">
+        {t().privacyNote}
+      </p>
     </section>
   );
 }

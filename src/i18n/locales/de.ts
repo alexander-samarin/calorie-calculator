@@ -65,4 +65,9 @@ export const de: BaseDict = {
   // Footer
   copyright:
     "Alle Rechte vorbehalten. Die Informationen dienen ausschließlich Informationszwecken und ersetzen keine ärztliche Beratung.",
+
+  // Privacy
+  privacyNote:
+    "Alle Daten werden nur in Ihrem Browser gespeichert und niemals an einen Server gesendet.",
+  clearData: "Daten löschen",
 };

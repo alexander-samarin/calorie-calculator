@@ -65,4 +65,9 @@ export const fr: BaseDict = {
   // Footer
   copyright:
     "Tous droits réservés. Les informations sont fournies à titre indicatif et ne remplacent pas un avis médical.",
+
+  // Privacy
+  privacyNote:
+    "Toutes les données sont stockées uniquement dans votre navigateur et ne sont jamais envoyées à un serveur.",
+  clearData: "Effacer les données",
 };
