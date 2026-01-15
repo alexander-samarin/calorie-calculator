@@ -156,44 +156,46 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center w-full">
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-4 bg-base-100 shadow-xl">
-        <StatCard
-          title={t().basalMetabolism}
-          value={Math.round(bmr())}
-          unit={t().kcal}
-        />
-        <StatCard
-          title={t().dailyExpenditure}
-          value={Math.round(baseTdee())}
-          unit={t().kcal}
-        />
-        <StatCard
-          title={t().yourNorm}
-          value={Math.round(tdee())}
-          unit={t().kcal}
-          isPrimary={true}
-        />
+      <div class="flex flex-col items-center w-full sticky top-0 pt-4 z-10 bg-base-200 rounded-b-2xl shadow-[-24px_-8px_8px_0px_var(--color-base-200),24px_-8px_8px_0px_var(--color-base-200)]">
+        <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
+          <StatCard
+            title={t().basalMetabolism}
+            value={Math.round(bmr())}
+            unit={t().kcal}
+          />
+          <StatCard
+            title={t().dailyExpenditure}
+            value={Math.round(baseTdee())}
+            unit={t().kcal}
+          />
+          <StatCard
+            title={t().yourNorm}
+            value={Math.round(tdee())}
+            unit={t().kcal}
+            isPrimary={true}
+          />
+        </div>
+
+        <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl bg-base-100 shadow-xl">
+          <StatCard
+            title={t().proteins}
+            value={proteins()}
+            unit={pluralizeGrams(proteins())}
+          />
+          <StatCard
+            title={t().fats}
+            value={fats()}
+            unit={pluralizeGrams(fats())}
+          />
+          <StatCard
+            title={t().carbs}
+            value={carbs()}
+            unit={pluralizeGrams(carbs())}
+          />
+        </div>
       </div>
 
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-8 bg-base-100 shadow-xl">
-        <StatCard
-          title={t().proteins}
-          value={proteins()}
-          unit={pluralizeGrams(proteins())}
-        />
-        <StatCard
-          title={t().fats}
-          value={fats()}
-          unit={pluralizeGrams(fats())}
-        />
-        <StatCard
-          title={t().carbs}
-          value={carbs()}
-          unit={pluralizeGrams(carbs())}
-        />
-      </div>
-
-      <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
+      <div class="flex flex-col gap-2 w-full max-w-md mx-auto mt-8">
         <div class="flex gap-2">
           <For each={GENDER_OPTIONS}>
             {(option) => (
@@ -265,16 +267,16 @@ function Calculator() {
         />
       </div>
 
+      <p class="text-xs w-full max-w-sm text-base-content/60 text-center mt-6">
+        {t().privacyNote}
+      </p>
+
       <button
-        class="btn btn-ghost btn-sm text-base-content/50 mt-4 mb-2 max-w-fit"
+        class="btn btn-ghost btn-sm text-base-content/60 mt-4 max-w-fit"
         onClick={clearData}
       >
         {t().clearData}
       </button>
-
-      <p class="text-xs w-full max-w-sm text-base-content/50 text-center">
-        {t().privacyNote}
-      </p>
     </section>
   );
 }
