@@ -4,7 +4,7 @@ import {
   type ParentProps,
   type Accessor,
 } from "solid-js";
-import type { Locale, BaseDict } from "./types";
+import { LOCALES, type Locale, type BaseDict } from "./types";
 import { en } from "./locales/en";
 import { ru } from "./locales/ru";
 import { pl } from "./locales/pl";
@@ -27,17 +27,7 @@ const dictionaries: Record<Locale, BaseDict> = {
   be,
 };
 
-export const LOCALES: Locale[] = [
-  "en",
-  "ru",
-  "pl",
-  "de",
-  "es",
-  "it",
-  "fr",
-  "uk",
-  "be",
-];
+export { LOCALES };
 
 const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk", "be"];
 

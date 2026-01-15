@@ -1,10 +1,4 @@
-import {
-  createSignal,
-  createEffect,
-  createMemo,
-  For,
-  onMount,
-} from "solid-js";
+import { createSignal, createEffect, createMemo, For, onMount } from "solid-js";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
 import Select from "./Select";

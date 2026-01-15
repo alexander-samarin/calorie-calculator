@@ -8,7 +8,8 @@ function LanguageSwitcher() {
   const navigate = useNavigate();
 
   const handleChange = (value: string) => {
-    navigate(`/${value as Locale}`, { replace: true });
+    const path = value === "en" ? "/" : `/${value}`;
+    navigate(path, { replace: true });
   };
 
   return (

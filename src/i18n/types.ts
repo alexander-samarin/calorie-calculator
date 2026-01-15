@@ -71,3 +71,16 @@ export type Locale =
   | "fr"
   | "uk"
   | "be";
+
+// Single source of truth for all locales
+export const LOCALES: Locale[] = [
+  "en",
+  "ru",
+  "pl",
+  "de",
+  "es",
+  "it",
+  "fr",
+  "uk",
+  "be",
+];
