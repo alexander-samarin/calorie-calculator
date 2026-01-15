@@ -15,7 +15,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="btn btn-ghost gap-2"
+        class="btn btn-ghost gap-2 mt-4"
         onClick={openModal}
         aria-label={t().settings}
       >

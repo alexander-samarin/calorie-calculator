@@ -7,7 +7,7 @@ function Seo() {
   const { locale } = useLocale();
 
   return (
-    <section class="prose prose-sm mt-8 max-w-4xl">
+    <section class="prose prose-sm mt-8 md:mt-12 max-w-4xl">
       <Suspense fallback={<div class="loading loading-spinner" />}>
         <Dynamic component={getSeoComponent(locale())} />
       </Suspense>
