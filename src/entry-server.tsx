@@ -12,13 +12,20 @@ const getLocaleFromPath = (path: string): Locale => {
   return "en";
 };
 
+const getPathnameFromUrl = (url: string | undefined): string => {
+  if (!url) return "/";
+  try {
+    return new URL(url).pathname;
+  } catch {
+    return "/";
+  }
+};
+
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => {
       const event = getRequestEvent();
-      const pathname = event?.request?.url
-        ? new URL(event.request.url).pathname
-        : "/";
+      const pathname = getPathnameFromUrl(event?.request?.url);
       const lang = getLocaleFromPath(pathname);
 
       return (

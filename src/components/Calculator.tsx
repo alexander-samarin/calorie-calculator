@@ -11,6 +11,9 @@ import {
   CALORIES_PER_GRAM,
   PROTEIN_PER_KG,
   FAT_PER_KG,
+  PLACEHOLDERS,
+  type GenderValue,
+  type ActivityValue,
 } from "~/constants";
 import { storage } from "~/helpers";
 import { useLocale, usePluralizeGrams } from "~/i18n";
@@ -23,9 +26,13 @@ function Calculator() {
   const [weight, setWeight] = createSignal("");
   const [height, setHeight] = createSignal("");
   const [age, setAge] = createSignal("");
-  const [gender, setGender] = createSignal(GENDER_OPTIONS[0].value);
-  const [activity, setActivity] = createSignal(ACTIVITY_OPTIONS[0].value);
-  const [goal, setGoal] = createSignal(GOAL_OPTIONS[0].value);
+  const [gender, setGender] = createSignal<GenderValue>(
+    GENDER_OPTIONS[0].value
+  );
+  const [activity, setActivity] = createSignal<ActivityValue>(
+    ACTIVITY_OPTIONS[0].value
+  );
+  const [goal, setGoal] = createSignal<number>(GOAL_OPTIONS[0].value);
   const [proteinPerKg, setProteinPerKg] = createSignal<number>(
     PROTEIN_PER_KG.DEFAULT
   );
@@ -46,8 +53,8 @@ function Calculator() {
     if (savedWeight) setWeight(savedWeight);
     if (savedHeight) setHeight(savedHeight);
     if (savedAge) setAge(savedAge);
-    if (savedGender) setGender(savedGender);
-    if (savedActivity) setActivity(Number(savedActivity));
+    if (savedGender) setGender(savedGender as GenderValue);
+    if (savedActivity) setActivity(Number(savedActivity) as ActivityValue);
     if (savedGoal) setGoal(Number(savedGoal));
     if (savedProteinPerKg) setProteinPerKg(Number(savedProteinPerKg));
     if (savedFatPerKg) setFatPerKg(Number(savedFatPerKg));
@@ -172,7 +179,7 @@ function Calculator() {
                 class={`btn btn-lg ${
                   gender() === option.value ? "btn-primary" : ""
                 }`}
-                onClick={() => setGender(option.value)}
+                onClick={() => setGender(option.value as GenderValue)}
               >
                 {t()[option.labelKey]}
               </button>
@@ -184,27 +191,27 @@ function Calculator() {
           label={t().weight}
           value={weight()}
           onInput={setWeight}
-          placeholder="55"
+          placeholder={PLACEHOLDERS.WEIGHT}
         />
 
         <NumberInput
           label={t().height}
           value={height()}
           onInput={setHeight}
-          placeholder="165"
+          placeholder={PLACEHOLDERS.HEIGHT}
         />
 
         <NumberInput
           label={t().age}
           value={age()}
           onInput={setAge}
-          placeholder="25"
+          placeholder={PLACEHOLDERS.AGE}
         />
 
         <Select
           label={t().activity}
           value={activity()}
-          onChange={(value) => setActivity(Number(value))}
+          onChange={(value) => setActivity(Number(value) as ActivityValue)}
           options={activityOptions()}
         />
 

@@ -1,4 +1,4 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal, onMount, onCleanup } from "solid-js";
 import { isServer } from "solid-js/web";
 import { storage } from "~/helpers";
 
@@ -27,47 +27,41 @@ const applyTheme = (theme: Theme) => {
   document.documentElement.setAttribute("data-theme", daisyTheme);
 };
 
-// Always start with default value for consistent SSR/CSR hydration
-const [theme, internalSetTheme] = createSignal<Theme>(DEFAULT_THEME);
-
+// Module-level signal for consistent SSR/CSR hydration
+const [theme, setThemeSignal] = createSignal<Theme>(DEFAULT_THEME);
 let initialized = false;
-
-const initTheme = () => {
-  if (initialized || isServer) return;
-  initialized = true;
-
-  // Load saved theme from storage after hydration
-  const saved = storage.get(STORAGE_KEY);
-  if (isValidTheme(saved)) {
-    internalSetTheme(saved);
-  }
-
-  // Apply theme
-  applyTheme(theme());
-
-  // Listen for system theme changes
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", () => {
-      if (theme() === "system") {
-        applyTheme("system");
-      }
-    });
-};
 
 const setTheme = (newTheme: Theme) => {
   storage.set(STORAGE_KEY, newTheme);
-  internalSetTheme(newTheme);
+  setThemeSignal(newTheme);
   applyTheme(newTheme);
 };
 
 export const useTheme = () => {
   onMount(() => {
-    initTheme();
+    if (initialized || isServer) return;
+    initialized = true;
+
+    // Load saved theme from storage after hydration
+    const saved = storage.get(STORAGE_KEY);
+    if (isValidTheme(saved)) {
+      setThemeSignal(saved);
+    }
+
+    // Apply theme
+    applyTheme(theme());
+
+    // Listen for system theme changes
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => {
+      if (theme() === "system") {
+        applyTheme("system");
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    onCleanup(() => mediaQuery.removeEventListener("change", handleChange));
   });
 
-  return {
-    theme,
-    setTheme,
-  };
+  return { theme, setTheme };
 };

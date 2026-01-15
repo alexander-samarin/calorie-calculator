@@ -29,28 +29,40 @@ export const FAT_PER_KG = {
   DEFAULT: 1,
 } as const;
 
+// Default placeholder values for inputs
+export const PLACEHOLDERS = {
+  WEIGHT: "55",
+  HEIGHT: "165",
+  AGE: "25",
+} as const;
+
 // Keys for i18n translation
 export const GENDER_OPTIONS = [
-  { labelKey: "female" as const, value: "female" },
-  { labelKey: "male" as const, value: "male" },
-];
+  { labelKey: "female", value: "female" },
+  { labelKey: "male", value: "male" },
+] as const;
 
 export const ACTIVITY_OPTIONS = [
-  { labelKey: "sedentary" as const, value: 1.2 },
-  { labelKey: "lightActivity" as const, value: 1.375 },
-  { labelKey: "moderateActivity" as const, value: 1.55 },
-  { labelKey: "highActivity" as const, value: 1.725 },
-  { labelKey: "veryHighActivity" as const, value: 1.9 },
-];
+  { labelKey: "sedentary", value: 1.2 },
+  { labelKey: "lightActivity", value: 1.375 },
+  { labelKey: "moderateActivity", value: 1.55 },
+  { labelKey: "highActivity", value: 1.725 },
+  { labelKey: "veryHighActivity", value: 1.9 },
+] as const;
 
 export const GOAL_OPTIONS = [
-  { labelKey: "mildWeightLoss" as const, value: 0.9 },
-  { labelKey: "moderateWeightLoss" as const, value: 0.85 },
-  { labelKey: "aggressiveWeightLoss" as const, value: 0.8 },
+  { labelKey: "mildWeightLoss", value: 0.9, disabled: false },
+  { labelKey: "moderateWeightLoss", value: 0.85, disabled: false },
+  { labelKey: "aggressiveWeightLoss", value: 0.8, disabled: false },
   { labelKey: null, value: 0, disabled: true },
-  { labelKey: "slowBulk" as const, value: 1.1 },
-  { labelKey: "moderateBulk" as const, value: 1.15 },
-  { labelKey: "fastBulk" as const, value: 1.2 },
+  { labelKey: "slowBulk", value: 1.1, disabled: false },
+  { labelKey: "moderateBulk", value: 1.15, disabled: false },
+  { labelKey: "fastBulk", value: 1.2, disabled: false },
   { labelKey: null, value: 0, disabled: true },
-  { labelKey: "maintenance" as const, value: 1 },
-];
+  { labelKey: "maintenance", value: 1, disabled: false },
+] as const;
+
+// Exported types for constants
+export type GenderValue = (typeof GENDER_OPTIONS)[number]["value"];
+export type ActivityValue = (typeof ACTIVITY_OPTIONS)[number]["value"];
+export type GoalOption = (typeof GOAL_OPTIONS)[number];
