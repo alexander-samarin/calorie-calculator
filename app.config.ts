@@ -1,7 +1,7 @@
 import { defineConfig } from "@solidjs/start/config";
 import tailwindcss from "@tailwindcss/vite";
 
-const LOCALES = ["en", "ru", "pl", "de", "es", "it", "fr", "uk", "be"];
+const LOCALES = ["ru", "pl", "de", "es", "it", "fr", "uk", "be"];
 
 export default defineConfig({
   server: {
