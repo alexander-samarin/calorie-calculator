@@ -2,28 +2,35 @@ import { createSignal, onMount, onCleanup } from "solid-js";
 import { isServer } from "solid-js/web";
 import { storage } from "~/helpers";
 
-export type Theme = "system" | "light" | "dark";
-
 const STORAGE_KEY = "theme";
-const LIGHT_THEME = "cupcake";
-const DARK_THEME = "dracula";
-const DEFAULT_THEME: Theme = "system";
+const SYSTEM_THEME = "system" as const;
+const LIGHT_THEME = "light" as const;
+const DARK_THEME = "dark" as const;
+
+export type Theme =
+  | typeof SYSTEM_THEME
+  | typeof LIGHT_THEME
+  | typeof DARK_THEME;
+
+const DEFAULT_THEME: Theme = SYSTEM_THEME;
 
 const isValidTheme = (value: string | null): value is Theme => {
-  return value === "system" || value === "light" || value === "dark";
+  return (
+    value === SYSTEM_THEME || value === LIGHT_THEME || value === DARK_THEME
+  );
 };
 
-const getSystemTheme = (): "light" | "dark" => {
-  if (isServer) return "light";
+const getSystemTheme = (): typeof LIGHT_THEME | typeof DARK_THEME => {
+  if (isServer) return LIGHT_THEME;
   return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+    ? DARK_THEME
+    : LIGHT_THEME;
 };
 
 const applyTheme = (theme: Theme) => {
   if (isServer) return;
-  const effectiveTheme = theme === "system" ? getSystemTheme() : theme;
-  const daisyTheme = effectiveTheme === "dark" ? DARK_THEME : LIGHT_THEME;
+  const effectiveTheme = theme === SYSTEM_THEME ? getSystemTheme() : theme;
+  const daisyTheme = effectiveTheme === DARK_THEME ? DARK_THEME : LIGHT_THEME;
   document.documentElement.setAttribute("data-theme", daisyTheme);
 };
 
@@ -54,8 +61,8 @@ export const useTheme = () => {
     // Listen for system theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
-      if (theme() === "system") {
-        applyTheme("system");
+      if (theme() === SYSTEM_THEME) {
+        applyTheme(SYSTEM_THEME);
       }
     };
 
