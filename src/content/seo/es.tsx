@@ -120,22 +120,20 @@ export default () => {
         </li>
       </ul>
 
-      <div class="faq-section">
-        <h2 class="text-lg">Preguntas frecuentes (FAQ)</h2>
-        <h3 class="text-lg">¿Cuánta proteína elegir para adelgazar?</h3>
-        <p>
-          En déficit calórico (especialmente en "Pérdida agresiva"), se
-          recomienda aumentar la proteína a 1.8–2.2 g por kg de peso para que el
-          cuerpo queme grasa y no tejido muscular.
-        </p>
+      <h2 class="text-lg">Preguntas frecuentes (FAQ)</h2>
+      <h3 class="text-lg">¿Cuánta proteína elegir para adelgazar?</h3>
+      <p>
+        En déficit calórico (especialmente en "Pérdida agresiva"), se recomienda
+        aumentar la proteína a 1.8–2.2 g por kg de peso para que el cuerpo queme
+        grasa y no tejido muscular.
+      </p>
 
-        <h3 class="text-lg">¿Qué elegir: volumen lento o rápido?</h3>
-        <p>
-          El "Volumen rápido" a menudo conduce a una ganancia excesiva de grasa.
-          Si buscas una musculatura de calidad, elige "Volumen lento" o
-          "Moderado" y monitorea tu progreso.
-        </p>
-      </div>
+      <h3 class="text-lg">¿Qué elegir: volumen lento o rápido?</h3>
+      <p>
+        El "Volumen rápido" a menudo conduce a una ganancia excesiva de grasa.
+        Si buscas una musculatura de calidad, elige "Volumen lento" o "Moderado"
+        y monitorea tu progreso.
+      </p>
     </>
   );
 };

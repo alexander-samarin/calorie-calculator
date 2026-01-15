@@ -120,22 +120,20 @@ export default () => {
         </li>
       </ul>
 
-      <div class="faq-section">
-        <h2 class="text-lg">Domande frequenti (FAQ)</h2>
-        <h3 class="text-lg">Quante proteine assumere per dimagrire?</h3>
-        <p>
-          In deficit calorico (specialmente nel "Dimagrimento aggressivo"), si
-          raccomanda di aumentare le proteine a 1.8–2.2 g per kg di peso
-          affinché il corpo bruci grasso e non tessuto muscolare.
-        </p>
+      <h2 class="text-lg">Domande frequenti (FAQ)</h2>
+      <h3 class="text-lg">Quante proteine assumere per dimagrire?</h3>
+      <p>
+        In deficit calorico (specialmente nel "Dimagrimento aggressivo"), si
+        raccomanda di aumentare le proteine a 1.8–2.2 g per kg di peso affinché
+        il corpo bruci grasso e non tessuto muscolare.
+      </p>
 
-        <h3 class="text-lg">Cosa scegliere: massa lenta o rapida?</h3>
-        <p>
-          La "Massa rapida" porta spesso a un eccessivo accumulo di grasso. Se
-          miri a una muscolatura di qualità, scegli "Massa lenta" o "Moderata" e
-          monitora i tuoi progressi.
-        </p>
-      </div>
+      <h3 class="text-lg">Cosa scegliere: massa lenta o rapida?</h3>
+      <p>
+        La "Massa rapida" porta spesso a un eccessivo accumulo di grasso. Se
+        miri a una muscolatura di qualità, scegli "Massa lenta" o "Moderata" e
+        monitora i tuoi progressi.
+      </p>
     </>
   );
 };

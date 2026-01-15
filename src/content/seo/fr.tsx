@@ -121,22 +121,20 @@ export default () => {
         </li>
       </ul>
 
-      <div class="faq-section">
-        <h2 class="text-lg">Foire aux questions (FAQ)</h2>
-        <h3 class="text-lg">Combien de protéines pour maigrir ?</h3>
-        <p>
-          En déficit calorique (surtout en « Perte rapide »), il est recommandé
-          d'augmenter les protéines à 1.8–2.2 g par kg de poids pour que le
-          corps brûle les graisses et non le tissu musculaire.
-        </p>
+      <h2 class="text-lg">Foire aux questions (FAQ)</h2>
+      <h3 class="text-lg">Combien de protéines pour maigrir ?</h3>
+      <p>
+        En déficit calorique (surtout en « Perte rapide »), il est recommandé
+        d'augmenter les protéines à 1.8–2.2 g par kg de poids pour que le corps
+        brûle les graisses et non le tissu musculaire.
+      </p>
 
-        <h3 class="text-lg">Que choisir : prise de masse lente ou rapide ?</h3>
-        <p>
-          La « Prise de masse rapide » conduit souvent à une prise de gras
-          excessive. Si vous visez une musculature de qualité, choisissez «
-          Lente » ou « Modérée » et surveillez vos progrès.
-        </p>
-      </div>
+      <h3 class="text-lg">Que choisir : prise de masse lente ou rapide ?</h3>
+      <p>
+        La « Prise de masse rapide » conduit souvent à une prise de gras
+        excessive. Si vous visez une musculature de qualité, choisissez « Lente
+        » ou « Modérée » et surveillez vos progrès.
+      </p>
     </>
   );
 };

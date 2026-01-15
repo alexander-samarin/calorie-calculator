@@ -2,6 +2,7 @@ import { useNavigate } from "@solidjs/router";
 import { onMount } from "solid-js";
 import { isServer } from "solid-js/web";
 import Calculator from "~/components/Calculator";
+import Footer from "~/components/Footer";
 import Head from "~/components/Head";
 import Love from "~/components/Love";
 import SettingsModal from "~/components/SettingsModal";
@@ -40,12 +41,13 @@ function HomeContent() {
       <main class="flex flex-col items-center px-4 py-8">
         <div class="text-2xl font-bold text-center mb-6">{t().title}</div>
         <Calculator />
-        <Love />
-        <div class="mt-4">
+        <div class="mt-8">
           <SettingsModal />
         </div>
+        <Love />
         <Seo />
       </main>
+      <Footer />
     </>
   );
 }

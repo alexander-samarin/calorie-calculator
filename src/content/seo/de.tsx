@@ -115,24 +115,22 @@ export default () => {
         </li>
       </ul>
 
-      <div class="faq-section">
-        <h2 class="text-lg">Häufig gestellte Fragen (FAQ)</h2>
-        <h3 class="text-lg">Wie viel Protein sollte ich zum Abnehmen essen?</h3>
-        <p>
-          Im Kaloriendefizit (besonders beim "Aggressiven Abnehmen") wird
-          empfohlen, das Protein auf 1,8–2,2 g pro kg Körpergewicht zu erhöhen,
-          damit der Körper Fett statt Muskelmasse verbrennt.
-        </p>
+      <h2 class="text-lg">Häufig gestellte Fragen (FAQ)</h2>
+      <h3 class="text-lg">Wie viel Protein sollte ich zum Abnehmen essen?</h3>
+      <p>
+        Im Kaloriendefizit (besonders beim "Aggressiven Abnehmen") wird
+        empfohlen, das Protein auf 1,8–2,2 g pro kg Körpergewicht zu erhöhen,
+        damit der Körper Fett statt Muskelmasse verbrennt.
+      </p>
 
-        <h3 class="text-lg">
-          Sollte ich langsamen oder schnellen Aufbau wählen?
-        </h3>
-        <p>
-          "Schneller Aufbau" führt oft zu übermäßiger Fettzunahme. Wenn Sie eine
-          hochwertige Muskulatur anstreben, wählen Sie "Langsamen" oder
-          "Moderaten Aufbau" und überwachen Sie Ihren Fortschritt.
-        </p>
-      </div>
+      <h3 class="text-lg">
+        Sollte ich langsamen oder schnellen Aufbau wählen?
+      </h3>
+      <p>
+        "Schneller Aufbau" führt oft zu übermäßiger Fettzunahme. Wenn Sie eine
+        hochwertige Muskulatur anstreben, wählen Sie "Langsamen" oder "Moderaten
+        Aufbau" und überwachen Sie Ihren Fortschritt.
+      </p>
     </>
   );
 };

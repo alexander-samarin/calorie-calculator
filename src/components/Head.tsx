@@ -1,14 +1,38 @@
 import { Title, Meta, Link } from "@solidjs/meta";
-import { useLocale } from "~/i18n";
+import { For, createEffect } from "solid-js";
+import { isServer } from "solid-js/web";
+import { useLocale, LOCALES, type Locale } from "~/i18n";
 import { getJsonLd } from "~/content/jsonld";
 
 const OG_IMAGE_URL = "https://caloriecalc.cc/og.png";
 const SITE_URL = "https://caloriecalc.cc";
 
+/**
+ * Get the absolute URL for a given locale
+ */
+const getLocaleUrl = (localeCode: Locale): string => {
+  return localeCode === "en" ? SITE_URL : `${SITE_URL}/${localeCode}`;
+};
+
+/**
+ * Get the canonical URL for the current page
+ */
+const getCanonicalUrl = (currentLocale: Locale): string => {
+  return currentLocale === "en" ? SITE_URL : `${SITE_URL}/${currentLocale}`;
+};
+
 function Head() {
   const { t, locale } = useLocale();
 
   const jsonLd = () => JSON.stringify(getJsonLd(locale()));
+  const canonicalUrl = () => getCanonicalUrl(locale());
+
+  // Update html lang attribute reactively
+  createEffect(() => {
+    if (!isServer) {
+      document.documentElement.lang = locale();
+    }
+  });
 
   return (
     <>
@@ -52,7 +76,7 @@ function Head() {
       <Meta property="og:title" content={t().title} />
       <Meta property="og:description" content={t().description} />
       <Meta property="og:image" content={OG_IMAGE_URL} />
-      <Meta property="og:url" content={`${SITE_URL}/${locale()}`} />
+      <Meta property="og:url" content={canonicalUrl()} />
       <Meta property="og:type" content="website" />
       <Meta property="og:site_name" content={t().title} />
       <Meta property="og:locale" content={locale()} />
@@ -61,9 +85,22 @@ function Head() {
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:image" content={OG_IMAGE_URL} />
 
-      {/* Language */}
-      <Meta http-equiv="content-language" content={locale()} />
-      <Link rel="canonical" href={`${SITE_URL}/${locale()}`} />
+      {/* SEO */}
+      <Link rel="canonical" href={canonicalUrl()} />
+
+      {/* Hreflang alternate links for all languages */}
+      <For each={LOCALES}>
+        {(localeCode) => (
+          <Link
+            rel="alternate"
+            hreflang={localeCode}
+            href={getLocaleUrl(localeCode)}
+          />
+        )}
+      </For>
+
+      {/* x-default hreflang for language negotiation */}
+      <Link rel="alternate" hreflang="x-default" href={SITE_URL} />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" innerHTML={jsonLd()} />
