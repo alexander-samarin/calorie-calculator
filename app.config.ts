@@ -12,6 +12,7 @@ export default defineConfig({
         ...LOCALES.filter((lang) => lang !== "en").map((lang) => `/${lang}`),
       ],
       crawlLinks: true,
+      autoSubfolderIndex: false,
     },
   },
   vite: {
