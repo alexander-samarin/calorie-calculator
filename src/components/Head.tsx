@@ -104,6 +104,13 @@ function Head() {
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" innerHTML={jsonLd()} />
+
+      {/* Analytics */}
+      <script
+        data-goatcounter="https://giddy1327.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+      />
     </>
   );
 }
