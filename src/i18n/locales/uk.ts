@@ -50,7 +50,7 @@ export const uk: BaseDict = {
   appName: "Калорії",
 
   // Love
-  madeWith: "Зроблено з ❤️ для телеграм-каналу",
+  madeWith: "Зроблений з ❤️ для телеграм-каналу",
   channelName: "Жирно\u00A0не\u00A0буде\u00A0🥦",
 
   // Theme
