@@ -1,4 +1,10 @@
-import { createSignal, createEffect, createMemo, For } from "solid-js";
+import {
+  createSignal,
+  createEffect,
+  createMemo,
+  For,
+  onMount,
+} from "solid-js";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
 import Select from "./Select";
@@ -15,31 +21,45 @@ import {
 import { storage } from "~/helpers";
 import { useLocale, usePluralizeGrams } from "~/i18n";
 
-const getInitialState = () => ({
-  weight: storage.get("weight") || "",
-  height: storage.get("height") || "",
-  age: storage.get("age") || "",
-  gender: storage.get("gender") || GENDER_OPTIONS[0].value,
-  activity: Number(storage.get("activity")) || ACTIVITY_OPTIONS[0].value,
-  goal: Number(storage.get("goal")) || GOAL_OPTIONS[0].value,
-  proteinPerKg: Number(storage.get("proteinPerKg")) || PROTEIN_PER_KG.DEFAULT,
-  fatPerKg: Number(storage.get("fatPerKg")) || FAT_PER_KG.DEFAULT,
-});
-
 function Calculator() {
   const { t } = useLocale();
   const pluralizeGrams = usePluralizeGrams();
-  const initialState = getInitialState();
-  const [weight, setWeight] = createSignal(initialState.weight);
-  const [height, setHeight] = createSignal(initialState.height);
-  const [age, setAge] = createSignal(initialState.age);
-  const [gender, setGender] = createSignal(initialState.gender);
-  const [activity, setActivity] = createSignal(initialState.activity);
-  const [goal, setGoal] = createSignal(initialState.goal);
-  const [proteinPerKg, setProteinPerKg] = createSignal(
-    initialState.proteinPerKg
+
+  // Initialize with defaults, load from localStorage on mount
+  const [weight, setWeight] = createSignal("");
+  const [height, setHeight] = createSignal("");
+  const [age, setAge] = createSignal("");
+  const [gender, setGender] = createSignal(GENDER_OPTIONS[0].value);
+  const [activity, setActivity] = createSignal(ACTIVITY_OPTIONS[0].value);
+  const [goal, setGoal] = createSignal(GOAL_OPTIONS[0].value);
+  const [proteinPerKg, setProteinPerKg] = createSignal<number>(
+    PROTEIN_PER_KG.DEFAULT
   );
-  const [fatPerKg, setFatPerKg] = createSignal(initialState.fatPerKg);
+  const [fatPerKg, setFatPerKg] = createSignal<number>(FAT_PER_KG.DEFAULT);
+  const [isHydrated, setIsHydrated] = createSignal(false);
+
+  // Load saved values from localStorage after mount
+  onMount(() => {
+    const savedWeight = storage.get("weight");
+    const savedHeight = storage.get("height");
+    const savedAge = storage.get("age");
+    const savedGender = storage.get("gender");
+    const savedActivity = storage.get("activity");
+    const savedGoal = storage.get("goal");
+    const savedProteinPerKg = storage.get("proteinPerKg");
+    const savedFatPerKg = storage.get("fatPerKg");
+
+    if (savedWeight) setWeight(savedWeight);
+    if (savedHeight) setHeight(savedHeight);
+    if (savedAge) setAge(savedAge);
+    if (savedGender) setGender(savedGender);
+    if (savedActivity) setActivity(Number(savedActivity));
+    if (savedGoal) setGoal(Number(savedGoal));
+    if (savedProteinPerKg) setProteinPerKg(Number(savedProteinPerKg));
+    if (savedFatPerKg) setFatPerKg(Number(savedFatPerKg));
+
+    setIsHydrated(true);
+  });
 
   const bmr = createMemo(() => {
     const w = Number(weight());
@@ -84,7 +104,10 @@ function Calculator() {
     return Math.max(0, Math.round(remainingCalories / CARB));
   });
 
+  // Save to localStorage only after hydration to avoid overwriting with defaults
   createEffect(() => {
+    if (!isHydrated()) return;
+
     storage.set("weight", weight());
     storage.set("height", height());
     storage.set("age", age());
