@@ -156,7 +156,7 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center w-full">
-      <div class="flex flex-col items-center w-full sticky top-0 pt-4 z-10 bg-base-200 rounded-b-2xl shadow-[-24px_-8px_8px_0px_var(--color-base-200),24px_-8px_8px_0px_var(--color-base-200)]">
+      <div class="flex flex-col items-center w-full sticky top-0 pt-4 z-10">
         <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
           <StatCard
             title={t().basalMetabolism}
