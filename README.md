@@ -1,32 +1,62 @@
-# SolidStart
+# Calorie Calculator
 
-Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
+A fast, multilingual calorie and macros calculator built with SolidStart. Calculate your daily calorie needs based on BMR (Basal Metabolic Rate) and TDEE (Total Daily Energy Expenditure) using the Mifflin-St Jeor formula.
 
-## Creating a project
+**Live:** [caloriecalc.cc](https://caloriecalc.cc)
+
+## Features
+
+- **BMR & TDEE Calculation** — Accurate basal metabolism and daily energy expenditure
+- **Macros Breakdown** — Proteins, fats, and carbohydrates based on your goals
+- **Activity Levels** — From sedentary to 2 workouts per day
+- **Goal Settings** — Weight loss, maintenance, or bulk options
+- **9 Languages** — EN, RU, UK, BE, PL, DE, FR, ES, IT
+- **Theme Switching** — Light, dark, and system themes
+- **Data Persistence** — Settings saved in localStorage
+- **PWA Ready** — Installable as a progressive web app
+
+## Tech Stack
+
+- [SolidJS](https://www.solidjs.com/) / [SolidStart](https://start.solidjs.com/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [DaisyUI v5](https://daisyui.com/)
+- [Vinxi](https://vinxi.vercel.app/)
+- TypeScript
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 22
+
+### Installation
 
 ```bash
-# create a new project in the current directory
-npm init solid@latest
-
-# create a new project in my-app
-npm init solid@latest my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Development
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### Build
 
-Solid apps are built with _presets_, which optimise your project for deployment to different environments.
+```bash
+npm run build
+```
 
-By default, `npm run build` will generate a Node app that you can run with `npm start`. To use a different preset, add it to the `devDependencies` in `package.json` and specify in your `app.config.js`.
+### Preview
 
-## This project was created with the [Solid CLI](https://github.com/solidjs-community/solid-cli)
+```bash
+npm run preview
+```
+
+## Deployment
+
+The app is automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch.
+
+## License
+
+Made with ❤️ for Telegram channel [Zhirno ne budet 🥦](https://t.me/zhirno_ne_budet)
