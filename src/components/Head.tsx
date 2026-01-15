@@ -64,12 +64,12 @@ function Head() {
       <Meta
         name="theme-color"
         media="(prefers-color-scheme: light)"
-        content="#efeae6"
+        content="#fafafa"
       />
       <Meta
         name="theme-color"
         media="(prefers-color-scheme: dark)"
-        content="#232530"
+        content="#393c4a"
       />
 
       {/* Open Graph */}
