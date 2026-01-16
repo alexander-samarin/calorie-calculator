@@ -1,6 +1,6 @@
 import { useNavigate } from "@solidjs/router";
 import Select from "./Select";
-import { useLocale, AVAILABLE_LOCALES } from "~/i18n";
+import { useLocale, AVAILABLE_LOCALES, DEFAULT_LOCALE } from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 
@@ -11,7 +11,7 @@ function LanguageSwitcher() {
   const handleChange = (value: string) => {
     // Save locale before navigation to prevent redirect back
     storage.set(LOCALE_STORAGE_KEY, value);
-    const path = value === "en" ? "/" : `/${value}`;
+    const path = value === DEFAULT_LOCALE ? "/" : `/${value}`;
     navigate(path, { replace: true });
   };
 

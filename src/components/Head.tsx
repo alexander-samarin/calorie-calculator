@@ -1,7 +1,7 @@
 import { Title, Meta, Link } from "@solidjs/meta";
 import { For, createEffect } from "solid-js";
 import { isServer } from "solid-js/web";
-import { useLocale, LOCALES, type Locale } from "~/i18n";
+import { useLocale, LOCALES, DEFAULT_LOCALE, type Locale } from "~/i18n";
 import { getJsonLd } from "~/content/jsonld";
 
 const OG_IMAGE_URL = "https://caloriecalc.cc/og.png";
@@ -11,14 +11,16 @@ const SITE_URL = "https://caloriecalc.cc";
  * Get the absolute URL for a given locale
  */
 const getLocaleUrl = (localeCode: Locale): string => {
-  return localeCode === "en" ? SITE_URL : `${SITE_URL}/${localeCode}`;
+  return localeCode === DEFAULT_LOCALE ? SITE_URL : `${SITE_URL}/${localeCode}`;
 };
 
 /**
  * Get the canonical URL for the current page
  */
 const getCanonicalUrl = (currentLocale: Locale): string => {
-  return currentLocale === "en" ? SITE_URL : `${SITE_URL}/${currentLocale}`;
+  return currentLocale === DEFAULT_LOCALE
+    ? SITE_URL
+    : `${SITE_URL}/${currentLocale}`;
 };
 
 function Head() {

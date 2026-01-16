@@ -91,3 +91,6 @@ export const LOCALES: Locale[] = [
   "uk",
   "be",
 ];
+
+// Default locale for the app (shown at root path "/")
+export const DEFAULT_LOCALE: Locale = "ru";

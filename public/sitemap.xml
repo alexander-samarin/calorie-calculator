@@ -3,8 +3,8 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://caloriecalc.cc/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -15,9 +15,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://caloriecalc.cc/"/>
   </url>
   <url>
-    <loc>https://caloriecalc.cc/ru</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <loc>https://caloriecalc.cc/en</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -29,8 +29,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/uk</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -42,8 +42,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/be</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -55,8 +55,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/pl</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -68,8 +68,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/de</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -81,8 +81,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/fr</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -94,8 +94,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/es</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>
@@ -107,8 +107,8 @@
   </url>
   <url>
     <loc>https://caloriecalc.cc/it</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/ru"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caloriecalc.cc/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caloriecalc.cc/en"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://caloriecalc.cc/uk"/>
     <xhtml:link rel="alternate" hreflang="be" href="https://caloriecalc.cc/be"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://caloriecalc.cc/pl"/>

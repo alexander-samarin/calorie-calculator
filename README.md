@@ -10,7 +10,7 @@ A fast, multilingual calorie and macros calculator built with SolidStart. Calcul
 - **Macros Breakdown** — Proteins, fats, and carbohydrates based on your goals
 - **Activity Levels** — From sedentary to 2 workouts per day
 - **Goal Settings** — Weight loss, maintenance, or bulk options
-- **9 Languages** — EN, RU, UK, BE, PL, DE, FR, ES, IT
+- **9 Languages** — RU, EN, UK, BE, PL, DE, FR, ES, IT
 - **Theme Switching** — Light, dark, and system themes
 - **Data Persistence** — Settings saved in localStorage
 - **PWA Ready** — Installable as a progressive web app

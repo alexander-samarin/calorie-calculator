@@ -1,5 +1,5 @@
 import { lazy } from "solid-js";
-import type { Locale } from "~/i18n";
+import { DEFAULT_LOCALE, type Locale } from "~/i18n";
 import type { Component } from "solid-js";
 
 const seoComponents: Record<Locale, Component> = {
@@ -15,5 +15,5 @@ const seoComponents: Record<Locale, Component> = {
 };
 
 export const getSeoComponent = (locale: Locale): Component => {
-  return seoComponents[locale] || seoComponents.en;
+  return seoComponents[locale] || seoComponents[DEFAULT_LOCALE];
 };

@@ -11,6 +11,7 @@ import {
   LocaleProvider,
   useLocale,
   LOCALES,
+  DEFAULT_LOCALE,
   isValidLocale,
   type Locale,
 } from "~/i18n";
@@ -18,7 +19,7 @@ import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 
 const detectLocale = (): Locale => {
-  if (isServer) return "en";
+  if (isServer) return DEFAULT_LOCALE;
 
   // Check saved locale first
   const savedLocale = storage.get(LOCALE_STORAGE_KEY);
@@ -34,7 +35,7 @@ const detectLocale = (): Locale => {
     }
   }
 
-  return "en";
+  return DEFAULT_LOCALE;
 };
 
 function HomeContent() {
@@ -43,11 +44,11 @@ function HomeContent() {
 
   onMount(() => {
     const locale = detectLocale();
-    if (locale !== "en") {
+    if (locale !== DEFAULT_LOCALE) {
       navigate(`/${locale}`, { replace: true });
     } else {
-      // Save English as preferred locale
-      storage.set(LOCALE_STORAGE_KEY, "en");
+      // Save default locale as preferred
+      storage.set(LOCALE_STORAGE_KEY, DEFAULT_LOCALE);
     }
   });
 
@@ -67,10 +68,10 @@ function HomeContent() {
 }
 
 export default function Home() {
-  // Render English version as default (good for SEO)
-  // Will redirect to browser language after hydration if not English
+  // Render default locale version (good for SEO)
+  // Will redirect to browser language after hydration if different
   return (
-    <LocaleProvider locale={() => "en"}>
+    <LocaleProvider locale={() => DEFAULT_LOCALE}>
       <HomeContent />
     </LocaleProvider>
   );

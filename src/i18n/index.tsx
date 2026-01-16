@@ -4,7 +4,7 @@ import {
   type ParentProps,
   type Accessor,
 } from "solid-js";
-import { LOCALES, type Locale, type BaseDict } from "./types";
+import { LOCALES, DEFAULT_LOCALE, type Locale, type BaseDict } from "./types";
 import { en } from "./locales/en";
 import { ru } from "./locales/ru";
 import { pl } from "./locales/pl";
@@ -27,7 +27,7 @@ const dictionaries: Record<Locale, BaseDict> = {
   be,
 };
 
-export { LOCALES };
+export { LOCALES, DEFAULT_LOCALE };
 
 const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk", "be"];
 
@@ -38,7 +38,7 @@ export const isValidLocale = (
 };
 
 // Context for locale - stores an accessor for reactivity
-const LocaleContext = createContext<Accessor<Locale>>(() => "en" as Locale);
+const LocaleContext = createContext<Accessor<Locale>>(() => DEFAULT_LOCALE);
 
 export function LocaleProvider(
   props: ParentProps<{ locale: Accessor<Locale> }>

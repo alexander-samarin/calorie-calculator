@@ -1,7 +1,7 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
 import { getRequestEvent } from "solid-js/web";
-import { LOCALES, type Locale } from "~/i18n";
+import { LOCALES, DEFAULT_LOCALE, type Locale } from "~/i18n";
 
 const getLocaleFromPath = (path: string): Locale => {
   const segments = path.split("/").filter(Boolean);
@@ -9,7 +9,7 @@ const getLocaleFromPath = (path: string): Locale => {
   if (firstSegment && LOCALES.includes(firstSegment as Locale)) {
     return firstSegment as Locale;
   }
-  return "en";
+  return DEFAULT_LOCALE;
 };
 
 const getPathnameFromUrl = (url: string | undefined): string => {

@@ -1,20 +1,20 @@
 import { useParams, Navigate } from "@solidjs/router";
 import { type ParentProps, onMount } from "solid-js";
 import Head from "~/components/Head";
-import { LocaleProvider, isValidLocale, type Locale } from "~/i18n";
+import { LocaleProvider, isValidLocale, DEFAULT_LOCALE, type Locale } from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 
 export default function LangLayout(props: ParentProps) {
   const params = useParams<{ lang: string }>();
 
-  // Redirect /en to /
-  if (params.lang === "en") {
+  // Redirect default locale to /
+  if (params.lang === DEFAULT_LOCALE) {
     return <Navigate href="/" />;
   }
 
   const locale = () =>
-    (isValidLocale(params.lang) ? params.lang : "en") as Locale;
+    (isValidLocale(params.lang) ? params.lang : DEFAULT_LOCALE) as Locale;
 
   // Save locale preference
   onMount(() => {

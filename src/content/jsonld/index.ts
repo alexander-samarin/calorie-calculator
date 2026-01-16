@@ -1,4 +1,4 @@
-import type { Locale } from "~/i18n";
+import { DEFAULT_LOCALE, type Locale } from "~/i18n";
 import jsonLdRu from "./ru";
 import jsonLdEn from "./en";
 import jsonLdUk from "./uk";
@@ -22,5 +22,5 @@ const jsonLdData: Record<Locale, object> = {
 };
 
 export const getJsonLd = (locale: Locale): object => {
-  return jsonLdData[locale] || jsonLdData.en;
+  return jsonLdData[locale] || jsonLdData[DEFAULT_LOCALE];
 };
