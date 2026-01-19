@@ -43,7 +43,7 @@ export const de: BaseDict = {
   maintenance: "Gewicht halten",
 
   // App / SEO
-  title: "Kalorien- & BMI-Rechner",
+  title: "Kalorienrechner",
   description:
     "Präziser Kalorien-, Makronährstoff- und BMI-Rechner mit visueller Skala. Kostenlose Berechnung vom Telegram-Kanal «Zhirno ne budet 🥦»",
   appName: "Kalorien",

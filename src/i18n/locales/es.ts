@@ -43,7 +43,7 @@ export const es: BaseDict = {
   maintenance: "Mantenimiento",
 
   // App / SEO
-  title: "Calculadora de Calorías e IMC",
+  title: "Calculadora de calorías",
   description:
     "Calculadora precisa de calorías, macros e IMC con escala visual. Cálculo gratuito del canal de Telegram «Zhirno ne budet 🥦»",
   appName: "Calorías",

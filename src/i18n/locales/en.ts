@@ -43,7 +43,7 @@ export const en: BaseDict = {
   maintenance: "Maintenance",
 
   // App / SEO
-  title: "Calorie & BMI Calculator",
+  title: "Calorie Calculator",
   description:
     "Accurate calorie, macro and BMI calculator with visual scale. Free calculation from the Telegram channel «Zhirno ne budet 🥦»",
   appName: "Calories",
