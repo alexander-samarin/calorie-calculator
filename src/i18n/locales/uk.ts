@@ -71,4 +71,11 @@ export const uk: BaseDict = {
   privacyNote:
     "Усі дані зберігаються лише у вашому браузері та ніколи не надсилаються на сервер.",
   clearData: "Очистити дані",
+
+  // BMI
+  bmi: "ІМТ",
+  bmiUnderweight: "Недостатня вага",
+  bmiNormal: "Норма",
+  bmiOverweight: "Надмірна вага",
+  bmiObese: "Ожиріння",
 };

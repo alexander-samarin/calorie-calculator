@@ -1,4 +1,5 @@
 import { createSignal, createEffect, createMemo, For, onMount } from "solid-js";
+import BmiDisplay from "./BmiDisplay";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
 import Select from "./Select";
@@ -156,44 +157,44 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center w-full">
-      <div class="flex flex-col items-center w-full sticky top-0 pt-4 z-10">
-        <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
-          <StatCard
-            title={t().basalMetabolism}
-            value={Math.round(bmr())}
-            unit={t().kcal}
-          />
-          <StatCard
-            title={t().dailyExpenditure}
-            value={Math.round(baseTdee())}
-            unit={t().kcal}
-          />
-          <StatCard
-            title={t().yourNorm}
-            value={Math.round(tdee())}
-            unit={t().kcal}
-            isPrimary={true}
-          />
-        </div>
-
-        <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl bg-base-100 shadow-xl">
-          <StatCard
-            title={t().proteins}
-            value={proteins()}
-            unit={pluralizeGrams(proteins())}
-          />
-          <StatCard
-            title={t().fats}
-            value={fats()}
-            unit={pluralizeGrams(fats())}
-          />
-          <StatCard
-            title={t().carbs}
-            value={carbs()}
-            unit={pluralizeGrams(carbs())}
-          />
-        </div>
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
+        <StatCard
+          title={t().basalMetabolism}
+          value={Math.round(bmr())}
+          unit={t().kcal}
+        />
+        <StatCard
+          title={t().dailyExpenditure}
+          value={Math.round(baseTdee())}
+          unit={t().kcal}
+        />
+        <StatCard
+          title={t().yourNorm}
+          value={Math.round(tdee())}
+          unit={t().kcal}
+          isPrimary={true}
+        />
       </div>
+
+      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
+        <StatCard
+          title={t().proteins}
+          value={proteins()}
+          unit={pluralizeGrams(proteins())}
+        />
+        <StatCard
+          title={t().fats}
+          value={fats()}
+          unit={pluralizeGrams(fats())}
+        />
+        <StatCard
+          title={t().carbs}
+          value={carbs()}
+          unit={pluralizeGrams(carbs())}
+        />
+      </div>
+
+      <BmiDisplay weight={weight} height={height} />
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto mt-8">
         <div class="flex gap-2">

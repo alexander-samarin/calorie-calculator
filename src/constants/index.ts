@@ -17,6 +17,17 @@ export const CALORIES_PER_GRAM = {
   CARB: 4,
 } as const;
 
+// BMI (ИМТ) пороговые значения по классификации ВОЗ
+export const BMI = {
+  UNDERWEIGHT: 18.5,
+  NORMAL: 25,
+  OVERWEIGHT: 30,
+  SCALE_MIN: 15,
+  SCALE_MAX: 40,
+} as const;
+
+export type BmiCategory = "underweight" | "normal" | "overweight" | "obese";
+
 // Диапазоны для белков и жиров на кг веса
 export const PROTEIN_PER_KG = {
   MIN: 1.2,

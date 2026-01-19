@@ -70,4 +70,11 @@ export const en: BaseDict = {
   privacyNote:
     "All data is stored only in your browser and is never sent to a server.",
   clearData: "Clear data",
+
+  // BMI
+  bmi: "BMI",
+  bmiUnderweight: "Underweight",
+  bmiNormal: "Normal",
+  bmiOverweight: "Overweight",
+  bmiObese: "Obesity",
 };

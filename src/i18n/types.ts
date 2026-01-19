@@ -66,6 +66,13 @@ export type BaseDict = {
   // Privacy
   privacyNote: string;
   clearData: string;
+
+  // BMI
+  bmi: string;
+  bmiUnderweight: string;
+  bmiNormal: string;
+  bmiOverweight: string;
+  bmiObese: string;
 };
 
 export type Locale =
