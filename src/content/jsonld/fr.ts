@@ -13,10 +13,11 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Calculateur précis de Calories et Macros avec réglages personnalisés. Calculez les calories pour maigrir (perte douce, sèche aggressive) ou la prise de masse. Fonction unique : réglage des protéines et lipides par kg de poids.",
+        "Calculateur précis de Calories, Macros et IMC avec réglages personnalisés. Calculez les calories pour maigrir (perte douce, sèche aggressive) ou la prise de masse. Fonctions uniques : réglage des protéines et lipides par kg de poids, échelle visuelle de l'IMC.",
       featureList: [
         "Formule de Mifflin-St Jeor",
         "Réglage des protéines et lipides par kg de poids",
+        "Calcul de l'IMC avec échelle visuelle",
         "Modes : Sèche aggressive, Prise de masse sèche (Lean Bulk)",
         "Calcul complet des Macros gratuit",
       ],
@@ -46,6 +47,14 @@ export default {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Nous utilisons la formule de Mifflin-St Jeor, reconnue comme le « standard de référence ». Nous permettons également d'ajuster précisément l'activité et les macronutriments pour une personnalisation maximale.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Qu'est-ce que l'IMC et à quoi sert-il ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "L'IMC (Indice de Masse Corporelle) est un indicateur qui aide à évaluer le rapport entre votre poids et votre taille. Notre calculateur calcule automatiquement l'IMC et affiche le résultat sur une échelle visuelle avec des zones colorées : insuffisance pondérale, normal, surpoids, obésité.",
           },
         },
       ],

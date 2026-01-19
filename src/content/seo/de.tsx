@@ -115,6 +115,34 @@ export default () => {
         </li>
       </ul>
 
+      <h2 class="text-lg">4. Body-Mass-Index (BMI) Rechner</h2>
+      <p>
+        Neben Kalorien und Makronährstoffen berechnet{" "}
+        <strong>CalorieCalc.cc</strong> automatisch Ihren{" "}
+        <strong>BMI (Body-Mass-Index)</strong> — einen Schlüsselindikator zur
+        Bewertung des Verhältnisses von Gewicht und Größe. Eine visuelle Skala
+        mit farbigen Zonen hilft Ihnen schnell zu verstehen, in welcher
+        Kategorie Sie sich befinden:
+      </p>
+      <ul>
+        <li>
+          <strong>Untergewicht</strong> (BMI &lt; 18,5): Kann auf
+          Nährstoffmangel oder Gesundheitsprobleme hinweisen.
+        </li>
+        <li>
+          <strong>Normalgewicht</strong> (BMI 18,5–24,9): Optimaler Bereich für
+          die meisten Erwachsenen.
+        </li>
+        <li>
+          <strong>Übergewicht</strong> (BMI 25–29,9): Es wird empfohlen, auf
+          Ernährung und körperliche Aktivität zu achten.
+        </li>
+        <li>
+          <strong>Adipositas</strong> (BMI ≥ 30): Erhöhtes Gesundheitsrisiko,
+          Beratung durch einen Spezialisten wird empfohlen.
+        </li>
+      </ul>
+
       <h2 class="text-lg">Häufig gestellte Fragen (FAQ)</h2>
       <h3 class="text-lg">Wie viel Protein sollte ich zum Abnehmen essen?</h3>
       <p>

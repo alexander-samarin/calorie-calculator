@@ -120,6 +120,34 @@ export default () => {
         </li>
       </ul>
 
+      <h2 class="text-lg">4. Calculadora del Índice de Masa Corporal (IMC)</h2>
+      <p>
+        Además de las calorías y los macronutrientes,{" "}
+        <strong>CalorieCalc.cc</strong> calcula automáticamente tu{" "}
+        <strong>IMC (Índice de Masa Corporal)</strong> — un indicador clave para
+        evaluar la relación entre el peso y la altura. Una escala visual con
+        zonas de colores te ayuda a entender rápidamente en qué categoría te
+        encuentras:
+      </p>
+      <ul>
+        <li>
+          <strong>Bajo peso</strong> (IMC &lt; 18,5): Puede indicar deficiencia
+          nutricional o problemas de salud.
+        </li>
+        <li>
+          <strong>Normal</strong> (IMC 18,5–24,9): Rango óptimo para la mayoría
+          de los adultos.
+        </li>
+        <li>
+          <strong>Sobrepeso</strong> (IMC 25–29,9): Se recomienda prestar
+          atención a la nutrición y la actividad física.
+        </li>
+        <li>
+          <strong>Obesidad</strong> (IMC ≥ 30): Mayor riesgo para la salud, se
+          recomienda consultar a un especialista.
+        </li>
+      </ul>
+
       <h2 class="text-lg">Preguntas frecuentes (FAQ)</h2>
       <h3 class="text-lg">¿Cuánta proteína elegir para adelgazar?</h3>
       <p>

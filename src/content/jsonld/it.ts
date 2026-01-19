@@ -13,10 +13,11 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Calcolatore preciso di calorie e macronutrienti con impostazioni personalizzate. Calcola le calorie per dimagrire (leggero, aggressivo) o aumentare la massa. Funzione unica: impostazione di proteine e grassi per kg di peso.",
+        "Calcolatore preciso di calorie, macronutrienti e IMC con impostazioni personalizzate. Calcola le calorie per dimagrire (leggero, aggressivo) o aumentare la massa. Funzioni uniche: impostazione di proteine e grassi per kg di peso, scala visiva dell'IMC.",
       featureList: [
         "Formula di Mifflin-St Jeor",
         "Impostazione di proteine e grassi per kg di peso",
+        "Calcolo dell'IMC con scala visiva",
         "Modalità: Dimagrimento aggressivo (Definizione), Massa pulita (Lean Bulk)",
         "Calcolo completo dei Macronutrienti gratis",
       ],
@@ -46,6 +47,14 @@ export default {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Utilizziamo la formula Mifflin-St Jeor, riconosciuta come lo 'standard d'oro'. Permettiamo anche di regolare con precisione l'attività e i macronutrienti per una massima personalizzazione.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Cos'è l'IMC e a cosa serve?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "L'IMC (Indice di Massa Corporea) è un indicatore che aiuta a valutare il rapporto tra il tuo peso e la tua altezza. Il nostro calcolatore calcola automaticamente l'IMC e mostra il risultato su una scala visiva con zone colorate: sottopeso, normale, sovrappeso, obesità.",
           },
         },
       ],

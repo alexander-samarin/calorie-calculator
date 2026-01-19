@@ -44,9 +44,9 @@ export const pl: BaseDict = {
   maintenance: "Utrzymanie wagi",
 
   // App / SEO
-  title: "Kalkulator kalorii",
+  title: "Kalkulator Kalorii i BMI",
   description:
-    "Prosty i dokładny kalkulator do obliczania dziennych kalorii od kanału Telegram «Zhirno ne budet 🥦»",
+    "Dokładny kalkulator kalorii, makroskładników i BMI z wizualną skalą. Bezpłatne obliczenie od kanału Telegram «Zhirno ne budet 🥦»",
   appName: "Kalorie",
 
   // Love

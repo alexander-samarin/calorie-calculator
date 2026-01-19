@@ -13,10 +13,11 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Accurate Calorie & Macro Calculator with custom nutrient settings. Calculate calories for weight loss (mild, aggressive) or muscle gain. Unique feature: custom protein and fat settings per kg of body weight.",
+        "Accurate Calorie, Macro & BMI Calculator with custom nutrient settings. Calculate calories for weight loss (mild, aggressive) or muscle gain. Unique features: custom protein and fat settings per kg of body weight, visual BMI scale.",
       featureList: [
         "Mifflin-St Jeor Formula",
         "Custom protein and fat per kg settings",
+        "BMI calculation with visual scale",
         "Modes: Aggressive Weight Loss, Lean Bulk",
         "Full Macro calculation for free",
       ],
@@ -46,6 +47,14 @@ export default {
           acceptedAnswer: {
             "@type": "Answer",
             text: "We use the Mifflin-St Jeor formula, recognized as the 'gold standard'. We also allow for precise adjustments of activity levels and macronutrients for maximum personalization.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is BMI and why is it useful?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "BMI (Body Mass Index) is an indicator that helps assess the relationship between your weight and height. Our calculator automatically calculates BMI and displays the result on a visual scale with colored zones: underweight, normal, overweight, obesity.",
           },
         },
       ],

@@ -13,10 +13,11 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Präziser Kalorien- und Makronährstoffrechner mit individuellen Einstellungen. Berechnen Sie Kalorien zum Abnehmen (sanft, aggressiv) oder für den Muskelaufbau. Einzigartige Funktion: Einstellung von Eiweiß und Fetten pro kg Körpergewicht.",
+        "Präziser Kalorien-, Makronährstoff- und BMI-Rechner mit individuellen Einstellungen. Berechnen Sie Kalorien zum Abnehmen (sanft, aggressiv) oder für den Muskelaufbau. Einzigartige Funktionen: Einstellung von Eiweiß und Fetten pro kg Körpergewicht, visuelle BMI-Skala.",
       featureList: [
         "Mifflin-St.Jeor-Formel",
         "Einstellung von Eiweiß und Fetten pro kg Gewicht",
+        "BMI-Berechnung mit visueller Skala",
         "Modi: Aggressives Abnehmen, Trockener Muskelaufbau (Lean Bulk)",
         "Kostenlose Berechnung aller Makronährstoffe",
       ],
@@ -46,6 +47,14 @@ export default {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Wir verwenden die Mifflin-St.Jeor-Formel, die als 'Goldstandard' gilt. Zudem ermöglichen wir eine genaue Anpassung der Aktivität und Makronährstoffe für maximale Personalisierung.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Was ist der BMI und wozu dient er?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Der BMI (Body-Mass-Index) ist ein Indikator, der hilft, das Verhältnis zwischen Gewicht und Größe zu bewerten. Unser Rechner berechnet automatisch den BMI und zeigt das Ergebnis auf einer visuellen Skala mit farbigen Zonen: Untergewicht, Normalgewicht, Übergewicht, Adipositas.",
           },
         },
       ],

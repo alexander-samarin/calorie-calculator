@@ -115,6 +115,33 @@ export default () => {
         </li>
       </ul>
 
+      <h2 class="text-lg">4. Kalkulator wskaźnika masy ciała (BMI)</h2>
+      <p>
+        Oprócz kalorii i makroskładników, <strong>CalorieCalc.cc</strong>{" "}
+        automatycznie oblicza Twoje{" "}
+        <strong>BMI (wskaźnik masy ciała)</strong> — kluczowy wskaźnik do oceny
+        stosunku masy ciała do wzrostu. Wizualna skala z kolorowymi strefami
+        pomoże Ci szybko zrozumieć, w której kategorii się znajdujesz:
+      </p>
+      <ul>
+        <li>
+          <strong>Niedowaga</strong> (BMI &lt; 18,5): Może wskazywać na
+          niedobory żywieniowe lub problemy zdrowotne.
+        </li>
+        <li>
+          <strong>Norma</strong> (BMI 18,5–24,9): Optymalny zakres dla większości
+          dorosłych.
+        </li>
+        <li>
+          <strong>Nadwaga</strong> (BMI 25–29,9): Zaleca się zwrócić uwagę na
+          odżywianie i aktywność fizyczną.
+        </li>
+        <li>
+          <strong>Otyłość</strong> (BMI ≥ 30): Zwiększone ryzyko dla zdrowia,
+          zalecana konsultacja ze specjalistą.
+        </li>
+      </ul>
+
       <h2 class="text-lg">Często zadawane pytania (FAQ)</h2>
       <h3 class="text-lg">Jaki poziom białka wybrać na redukcję?</h3>
       <p>

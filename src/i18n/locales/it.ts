@@ -43,9 +43,9 @@ export const it: BaseDict = {
   maintenance: "Mantenimento",
 
   // App / SEO
-  title: "Calcolatore di calorie",
+  title: "Calcolatore di Calorie e IMC",
   description:
-    "Calcolatore semplice e preciso per il calcolo delle calorie giornaliere dal canale Telegram «Zhirno ne budet 🥦»",
+    "Calcolatore preciso di calorie, macronutrienti e IMC con scala visiva. Calcolo gratuito dal canale Telegram «Zhirno ne budet 🥦»",
   appName: "Calorie",
 
   // Love

@@ -43,9 +43,9 @@ export const de: BaseDict = {
   maintenance: "Gewicht halten",
 
   // App / SEO
-  title: "Kalorienrechner",
+  title: "Kalorien- & BMI-Rechner",
   description:
-    "Einfacher und genauer Rechner zur Berechnung der täglichen Kalorien vom Telegram-Kanal «Zhirno ne budet 🥦»",
+    "Präziser Kalorien-, Makronährstoff- und BMI-Rechner mit visueller Skala. Kostenlose Berechnung vom Telegram-Kanal «Zhirno ne budet 🥦»",
   appName: "Kalorien",
 
   // Love

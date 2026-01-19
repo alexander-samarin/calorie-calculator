@@ -13,10 +13,11 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Dokładny kalkulator kalorii i makroskładników z indywidualnymi ustawieniami. Oblicz kalorie na redukcję (łagodną, agresywną) lub budowanie masy. Unikalna funkcja: ustawienie białka i tłuszczów na 1 kg masy ciała.",
+        "Dokładny kalkulator kalorii, makroskładników i BMI z indywidualnymi ustawieniami. Oblicz kalorie na redukcję (łagodną, agresywną) lub budowanie masy. Unikalne funkcje: ustawienie białka i tłuszczów na 1 kg masy ciała, wizualna skala BMI.",
       featureList: [
         "Wzór Mifflina-St Jeora",
         "Ustawienie białka i tłuszczów na kg masy ciała",
+        "Obliczanie BMI z wizualną skalą",
         "Tryby: Agresywna redukcja, Czysta masa (Lean Bulk)",
         "Pełne obliczenie makroskładników za darmo",
       ],
@@ -46,6 +47,14 @@ export default {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Używamy wzoru Mifflina-St Jeora, uznawanego za „złoty standard”. Umożliwiamy również dokładne dostosowanie aktywności i makroskładników dla maksymalnej personalizacji.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Czym jest BMI i do czego służy?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "BMI (wskaźnik masy ciała) to wskaźnik, który pomaga ocenić stosunek masy ciała do wzrostu. Nasz kalkulator automatycznie oblicza BMI i wyświetla wynik na wizualnej skali z kolorowymi strefami: niedowaga, norma, nadwaga, otyłość.",
           },
         },
       ],

@@ -112,6 +112,33 @@ export default () => {
         </li>
       </ul>
 
+      <h2 class="text-lg">4. Body Mass Index (BMI) Calculator</h2>
+      <p>
+        In addition to calories and macros, <strong>CalorieCalc.cc</strong>{" "}
+        automatically calculates your <strong>BMI (Body Mass Index)</strong> — a
+        key indicator for assessing the relationship between weight and height.
+        A visual scale with colored zones helps you quickly understand which
+        category you fall into:
+      </p>
+      <ul>
+        <li>
+          <strong>Underweight</strong> (BMI &lt; 18.5): May indicate nutritional
+          deficiency or health issues.
+        </li>
+        <li>
+          <strong>Normal</strong> (BMI 18.5–24.9): Optimal range for most
+          adults.
+        </li>
+        <li>
+          <strong>Overweight</strong> (BMI 25–29.9): Consider paying attention
+          to nutrition and physical activity.
+        </li>
+        <li>
+          <strong>Obesity</strong> (BMI ≥ 30): Increased health risks,
+          consultation with a specialist is recommended.
+        </li>
+      </ul>
+
       <h2 class="text-lg">Frequently Asked Questions (FAQ)</h2>
       <h3 class="text-lg">How much protein should I eat for weight loss?</h3>
       <p>
