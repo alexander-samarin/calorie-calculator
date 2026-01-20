@@ -3,7 +3,7 @@ import BmiDisplay from "./BmiDisplay";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
 import Select from "./Select";
-import StatCard from "./StatCard";
+import StatsRow from "./StatsRow";
 import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
@@ -62,42 +62,21 @@ function Calculator() {
 
   return (
     <section class="flex flex-col items-center w-full">
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
-        <StatCard
-          title={t().basalMetabolism}
-          value={Math.round(bmr())}
-          unit={t().kcal}
-        />
-        <StatCard
-          title={t().dailyExpenditure}
-          value={Math.round(baseTdee())}
-          unit={t().kcal}
-        />
-        <StatCard
-          title={t().yourNorm}
-          value={Math.round(tdee())}
-          unit={t().kcal}
-          isPrimary={true}
-        />
-      </div>
+      <StatsRow
+        items={[
+          { title: t().basalMetabolism, value: Math.round(bmr()), unit: t().kcal },
+          { title: t().dailyExpenditure, value: Math.round(baseTdee()), unit: t().kcal },
+          { title: t().yourNorm, value: Math.round(tdee()), unit: t().kcal, isPrimary: true },
+        ]}
+      />
 
-      <div class="stats grid grid-cols-3 w-full max-w-md md:max-w-xl mb-2 md:mb-4 bg-base-100 shadow-xl">
-        <StatCard
-          title={t().proteins}
-          value={proteins()}
-          unit={pluralizeGrams(proteins())}
-        />
-        <StatCard
-          title={t().fats}
-          value={fats()}
-          unit={pluralizeGrams(fats())}
-        />
-        <StatCard
-          title={t().carbs}
-          value={carbs()}
-          unit={pluralizeGrams(carbs())}
-        />
-      </div>
+      <StatsRow
+        items={[
+          { title: t().proteins, value: proteins(), unit: pluralizeGrams(proteins()) },
+          { title: t().fats, value: fats(), unit: pluralizeGrams(fats()) },
+          { title: t().carbs, value: carbs(), unit: pluralizeGrams(carbs()) },
+        ]}
+      />
 
       <BmiDisplay weight={weight} height={height} />
 
