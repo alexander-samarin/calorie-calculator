@@ -2,24 +2,21 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useLocale } from "~/i18n";
 
-const MODAL_ID = "settings-modal";
-
 function SettingsModal() {
   const { t } = useLocale();
 
-  const openModal = () => {
-    const modal = document.getElementById(MODAL_ID) as HTMLDialogElement;
-    modal?.showModal();
-  };
+  let dialog: HTMLDialogElement | undefined;
 
   return (
     <>
       <button
         class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost p-0 aspect-square opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
-        onClick={openModal}
+        type="button"
+        onClick={() => dialog?.showModal()}
         aria-label={t().settings}
       >
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -40,9 +37,15 @@ function SettingsModal() {
         </svg>
       </button>
 
-      <dialog id={MODAL_ID} class="modal modal-bottom sm:modal-middle">
+      <dialog
+        ref={dialog}
+        class="modal modal-bottom sm:modal-middle"
+        aria-labelledby="settings-title"
+      >
         <div class="modal-box">
-          <h3 class="text-lg font-bold mb-4">{t().settings}</h3>
+          <h2 id="settings-title" class="text-lg font-bold mb-4 text-left">
+            {t().settings}
+          </h2>
 
           <div class="flex flex-col gap-4">
             <LanguageSwitcher />
@@ -51,12 +54,12 @@ function SettingsModal() {
 
           <div class="modal-action">
             <form method="dialog" class="w-full">
-              <button class="btn btn-primary w-full">OK</button>
+              <button class="btn btn-primary w-full">{t().done}</button>
             </form>
           </div>
         </div>
         <form method="dialog" class="modal-backdrop">
-          <button>close</button>
+          <button>{t().close}</button>
         </form>
       </dialog>
     </>

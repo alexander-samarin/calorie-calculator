@@ -82,16 +82,19 @@ body {
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-balance;
-}
+/* In the base layer so utility classes (e.g. text-left) can override */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-balance;
+  }
 
-h1,
-h2 {
-  @apply text-center;
+  h1,
+  h2 {
+    @apply text-center;
+  }
 }

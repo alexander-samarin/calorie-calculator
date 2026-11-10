@@ -68,6 +68,8 @@ export type BaseDict = {
   language: string;
   theme: string;
   settings: string;
+  done: string;
+  close: string;
 
   // Footer
   copyright: string;

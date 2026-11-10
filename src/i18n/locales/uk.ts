@@ -63,6 +63,8 @@ export const uk: BaseDict = {
   language: "Мова",
   theme: "Тема",
   settings: "Налаштування",
+  done: "Готово",
+  close: "Закрити",
 
   // Footer
   copyright:

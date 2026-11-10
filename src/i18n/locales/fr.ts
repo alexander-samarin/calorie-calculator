@@ -63,6 +63,8 @@ export const fr: BaseDict = {
   language: "Langue",
   theme: "Thème",
   settings: "Paramètres",
+  done: "Terminé",
+  close: "Fermer",
 
   // Footer
   copyright:
