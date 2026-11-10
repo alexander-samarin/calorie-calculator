@@ -1,6 +1,5 @@
 import { useNavigate } from "@solidjs/router";
 import { onMount } from "solid-js";
-import { isServer } from "solid-js/web";
 import Calculator from "~/components/Calculator";
 import Footer from "~/components/Footer";
 import Head from "~/components/Head";
@@ -10,33 +9,11 @@ import Seo from "~/components/Seo";
 import {
   LocaleProvider,
   useLocale,
-  LOCALES,
   DEFAULT_LOCALE,
-  isValidLocale,
-  type Locale,
+  detectLocale,
 } from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
-
-const detectLocale = (): Locale => {
-  if (isServer) return DEFAULT_LOCALE;
-
-  // Check saved locale first
-  const savedLocale = storage.get(LOCALE_STORAGE_KEY);
-  if (savedLocale && isValidLocale(savedLocale)) {
-    return savedLocale;
-  }
-
-  // Fall back to browser language detection
-  const browserLang = navigator.language.toLowerCase();
-  for (const locale of LOCALES) {
-    if (browserLang.startsWith(locale)) {
-      return locale;
-    }
-  }
-
-  return DEFAULT_LOCALE;
-};
 
 function HomeContent() {
   const { t } = useLocale();

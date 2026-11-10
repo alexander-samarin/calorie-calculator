@@ -78,4 +78,9 @@ export const be: BaseDict = {
   bmiNormal: "Норма",
   bmiOverweight: "Лішняя вага",
   bmiObese: "Атлусценне",
+
+  // 404
+  notFoundTitle: "Старонка не знойдзена",
+  notFoundText: "Такой старонкі не існуе.",
+  goHome: "Перайсці да калькулятара",
 };

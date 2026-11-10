@@ -77,4 +77,9 @@ export const fr: BaseDict = {
   bmiNormal: "Normal",
   bmiOverweight: "Surpoids",
   bmiObese: "Obésité",
+
+  // 404
+  notFoundTitle: "Page introuvable",
+  notFoundText: "Cette page n'existe pas.",
+  goHome: "Aller au calculateur",
 };

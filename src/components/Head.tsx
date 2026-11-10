@@ -1,6 +1,5 @@
 import { Title, Meta, Link } from "@solidjs/meta";
-import { For, createEffect } from "solid-js";
-import { isServer } from "solid-js/web";
+import { For } from "solid-js";
 import { useLocale, LOCALES, DEFAULT_LOCALE, type Locale } from "~/i18n";
 import { getJsonLd } from "~/content/jsonld";
 
@@ -28,13 +27,6 @@ function Head() {
 
   const jsonLd = () => JSON.stringify(getJsonLd(locale()));
   const canonicalUrl = () => getCanonicalUrl(locale());
-
-  // Update html lang attribute reactively
-  createEffect(() => {
-    if (!isServer) {
-      document.documentElement.lang = locale();
-    }
-  });
 
   return (
     <>

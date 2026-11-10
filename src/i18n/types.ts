@@ -73,6 +73,11 @@ export type BaseDict = {
   bmiNormal: string;
   bmiOverweight: string;
   bmiObese: string;
+
+  // 404
+  notFoundTitle: string;
+  notFoundText: string;
+  goHome: string;
 };
 
 export type Locale =

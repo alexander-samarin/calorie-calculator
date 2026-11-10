@@ -78,4 +78,9 @@ export const ru: BaseDict = {
   bmiNormal: "Норма",
   bmiOverweight: "Избыточный вес",
   bmiObese: "Ожирение",
+
+  // 404
+  notFoundTitle: "Страница не найдена",
+  notFoundText: "Такой страницы не существует.",
+  goHome: "Перейти к калькулятору",
 };

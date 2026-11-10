@@ -1,9 +1,13 @@
 import {
   createContext,
+  createEffect,
   useContext,
   type ParentProps,
   type Accessor,
 } from "solid-js";
+import { isServer } from "solid-js/web";
+import { storage } from "~/helpers";
+import { LOCALE_STORAGE_KEY } from "~/constants";
 import { LOCALES, DEFAULT_LOCALE, type Locale, type BaseDict } from "./types";
 import { en } from "./locales/en";
 import { ru } from "./locales/ru";
@@ -37,12 +41,35 @@ export const isValidLocale = (
   return LOCALES.includes(value as Locale);
 };
 
+/** Path of the home page for a locale ("/" for the default locale) */
+export const getLocalePath = (locale: Locale): string =>
+  locale === DEFAULT_LOCALE ? "/" : `/${locale}`;
+
+/**
+ * Preferred locale of the visitor: saved choice first, then browser language.
+ * Client-only — always returns DEFAULT_LOCALE on the server.
+ */
+export const detectLocale = (): Locale => {
+  if (isServer) return DEFAULT_LOCALE;
+
+  const savedLocale = storage.get(LOCALE_STORAGE_KEY);
+  if (isValidLocale(savedLocale)) return savedLocale;
+
+  const browserLang = navigator.language.toLowerCase();
+  return LOCALES.find((locale) => browserLang.startsWith(locale)) ?? DEFAULT_LOCALE;
+};
+
 // Context for locale - stores an accessor for reactivity
 const LocaleContext = createContext<Accessor<Locale>>(() => DEFAULT_LOCALE);
 
 export function LocaleProvider(
   props: ParentProps<{ locale: Accessor<Locale> }>
 ) {
+  // Keep <html lang> in sync on client-side navigation
+  createEffect(() => {
+    if (!isServer) document.documentElement.lang = props.locale();
+  });
+
   return (
     <LocaleContext.Provider value={props.locale}>
       {props.children}
