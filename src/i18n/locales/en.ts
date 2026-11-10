@@ -22,6 +22,7 @@ export const en: BaseDict = {
   fatPerKg: "fat per 1 kg of weight",
 
   // Gender
+  gender: "Sex",
   female: "Female",
   male: "Male",
 
@@ -33,6 +34,8 @@ export const en: BaseDict = {
   veryHighActivity: "2 workouts per day",
 
   // Goal options
+  goalGroupLoss: "Weight loss",
+  goalGroupGain: "Muscle gain",
   mildWeightLoss: "Mild weight loss",
   moderateWeightLoss: "Moderate weight loss",
   aggressiveWeightLoss: "Aggressive weight loss",

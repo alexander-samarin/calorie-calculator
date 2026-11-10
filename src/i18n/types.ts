@@ -28,6 +28,7 @@ export type BaseDict = {
   fatPerKg: string;
 
   // Gender
+  gender: string;
   female: string;
   male: string;
 
@@ -39,6 +40,8 @@ export type BaseDict = {
   veryHighActivity: string;
 
   // Goal options
+  goalGroupLoss: string;
+  goalGroupGain: string;
   mildWeightLoss: string;
   moderateWeightLoss: string;
   aggressiveWeightLoss: string;

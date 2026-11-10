@@ -22,6 +22,7 @@ export const pl: BaseDict = {
   fatPerKg: "tłuszczu na 1 kg wagi",
 
   // Gender
+  gender: "Płeć",
   female: "Kobieta",
   male: "Mężczyzna",
 
@@ -33,6 +34,8 @@ export const pl: BaseDict = {
   veryHighActivity: "2 treningi dziennie",
 
   // Goal options
+  goalGroupLoss: "Odchudzanie",
+  goalGroupGain: "Budowa masy",
   mildWeightLoss: "Łagodne odchudzanie",
   moderateWeightLoss: "Umiarkowane odchudzanie",
   aggressiveWeightLoss: "Intensywne odchudzanie",

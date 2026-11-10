@@ -22,6 +22,7 @@ export const ru: BaseDict = {
   fatPerKg: "жиров на 1 кг веса",
 
   // Gender
+  gender: "Пол",
   female: "Женщина",
   male: "Мужчина",
 
@@ -33,6 +34,8 @@ export const ru: BaseDict = {
   veryHighActivity: "Тренировки 2 раза в день",
 
   // Goal options
+  goalGroupLoss: "Похудение",
+  goalGroupGain: "Набор массы",
   mildWeightLoss: "Мягкое похудение",
   moderateWeightLoss: "Умеренное похудение",
   aggressiveWeightLoss: "Агрессивное похудение",

@@ -9,6 +9,7 @@ import {
   INPUT_LIMITS,
   type GenderValue,
   type ActivityValue,
+  type GoalValue,
 } from "~/constants";
 import {
   storage,
@@ -26,7 +27,7 @@ export type CalculatorState = {
   age: string;
   gender: GenderValue;
   activity: ActivityValue;
-  goal: number;
+  goal: GoalValue;
   proteinPerKg: number;
   fatPerKg: number;
 };
@@ -44,8 +45,6 @@ const DEFAULT_STATE: CalculatorState = {
 
 const FIELDS = Object.keys(DEFAULT_STATE) as (keyof CalculatorState)[];
 
-const SELECTABLE_GOALS = GOAL_OPTIONS.filter((option) => !option.disabled);
-
 /**
  * Restores a field from its localStorage string (key = field name).
  * Stale or tampered values return null and the field keeps its default;
@@ -59,7 +58,7 @@ const RESTORE: {
   age: sanitizeNumericText,
   gender: (stored) => findOptionValue(GENDER_OPTIONS, stored),
   activity: (stored) => findOptionValue(ACTIVITY_OPTIONS, stored),
-  goal: (stored) => findOptionValue(SELECTABLE_GOALS, stored),
+  goal: (stored) => findOptionValue(GOAL_OPTIONS, stored),
   proteinPerKg: (stored) => parseClamped(stored, PROTEIN_PER_KG),
   fatPerKg: (stored) => parseClamped(stored, FAT_PER_KG),
 };

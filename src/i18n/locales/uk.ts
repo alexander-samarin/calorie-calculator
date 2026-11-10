@@ -22,6 +22,7 @@ export const uk: BaseDict = {
   fatPerKg: "жирів на 1 кг ваги",
 
   // Gender
+  gender: "Стать",
   female: "Жінка",
   male: "Чоловік",
 
@@ -33,6 +34,8 @@ export const uk: BaseDict = {
   veryHighActivity: "2 тренування на день",
 
   // Goal options
+  goalGroupLoss: "Схуднення",
+  goalGroupGain: "Набір маси",
   mildWeightLoss: "М'яке схуднення",
   moderateWeightLoss: "Помірне схуднення",
   aggressiveWeightLoss: "Інтенсивне схуднення",

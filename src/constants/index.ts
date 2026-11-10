@@ -73,19 +73,37 @@ export const ACTIVITY_OPTIONS = [
   { labelKey: "veryHighActivity", value: 1.9 },
 ] as const;
 
-export const GOAL_OPTIONS = [
-  { labelKey: "mildWeightLoss", value: 0.9, disabled: false },
-  { labelKey: "moderateWeightLoss", value: 0.85, disabled: false },
-  { labelKey: "aggressiveWeightLoss", value: 0.8, disabled: false },
-  { labelKey: null, value: 0, disabled: true },
-  { labelKey: "slowBulk", value: 1.1, disabled: false },
-  { labelKey: "moderateBulk", value: 1.15, disabled: false },
-  { labelKey: "fastBulk", value: 1.2, disabled: false },
-  { labelKey: null, value: 0, disabled: true },
-  { labelKey: "maintenance", value: 1, disabled: false },
+// Goals are shown grouped in the select; options without a group come last
+export const GOAL_GROUPS = [
+  {
+    labelKey: "goalGroupLoss",
+    options: [
+      { labelKey: "mildWeightLoss", value: 0.9 },
+      { labelKey: "moderateWeightLoss", value: 0.85 },
+      { labelKey: "aggressiveWeightLoss", value: 0.8 },
+    ],
+  },
+  {
+    labelKey: "goalGroupGain",
+    options: [
+      { labelKey: "slowBulk", value: 1.1 },
+      { labelKey: "moderateBulk", value: 1.15 },
+      { labelKey: "fastBulk", value: 1.2 },
+    ],
+  },
+  {
+    labelKey: null,
+    options: [{ labelKey: "maintenance", value: 1 }],
+  },
 ] as const;
+
+type GoalOption = (typeof GOAL_GROUPS)[number]["options"][number];
+
+export const GOAL_OPTIONS: readonly GoalOption[] = GOAL_GROUPS.flatMap(
+  (group): readonly GoalOption[] => group.options,
+);
 
 // Exported types for constants
 export type GenderValue = (typeof GENDER_OPTIONS)[number]["value"];
 export type ActivityValue = (typeof ACTIVITY_OPTIONS)[number]["value"];
-export type GoalOption = (typeof GOAL_OPTIONS)[number];
+export type GoalValue = GoalOption["value"];

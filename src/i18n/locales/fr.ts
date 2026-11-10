@@ -22,6 +22,7 @@ export const fr: BaseDict = {
   fatPerKg: "lipides par 1 kg de poids",
 
   // Gender
+  gender: "Sexe",
   female: "Femme",
   male: "Homme",
 
@@ -33,6 +34,8 @@ export const fr: BaseDict = {
   veryHighActivity: "2 entraînements par jour",
 
   // Goal options
+  goalGroupLoss: "Perte de poids",
+  goalGroupGain: "Prise de masse",
   mildWeightLoss: "Perte de poids légère",
   moderateWeightLoss: "Perte de poids modérée",
   aggressiveWeightLoss: "Perte de poids intensive",

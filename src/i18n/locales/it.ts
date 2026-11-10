@@ -22,6 +22,7 @@ export const it: BaseDict = {
   fatPerKg: "grassi per 1 kg di peso",
 
   // Gender
+  gender: "Sesso",
   female: "Donna",
   male: "Uomo",
 
@@ -33,6 +34,8 @@ export const it: BaseDict = {
   veryHighActivity: "2 allenamenti al giorno",
 
   // Goal options
+  goalGroupLoss: "Perdita di peso",
+  goalGroupGain: "Aumento di massa",
   mildWeightLoss: "Dimagrimento leggero",
   moderateWeightLoss: "Dimagrimento moderato",
   aggressiveWeightLoss: "Dimagrimento intenso",

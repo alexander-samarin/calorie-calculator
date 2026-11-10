@@ -8,6 +8,7 @@ import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
   GOAL_OPTIONS,
+  GOAL_GROUPS,
   PROTEIN_PER_KG,
   FAT_PER_KG,
   PLACEHOLDERS,
@@ -36,11 +37,13 @@ function Calculator() {
       value: opt.value,
     }));
 
-  const goalOptions = () =>
-    GOAL_OPTIONS.map((opt) => ({
-      label: opt.labelKey ? t()[opt.labelKey] : "---",
-      value: opt.value,
-      disabled: opt.disabled,
+  const goalGroups = () =>
+    GOAL_GROUPS.map((group) => ({
+      label: group.labelKey ? t()[group.labelKey] : null,
+      options: group.options.map((opt) => ({
+        label: t()[opt.labelKey],
+        value: opt.value,
+      })),
     }));
 
   return (
@@ -64,20 +67,27 @@ function Calculator() {
       <BmiDisplay weightKg={weightKg()} heightCm={heightCm()} />
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto mt-8">
-        <div class="flex gap-2">
+        <fieldset class="flex gap-2">
+          <legend class="sr-only">{t().gender}</legend>
           <For each={GENDER_OPTIONS}>
             {(option) => (
-              <button
-                class={`btn btn-lg ${
-                  state.gender === option.value ? "btn-primary" : ""
-                }`}
-                onClick={() => setField("gender", option.value)}
+              <label
+                class="btn btn-lg has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary"
+                classList={{ "btn-primary": state.gender === option.value }}
               >
+                <input
+                  type="radio"
+                  name="gender"
+                  class="sr-only"
+                  value={option.value}
+                  checked={state.gender === option.value}
+                  onChange={() => setField("gender", option.value)}
+                />
                 {t()[option.labelKey]}
-              </button>
+              </label>
             )}
           </For>
-        </div>
+        </fieldset>
 
         <NumberInput
           label={t().weight}
@@ -123,7 +133,7 @@ function Calculator() {
             const goal = findOptionValue(GOAL_OPTIONS, value);
             if (goal !== null) setField("goal", goal);
           }}
-          options={goalOptions()}
+          options={goalGroups()}
         />
 
         <RangeInput

@@ -22,6 +22,7 @@ export const be: BaseDict = {
   fatPerKg: "тлушчаў на 1 кг вагі",
 
   // Gender
+  gender: "Пол",
   female: "Жанчына",
   male: "Мужчына",
 
@@ -33,6 +34,8 @@ export const be: BaseDict = {
   veryHighActivity: "2 трэніроўкі на дзень",
 
   // Goal options
+  goalGroupLoss: "Пахудзенне",
+  goalGroupGain: "Набор масы",
   mildWeightLoss: "Мяккае пахуданне",
   moderateWeightLoss: "Умеранае пахуданне",
   aggressiveWeightLoss: "Інтэнсіўнае пахуданне",
