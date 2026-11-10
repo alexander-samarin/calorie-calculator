@@ -1,4 +1,3 @@
-import { useNavigate } from "@solidjs/router";
 import { onMount } from "solid-js";
 import Calculator from "~/components/Calculator";
 import Footer from "~/components/Footer";
@@ -10,21 +9,19 @@ import {
   LocaleProvider,
   useLocale,
   DEFAULT_LOCALE,
-  detectLocale,
+  isValidLocale,
 } from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 
 function HomeContent() {
   const { t } = useLocale();
-  const navigate = useNavigate();
 
+  // Visitors with another preferred language are redirected before paint by
+  // the inline script (src/i18n/redirectScript.ts). Reaching this page means
+  // the default locale is wanted: remember it if nothing is saved yet.
   onMount(() => {
-    const locale = detectLocale();
-    if (locale !== DEFAULT_LOCALE) {
-      navigate(`/${locale}`, { replace: true });
-    } else {
-      // Save default locale as preferred
+    if (!isValidLocale(storage.get(LOCALE_STORAGE_KEY))) {
       storage.set(LOCALE_STORAGE_KEY, DEFAULT_LOCALE);
     }
   });
@@ -45,8 +42,7 @@ function HomeContent() {
 }
 
 export default function Home() {
-  // Render default locale version (good for SEO)
-  // Will redirect to browser language after hydration if different
+  // Always the default locale; see redirect note in HomeContent
   return (
     <LocaleProvider locale={() => DEFAULT_LOCALE}>
       <HomeContent />
