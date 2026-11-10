@@ -53,9 +53,16 @@ npm run build
 npm run preview
 ```
 
+### Checks
+
+```bash
+npm run typecheck   # TypeScript
+npm test            # unit tests (Vitest)
+```
+
 ## Deployment
 
-The app is automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch.
+The app is automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch. Type check and unit tests run first; if either fails, nothing is deployed.
 
 ## License
 
