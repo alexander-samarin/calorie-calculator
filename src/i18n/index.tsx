@@ -66,13 +66,16 @@ const LocaleContext = createContext<Accessor<Locale>>(() => DEFAULT_LOCALE);
 export function LocaleProvider(
   props: ParentProps<{ locale: Accessor<Locale> }>,
 ) {
+  // Always reads the current prop, even if the parent passes a new accessor
+  const locale: Accessor<Locale> = () => props.locale();
+
   // Keep <html lang> in sync on client-side navigation
   createEffect(() => {
-    if (!isServer) document.documentElement.lang = props.locale();
+    if (!isServer) document.documentElement.lang = locale();
   });
 
   return (
-    <LocaleContext.Provider value={props.locale}>
+    <LocaleContext.Provider value={locale}>
       {props.children}
     </LocaleContext.Provider>
   );

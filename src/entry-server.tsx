@@ -38,7 +38,12 @@ export default createHandler(() => (
               name="viewport"
               content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content"
             />
-            {pathname === "/" && <script innerHTML={localeRedirectScript} />}
+            {/* Inline scripts are built from constants only (no user input) */}
+            {pathname === "/" && (
+              // eslint-disable-next-line solid/no-innerhtml -- static script
+              <script innerHTML={localeRedirectScript} />
+            )}
+            {/* eslint-disable-next-line solid/no-innerhtml -- static script */}
             <script innerHTML={themeInitScript} />
             {assets}
             <link

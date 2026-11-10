@@ -56,13 +56,15 @@ npm run preview
 ### Checks
 
 ```bash
-npm run typecheck   # TypeScript
-npm test            # unit tests (Vitest)
+npm run typecheck     # TypeScript
+npm run lint          # ESLint (incl. eslint-plugin-solid)
+npm test              # unit tests (Vitest)
+npm run format:check  # Prettier (npm run format to fix)
 ```
 
 ## Deployment
 
-The app is automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch. Type check and unit tests run first; if either fails, nothing is deployed.
+The app is automatically deployed to GitHub Pages via GitHub Actions on push to `main` branch. Type check, lint, formatting check and unit tests run first; if any fails, nothing is deployed.
 
 ## License
 

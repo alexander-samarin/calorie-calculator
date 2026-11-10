@@ -32,7 +32,9 @@ const OG_LOCALES: Record<Locale, string> = {
 function Head() {
   const { t, locale } = useLocale();
 
-  const jsonLd = () => JSON.stringify(getJsonLd(locale()));
+  // Escape "<" so text like "</script>" in the data cannot close the tag early
+  const jsonLd = () =>
+    JSON.stringify(getJsonLd(locale())).replace(/</g, "\\u003c");
   const canonicalUrl = () => getLocaleUrl(locale());
 
   return (
@@ -82,7 +84,8 @@ function Head() {
         href={getLocaleUrl(DEFAULT_LOCALE)}
       />
 
-      {/* JSON-LD Structured Data */}
+      {/* JSON-LD Structured Data (static content from src/content/jsonld) */}
+      {/* eslint-disable-next-line solid/no-innerhtml -- escaped JSON, see jsonLd */}
       <script type="application/ld+json" innerHTML={jsonLd()} />
     </>
   );
