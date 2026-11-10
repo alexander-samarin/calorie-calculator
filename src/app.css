@@ -85,6 +85,13 @@ body {
     env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
+/* Keep focused fields clear of the mobile summary bar (SummaryBar.tsx) */
+@media (width < 48rem) {
+  html {
+    scroll-padding-top: calc(6rem + env(safe-area-inset-top));
+  }
+}
+
 /* In the base layer so utility classes (e.g. text-left) can override */
 @layer base {
   h1,

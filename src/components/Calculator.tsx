@@ -1,9 +1,10 @@
-import { For, Show } from "solid-js";
+import { createSignal, For, onCleanup, onMount, Show } from "solid-js";
 import BmiDisplay from "./BmiDisplay";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
 import Select from "./Select";
 import StatsRow from "./StatsRow";
+import SummaryBar from "./SummaryBar";
 import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
@@ -19,12 +20,45 @@ import { useLocale, usePluralizeGrams } from "~/i18n";
 import { useCalculator } from "~/hooks/useCalculator";
 import { isOutOfRange, findOptionValue } from "~/helpers";
 
+/** Below this share of the result cards on screen the summary bar shows */
+const RESULTS_VISIBLE_RATIO = 0.25;
+
 function Calculator() {
   const { t } = useLocale();
   const pluralizeGrams = usePluralizeGrams();
 
   const { state, setField, weightKg, heightCm, result, clearData } =
     useCalculator();
+
+  // The summary bar appears once the result cards are scrolled past (above
+  // the viewport) while the calculator itself is still on screen
+  let sectionRef: HTMLElement | undefined;
+  let resultsRef: HTMLDivElement | undefined;
+  const [resultsScrolledPast, setResultsScrolledPast] = createSignal(false);
+  const [sectionOnScreen, setSectionOnScreen] = createSignal(true);
+
+  onMount(() => {
+    if (!sectionRef || !resultsRef) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.target === resultsRef) {
+            // Mostly scrolled away is enough: a leftover strip is not readable
+            setResultsScrolledPast(
+              entry.intersectionRatio < RESULTS_VISIBLE_RATIO &&
+                entry.boundingClientRect.top < 0,
+            );
+          } else {
+            setSectionOnScreen(entry.isIntersecting);
+          }
+        }
+      },
+      { threshold: [0, RESULTS_VISIBLE_RATIO] },
+    );
+    observer.observe(resultsRef);
+    observer.observe(sectionRef);
+    onCleanup(() => observer.disconnect());
+  });
 
   const rangeHint = (limits: InputLimits) =>
     t()
@@ -47,47 +81,57 @@ function Calculator() {
     }));
 
   return (
-    <section class="flex flex-col items-center w-full">
-      <StatsRow
-        items={[
-          {
-            title: t().basalMetabolism,
-            value: Math.round(result().bmr),
-            unit: t().kcal,
-          },
-          {
-            title: t().dailyExpenditure,
-            value: result().baseTdee,
-            unit: t().kcal,
-          },
-          {
-            title: t().yourNorm,
-            value: result().tdee,
-            unit: t().kcal,
-            isPrimary: true,
-          },
-        ]}
+    <section ref={sectionRef} class="flex flex-col items-center w-full">
+      <SummaryBar
+        show={resultsScrolledPast() && sectionOnScreen() && result().tdee > 0}
+        tdee={result().tdee}
+        proteins={result().proteins}
+        fats={result().fats}
+        carbs={result().carbs}
       />
 
-      <StatsRow
-        items={[
-          {
-            title: t().proteins,
-            value: result().proteins,
-            unit: pluralizeGrams(result().proteins),
-          },
-          {
-            title: t().fats,
-            value: result().fats,
-            unit: pluralizeGrams(result().fats),
-          },
-          {
-            title: t().carbs,
-            value: result().carbs,
-            unit: pluralizeGrams(result().carbs),
-          },
-        ]}
-      />
+      <div ref={resultsRef} class="flex flex-col items-center w-full">
+        <StatsRow
+          items={[
+            {
+              title: t().basalMetabolism,
+              value: Math.round(result().bmr),
+              unit: t().kcal,
+            },
+            {
+              title: t().dailyExpenditure,
+              value: result().baseTdee,
+              unit: t().kcal,
+            },
+            {
+              title: t().yourNorm,
+              value: result().tdee,
+              unit: t().kcal,
+              isPrimary: true,
+            },
+          ]}
+        />
+
+        <StatsRow
+          items={[
+            {
+              title: t().proteins,
+              value: result().proteins,
+              unit: pluralizeGrams(result().proteins),
+            },
+            {
+              title: t().fats,
+              value: result().fats,
+              unit: pluralizeGrams(result().fats),
+            },
+            {
+              title: t().carbs,
+              value: result().carbs,
+              unit: pluralizeGrams(result().carbs),
+            },
+          ]}
+        />
+      </div>
 
       <Show when={result().macrosExceedTarget}>
         <div
