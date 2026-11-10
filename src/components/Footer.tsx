@@ -1,11 +1,7 @@
 import { For } from "solid-js";
-import { AVAILABLE_LOCALES, DEFAULT_LOCALE, useLocale } from "~/i18n";
+import { AVAILABLE_LOCALES, getLocalePath, useLocale } from "~/i18n";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
-
-const getLocalePath = (code: string): string => {
-  return code === DEFAULT_LOCALE ? "/" : `/${code}`;
-};
 
 const currentYear = new Date().getFullYear();
 
