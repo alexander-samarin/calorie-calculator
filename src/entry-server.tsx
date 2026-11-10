@@ -34,9 +34,27 @@ export default createHandler(() => (
         <html lang={lang}>
           <head>
             <meta charset="utf-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content"
+            />
             {pathname === "/" && <script innerHTML={localeRedirectScript} />}
             <script innerHTML={themeInitScript} />
             {assets}
+            <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+            <link rel="shortcut icon" href="/favicon.ico" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+            <link rel="manifest" href="/site.webmanifest" />
+            <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
+            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#393c4a" />
+            {/* Analytics: loaded once per document; client-side navigations
+                are counted by PageviewTracker (src/app.tsx) */}
+            <script
+              data-goatcounter="https://giddy1327.goatcounter.com/count"
+              async
+              src="https://gc.zgo.at/count.js"
+            />
           </head>
           <body>
             <div id="app">{children}</div>

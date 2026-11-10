@@ -3,6 +3,7 @@ import {
   type ParentProps,
   Match,
   Switch,
+  Suspense,
   createEffect,
   createSignal,
   onMount,
@@ -67,7 +68,9 @@ export default function LangLayout(props: ParentProps) {
         </Match>
         <Match when={true}>
           <Head />
-          {props.children}
+          {/* Own boundary: the lazy child route must not re-render this
+              layout during SSR (that duplicated Head's <link> tags) */}
+          <Suspense>{props.children}</Suspense>
         </Match>
       </Switch>
     </LocaleProvider>

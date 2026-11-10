@@ -1,70 +1,47 @@
 import { Title, Meta, Link } from "@solidjs/meta";
 import { For } from "solid-js";
-import { useLocale, LOCALES, DEFAULT_LOCALE, type Locale } from "~/i18n";
+import {
+  useLocale,
+  getLocalePath,
+  LOCALES,
+  DEFAULT_LOCALE,
+  type Locale,
+} from "~/i18n";
 import { getJsonLd } from "~/content/jsonld";
 
 const OG_IMAGE_URL = "https://caloriecalc.cc/og.png";
 const SITE_URL = "https://caloriecalc.cc";
 
-/**
- * Get the absolute URL for a given locale
- */
-const getLocaleUrl = (localeCode: Locale): string => {
-  return localeCode === DEFAULT_LOCALE ? SITE_URL : `${SITE_URL}/${localeCode}`;
-};
+/** Absolute URL of a locale's page (matches public/sitemap.xml) */
+const getLocaleUrl = (locale: Locale): string =>
+  `${SITE_URL}${getLocalePath(locale)}`;
 
-/**
- * Get the canonical URL for the current page
- */
-const getCanonicalUrl = (currentLocale: Locale): string => {
-  return currentLocale === DEFAULT_LOCALE
-    ? SITE_URL
-    : `${SITE_URL}/${currentLocale}`;
+/** Open Graph expects language_TERRITORY */
+const OG_LOCALES: Record<Locale, string> = {
+  en: "en_US",
+  ru: "ru_RU",
+  pl: "pl_PL",
+  de: "de_DE",
+  es: "es_ES",
+  it: "it_IT",
+  fr: "fr_FR",
+  uk: "uk_UA",
+  be: "be_BY",
 };
 
 function Head() {
   const { t, locale } = useLocale();
 
   const jsonLd = () => JSON.stringify(getJsonLd(locale()));
-  const canonicalUrl = () => getCanonicalUrl(locale());
+  const canonicalUrl = () => getLocaleUrl(locale());
 
   return (
     <>
       <Title>{t().title}</Title>
       <Meta name="description" content={t().description} />
-      <Meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content"
-      />
-
-      {/* Favicons */}
-      <Link
-        rel="icon"
-        type="image/png"
-        href="/favicon-96x96.png"
-        sizes="96x96"
-      />
-      <Link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <Link rel="shortcut icon" href="/favicon.ico" />
-      <Link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
+      {/* Static tags (viewport, icons, manifest, theme-color) live in
+          src/entry-server.tsx so every page, including 404, has them */}
       <Meta name="apple-mobile-web-app-title" content={t().appName} />
-      <Link rel="manifest" href="/site.webmanifest" />
-
-      {/* Theme color */}
-      <Meta
-        name="theme-color"
-        media="(prefers-color-scheme: light)"
-        content="#fafafa"
-      />
-      <Meta
-        name="theme-color"
-        media="(prefers-color-scheme: dark)"
-        content="#393c4a"
-      />
 
       {/* Open Graph */}
       <Meta property="og:title" content={t().title} />
@@ -73,7 +50,12 @@ function Head() {
       <Meta property="og:url" content={canonicalUrl()} />
       <Meta property="og:type" content="website" />
       <Meta property="og:site_name" content={t().title} />
-      <Meta property="og:locale" content={locale()} />
+      <Meta property="og:locale" content={OG_LOCALES[locale()]} />
+      <For each={LOCALES.filter((code) => code !== locale())}>
+        {(code) => (
+          <Meta property="og:locale:alternate" content={OG_LOCALES[code]} />
+        )}
+      </For>
 
       {/* Twitter */}
       <Meta name="twitter:card" content="summary_large_image" />
@@ -94,17 +76,10 @@ function Head() {
       </For>
 
       {/* x-default hreflang for language negotiation */}
-      <Link rel="alternate" hreflang="x-default" href={SITE_URL} />
+      <Link rel="alternate" hreflang="x-default" href={getLocaleUrl(DEFAULT_LOCALE)} />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" innerHTML={jsonLd()} />
-
-      {/* Analytics */}
-      <script
-        data-goatcounter="https://giddy1327.goatcounter.com/count"
-        async
-        src="//gc.zgo.at/count.js"
-      />
     </>
   );
 }
