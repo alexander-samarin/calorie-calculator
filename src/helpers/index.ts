@@ -19,6 +19,14 @@ export const storage = {
       // Storage quota exceeded or private mode
     }
   },
+  remove: (key: string): void => {
+    if (!isBrowser) return;
+    try {
+      localStorage.removeItem(key);
+    } catch {
+      // Storage unavailable
+    }
+  },
 };
 
 /**

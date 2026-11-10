@@ -1,4 +1,4 @@
-import { createSignal, createMemo, createEffect, onMount } from "solid-js";
+import { batch, createSignal, createMemo, createEffect, onMount } from "solid-js";
 import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
@@ -101,40 +101,40 @@ export function useCalculator() {
     return Math.max(0, Math.round(remainingCalories / CARB));
   });
 
+  // Only non-default values are kept in localStorage; a field equal to its
+  // default is removed. So resetting the signals (clearData) also clears storage.
+  const persist = (key: string, value: string | number, defaultValue: string | number) => {
+    if (value === defaultValue) storage.remove(key);
+    else storage.set(key, String(value));
+  };
+
   // Save to localStorage only after hydration to avoid overwriting with defaults
   createEffect(() => {
     if (!isHydrated()) return;
 
-    storage.set("weight", weight());
-    storage.set("height", height());
-    storage.set("age", age());
-    storage.set("gender", gender());
-    storage.set("activity", String(activity()));
-    storage.set("goal", String(goal()));
-    storage.set("proteinPerKg", String(proteinPerKg()));
-    storage.set("fatPerKg", String(fatPerKg()));
+    persist("weight", weight(), "");
+    persist("height", height(), "");
+    persist("age", age(), "");
+    persist("gender", gender(), GENDER_OPTIONS[0].value);
+    persist("activity", activity(), ACTIVITY_OPTIONS[0].value);
+    persist("goal", goal(), GOAL_OPTIONS[0].value);
+    persist("proteinPerKg", proteinPerKg(), PROTEIN_PER_KG.DEFAULT);
+    persist("fatPerKg", fatPerKg(), FAT_PER_KG.DEFAULT);
   });
 
   const clearData = () => {
-    // Reset all values to defaults
-    setWeight("");
-    setHeight("");
-    setAge("");
-    setGender(GENDER_OPTIONS[0].value);
-    setActivity(ACTIVITY_OPTIONS[0].value);
-    setGoal(GOAL_OPTIONS[0].value);
-    setProteinPerKg(PROTEIN_PER_KG.DEFAULT);
-    setFatPerKg(FAT_PER_KG.DEFAULT);
-
-    // Clear localStorage
-    storage.set("weight", "");
-    storage.set("height", "");
-    storage.set("age", "");
-    storage.set("gender", "");
-    storage.set("activity", "");
-    storage.set("goal", "");
-    storage.set("proteinPerKg", "");
-    storage.set("fatPerKg", "");
+    // Reset all values to defaults in one update; the effect above then
+    // removes every key from localStorage
+    batch(() => {
+      setWeight("");
+      setHeight("");
+      setAge("");
+      setGender(GENDER_OPTIONS[0].value);
+      setActivity(ACTIVITY_OPTIONS[0].value);
+      setGoal(GOAL_OPTIONS[0].value);
+      setProteinPerKg(PROTEIN_PER_KG.DEFAULT);
+      setFatPerKg(FAT_PER_KG.DEFAULT);
+    });
   };
 
   return {
