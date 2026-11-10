@@ -11,7 +11,13 @@ import {
   type GenderValue,
   type ActivityValue,
 } from "~/constants";
-import { storage, parseInRange } from "~/helpers";
+import {
+  storage,
+  parseInRange,
+  sanitizeNumericText,
+  findOptionValue,
+  parseClamped,
+} from "~/helpers";
 
 export function useCalculator() {
   // Initialize with defaults
@@ -32,26 +38,32 @@ export function useCalculator() {
   const [isHydrated, setIsHydrated] = createSignal(false);
 
   // Load saved values from localStorage after mount
+  // Saved values may be stale or tampered with: anything invalid is ignored
+  // (the field keeps its default), slider values are clamped to their range.
   onMount(() => {
-    const savedWeight = storage.get("weight");
-    const savedHeight = storage.get("height");
-    const savedAge = storage.get("age");
-    const savedGender = storage.get("gender");
-    const savedActivity = storage.get("activity");
-    const savedGoal = storage.get("goal");
-    const savedProteinPerKg = storage.get("proteinPerKg");
-    const savedFatPerKg = storage.get("fatPerKg");
+    const savedWeight = sanitizeNumericText(storage.get("weight"));
+    const savedHeight = sanitizeNumericText(storage.get("height"));
+    const savedAge = sanitizeNumericText(storage.get("age"));
+    const savedGender = findOptionValue(GENDER_OPTIONS, storage.get("gender"));
+    const savedActivity = findOptionValue(ACTIVITY_OPTIONS, storage.get("activity"));
+    const savedGoal = findOptionValue(
+      GOAL_OPTIONS.filter((option) => !option.disabled),
+      storage.get("goal"),
+    );
+    const savedProteinPerKg = parseClamped(storage.get("proteinPerKg"), PROTEIN_PER_KG);
+    const savedFatPerKg = parseClamped(storage.get("fatPerKg"), FAT_PER_KG);
 
-    if (savedWeight) setWeight(savedWeight);
-    if (savedHeight) setHeight(savedHeight);
-    if (savedAge) setAge(savedAge);
-    if (savedGender) setGender(savedGender as GenderValue);
-    if (savedActivity) setActivity(Number(savedActivity) as ActivityValue);
-    if (savedGoal) setGoal(Number(savedGoal));
-    if (savedProteinPerKg) setProteinPerKg(Number(savedProteinPerKg));
-    if (savedFatPerKg) setFatPerKg(Number(savedFatPerKg));
-
-    setIsHydrated(true);
+    batch(() => {
+      if (savedWeight !== null) setWeight(savedWeight);
+      if (savedHeight !== null) setHeight(savedHeight);
+      if (savedAge !== null) setAge(savedAge);
+      if (savedGender !== null) setGender(savedGender);
+      if (savedActivity !== null) setActivity(savedActivity);
+      if (savedGoal !== null) setGoal(savedGoal);
+      if (savedProteinPerKg !== null) setProteinPerKg(savedProteinPerKg);
+      if (savedFatPerKg !== null) setFatPerKg(savedFatPerKg);
+      setIsHydrated(true);
+    });
   });
 
   // Validated numbers; null when empty or out of INPUT_LIMITS
