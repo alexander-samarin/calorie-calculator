@@ -10,9 +10,7 @@ export const pl: BaseDict = {
   carbs: "Węglowodany",
   kcal: "kcal",
   gramShort: "g",
-  gram_one: "gram",
-  gram_few: "gramy",
-  gram_other: "gramów",
+  grams: { one: "gram", few: "gramy", many: "gramów", other: "grama" },
 
   // Inputs
   weight: "Waga (kg)",

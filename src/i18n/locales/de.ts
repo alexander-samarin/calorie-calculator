@@ -10,8 +10,7 @@ export const de: BaseDict = {
   carbs: "Kohlenhydrate",
   kcal: "kcal",
   gramShort: "g",
-  gram_one: "Gramm",
-  gram_other: "Gramm",
+  grams: { one: "Gramm", other: "Gramm" },
 
   // Inputs
   weight: "Gewicht (kg)",

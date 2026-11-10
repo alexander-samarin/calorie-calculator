@@ -10,9 +10,7 @@ export const ru: BaseDict = {
   carbs: "Углеводы",
   kcal: "ккал",
   gramShort: "г",
-  gram_one: "грамм",
-  gram_few: "грамма",
-  gram_other: "граммов",
+  grams: { one: "грамм", few: "грамма", many: "граммов", other: "грамма" },
 
   // Inputs
   weight: "Вес (кг)",

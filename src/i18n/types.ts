@@ -1,3 +1,11 @@
+/**
+ * Word forms per CLDR plural category (see Intl.PluralRules).
+ * Only "other" is required; missing categories fall back to it.
+ */
+export type PluralForms = Partial<Record<Intl.LDMLPluralRule, string>> & {
+  other: string;
+};
+
 export type BaseDict = {
   // Calculator
   basalMetabolism: string;
@@ -8,9 +16,7 @@ export type BaseDict = {
   carbs: string;
   kcal: string;
   gramShort: string;
-  gram_one: string;
-  gram_few?: string; // Only for languages with "few" form (like Russian)
-  gram_other: string;
+  grams: PluralForms;
 
   // Inputs
   weight: string;

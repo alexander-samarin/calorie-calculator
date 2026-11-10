@@ -1,6 +1,7 @@
 import {
   createContext,
   createEffect,
+  createMemo,
   useContext,
   type ParentProps,
   type Accessor,
@@ -32,8 +33,6 @@ const dictionaries: Record<Locale, BaseDict> = {
 };
 
 export { LOCALES, DEFAULT_LOCALE };
-
-const SLAVIC_LOCALES: Locale[] = ["ru", "pl", "uk", "be"];
 
 export const isValidLocale = (
   value: string | null | undefined
@@ -98,35 +97,15 @@ export const useLocale = () => {
 };
 
 /**
- * Pluralize for grams based on current locale from context
+ * Pluralize "gram" for the current locale using CLDR plural rules
  */
 export const usePluralizeGrams = () => {
   const { locale, t } = useLocale();
+  const pluralRules = createMemo(() => new Intl.PluralRules(locale()));
 
   return (n: number): string => {
-    const dict = t();
-    const currentLocale = locale();
-
-    // Slavic plural rules (Russian, Polish, Ukrainian, Belarusian)
-    if (SLAVIC_LOCALES.includes(currentLocale)) {
-      const abs = Math.abs(n);
-      const mod10 = abs % 10;
-      const mod100 = abs % 100;
-
-      if (mod100 >= 11 && mod100 <= 19) {
-        return dict.gram_other;
-      }
-      if (mod10 === 1) {
-        return dict.gram_one;
-      }
-      if (mod10 >= 2 && mod10 <= 4) {
-        return dict.gram_few || dict.gram_other;
-      }
-      return dict.gram_other;
-    }
-
-    // English and other languages: simple plural
-    return n === 1 ? dict.gram_one : dict.gram_other;
+    const forms = t().grams;
+    return forms[pluralRules().select(n)] ?? forms.other;
   };
 };
 
