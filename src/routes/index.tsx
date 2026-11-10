@@ -33,7 +33,7 @@ function HomeContent() {
     <>
       <Head />
       <main class="flex flex-col items-center px-4 py-8">
-        <div class="text-2xl font-bold text-center mb-4">{t().title}</div>
+        <h1 class="text-2xl font-bold text-center mb-4">{t().title}</h1>
         <Love />
         <Calculator />
         <SettingsModal />

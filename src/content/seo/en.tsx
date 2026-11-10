@@ -1,9 +1,9 @@
 export default () => {
   return (
     <>
-      <h1 class="text-lg">
+      <h2 class="text-lg font-extrabold mb-[0.8em]">
         Accurate Calorie & Macro Calculator with Custom Settings
-      </h1>
+      </h2>
 
       <p>
         <strong>CalorieCalc.cc</strong> is an advanced nutrition planning tool.

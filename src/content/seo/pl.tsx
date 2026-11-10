@@ -1,10 +1,10 @@
 export default () => {
   return (
     <>
-      <h1 class="text-lg">
+      <h2 class="text-lg font-extrabold mb-[0.8em]">
         Dokładny kalkulator kalorii i makroskładników z indywidualnymi
         ustawieniami
-      </h1>
+      </h2>
 
       <p>
         <strong>CalorieCalc.cc</strong> to zaawansowane narzędzie do planowania

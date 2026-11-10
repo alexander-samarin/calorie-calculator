@@ -1,9 +1,9 @@
 export default () => {
   return (
     <>
-      <h1 class="text-lg">
+      <h2 class="text-lg font-extrabold mb-[0.8em]">
         Точный калькулятор калорий и БЖУ с настройкой макронутриентов
-      </h1>
+      </h2>
 
       <p>
         <strong>CalorieCalc.cc</strong> — это продвинутый инструмент для

@@ -1,10 +1,10 @@
 export default () => {
   return (
     <>
-      <h1 class="text-lg">
+      <h2 class="text-lg font-extrabold mb-[0.8em]">
         Calcolatore preciso di calorie e macronutrienti con impostazioni
         personalizzate
-      </h1>
+      </h2>
 
       <p>
         <strong>CalorieCalc.cc</strong> è uno strumento avanzato per la
