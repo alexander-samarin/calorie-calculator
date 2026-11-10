@@ -57,6 +57,14 @@ export default {
             text: "L'IMC (Indice de Masse Corporelle) est un indicateur qui aide à évaluer le rapport entre votre poids et votre taille. Notre calculateur calcule automatiquement l'IMC et affiche le résultat sur une échelle visuelle avec des zones colorées : insuffisance pondérale, normal, surpoids, obésité.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Pourquoi, en cas de surpoids, les protéines ne sont-elles pas calculées sur mon poids réel ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si l’IMC dépasse 25, le calculateur utilise pour les protéines et les lipides le poids correspondant à un IMC de 25 pour votre taille. Les besoins en protéines dépendent surtout de la masse musculaire et non du tissu adipeux : le poids total les surestimerait. Les calories restent calculées à partir de votre poids réel.",
+          },
+        },
       ],
     },
   ],

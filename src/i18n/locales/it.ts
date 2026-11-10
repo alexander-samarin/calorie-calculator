@@ -22,6 +22,8 @@ export const it: BaseDict = {
   fatPerKg: "grassi per 1 kg di peso",
   macrosExceedWarning:
     "Proteine e grassi superano già il tuo fabbisogno calorico e non resta nulla per i carboidrati. Riduci proteine o grassi per kg.",
+  macroWeightNote:
+    "Proteine e grassi sono calcolati per {weight} kg, il peso con IMC 25 per la tua altezza. In caso di sovrappeso, usare il peso totale sovrastima il fabbisogno.",
 
   // Gender
   gender: "Sesso",
@@ -83,6 +85,7 @@ export const it: BaseDict = {
   bmiNormal: "Normale",
   bmiOverweight: "Sovrappeso",
   bmiObese: "Obesità",
+
 
   // Validation
   rangeHint: "Da {min} a {max}",

@@ -112,6 +112,14 @@ export default () => {
         </li>
       </ul>
 
+      <p>
+        <strong>Calculation for excess weight.</strong> If your BMI is above 25,
+        protein and fat are calculated not for your full body weight but for the
+        weight that corresponds to BMI 25 at your height. Fat tissue barely
+        raises protein needs, so using full body weight would overestimate the
+        norm and leave no room for carbs. For example, at 165 cm this is 68 kg.
+      </p>
+
       <h2 class="text-lg">4. Body Mass Index (BMI) Calculator</h2>
       <p>
         In addition to calories and macros, <strong>CalorieCalc.cc</strong>{" "}
@@ -152,6 +160,16 @@ export default () => {
         "Fast Bulk" often leads to excessive fat gain. If you aim for a lean,
         muscular physique, choose "Slow" or "Moderate Bulk" and monitor your
         progress weekly.
+      </p>
+
+      <h3 class="text-lg">
+        Why isn't protein calculated for my actual weight when I'm overweight?
+      </h3>
+      <p>
+        If your BMI is above 25, the calculator uses the weight corresponding to
+        BMI 25 at your height for protein and fat. Protein needs depend mainly
+        on muscle mass, not fat tissue, so full body weight would overestimate
+        them. Calories are still calculated from your actual weight.
       </p>
     </>
   );

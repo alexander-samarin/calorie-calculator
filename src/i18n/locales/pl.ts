@@ -22,6 +22,8 @@ export const pl: BaseDict = {
   fatPerKg: "tłuszczu na 1 kg wagi",
   macrosExceedWarning:
     "Białko i tłuszcze już przekraczają Twój limit kalorii, na węglowodany nic nie zostaje. Zmniejsz ilość białka lub tłuszczu na kg masy ciała.",
+  macroWeightNote:
+    "Białko i tłuszcze obliczono dla {weight} kg, czyli masy ciała przy BMI 25 dla Twojego wzrostu. Przy nadwadze liczenie na pełną masę zawyża zapotrzebowanie.",
 
   // Gender
   gender: "Płeć",
@@ -83,6 +85,7 @@ export const pl: BaseDict = {
   bmiNormal: "Norma",
   bmiOverweight: "Nadwaga",
   bmiObese: "Otyłość",
+
 
   // Validation
   rangeHint: "Od {min} do {max}",

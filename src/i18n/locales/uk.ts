@@ -22,6 +22,8 @@ export const uk: BaseDict = {
   fatPerKg: "жирів на 1 кг ваги",
   macrosExceedWarning:
     "Білки та жири вже перевищують вашу норму калорій, на вуглеводи нічого не залишається. Зменште кількість білків або жирів на кг ваги.",
+  macroWeightNote:
+    "Білки та жири розраховано на {weight} кг: це вага при ІМТ 25 для вашого зросту. При надмірній вазі розрахунок на повну вагу завищує норму.",
 
   // Gender
   gender: "Стать",
@@ -83,6 +85,7 @@ export const uk: BaseDict = {
   bmiNormal: "Норма",
   bmiOverweight: "Надмірна вага",
   bmiObese: "Ожиріння",
+
 
   // Validation
   rangeHint: "Від {min} до {max}",

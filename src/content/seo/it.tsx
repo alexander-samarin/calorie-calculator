@@ -120,7 +120,18 @@ export default () => {
         </li>
       </ul>
 
-      <h2 class="text-lg">4. Calcolatore dell'Indice di Massa Corporea (IMC)</h2>
+      <p>
+        <strong>Calcolo in caso di sovrappeso.</strong> Se il tuo IMC supera 25,
+        proteine e grassi non vengono calcolati sul peso totale, ma sul peso
+        corrispondente a un IMC di 25 per la tua altezza. Il tessuto adiposo
+        aumenta appena il fabbisogno proteico, quindi usare il peso totale
+        sovrastimerebbe la norma e non lascerebbe spazio ai carboidrati. Ad
+        esempio, con 165 cm sono 68 kg.
+      </p>
+
+      <h2 class="text-lg">
+        4. Calcolatore dell'Indice di Massa Corporea (IMC)
+      </h2>
       <p>
         Oltre alle calorie e ai macronutrienti, <strong>CalorieCalc.cc</strong>{" "}
         calcola automaticamente il tuo{" "}
@@ -160,6 +171,18 @@ export default () => {
         La "Massa rapida" porta spesso a un eccessivo accumulo di grasso. Se
         miri a una muscolatura di qualità, scegli "Massa lenta" o "Moderata" e
         monitora i tuoi progressi.
+      </p>
+
+      <h3 class="text-lg">
+        Perché in caso di sovrappeso le proteine non vengono calcolate sul mio
+        peso reale?
+      </h3>
+      <p>
+        Se l’IMC supera 25, il calcolatore usa per proteine e grassi il peso
+        corrispondente a un IMC di 25 per la tua altezza. Il fabbisogno proteico
+        dipende soprattutto dalla massa muscolare, non dal tessuto adiposo,
+        quindi il peso totale lo sovrastimerebbe. Le calorie continuano a essere
+        calcolate sul peso reale.
       </p>
     </>
   );

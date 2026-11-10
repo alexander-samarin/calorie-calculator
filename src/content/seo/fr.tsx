@@ -121,6 +121,15 @@ export default () => {
         </li>
       </ul>
 
+      <p>
+        <strong>Calcul en cas de surpoids.</strong> Si votre IMC dépasse 25, les
+        protéines et les lipides ne sont pas calculés sur votre poids total,
+        mais sur le poids correspondant à un IMC de 25 pour votre taille. Le
+        tissu adipeux n’augmente presque pas les besoins en protéines : le poids
+        total surestimerait donc la norme et ne laisserait pas de place aux
+        glucides. Par exemple, pour 165 cm, cela fait 68 kg.
+      </p>
+
       <h2 class="text-lg">4. Calculateur d'Indice de Masse Corporelle (IMC)</h2>
       <p>
         En plus des calories et des macros, <strong>CalorieCalc.cc</strong>{" "}
@@ -162,6 +171,18 @@ export default () => {
         La « Prise de masse rapide » conduit souvent à une prise de gras
         excessive. Si vous visez une musculature de qualité, choisissez « Lente
         » ou « Modérée » et surveillez vos progrès.
+      </p>
+
+      <h3 class="text-lg">
+        Pourquoi, en cas de surpoids, les protéines ne sont-elles pas calculées
+        sur mon poids réel ?
+      </h3>
+      <p>
+        Si l’IMC dépasse 25, le calculateur utilise pour les protéines et les
+        lipides le poids correspondant à un IMC de 25 pour votre taille. Les
+        besoins en protéines dépendent surtout de la masse musculaire et non du
+        tissu adipeux : le poids total les surestimerait. Les calories restent
+        calculées à partir de votre poids réel.
       </p>
     </>
   );

@@ -22,6 +22,8 @@ export const ru: BaseDict = {
   fatPerKg: "жиров на 1 кг веса",
   macrosExceedWarning:
     "Белки и жиры уже превышают вашу норму калорий, на углеводы ничего не остаётся. Уменьшите количество белков или жиров на кг веса.",
+  macroWeightNote:
+    "Белки и жиры рассчитаны на {weight} кг: это вес при ИМТ 25 для вашего роста. При избыточном весе расчёт на полный вес завышает норму.",
 
   // Gender
   gender: "Пол",
@@ -83,6 +85,7 @@ export const ru: BaseDict = {
   bmiNormal: "Норма",
   bmiOverweight: "Избыточный вес",
   bmiObese: "Ожирение",
+
 
   // Validation
   rangeHint: "От {min} до {max}",

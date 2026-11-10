@@ -115,6 +115,15 @@ export default () => {
         </li>
       </ul>
 
+      <p>
+        <strong>Berechnung bei Übergewicht.</strong> Liegt Ihr BMI über 25,
+        werden Eiweiß und Fett nicht für das volle Körpergewicht berechnet,
+        sondern für das Gewicht, das bei Ihrer Größe einem BMI von 25
+        entspricht. Fettgewebe erhöht den Eiweißbedarf kaum, daher würde das
+        volle Gewicht den Bedarf überschätzen und keinen Platz für Kohlenhydrate
+        lassen. Bei 165 cm sind das zum Beispiel 68 kg.
+      </p>
+
       <h2 class="text-lg">4. Body-Mass-Index (BMI) Rechner</h2>
       <p>
         Neben Kalorien und Makronährstoffen berechnet{" "}
@@ -158,6 +167,18 @@ export default () => {
         "Schneller Aufbau" führt oft zu übermäßiger Fettzunahme. Wenn Sie eine
         hochwertige Muskulatur anstreben, wählen Sie "Langsamen" oder "Moderaten
         Aufbau" und überwachen Sie Ihren Fortschritt.
+      </p>
+
+      <h3 class="text-lg">
+        Warum wird Eiweiß bei Übergewicht nicht für mein tatsächliches Gewicht
+        berechnet?
+      </h3>
+      <p>
+        Liegt der BMI über 25, berechnet der Rechner Eiweiß und Fett für das
+        Gewicht, das bei Ihrer Größe einem BMI von 25 entspricht. Der
+        Eiweißbedarf hängt vor allem von der Muskelmasse ab, nicht vom
+        Fettgewebe, daher würde das volle Gewicht ihn überschätzen. Die Kalorien
+        werden weiterhin aus dem tatsächlichen Gewicht berechnet.
       </p>
     </>
   );

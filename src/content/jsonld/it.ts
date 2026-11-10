@@ -57,6 +57,14 @@ export default {
             text: "L'IMC (Indice di Massa Corporea) è un indicatore che aiuta a valutare il rapporto tra il tuo peso e la tua altezza. Il nostro calcolatore calcola automaticamente l'IMC e mostra il risultato su una scala visiva con zone colorate: sottopeso, normale, sovrappeso, obesità.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Perché in caso di sovrappeso le proteine non vengono calcolate sul mio peso reale?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Se l’IMC supera 25, il calcolatore usa per proteine e grassi il peso corrispondente a un IMC di 25 per la tua altezza. Il fabbisogno proteico dipende soprattutto dalla massa muscolare, non dal tessuto adiposo, quindi il peso totale lo sovrastimerebbe. Le calorie continuano a essere calcolate sul peso reale.",
+          },
+        },
       ],
     },
   ],

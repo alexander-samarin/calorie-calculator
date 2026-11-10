@@ -57,6 +57,14 @@ export default {
             text: "BMI (Body Mass Index) is an indicator that helps assess the relationship between your weight and height. Our calculator automatically calculates BMI and displays the result on a visual scale with colored zones: underweight, normal, overweight, obesity.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Why isn't protein calculated for my actual weight when I'm overweight?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "If your BMI is above 25, the calculator uses the weight corresponding to BMI 25 at your height for protein and fat. Protein needs depend mainly on muscle mass, not fat tissue, so full body weight would overestimate them. Calories are still calculated from your actual weight.",
+          },
+        },
       ],
     },
   ],

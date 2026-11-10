@@ -164,6 +164,15 @@ function Calculator() {
           step={FAT_PER_KG.STEP}
           onChange={(value) => setField("fatPerKg", value)}
         />
+
+        <Show when={result().macroWeightAdjusted}>
+          <p class="text-xs text-base-content/70 px-4">
+            {t().macroWeightNote.replace(
+              "{weight}",
+              String(Math.round(result().macroWeightKg)),
+            )}
+          </p>
+        </Show>
       </div>
 
       <p class="text-xs w-full max-w-sm text-base-content/60 text-center mt-6">

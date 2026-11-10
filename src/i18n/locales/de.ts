@@ -22,6 +22,8 @@ export const de: BaseDict = {
   fatPerKg: "Fett pro 1 kg Körpergewicht",
   macrosExceedWarning:
     "Eiweiß und Fett allein überschreiten bereits Ihren Kalorienbedarf, für Kohlenhydrate bleibt nichts übrig. Verringern Sie Eiweiß oder Fett pro kg.",
+  macroWeightNote:
+    "Eiweiß und Fett werden für {weight} kg berechnet, das Gewicht bei BMI 25 für Ihre Größe. Bei Übergewicht würde das volle Körpergewicht den Bedarf überschätzen.",
 
   // Gender
   gender: "Geschlecht",
@@ -83,6 +85,7 @@ export const de: BaseDict = {
   bmiNormal: "Normalgewicht",
   bmiOverweight: "Übergewicht",
   bmiObese: "Adipositas",
+
 
   // Validation
   rangeHint: "Von {min} bis {max}",

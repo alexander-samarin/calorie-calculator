@@ -35,6 +35,13 @@ export type NutritionResult = {
   fats: number;
   carbs: number;
   /**
+   * Body weight protein and fat are calculated for, kg: the actual weight,
+   * or the weight at BMI 25 when the actual BMI is higher (see getMacroWeight)
+   */
+  macroWeightKg: number;
+  /** True when macroWeightKg is lower than the actual weight */
+  macroWeightAdjusted: boolean;
+  /**
    * Protein + fat alone exceed the calorie target (carbs were clamped to 0,
    * so the macros add up to more than tdee)
    */
@@ -48,6 +55,8 @@ const EMPTY_RESULT: NutritionResult = {
   proteins: 0,
   fats: 0,
   carbs: 0,
+  macroWeightKg: 0,
+  macroWeightAdjusted: false,
   macrosExceedTarget: false,
 };
 
@@ -68,17 +77,32 @@ export const calculateBmr = (
 };
 
 /**
- * Calories and macros. Protein and fat are set per kg of body weight;
+ * Weight used for per-kg protein and fat. Above BMI 25 the actual weight
+ * includes a lot of fat mass, so per-kg norms would overestimate needs;
+ * the weight at BMI 25 for this height is used instead.
+ */
+export const getMacroWeight = (weightKg: number, heightCm: number): number => {
+  const heightM = heightCm / 100;
+  const referenceWeight = BMI.NORMAL * heightM * heightM;
+  return Math.min(weightKg, referenceWeight);
+};
+
+/**
+ * Calories and macros. Protein and fat are set per kg of body weight
+ * (capped at the weight for BMI 25, see getMacroWeight);
  * carbs take the remaining calories (never below 0).
  */
 export const calculateNutrition = (input: NutritionInput): NutritionResult => {
   const bmr = calculateBmr(input.weightKg, input.heightCm, input.ageYears, input.gender);
-  if (bmr <= 0 || input.weightKg === null) return EMPTY_RESULT;
+  if (bmr <= 0 || input.weightKg === null || input.heightCm === null) {
+    return EMPTY_RESULT;
+  }
 
   const baseTdee = Math.round(bmr * input.activity);
   const tdee = Math.round(baseTdee * input.goal);
-  const proteins = Math.round(input.weightKg * input.proteinPerKg);
-  const fats = Math.round(input.weightKg * input.fatPerKg);
+  const macroWeightKg = getMacroWeight(input.weightKg, input.heightCm);
+  const proteins = Math.round(macroWeightKg * input.proteinPerKg);
+  const fats = Math.round(macroWeightKg * input.fatPerKg);
 
   const { PROTEIN, FAT, CARB } = CALORIES_PER_GRAM;
   const remainingCalories = tdee - proteins * PROTEIN - fats * FAT;
@@ -91,6 +115,8 @@ export const calculateNutrition = (input: NutritionInput): NutritionResult => {
     proteins,
     fats,
     carbs,
+    macroWeightKg,
+    macroWeightAdjusted: macroWeightKg < input.weightKg,
     macrosExceedTarget: remainingCalories < 0,
   };
 };

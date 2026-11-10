@@ -22,6 +22,8 @@ export const be: BaseDict = {
   fatPerKg: "тлушчаў на 1 кг вагі",
   macrosExceedWarning:
     "Бялкі і тлушчы ўжо перавышаюць вашу норму калорый, на вугляводы нічога не застаецца. Зменшыце колькасць бялкоў або тлушчаў на кг вагі.",
+  macroWeightNote:
+    "Бялкі і тлушчы разлічаны на {weight} кг: гэта вага пры ІМТ 25 для вашага росту. Пры залішняй вазе разлік на поўную вагу завышае норму.",
 
   // Gender
   gender: "Пол",
@@ -83,6 +85,7 @@ export const be: BaseDict = {
   bmiNormal: "Норма",
   bmiOverweight: "Лішняя вага",
   bmiObese: "Атлусценне",
+
 
   // Validation
   rangeHint: "Ад {min} да {max}",

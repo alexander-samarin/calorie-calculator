@@ -22,6 +22,8 @@ export const en: BaseDict = {
   fatPerKg: "fat per 1 kg of weight",
   macrosExceedWarning:
     "Protein and fat alone exceed your calorie target, leaving nothing for carbs. Lower protein or fat per kg.",
+  macroWeightNote:
+    "Protein and fat are calculated for {weight} kg, the weight at BMI 25 for your height. With excess weight, using full body weight overestimates needs.",
 
   // Gender
   gender: "Sex",
@@ -83,6 +85,7 @@ export const en: BaseDict = {
   bmiNormal: "Normal",
   bmiOverweight: "Overweight",
   bmiObese: "Obesity",
+
 
   // Validation
   rangeHint: "From {min} to {max}",

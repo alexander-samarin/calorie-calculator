@@ -57,6 +57,14 @@ export default {
             text: "BMI (wskaźnik masy ciała) to wskaźnik, który pomaga ocenić stosunek masy ciała do wzrostu. Nasz kalkulator automatycznie oblicza BMI i wyświetla wynik na wizualnej skali z kolorowymi strefami: niedowaga, norma, nadwaga, otyłość.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Dlaczego przy nadwadze białko nie jest liczone na moją masę ciała?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Jeśli BMI przekracza 25, kalkulator liczy białko i tłuszcze na masę odpowiadającą BMI 25 przy Twoim wzroście. Zapotrzebowanie na białko zależy głównie od masy mięśniowej, a nie od tkanki tłuszczowej, więc pełna masa ciała zawyżałaby normę. Kalorie są nadal liczone od rzeczywistej masy ciała.",
+          },
+        },
       ],
     },
   ],

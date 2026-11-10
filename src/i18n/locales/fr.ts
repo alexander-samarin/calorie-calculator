@@ -22,6 +22,8 @@ export const fr: BaseDict = {
   fatPerKg: "lipides par 1 kg de poids",
   macrosExceedWarning:
     "Les protéines et les lipides dépassent déjà votre objectif calorique, il ne reste rien pour les glucides. Réduisez les protéines ou les lipides par kg.",
+  macroWeightNote:
+    "Les protéines et les lipides sont calculés pour {weight} kg, le poids à IMC 25 pour votre taille. En cas de surpoids, le poids total surestime les besoins.",
 
   // Gender
   gender: "Sexe",
@@ -83,6 +85,7 @@ export const fr: BaseDict = {
   bmiNormal: "Normal",
   bmiOverweight: "Surpoids",
   bmiObese: "Obésité",
+
 
   // Validation
   rangeHint: "De {min} à {max}",

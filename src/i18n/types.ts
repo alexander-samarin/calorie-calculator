@@ -27,6 +27,7 @@ export type BaseDict = {
   proteinPerKg: string;
   fatPerKg: string;
   macrosExceedWarning: string;
+  macroWeightNote: string; // {weight} placeholder
 
   // Gender
   gender: string;

@@ -115,13 +115,22 @@ export default () => {
         </li>
       </ul>
 
+      <p>
+        <strong>Obliczenia przy nadwadze.</strong> Jeśli Twoje BMI przekracza
+        25, białko i tłuszcze są obliczane nie na pełną masę ciała, lecz na masę
+        odpowiadającą BMI 25 przy Twoim wzroście. Tkanka tłuszczowa prawie nie
+        zwiększa zapotrzebowania na białko, więc liczenie na pełną masę
+        zawyżałoby normę i nie zostawiałoby miejsca na węglowodany. Na przykład
+        przy wzroście 165 cm to 68 kg.
+      </p>
+
       <h2 class="text-lg">4. Kalkulator wskaźnika masy ciała (BMI)</h2>
       <p>
         Oprócz kalorii i makroskładników, <strong>CalorieCalc.cc</strong>{" "}
-        automatycznie oblicza Twoje{" "}
-        <strong>BMI (wskaźnik masy ciała)</strong> — kluczowy wskaźnik do oceny
-        stosunku masy ciała do wzrostu. Wizualna skala z kolorowymi strefami
-        pomoże Ci szybko zrozumieć, w której kategorii się znajdujesz:
+        automatycznie oblicza Twoje <strong>BMI (wskaźnik masy ciała)</strong> —
+        kluczowy wskaźnik do oceny stosunku masy ciała do wzrostu. Wizualna
+        skala z kolorowymi strefami pomoże Ci szybko zrozumieć, w której
+        kategorii się znajdujesz:
       </p>
       <ul>
         <li>
@@ -129,8 +138,8 @@ export default () => {
           niedobory żywieniowe lub problemy zdrowotne.
         </li>
         <li>
-          <strong>Norma</strong> (BMI 18,5–24,9): Optymalny zakres dla większości
-          dorosłych.
+          <strong>Norma</strong> (BMI 18,5–24,9): Optymalny zakres dla
+          większości dorosłych.
         </li>
         <li>
           <strong>Nadwaga</strong> (BMI 25–29,9): Zaleca się zwrócić uwagę na
@@ -155,6 +164,17 @@ export default () => {
         „Szybkie budowanie” często prowadzi do nadmiernego otłuszczenia. Jeśli
         zależy Ci na jakościowej muskulaturze, wybierz „Powolne” lub
         „Umiarkowane budowanie” i monitoruj postępy.
+      </p>
+
+      <h3 class="text-lg">
+        Dlaczego przy nadwadze białko nie jest liczone na moją masę ciała?
+      </h3>
+      <p>
+        Jeśli BMI przekracza 25, kalkulator liczy białko i tłuszcze na masę
+        odpowiadającą BMI 25 przy Twoim wzroście. Zapotrzebowanie na białko
+        zależy głównie od masy mięśniowej, a nie od tkanki tłuszczowej, więc
+        pełna masa ciała zawyżałaby normę. Kalorie są nadal liczone od
+        rzeczywistej masy ciała.
       </p>
     </>
   );

@@ -57,6 +57,14 @@ export default {
             text: "El IMC (Índice de Masa Corporal) es un indicador que ayuda a evaluar la relación entre tu peso y altura. Nuestra calculadora calcula automáticamente el IMC y muestra el resultado en una escala visual con zonas de colores: bajo peso, normal, sobrepeso, obesidad.",
           },
         },
+        {
+          "@type": "Question",
+          name: "¿Por qué con sobrepeso las proteínas no se calculan sobre mi peso real?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si el IMC supera 25, la calculadora usa para proteínas y grasas el peso que corresponde a un IMC de 25 para tu estatura. La necesidad de proteínas depende sobre todo de la masa muscular, no del tejido graso, por lo que el peso total la sobrestimaría. Las calorías se siguen calculando con tu peso real.",
+          },
+        },
       ],
     },
   ],

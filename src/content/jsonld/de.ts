@@ -57,6 +57,14 @@ export default {
             text: "Der BMI (Body-Mass-Index) ist ein Indikator, der hilft, das Verhältnis zwischen Gewicht und Größe zu bewerten. Unser Rechner berechnet automatisch den BMI und zeigt das Ergebnis auf einer visuellen Skala mit farbigen Zonen: Untergewicht, Normalgewicht, Übergewicht, Adipositas.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Warum wird Eiweiß bei Übergewicht nicht für mein tatsächliches Gewicht berechnet?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Liegt der BMI über 25, berechnet der Rechner Eiweiß und Fett für das Gewicht, das bei Ihrer Größe einem BMI von 25 entspricht. Der Eiweißbedarf hängt vor allem von der Muskelmasse ab, nicht vom Fettgewebe, daher würde das volle Gewicht ihn überschätzen. Die Kalorien werden weiterhin aus dem tatsächlichen Gewicht berechnet.",
+          },
+        },
       ],
     },
   ],

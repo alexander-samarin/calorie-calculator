@@ -120,6 +120,15 @@ export default () => {
         </li>
       </ul>
 
+      <p>
+        <strong>Cálculo con exceso de peso.</strong> Si tu IMC supera 25, las
+        proteínas y las grasas no se calculan sobre tu peso total, sino sobre el
+        peso que corresponde a un IMC de 25 para tu estatura. El tejido graso
+        apenas aumenta la necesidad de proteínas, así que usar el peso total
+        sobrestimaría la norma y no dejaría espacio para los carbohidratos. Por
+        ejemplo, con 165 cm son 68 kg.
+      </p>
+
       <h2 class="text-lg">4. Calculadora del Índice de Masa Corporal (IMC)</h2>
       <p>
         Además de las calorías y los macronutrientes,{" "}
@@ -161,6 +170,17 @@ export default () => {
         El "Volumen rápido" a menudo conduce a una ganancia excesiva de grasa.
         Si buscas una musculatura de calidad, elige "Volumen lento" o "Moderado"
         y monitorea tu progreso.
+      </p>
+
+      <h3 class="text-lg">
+        ¿Por qué con sobrepeso las proteínas no se calculan sobre mi peso real?
+      </h3>
+      <p>
+        Si el IMC supera 25, la calculadora usa para proteínas y grasas el peso
+        que corresponde a un IMC de 25 para tu estatura. La necesidad de
+        proteínas depende sobre todo de la masa muscular, no del tejido graso,
+        por lo que el peso total la sobrestimaría. Las calorías se siguen
+        calculando con tu peso real.
       </p>
     </>
   );
