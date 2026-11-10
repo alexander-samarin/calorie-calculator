@@ -13,44 +13,17 @@ import {
   PLACEHOLDERS,
   INPUT_LIMITS,
   type InputLimits,
-  type GenderValue,
-  type ActivityValue,
 } from "~/constants";
 import { useLocale, usePluralizeGrams } from "~/i18n";
 import { useCalculator } from "~/hooks/useCalculator";
-import { isOutOfRange } from "~/helpers";
+import { isOutOfRange, findOptionValue } from "~/helpers";
 
 function Calculator() {
   const { t } = useLocale();
   const pluralizeGrams = usePluralizeGrams();
 
-  const {
-    weight,
-    setWeight,
-    height,
-    setHeight,
-    age,
-    setAge,
-    gender,
-    setGender,
-    activity,
-    setActivity,
-    goal,
-    setGoal,
-    proteinPerKg,
-    setProteinPerKg,
-    fatPerKg,
-    setFatPerKg,
-    weightKg,
-    heightCm,
-    bmr,
-    baseTdee,
-    tdee,
-    proteins,
-    fats,
-    carbs,
-    clearData,
-  } = useCalculator();
+  const { state, setField, weightKg, heightCm, result, clearData } =
+    useCalculator();
 
   const rangeHint = (limits: InputLimits) =>
     t()
@@ -74,17 +47,17 @@ function Calculator() {
     <section class="flex flex-col items-center w-full">
       <StatsRow
         items={[
-          { title: t().basalMetabolism, value: Math.round(bmr()), unit: t().kcal },
-          { title: t().dailyExpenditure, value: Math.round(baseTdee()), unit: t().kcal },
-          { title: t().yourNorm, value: Math.round(tdee()), unit: t().kcal, isPrimary: true },
+          { title: t().basalMetabolism, value: Math.round(result().bmr), unit: t().kcal },
+          { title: t().dailyExpenditure, value: result().baseTdee, unit: t().kcal },
+          { title: t().yourNorm, value: result().tdee, unit: t().kcal, isPrimary: true },
         ]}
       />
 
       <StatsRow
         items={[
-          { title: t().proteins, value: proteins(), unit: pluralizeGrams(proteins()) },
-          { title: t().fats, value: fats(), unit: pluralizeGrams(fats()) },
-          { title: t().carbs, value: carbs(), unit: pluralizeGrams(carbs()) },
+          { title: t().proteins, value: result().proteins, unit: pluralizeGrams(result().proteins) },
+          { title: t().fats, value: result().fats, unit: pluralizeGrams(result().fats) },
+          { title: t().carbs, value: result().carbs, unit: pluralizeGrams(result().carbs) },
         ]}
       />
 
@@ -96,9 +69,9 @@ function Calculator() {
             {(option) => (
               <button
                 class={`btn btn-lg ${
-                  gender() === option.value ? "btn-primary" : ""
+                  state.gender === option.value ? "btn-primary" : ""
                 }`}
-                onClick={() => setGender(option.value as GenderValue)}
+                onClick={() => setField("gender", option.value)}
               >
                 {t()[option.labelKey]}
               </button>
@@ -108,63 +81,69 @@ function Calculator() {
 
         <NumberInput
           label={t().weight}
-          value={weight()}
-          onInput={setWeight}
+          value={state.weight}
+          onInput={(value) => setField("weight", value)}
           placeholder={PLACEHOLDERS.WEIGHT}
-          invalid={isOutOfRange(weight(), INPUT_LIMITS.WEIGHT)}
+          invalid={isOutOfRange(state.weight, INPUT_LIMITS.WEIGHT)}
           errorText={rangeHint(INPUT_LIMITS.WEIGHT)}
         />
 
         <NumberInput
           label={t().height}
-          value={height()}
-          onInput={setHeight}
+          value={state.height}
+          onInput={(value) => setField("height", value)}
           placeholder={PLACEHOLDERS.HEIGHT}
-          invalid={isOutOfRange(height(), INPUT_LIMITS.HEIGHT)}
+          invalid={isOutOfRange(state.height, INPUT_LIMITS.HEIGHT)}
           errorText={rangeHint(INPUT_LIMITS.HEIGHT)}
         />
 
         <NumberInput
           label={t().age}
-          value={age()}
-          onInput={setAge}
+          value={state.age}
+          onInput={(value) => setField("age", value)}
           placeholder={PLACEHOLDERS.AGE}
-          invalid={isOutOfRange(age(), INPUT_LIMITS.AGE)}
+          invalid={isOutOfRange(state.age, INPUT_LIMITS.AGE)}
           errorText={rangeHint(INPUT_LIMITS.AGE)}
         />
 
         <Select
           label={t().activity}
-          value={activity()}
-          onChange={(value) => setActivity(Number(value) as ActivityValue)}
+          value={state.activity}
+          onChange={(value) => {
+            const activity = findOptionValue(ACTIVITY_OPTIONS, value);
+            if (activity !== null) setField("activity", activity);
+          }}
           options={activityOptions()}
         />
 
         <Select
           label={t().goal}
-          value={goal()}
-          onChange={(value) => setGoal(Number(value))}
+          value={state.goal}
+          onChange={(value) => {
+            const goal = findOptionValue(GOAL_OPTIONS, value);
+            if (goal !== null) setField("goal", goal);
+          }}
           options={goalOptions()}
         />
 
         <RangeInput
           label={t().proteinPerKg}
-          valueLabel={`${proteinPerKg()} ${t().gramShort}`}
-          value={proteinPerKg()}
+          valueLabel={`${state.proteinPerKg} ${t().gramShort}`}
+          value={state.proteinPerKg}
           min={PROTEIN_PER_KG.MIN}
           max={PROTEIN_PER_KG.MAX}
           step={PROTEIN_PER_KG.STEP}
-          onChange={setProteinPerKg}
+          onChange={(value) => setField("proteinPerKg", value)}
         />
 
         <RangeInput
           label={t().fatPerKg}
-          valueLabel={`${fatPerKg()} ${t().gramShort}`}
-          value={fatPerKg()}
+          valueLabel={`${state.fatPerKg} ${t().gramShort}`}
+          value={state.fatPerKg}
           min={FAT_PER_KG.MIN}
           max={FAT_PER_KG.MAX}
           step={FAT_PER_KG.STEP}
-          onChange={setFatPerKg}
+          onChange={(value) => setField("fatPerKg", value)}
         />
       </div>
 

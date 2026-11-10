@@ -1,6 +1,7 @@
 import { createMemo } from "solid-js";
 import { BMI, type BmiCategory } from "~/constants";
 import { useLocale } from "~/i18n";
+import { calculateBmi, getBmiCategory } from "~/lib/nutrition";
 
 // Статические значения, вычисляемые один раз при загрузке модуля
 const BMI_SCALE_RANGE = BMI.SCALE_MAX - BMI.SCALE_MIN;
@@ -34,24 +35,8 @@ interface BmiDisplayProps {
 function BmiDisplay(props: BmiDisplayProps) {
   const { t } = useLocale();
 
-  const bmi = createMemo(() => {
-    const w = props.weightKg;
-    const h = props.heightCm;
-
-    if (w === null || h === null) return 0;
-
-    const heightInMeters = h / 100;
-    return w / (heightInMeters * heightInMeters);
-  });
-
-  const bmiCategory = createMemo((): BmiCategory | null => {
-    const value = bmi();
-    if (value === 0) return null;
-    if (value < BMI.UNDERWEIGHT) return "underweight";
-    if (value < BMI.NORMAL) return "normal";
-    if (value < BMI.OVERWEIGHT) return "overweight";
-    return "obese";
-  });
+  const bmi = createMemo(() => calculateBmi(props.weightKg, props.heightCm));
+  const bmiCategory = createMemo(() => getBmiCategory(bmi()));
 
   const bmiCategoryLabel = createMemo(() => {
     const category = bmiCategory();

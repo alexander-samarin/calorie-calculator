@@ -1,10 +1,9 @@
 import { batch, createSignal, createMemo, createEffect, onMount } from "solid-js";
+import { createStore } from "solid-js/store";
 import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
   GOAL_OPTIONS,
-  MIFFLIN_COEFFICIENTS,
-  CALORIES_PER_GRAM,
   PROTEIN_PER_KG,
   FAT_PER_KG,
   INPUT_LIMITS,
@@ -18,162 +17,114 @@ import {
   findOptionValue,
   parseClamped,
 } from "~/helpers";
+import { calculateNutrition } from "~/lib/nutrition";
+
+export type CalculatorState = {
+  /** Raw input text, as typed */
+  weight: string;
+  height: string;
+  age: string;
+  gender: GenderValue;
+  activity: ActivityValue;
+  goal: number;
+  proteinPerKg: number;
+  fatPerKg: number;
+};
+
+const DEFAULT_STATE: CalculatorState = {
+  weight: "",
+  height: "",
+  age: "",
+  gender: GENDER_OPTIONS[0].value,
+  activity: ACTIVITY_OPTIONS[0].value,
+  goal: GOAL_OPTIONS[0].value,
+  proteinPerKg: PROTEIN_PER_KG.DEFAULT,
+  fatPerKg: FAT_PER_KG.DEFAULT,
+};
+
+const FIELDS = Object.keys(DEFAULT_STATE) as (keyof CalculatorState)[];
+
+const SELECTABLE_GOALS = GOAL_OPTIONS.filter((option) => !option.disabled);
+
+/**
+ * Restores a field from its localStorage string (key = field name).
+ * Stale or tampered values return null and the field keeps its default;
+ * slider values are clamped to their range.
+ */
+const RESTORE: {
+  [K in keyof CalculatorState]: (stored: string | null) => CalculatorState[K] | null;
+} = {
+  weight: sanitizeNumericText,
+  height: sanitizeNumericText,
+  age: sanitizeNumericText,
+  gender: (stored) => findOptionValue(GENDER_OPTIONS, stored),
+  activity: (stored) => findOptionValue(ACTIVITY_OPTIONS, stored),
+  goal: (stored) => findOptionValue(SELECTABLE_GOALS, stored),
+  proteinPerKg: (stored) => parseClamped(stored, PROTEIN_PER_KG),
+  fatPerKg: (stored) => parseClamped(stored, FAT_PER_KG),
+};
+
+const restoreField = <K extends keyof CalculatorState>(
+  key: K,
+  target: Partial<CalculatorState>,
+) => {
+  const value = RESTORE[key](storage.get(key));
+  if (value !== null) target[key] = value;
+};
 
 export function useCalculator() {
-  // Initialize with defaults
-  const [weight, setWeight] = createSignal("");
-  const [height, setHeight] = createSignal("");
-  const [age, setAge] = createSignal("");
-  const [gender, setGender] = createSignal<GenderValue>(
-    GENDER_OPTIONS[0].value,
-  );
-  const [activity, setActivity] = createSignal<ActivityValue>(
-    ACTIVITY_OPTIONS[0].value,
-  );
-  const [goal, setGoal] = createSignal<number>(GOAL_OPTIONS[0].value);
-  const [proteinPerKg, setProteinPerKg] = createSignal<number>(
-    PROTEIN_PER_KG.DEFAULT,
-  );
-  const [fatPerKg, setFatPerKg] = createSignal<number>(FAT_PER_KG.DEFAULT);
+  const [state, setState] = createStore<CalculatorState>({ ...DEFAULT_STATE });
   const [isHydrated, setIsHydrated] = createSignal(false);
 
-  // Load saved values from localStorage after mount
-  // Saved values may be stale or tampered with: anything invalid is ignored
-  // (the field keeps its default), slider values are clamped to their range.
+  // Load saved values after mount (SSR always renders the defaults)
   onMount(() => {
-    const savedWeight = sanitizeNumericText(storage.get("weight"));
-    const savedHeight = sanitizeNumericText(storage.get("height"));
-    const savedAge = sanitizeNumericText(storage.get("age"));
-    const savedGender = findOptionValue(GENDER_OPTIONS, storage.get("gender"));
-    const savedActivity = findOptionValue(ACTIVITY_OPTIONS, storage.get("activity"));
-    const savedGoal = findOptionValue(
-      GOAL_OPTIONS.filter((option) => !option.disabled),
-      storage.get("goal"),
-    );
-    const savedProteinPerKg = parseClamped(storage.get("proteinPerKg"), PROTEIN_PER_KG);
-    const savedFatPerKg = parseClamped(storage.get("fatPerKg"), FAT_PER_KG);
+    const restored: Partial<CalculatorState> = {};
+    for (const key of FIELDS) restoreField(key, restored);
 
     batch(() => {
-      if (savedWeight !== null) setWeight(savedWeight);
-      if (savedHeight !== null) setHeight(savedHeight);
-      if (savedAge !== null) setAge(savedAge);
-      if (savedGender !== null) setGender(savedGender);
-      if (savedActivity !== null) setActivity(savedActivity);
-      if (savedGoal !== null) setGoal(savedGoal);
-      if (savedProteinPerKg !== null) setProteinPerKg(savedProteinPerKg);
-      if (savedFatPerKg !== null) setFatPerKg(savedFatPerKg);
+      setState(restored);
       setIsHydrated(true);
     });
   });
 
-  // Validated numbers; null when empty or out of INPUT_LIMITS
-  const weightKg = createMemo(() => parseInRange(weight(), INPUT_LIMITS.WEIGHT));
-  const heightCm = createMemo(() => parseInRange(height(), INPUT_LIMITS.HEIGHT));
-  const ageYears = createMemo(() => parseInRange(age(), INPUT_LIMITS.AGE));
-
-  const bmr = createMemo(() => {
-    const w = weightKg();
-    const h = heightCm();
-    const a = ageYears();
-
-    if (w === null || h === null || a === null) return 0;
-
-    const { WEIGHT, HEIGHT, AGE, FEMALE_OFFSET, MALE_OFFSET } =
-      MIFFLIN_COEFFICIENTS;
-    const baseBmr = WEIGHT * w + HEIGHT * h - AGE * a;
-    const offset = gender() === "female" ? FEMALE_OFFSET : MALE_OFFSET;
-
-    return Math.max(0, baseBmr + offset);
-  });
-
-  const baseTdee = createMemo(() => {
-    const base = bmr();
-    return base > 0 ? Math.round(base * activity()) : 0;
-  });
-
-  const tdee = createMemo(() => {
-    const base = baseTdee();
-    return base > 0 ? Math.round(base * goal()) : 0;
-  });
-
-  const proteins = createMemo(() => {
-    return bmr() > 0 ? Math.round((weightKg() ?? 0) * proteinPerKg()) : 0;
-  });
-
-  const fats = createMemo(() => {
-    return bmr() > 0 ? Math.round((weightKg() ?? 0) * fatPerKg()) : 0;
-  });
-
-  const carbs = createMemo(() => {
-    if (bmr() <= 0) return 0;
-
-    const { PROTEIN, FAT, CARB } = CALORIES_PER_GRAM;
-    const remainingCalories = tdee() - proteins() * PROTEIN - fats() * FAT;
-
-    return Math.max(0, Math.round(remainingCalories / CARB));
-  });
-
   // Only non-default values are kept in localStorage; a field equal to its
-  // default is removed. So resetting the signals (clearData) also clears storage.
-  const persist = (key: string, value: string | number, defaultValue: string | number) => {
-    if (value === defaultValue) storage.remove(key);
-    else storage.set(key, String(value));
-  };
-
-  // Save to localStorage only after hydration to avoid overwriting with defaults
+  // default is removed. So resetting the state (clearData) also clears storage.
+  // Runs only after hydration to avoid overwriting saved values with defaults.
   createEffect(() => {
     if (!isHydrated()) return;
 
-    persist("weight", weight(), "");
-    persist("height", height(), "");
-    persist("age", age(), "");
-    persist("gender", gender(), GENDER_OPTIONS[0].value);
-    persist("activity", activity(), ACTIVITY_OPTIONS[0].value);
-    persist("goal", goal(), GOAL_OPTIONS[0].value);
-    persist("proteinPerKg", proteinPerKg(), PROTEIN_PER_KG.DEFAULT);
-    persist("fatPerKg", fatPerKg(), FAT_PER_KG.DEFAULT);
+    for (const key of FIELDS) {
+      const value = state[key];
+      if (value === DEFAULT_STATE[key]) storage.remove(key);
+      else storage.set(key, String(value));
+    }
   });
 
-  const clearData = () => {
-    // Reset all values to defaults in one update; the effect above then
-    // removes every key from localStorage
-    batch(() => {
-      setWeight("");
-      setHeight("");
-      setAge("");
-      setGender(GENDER_OPTIONS[0].value);
-      setActivity(ACTIVITY_OPTIONS[0].value);
-      setGoal(GOAL_OPTIONS[0].value);
-      setProteinPerKg(PROTEIN_PER_KG.DEFAULT);
-      setFatPerKg(FAT_PER_KG.DEFAULT);
-    });
-  };
+  // Validated numbers; null when empty or out of INPUT_LIMITS
+  const weightKg = createMemo(() => parseInRange(state.weight, INPUT_LIMITS.WEIGHT));
+  const heightCm = createMemo(() => parseInRange(state.height, INPUT_LIMITS.HEIGHT));
+  const ageYears = createMemo(() => parseInRange(state.age, INPUT_LIMITS.AGE));
 
-  return {
-    weight,
-    setWeight,
-    height,
-    setHeight,
-    age,
-    setAge,
-    gender,
-    setGender,
-    activity,
-    setActivity,
-    goal,
-    setGoal,
-    proteinPerKg,
-    setProteinPerKg,
-    fatPerKg,
-    setFatPerKg,
-    weightKg,
-    heightCm,
-    bmr,
-    baseTdee,
-    tdee,
-    proteins,
-    fats,
-    carbs,
-    clearData,
-  };
+  const result = createMemo(() =>
+    calculateNutrition({
+      weightKg: weightKg(),
+      heightCm: heightCm(),
+      ageYears: ageYears(),
+      gender: state.gender,
+      activity: state.activity,
+      goal: state.goal,
+      proteinPerKg: state.proteinPerKg,
+      fatPerKg: state.fatPerKg,
+    }),
+  );
+
+  const setField = <K extends keyof CalculatorState>(
+    key: K,
+    value: CalculatorState[K],
+  ) => setState(key, value);
+
+  /** Reset every field to its default (also clears localStorage) */
+  const clearData = () => setState({ ...DEFAULT_STATE });
+
+  return { state, setField, weightKg, heightCm, result, clearData };
 }
