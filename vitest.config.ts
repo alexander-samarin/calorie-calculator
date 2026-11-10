@@ -1,7 +1,7 @@
 import { defineConfig } from "vitest/config";
 
 // Unit tests for pure logic (formulas, parsing, i18n helpers).
-// Separate from app.config.ts: the SolidStart/vinxi config is not a Vite config.
+// Separate from vite.config.ts so tests do not load the SolidStart/Nitro plugins.
 export default defineConfig({
   resolve: {
     alias: {

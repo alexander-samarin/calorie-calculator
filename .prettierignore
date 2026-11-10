@@ -1,6 +1,5 @@
 # Build output and generated files
 .output
-.vinxi
 node_modules
 package-lock.json
 

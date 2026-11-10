@@ -3,7 +3,7 @@ import tseslint from "typescript-eslint";
 import solid from "eslint-plugin-solid/configs/typescript";
 
 export default tseslint.config(
-  { ignores: [".output", ".vinxi", "node_modules", "public"] },
+  { ignores: [".output", "node_modules", "public"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

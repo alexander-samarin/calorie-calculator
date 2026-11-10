@@ -20,14 +20,14 @@ A fast, multilingual calorie and macros calculator built with SolidStart. Calcul
 - [SolidJS](https://www.solidjs.com/) / [SolidStart](https://start.solidjs.com/)
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [DaisyUI v5](https://daisyui.com/)
-- [Vinxi](https://vinxi.vercel.app/)
+- [Vite](https://vite.dev/) / [Nitro](https://nitro.build/)
 - TypeScript
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js >= 22
+- Node.js >= 24
 
 ### Installation
 

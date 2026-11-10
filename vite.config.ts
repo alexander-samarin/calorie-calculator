@@ -1,9 +1,12 @@
-import { defineConfig } from "@solidjs/start/config";
+import { defineConfig } from "vite";
+import { nitro } from "nitro/vite";
+import { solidStart } from "@solidjs/start/config";
 import tailwindcss from "@tailwindcss/vite";
-import { LOCALES, DEFAULT_LOCALE } from "./src/i18n/types";
+import { LOCALES, DEFAULT_LOCALE } from "./src/i18n/types.ts";
 
 export default defineConfig({
-  server: {
+  plugins: [solidStart(), nitro(), tailwindcss()],
+  nitro: {
     preset: "static",
     prerender: {
       routes: [
@@ -16,8 +19,5 @@ export default defineConfig({
       crawlLinks: true,
       autoSubfolderIndex: false,
     },
-  },
-  vite: {
-    plugins: [tailwindcss()],
   },
 });
