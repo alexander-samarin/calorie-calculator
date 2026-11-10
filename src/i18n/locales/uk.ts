@@ -79,6 +79,9 @@ export const uk: BaseDict = {
   bmiOverweight: "Надмірна вага",
   bmiObese: "Ожиріння",
 
+  // Validation
+  rangeHint: "Від {min} до {max}",
+
   // 404
   notFoundTitle: "Сторінку не знайдено",
   notFoundText: "Такої сторінки не існує.",

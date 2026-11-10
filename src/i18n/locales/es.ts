@@ -78,6 +78,9 @@ export const es: BaseDict = {
   bmiOverweight: "Sobrepeso",
   bmiObese: "Obesidad",
 
+  // Validation
+  rangeHint: "De {min} a {max}",
+
   // 404
   notFoundTitle: "Página no encontrada",
   notFoundText: "Esta página no existe.",

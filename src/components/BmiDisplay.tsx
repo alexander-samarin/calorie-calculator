@@ -25,20 +25,20 @@ const BMI_CATEGORY_CLASSES: Record<BmiCategory, string> = {
   obese: "bg-error/20 text-error",
 };
 
-/** Пропсы передаются как accessor'ы для сохранения реактивности SolidJS */
+/** Validated values (null when empty or out of range) */
 interface BmiDisplayProps {
-  weight: () => string;
-  height: () => string;
+  weightKg: number | null;
+  heightCm: number | null;
 }
 
 function BmiDisplay(props: BmiDisplayProps) {
   const { t } = useLocale();
 
   const bmi = createMemo(() => {
-    const w = Number(props.weight());
-    const h = Number(props.height());
+    const w = props.weightKg;
+    const h = props.heightCm;
 
-    if (!w || !h) return 0;
+    if (w === null || h === null) return 0;
 
     const heightInMeters = h / 100;
     return w / (heightInMeters * heightInMeters);

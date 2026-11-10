@@ -79,6 +79,9 @@ export const ru: BaseDict = {
   bmiOverweight: "Избыточный вес",
   bmiObese: "Ожирение",
 
+  // Validation
+  rangeHint: "От {min} до {max}",
+
   // 404
   notFoundTitle: "Страница не найдена",
   notFoundText: "Такой страницы не существует.",

@@ -7,10 +7,11 @@ import {
   CALORIES_PER_GRAM,
   PROTEIN_PER_KG,
   FAT_PER_KG,
+  INPUT_LIMITS,
   type GenderValue,
   type ActivityValue,
 } from "~/constants";
-import { storage } from "~/helpers";
+import { storage, parseInRange } from "~/helpers";
 
 export function useCalculator() {
   // Initialize with defaults
@@ -53,20 +54,24 @@ export function useCalculator() {
     setIsHydrated(true);
   });
 
-  const bmr = createMemo(() => {
-    const w = Number(weight());
-    const h = Number(height());
-    const a = Number(age());
+  // Validated numbers; null when empty or out of INPUT_LIMITS
+  const weightKg = createMemo(() => parseInRange(weight(), INPUT_LIMITS.WEIGHT));
+  const heightCm = createMemo(() => parseInRange(height(), INPUT_LIMITS.HEIGHT));
+  const ageYears = createMemo(() => parseInRange(age(), INPUT_LIMITS.AGE));
 
-    if (!w || !h || !a) return 0;
+  const bmr = createMemo(() => {
+    const w = weightKg();
+    const h = heightCm();
+    const a = ageYears();
+
+    if (w === null || h === null || a === null) return 0;
 
     const { WEIGHT, HEIGHT, AGE, FEMALE_OFFSET, MALE_OFFSET } =
       MIFFLIN_COEFFICIENTS;
     const baseBmr = WEIGHT * w + HEIGHT * h - AGE * a;
+    const offset = gender() === "female" ? FEMALE_OFFSET : MALE_OFFSET;
 
-    return gender() === GENDER_OPTIONS[0].value
-      ? baseBmr + FEMALE_OFFSET
-      : baseBmr + MALE_OFFSET;
+    return Math.max(0, baseBmr + offset);
   });
 
   const baseTdee = createMemo(() => {
@@ -80,11 +85,11 @@ export function useCalculator() {
   });
 
   const proteins = createMemo(() => {
-    return bmr() > 0 ? Math.round(Number(weight()) * proteinPerKg()) : 0;
+    return bmr() > 0 ? Math.round((weightKg() ?? 0) * proteinPerKg()) : 0;
   });
 
   const fats = createMemo(() => {
-    return bmr() > 0 ? Math.round(Number(weight()) * fatPerKg()) : 0;
+    return bmr() > 0 ? Math.round((weightKg() ?? 0) * fatPerKg()) : 0;
   });
 
   const carbs = createMemo(() => {
@@ -149,6 +154,8 @@ export function useCalculator() {
     setProteinPerKg,
     fatPerKg,
     setFatPerKg,
+    weightKg,
+    heightCm,
     bmr,
     baseTdee,
     tdee,

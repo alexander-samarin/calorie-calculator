@@ -79,6 +79,9 @@ export const be: BaseDict = {
   bmiOverweight: "Лішняя вага",
   bmiObese: "Атлусценне",
 
+  // Validation
+  rangeHint: "Ад {min} да {max}",
+
   // 404
   notFoundTitle: "Старонка не знойдзена",
   notFoundText: "Такой старонкі не існуе.",

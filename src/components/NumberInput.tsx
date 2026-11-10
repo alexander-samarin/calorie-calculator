@@ -1,13 +1,22 @@
-import type { Component } from "solid-js";
+import { createSignal, createUniqueId, Show, type Component } from "solid-js";
 
 type NumberInputProps = {
   label: string;
   value: string;
   onInput: (value: string) => void;
   placeholder: string;
+  /** Value is present but not acceptable */
+  invalid?: boolean;
+  /** Shown below the field while it is invalid */
+  errorText?: string;
 };
 
 const NumberInput: Component<NumberInputProps> = (props) => {
+  const hintId = createUniqueId();
+  const [focused, setFocused] = createSignal(false);
+  // Don't flag the value while the user is still typing it (e.g. "1" → "180")
+  const showError = () => Boolean(props.invalid) && !focused();
+
   const handleBeforeInput = (e: InputEvent): void => {
     const { data } = e;
     if (!data) return;
@@ -44,11 +53,21 @@ const NumberInput: Component<NumberInputProps> = (props) => {
         inputMode="decimal"
         placeholder={props.placeholder}
         class="input input-lg w-full"
+        classList={{ "input-error": showError() }}
         value={props.value}
         onBeforeInput={handleBeforeInput}
         onInput={handleInput}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        aria-invalid={showError()}
+        aria-describedby={showError() ? hintId : undefined}
         pattern="[0-9.,]*"
       />
+      <Show when={showError() && props.errorText}>
+        <span id={hintId} class="label text-error pl-4 mt-1">
+          {props.errorText}
+        </span>
+      </Show>
     </label>
   );
 };

@@ -43,6 +43,15 @@ export const FAT_PER_KG = {
   DEFAULT: 1,
 } as const;
 
+// Допустимые диапазоны ввода. Значения вне диапазона не участвуют в расчётах
+export const INPUT_LIMITS = {
+  WEIGHT: { MIN: 20, MAX: 300 },
+  HEIGHT: { MIN: 100, MAX: 250 },
+  AGE: { MIN: 10, MAX: 120 },
+} as const;
+
+export type InputLimits = { readonly MIN: number; readonly MAX: number };
+
 // Default placeholder values for inputs
 export const PLACEHOLDERS = {
   WEIGHT: "55",

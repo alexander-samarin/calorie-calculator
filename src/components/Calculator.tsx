@@ -11,11 +11,14 @@ import {
   PROTEIN_PER_KG,
   FAT_PER_KG,
   PLACEHOLDERS,
+  INPUT_LIMITS,
+  type InputLimits,
   type GenderValue,
   type ActivityValue,
 } from "~/constants";
 import { useLocale, usePluralizeGrams } from "~/i18n";
 import { useCalculator } from "~/hooks/useCalculator";
+import { isOutOfRange } from "~/helpers";
 
 function Calculator() {
   const { t } = useLocale();
@@ -38,6 +41,8 @@ function Calculator() {
     setProteinPerKg,
     fatPerKg,
     setFatPerKg,
+    weightKg,
+    heightCm,
     bmr,
     baseTdee,
     tdee,
@@ -46,6 +51,11 @@ function Calculator() {
     carbs,
     clearData,
   } = useCalculator();
+
+  const rangeHint = (limits: InputLimits) =>
+    t()
+      .rangeHint.replace("{min}", String(limits.MIN))
+      .replace("{max}", String(limits.MAX));
 
   const activityOptions = () =>
     ACTIVITY_OPTIONS.map((opt) => ({
@@ -78,7 +88,7 @@ function Calculator() {
         ]}
       />
 
-      <BmiDisplay weight={weight} height={height} />
+      <BmiDisplay weightKg={weightKg()} heightCm={heightCm()} />
 
       <div class="flex flex-col gap-2 w-full max-w-md mx-auto mt-8">
         <div class="flex gap-2">
@@ -101,6 +111,8 @@ function Calculator() {
           value={weight()}
           onInput={setWeight}
           placeholder={PLACEHOLDERS.WEIGHT}
+          invalid={isOutOfRange(weight(), INPUT_LIMITS.WEIGHT)}
+          errorText={rangeHint(INPUT_LIMITS.WEIGHT)}
         />
 
         <NumberInput
@@ -108,6 +120,8 @@ function Calculator() {
           value={height()}
           onInput={setHeight}
           placeholder={PLACEHOLDERS.HEIGHT}
+          invalid={isOutOfRange(height(), INPUT_LIMITS.HEIGHT)}
+          errorText={rangeHint(INPUT_LIMITS.HEIGHT)}
         />
 
         <NumberInput
@@ -115,6 +129,8 @@ function Calculator() {
           value={age()}
           onInput={setAge}
           placeholder={PLACEHOLDERS.AGE}
+          invalid={isOutOfRange(age(), INPUT_LIMITS.AGE)}
+          errorText={rangeHint(INPUT_LIMITS.AGE)}
         />
 
         <Select
