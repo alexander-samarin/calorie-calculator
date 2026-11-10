@@ -34,6 +34,11 @@ export type NutritionResult = {
   proteins: number;
   fats: number;
   carbs: number;
+  /**
+   * Protein + fat alone exceed the calorie target (carbs were clamped to 0,
+   * so the macros add up to more than tdee)
+   */
+  macrosExceedTarget: boolean;
 };
 
 const EMPTY_RESULT: NutritionResult = {
@@ -43,6 +48,7 @@ const EMPTY_RESULT: NutritionResult = {
   proteins: 0,
   fats: 0,
   carbs: 0,
+  macrosExceedTarget: false,
 };
 
 /** Mifflin–St Jeor; 0 when any input is missing */
@@ -78,7 +84,15 @@ export const calculateNutrition = (input: NutritionInput): NutritionResult => {
   const remainingCalories = tdee - proteins * PROTEIN - fats * FAT;
   const carbs = Math.max(0, Math.round(remainingCalories / CARB));
 
-  return { bmr, baseTdee, tdee, proteins, fats, carbs };
+  return {
+    bmr,
+    baseTdee,
+    tdee,
+    proteins,
+    fats,
+    carbs,
+    macrosExceedTarget: remainingCalories < 0,
+  };
 };
 
 /** Body mass index; 0 when any input is missing */

@@ -20,6 +20,8 @@ export const fr: BaseDict = {
   goal: "Objectif",
   proteinPerKg: "protéines par 1 kg de poids",
   fatPerKg: "lipides par 1 kg de poids",
+  macrosExceedWarning:
+    "Les protéines et les lipides dépassent déjà votre objectif calorique, il ne reste rien pour les glucides. Réduisez les protéines ou les lipides par kg.",
 
   // Gender
   gender: "Sexe",

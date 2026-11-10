@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { For, Show } from "solid-js";
 import BmiDisplay from "./BmiDisplay";
 import NumberInput from "./NumberInput";
 import RangeInput from "./RangeInput";
@@ -63,6 +63,15 @@ function Calculator() {
           { title: t().carbs, value: result().carbs, unit: pluralizeGrams(result().carbs) },
         ]}
       />
+
+      <Show when={result().macrosExceedTarget}>
+        <div
+          role="status"
+          class="alert alert-warning alert-soft w-full max-w-md md:max-w-xl mb-2 md:mb-4 text-sm"
+        >
+          {t().macrosExceedWarning}
+        </div>
+      </Show>
 
       <BmiDisplay weightKg={weightKg()} heightCm={heightCm()} />
 

@@ -20,6 +20,8 @@ export const en: BaseDict = {
   goal: "Goal",
   proteinPerKg: "protein per 1 kg of weight",
   fatPerKg: "fat per 1 kg of weight",
+  macrosExceedWarning:
+    "Protein and fat alone exceed your calorie target, leaving nothing for carbs. Lower protein or fat per kg.",
 
   // Gender
   gender: "Sex",
