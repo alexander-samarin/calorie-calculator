@@ -2,6 +2,7 @@ import { Suspense, ErrorBoundary } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { useLocale } from "~/i18n";
 import { getSeoComponent } from "~/content/seo";
+import Faq from "./Faq";
 
 function Seo() {
   const { locale } = useLocale();
@@ -13,6 +14,7 @@ function Seo() {
           <Dynamic component={getSeoComponent(locale())} />
         </Suspense>
       </ErrorBoundary>
+      <Faq />
     </section>
   );
 }

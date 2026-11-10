@@ -146,31 +146,6 @@ export default () => {
           consultation with a specialist is recommended.
         </li>
       </ul>
-
-      <h2 class="text-lg">Frequently Asked Questions (FAQ)</h2>
-      <h3 class="text-lg">How much protein should I eat for weight loss?</h3>
-      <p>
-        In a calorie deficit (especially during "Aggressive Weight Loss"), it is
-        recommended to increase protein to 1.8–2.2 g per kg of body weight to
-        ensure your body burns fat, not muscle tissue.
-      </p>
-
-      <h3 class="text-lg">Should I choose Slow or Fast Bulk?</h3>
-      <p>
-        "Fast Bulk" often leads to excessive fat gain. If you aim for a lean,
-        muscular physique, choose "Slow" or "Moderate Bulk" and monitor your
-        progress weekly.
-      </p>
-
-      <h3 class="text-lg">
-        Why isn't protein calculated for my actual weight when I'm overweight?
-      </h3>
-      <p>
-        If your BMI is above 25, the calculator uses the weight corresponding to
-        BMI 25 at your height for protein and fat. Protein needs depend mainly
-        on muscle mass, not fat tissue, so full body weight would overestimate
-        them. Calories are still calculated from your actual weight.
-      </p>
     </>
   );
 };

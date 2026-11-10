@@ -150,32 +150,6 @@ export default () => {
           zalecana konsultacja ze specjalistą.
         </li>
       </ul>
-
-      <h2 class="text-lg">Często zadawane pytania (FAQ)</h2>
-      <h3 class="text-lg">Jaki poziom białka wybrać na redukcję?</h3>
-      <p>
-        Przy deficycie kalorycznym (zwłaszcza przy „Agresywnej redukcji”) zaleca
-        się zwiększenie podaży białka do 1.8–2.2 g na kg wagi, aby organizm
-        spalał tłuszcz, a nie tkankę mięśniową.
-      </p>
-
-      <h3 class="text-lg">Co wybrać: powolne czy szybkie budowanie masy?</h3>
-      <p>
-        „Szybkie budowanie” często prowadzi do nadmiernego otłuszczenia. Jeśli
-        zależy Ci na jakościowej muskulaturze, wybierz „Powolne” lub
-        „Umiarkowane budowanie” i monitoruj postępy.
-      </p>
-
-      <h3 class="text-lg">
-        Dlaczego przy nadwadze białko nie jest liczone na moją masę ciała?
-      </h3>
-      <p>
-        Jeśli BMI przekracza 25, kalkulator liczy białko i tłuszcze na masę
-        odpowiadającą BMI 25 przy Twoim wzroście. Zapotrzebowanie na białko
-        zależy głównie od masy mięśniowej, a nie od tkanki tłuszczowej, więc
-        pełna masa ciała zawyżałaby normę. Kalorie są nadal liczone od
-        rzeczywistej masy ciała.
-      </p>
     </>
   );
 };

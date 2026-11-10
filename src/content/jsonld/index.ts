@@ -24,3 +24,25 @@ const jsonLdData: Record<Locale, object> = {
 export const getJsonLd = (locale: Locale): object => {
   return jsonLdData[locale] || jsonLdData[DEFAULT_LOCALE];
 };
+
+export type FaqItem = { question: string; answer: string };
+
+type FaqGraphNode = {
+  "@type": string;
+  mainEntity?: { name: string; acceptedAnswer: { text: string } }[];
+};
+
+/**
+ * FAQ questions and answers from the FAQPage node of the locale's JSON-LD.
+ * The visible FAQ is rendered from this too, so the structured data always
+ * matches the page content (required by Google for FAQ rich results).
+ */
+export const getFaq = (locale: Locale): FaqItem[] => {
+  const graph =
+    (getJsonLd(locale) as { "@graph"?: FaqGraphNode[] })["@graph"] ?? [];
+  const faqPage = graph.find((node) => node["@type"] === "FAQPage");
+  return (faqPage?.mainEntity ?? []).map((item) => ({
+    question: item.name,
+    answer: item.acceptedAnswer.text,
+  }));
+};

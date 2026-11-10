@@ -86,6 +86,8 @@ export const es: BaseDict = {
   bmiOverweight: "Sobrepeso",
   bmiObese: "Obesidad",
 
+  // FAQ
+  faqTitle: "Preguntas frecuentes (FAQ)",
 
   // Validation
   rangeHint: "De {min} a {max}",

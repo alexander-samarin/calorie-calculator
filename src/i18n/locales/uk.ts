@@ -86,6 +86,8 @@ export const uk: BaseDict = {
   bmiOverweight: "Надмірна вага",
   bmiObese: "Ожиріння",
 
+  // FAQ
+  faqTitle: "Часті запитання (FAQ)",
 
   // Validation
   rangeHint: "Від {min} до {max}",

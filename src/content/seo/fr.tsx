@@ -157,33 +157,6 @@ export default () => {
           une consultation avec un spécialiste est recommandée.
         </li>
       </ul>
-
-      <h2 class="text-lg">Foire aux questions (FAQ)</h2>
-      <h3 class="text-lg">Combien de protéines pour maigrir ?</h3>
-      <p>
-        En déficit calorique (surtout en « Perte rapide »), il est recommandé
-        d'augmenter les protéines à 1.8–2.2 g par kg de poids pour que le corps
-        brûle les graisses et non le tissu musculaire.
-      </p>
-
-      <h3 class="text-lg">Que choisir : prise de masse lente ou rapide ?</h3>
-      <p>
-        La « Prise de masse rapide » conduit souvent à une prise de gras
-        excessive. Si vous visez une musculature de qualité, choisissez « Lente
-        » ou « Modérée » et surveillez vos progrès.
-      </p>
-
-      <h3 class="text-lg">
-        Pourquoi, en cas de surpoids, les protéines ne sont-elles pas calculées
-        sur mon poids réel ?
-      </h3>
-      <p>
-        Si l’IMC dépasse 25, le calculateur utilise pour les protéines et les
-        lipides le poids correspondant à un IMC de 25 pour votre taille. Les
-        besoins en protéines dépendent surtout de la masse musculaire et non du
-        tissu adipeux : le poids total les surestimerait. Les calories restent
-        calculées à partir de votre poids réel.
-      </p>
     </>
   );
 };

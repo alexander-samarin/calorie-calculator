@@ -87,6 +87,9 @@ export type BaseDict = {
   bmiOverweight: string;
   bmiObese: string;
 
+  // FAQ
+  faqTitle: string;
+
   // Validation
   rangeHint: string; // {min}, {max} placeholders
 

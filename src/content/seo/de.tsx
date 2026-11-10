@@ -151,35 +151,6 @@ export default () => {
           Beratung durch einen Spezialisten wird empfohlen.
         </li>
       </ul>
-
-      <h2 class="text-lg">Häufig gestellte Fragen (FAQ)</h2>
-      <h3 class="text-lg">Wie viel Protein sollte ich zum Abnehmen essen?</h3>
-      <p>
-        Im Kaloriendefizit (besonders beim "Aggressiven Abnehmen") wird
-        empfohlen, das Protein auf 1,8–2,2 g pro kg Körpergewicht zu erhöhen,
-        damit der Körper Fett statt Muskelmasse verbrennt.
-      </p>
-
-      <h3 class="text-lg">
-        Sollte ich langsamen oder schnellen Aufbau wählen?
-      </h3>
-      <p>
-        "Schneller Aufbau" führt oft zu übermäßiger Fettzunahme. Wenn Sie eine
-        hochwertige Muskulatur anstreben, wählen Sie "Langsamen" oder "Moderaten
-        Aufbau" und überwachen Sie Ihren Fortschritt.
-      </p>
-
-      <h3 class="text-lg">
-        Warum wird Eiweiß bei Übergewicht nicht für mein tatsächliches Gewicht
-        berechnet?
-      </h3>
-      <p>
-        Liegt der BMI über 25, berechnet der Rechner Eiweiß und Fett für das
-        Gewicht, das bei Ihrer Größe einem BMI von 25 entspricht. Der
-        Eiweißbedarf hängt vor allem von der Muskelmasse ab, nicht vom
-        Fettgewebe, daher würde das volle Gewicht ihn überschätzen. Die Kalorien
-        werden weiterhin aus dem tatsächlichen Gewicht berechnet.
-      </p>
     </>
   );
 };

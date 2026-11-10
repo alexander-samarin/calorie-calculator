@@ -86,6 +86,8 @@ export const be: BaseDict = {
   bmiOverweight: "Лішняя вага",
   bmiObese: "Атлусценне",
 
+  // FAQ
+  faqTitle: "Частыя пытанні (FAQ)",
 
   // Validation
   rangeHint: "Ад {min} да {max}",

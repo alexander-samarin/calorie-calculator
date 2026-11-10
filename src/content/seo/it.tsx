@@ -157,33 +157,6 @@ export default () => {
           si consiglia la consulenza di uno specialista.
         </li>
       </ul>
-
-      <h2 class="text-lg">Domande frequenti (FAQ)</h2>
-      <h3 class="text-lg">Quante proteine assumere per dimagrire?</h3>
-      <p>
-        In deficit calorico (specialmente nel "Dimagrimento aggressivo"), si
-        raccomanda di aumentare le proteine a 1.8–2.2 g per kg di peso affinché
-        il corpo bruci grasso e non tessuto muscolare.
-      </p>
-
-      <h3 class="text-lg">Cosa scegliere: massa lenta o rapida?</h3>
-      <p>
-        La "Massa rapida" porta spesso a un eccessivo accumulo di grasso. Se
-        miri a una muscolatura di qualità, scegli "Massa lenta" o "Moderata" e
-        monitora i tuoi progressi.
-      </p>
-
-      <h3 class="text-lg">
-        Perché in caso di sovrappeso le proteine non vengono calcolate sul mio
-        peso reale?
-      </h3>
-      <p>
-        Se l’IMC supera 25, il calcolatore usa per proteine e grassi il peso
-        corrispondente a un IMC di 25 per la tua altezza. Il fabbisogno proteico
-        dipende soprattutto dalla massa muscolare, non dal tessuto adiposo,
-        quindi il peso totale lo sovrastimerebbe. Le calorie continuano a essere
-        calcolate sul peso reale.
-      </p>
     </>
   );
 };

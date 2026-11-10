@@ -156,32 +156,6 @@ export default () => {
           recomienda consultar a un especialista.
         </li>
       </ul>
-
-      <h2 class="text-lg">Preguntas frecuentes (FAQ)</h2>
-      <h3 class="text-lg">¿Cuánta proteína elegir para adelgazar?</h3>
-      <p>
-        En déficit calórico (especialmente en "Pérdida agresiva"), se recomienda
-        aumentar la proteína a 1.8–2.2 g por kg de peso para que el cuerpo queme
-        grasa y no tejido muscular.
-      </p>
-
-      <h3 class="text-lg">¿Qué elegir: volumen lento o rápido?</h3>
-      <p>
-        El "Volumen rápido" a menudo conduce a una ganancia excesiva de grasa.
-        Si buscas una musculatura de calidad, elige "Volumen lento" o "Moderado"
-        y monitorea tu progreso.
-      </p>
-
-      <h3 class="text-lg">
-        ¿Por qué con sobrepeso las proteínas no se calculan sobre mi peso real?
-      </h3>
-      <p>
-        Si el IMC supera 25, la calculadora usa para proteínas y grasas el peso
-        que corresponde a un IMC de 25 para tu estatura. La necesidad de
-        proteínas depende sobre todo de la masa muscular, no del tejido graso,
-        por lo que el peso total la sobrestimaría. Las calorías se siguen
-        calculando con tu peso real.
-      </p>
     </>
   );
 };
