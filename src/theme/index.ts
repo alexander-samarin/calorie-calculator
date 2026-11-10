@@ -1,4 +1,4 @@
-import { createSignal, onMount, onCleanup } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import { isServer } from "solid-js/web";
 import { storage } from "~/helpers";
 
@@ -44,31 +44,30 @@ const setTheme = (newTheme: Theme) => {
   applyTheme(newTheme);
 };
 
+/**
+ * One-time client initialization. The system theme listener lives for the
+ * whole page lifetime — it must not be tied to a component, otherwise it is
+ * removed when that component unmounts (e.g. on locale navigation).
+ */
+const initTheme = () => {
+  if (initialized || isServer) return;
+  initialized = true;
+
+  // Load saved theme after hydration (SSR always renders the default)
+  const saved = storage.get(STORAGE_KEY);
+  if (isValidTheme(saved)) {
+    setThemeSignal(saved);
+  }
+  applyTheme(theme());
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      if (theme() === SYSTEM_THEME) applyTheme(SYSTEM_THEME);
+    });
+};
+
 export const useTheme = () => {
-  onMount(() => {
-    if (initialized || isServer) return;
-    initialized = true;
-
-    // Load saved theme from storage after hydration
-    const saved = storage.get(STORAGE_KEY);
-    if (isValidTheme(saved)) {
-      setThemeSignal(saved);
-    }
-
-    // Apply theme
-    applyTheme(theme());
-
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = () => {
-      if (theme() === SYSTEM_THEME) {
-        applyTheme(SYSTEM_THEME);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    onCleanup(() => mediaQuery.removeEventListener("change", handleChange));
-  });
-
+  onMount(initTheme);
   return { theme, setTheme };
 };
