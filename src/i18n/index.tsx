@@ -1,7 +1,6 @@
 import {
   createContext,
   createEffect,
-  createMemo,
   useContext,
   type ParentProps,
   type Accessor,
@@ -10,6 +9,7 @@ import { isServer } from "solid-js/web";
 import { storage } from "~/helpers";
 import { LOCALE_STORAGE_KEY } from "~/constants";
 import { LOCALES, DEFAULT_LOCALE, type Locale, type BaseDict } from "./types";
+import { selectPluralForm } from "./plural";
 import { en } from "./locales/en";
 import { ru } from "./locales/ru";
 import { pl } from "./locales/pl";
@@ -101,12 +101,7 @@ export const useLocale = () => {
  */
 export const usePluralizeGrams = () => {
   const { locale, t } = useLocale();
-  const pluralRules = createMemo(() => new Intl.PluralRules(locale()));
-
-  return (n: number): string => {
-    const forms = t().grams;
-    return forms[pluralRules().select(n)] ?? forms.other;
-  };
+  return (n: number): string => selectPluralForm(locale(), t().grams, n);
 };
 
 export type { Locale, BaseDict };
