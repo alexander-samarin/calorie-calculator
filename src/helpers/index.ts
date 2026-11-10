@@ -68,7 +68,9 @@ export const findOptionValue = <T extends string | number>(
   stored: string | null,
 ): T | null => {
   if (stored === null) return null;
-  return options.find((option) => String(option.value) === stored)?.value ?? null;
+  return (
+    options.find((option) => String(option.value) === stored)?.value ?? null
+  );
 };
 
 /**

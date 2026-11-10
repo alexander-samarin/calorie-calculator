@@ -41,13 +41,30 @@ export default createHandler(() => (
             {pathname === "/" && <script innerHTML={localeRedirectScript} />}
             <script innerHTML={themeInitScript} />
             {assets}
-            <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+            <link
+              rel="icon"
+              type="image/png"
+              href="/favicon-96x96.png"
+              sizes="96x96"
+            />
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
             <link rel="shortcut icon" href="/favicon.ico" />
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/apple-touch-icon.png"
+            />
             <link rel="manifest" href="/site.webmanifest" />
-            <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
-            <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#393c4a" />
+            <meta
+              name="theme-color"
+              media="(prefers-color-scheme: light)"
+              content="#fafafa"
+            />
+            <meta
+              name="theme-color"
+              media="(prefers-color-scheme: dark)"
+              content="#393c4a"
+            />
             {/* Analytics: loaded once per document; client-side navigations
                 are counted by PageviewTracker (src/app.tsx) */}
             <script

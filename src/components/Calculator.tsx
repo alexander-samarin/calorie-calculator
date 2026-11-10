@@ -50,17 +50,42 @@ function Calculator() {
     <section class="flex flex-col items-center w-full">
       <StatsRow
         items={[
-          { title: t().basalMetabolism, value: Math.round(result().bmr), unit: t().kcal },
-          { title: t().dailyExpenditure, value: result().baseTdee, unit: t().kcal },
-          { title: t().yourNorm, value: result().tdee, unit: t().kcal, isPrimary: true },
+          {
+            title: t().basalMetabolism,
+            value: Math.round(result().bmr),
+            unit: t().kcal,
+          },
+          {
+            title: t().dailyExpenditure,
+            value: result().baseTdee,
+            unit: t().kcal,
+          },
+          {
+            title: t().yourNorm,
+            value: result().tdee,
+            unit: t().kcal,
+            isPrimary: true,
+          },
         ]}
       />
 
       <StatsRow
         items={[
-          { title: t().proteins, value: result().proteins, unit: pluralizeGrams(result().proteins) },
-          { title: t().fats, value: result().fats, unit: pluralizeGrams(result().fats) },
-          { title: t().carbs, value: result().carbs, unit: pluralizeGrams(result().carbs) },
+          {
+            title: t().proteins,
+            value: result().proteins,
+            unit: pluralizeGrams(result().proteins),
+          },
+          {
+            title: t().fats,
+            value: result().fats,
+            unit: pluralizeGrams(result().fats),
+          },
+          {
+            title: t().carbs,
+            value: result().carbs,
+            unit: pluralizeGrams(result().carbs),
+          },
         ]}
       />
 

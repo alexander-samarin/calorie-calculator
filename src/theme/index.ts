@@ -8,9 +8,7 @@ export const LIGHT_THEME = "light" as const;
 export const DARK_THEME = "dark" as const;
 
 export type Theme =
-  | typeof SYSTEM_THEME
-  | typeof LIGHT_THEME
-  | typeof DARK_THEME;
+  typeof SYSTEM_THEME | typeof LIGHT_THEME | typeof DARK_THEME;
 
 const DEFAULT_THEME: Theme = SYSTEM_THEME;
 

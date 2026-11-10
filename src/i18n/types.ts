@@ -100,15 +100,7 @@ export type BaseDict = {
 };
 
 export type Locale =
-  | "en"
-  | "ru"
-  | "pl"
-  | "de"
-  | "es"
-  | "it"
-  | "fr"
-  | "uk"
-  | "be";
+  "en" | "ru" | "pl" | "de" | "es" | "it" | "fr" | "uk" | "be";
 
 // Single source of truth for all locales
 export const LOCALES: Locale[] = [

@@ -11,17 +11,35 @@ import { pl } from "./locales/pl";
 import { ru } from "./locales/ru";
 import { uk } from "./locales/uk";
 
-const dictionaries: Record<Locale, BaseDict> = { be, de, en, es, fr, it: itDict, pl, ru, uk };
+const dictionaries: Record<Locale, BaseDict> = {
+  be,
+  de,
+  en,
+  es,
+  fr,
+  it: itDict,
+  pl,
+  ru,
+  uk,
+};
 
 const grams = (locale: Locale, n: number) =>
   `${n} ${selectPluralForm(locale, dictionaries[locale].grams, n)}`;
 
 describe("selectPluralForm: grams", () => {
   it.each([
-    ["ru", [1, 2, 5, 11, 21, 22, 25, 101, 112], "1 грамм, 2 грамма, 5 граммов, 11 граммов, 21 грамм, 22 грамма, 25 граммов, 101 грамм, 112 граммов"],
+    [
+      "ru",
+      [1, 2, 5, 11, 21, 22, 25, 101, 112],
+      "1 грамм, 2 грамма, 5 граммов, 11 граммов, 21 грамм, 22 грамма, 25 граммов, 101 грамм, 112 граммов",
+    ],
     ["uk", [1, 2, 5, 21], "1 грам, 2 грами, 5 грамів, 21 грам"],
     ["be", [1, 2, 5, 21], "1 грам, 2 грамы, 5 грамаў, 21 грам"],
-    ["pl", [1, 2, 5, 21, 22, 101], "1 gram, 2 gramy, 5 gramów, 21 gramów, 22 gramy, 101 gramów"],
+    [
+      "pl",
+      [1, 2, 5, 21, 22, 101],
+      "1 gram, 2 gramy, 5 gramów, 21 gramów, 22 gramy, 101 gramów",
+    ],
     ["en", [0, 1, 2], "0 grams, 1 gram, 2 grams"],
     ["fr", [0, 1, 2], "0 gramme, 1 gramme, 2 grammes"],
     ["es", [1, 2], "1 gramo, 2 gramos"],

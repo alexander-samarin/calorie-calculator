@@ -51,7 +51,9 @@ describe("localeRedirectScript", () => {
   });
 
   it("keeps query and hash", () => {
-    expect(run({ search: "?utm_source=tg", hash: "#calc" })).toBe("/en?utm_source=tg#calc");
+    expect(run({ search: "?utm_source=tg", hash: "#calc" })).toBe(
+      "/en?utm_source=tg#calc",
+    );
   });
 
   it.each([

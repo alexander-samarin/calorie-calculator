@@ -50,7 +50,7 @@ function BmiDisplay(props: BmiDisplayProps) {
   });
 
   const bmiCategoryClass = createMemo(
-    () => BMI_CATEGORY_CLASSES[bmiCategory() ?? "normal"]
+    () => BMI_CATEGORY_CLASSES[bmiCategory() ?? "normal"],
   );
 
   const bmiPosition = createMemo(() => {

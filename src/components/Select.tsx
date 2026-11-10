@@ -19,8 +19,9 @@ type SelectProps = {
   options: SelectOption[] | SelectOptionGroup[];
 };
 
-const isGroup = (item: SelectOption | SelectOptionGroup): item is SelectOptionGroup =>
-  "options" in item;
+const isGroup = (
+  item: SelectOption | SelectOptionGroup,
+): item is SelectOptionGroup => "options" in item;
 
 function Select(props: SelectProps) {
   const renderOption = (option: SelectOption) => (

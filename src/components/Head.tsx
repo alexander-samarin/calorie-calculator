@@ -76,7 +76,11 @@ function Head() {
       </For>
 
       {/* x-default hreflang for language negotiation */}
-      <Link rel="alternate" hreflang="x-default" href={getLocaleUrl(DEFAULT_LOCALE)} />
+      <Link
+        rel="alternate"
+        hreflang="x-default"
+        href={getLocaleUrl(DEFAULT_LOCALE)}
+      />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json" innerHTML={jsonLd()} />

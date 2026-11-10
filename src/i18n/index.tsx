@@ -35,7 +35,7 @@ const dictionaries: Record<Locale, BaseDict> = {
 export { LOCALES, DEFAULT_LOCALE };
 
 export const isValidLocale = (
-  value: string | null | undefined
+  value: string | null | undefined,
 ): value is Locale => {
   return LOCALES.includes(value as Locale);
 };
@@ -55,14 +55,16 @@ export const detectLocale = (): Locale => {
   if (isValidLocale(savedLocale)) return savedLocale;
 
   const browserLang = navigator.language.toLowerCase();
-  return LOCALES.find((locale) => browserLang.startsWith(locale)) ?? DEFAULT_LOCALE;
+  return (
+    LOCALES.find((locale) => browserLang.startsWith(locale)) ?? DEFAULT_LOCALE
+  );
 };
 
 // Context for locale - stores an accessor for reactivity
 const LocaleContext = createContext<Accessor<Locale>>(() => DEFAULT_LOCALE);
 
 export function LocaleProvider(
-  props: ParentProps<{ locale: Accessor<Locale> }>
+  props: ParentProps<{ locale: Accessor<Locale> }>,
 ) {
   // Keep <html lang> in sync on client-side navigation
   createEffect(() => {

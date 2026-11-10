@@ -1,4 +1,10 @@
-import { batch, createSignal, createMemo, createEffect, onMount } from "solid-js";
+import {
+  batch,
+  createSignal,
+  createMemo,
+  createEffect,
+  onMount,
+} from "solid-js";
 import { createStore } from "solid-js/store";
 import {
   GENDER_OPTIONS,
@@ -51,7 +57,9 @@ const FIELDS = Object.keys(DEFAULT_STATE) as (keyof CalculatorState)[];
  * slider values are clamped to their range.
  */
 const RESTORE: {
-  [K in keyof CalculatorState]: (stored: string | null) => CalculatorState[K] | null;
+  [K in keyof CalculatorState]: (
+    stored: string | null,
+  ) => CalculatorState[K] | null;
 } = {
   weight: sanitizeNumericText,
   height: sanitizeNumericText,
@@ -100,8 +108,12 @@ export function useCalculator() {
   });
 
   // Validated numbers; null when empty or out of INPUT_LIMITS
-  const weightKg = createMemo(() => parseInRange(state.weight, INPUT_LIMITS.WEIGHT));
-  const heightCm = createMemo(() => parseInRange(state.height, INPUT_LIMITS.HEIGHT));
+  const weightKg = createMemo(() =>
+    parseInRange(state.weight, INPUT_LIMITS.WEIGHT),
+  );
+  const heightCm = createMemo(() =>
+    parseInRange(state.height, INPUT_LIMITS.HEIGHT),
+  );
   const ageYears = createMemo(() => parseInRange(state.age, INPUT_LIMITS.AGE));
 
   const result = createMemo(() =>

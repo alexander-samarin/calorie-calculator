@@ -9,7 +9,9 @@ export default defineConfig({
       routes: [
         "/",
         "/404",
-        ...LOCALES.filter((lang) => lang !== DEFAULT_LOCALE).map((lang) => `/${lang}`),
+        ...LOCALES.filter((lang) => lang !== DEFAULT_LOCALE).map(
+          (lang) => `/${lang}`,
+        ),
       ],
       crawlLinks: true,
       autoSubfolderIndex: false,

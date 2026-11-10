@@ -43,13 +43,16 @@ export default function LangLayout(props: ParentProps) {
 
   // 404 page starts in the default locale (same as prerendered HTML),
   // then switches to the visitor's language after hydration.
-  const [notFoundLocale, setNotFoundLocale] = createSignal<Locale>(DEFAULT_LOCALE);
+  const [notFoundLocale, setNotFoundLocale] =
+    createSignal<Locale>(DEFAULT_LOCALE);
   onMount(() => {
     if (isDefaultLocalePath() && !hasExtraSegments()) {
       navigate("/", { replace: true });
       return;
     }
-    setNotFoundLocale(isValidLocale(params.lang) ? params.lang : detectLocale());
+    setNotFoundLocale(
+      isValidLocale(params.lang) ? params.lang : detectLocale(),
+    );
   });
 
   const locale = (): Locale =>

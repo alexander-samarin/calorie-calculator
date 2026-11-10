@@ -73,7 +73,10 @@ export const calculateBmr = (
     MIFFLIN_COEFFICIENTS;
   const offset = gender === "female" ? FEMALE_OFFSET : MALE_OFFSET;
 
-  return Math.max(0, WEIGHT * weightKg + HEIGHT * heightCm - AGE * ageYears + offset);
+  return Math.max(
+    0,
+    WEIGHT * weightKg + HEIGHT * heightCm - AGE * ageYears + offset,
+  );
 };
 
 /**
@@ -93,7 +96,12 @@ export const getMacroWeight = (weightKg: number, heightCm: number): number => {
  * carbs take the remaining calories (never below 0).
  */
 export const calculateNutrition = (input: NutritionInput): NutritionResult => {
-  const bmr = calculateBmr(input.weightKg, input.heightCm, input.ageYears, input.gender);
+  const bmr = calculateBmr(
+    input.weightKg,
+    input.heightCm,
+    input.ageYears,
+    input.gender,
+  );
   if (bmr <= 0 || input.weightKg === null || input.heightCm === null) {
     return EMPTY_RESULT;
   }
