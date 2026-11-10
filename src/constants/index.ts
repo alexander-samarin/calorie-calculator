@@ -1,7 +1,7 @@
 // Storage keys
 export const LOCALE_STORAGE_KEY = "locale";
 
-// Коэффициенты формулы Миффлина-Сан Жеора для расчёта BMR
+// Mifflin–St Jeor equation coefficients for BMR
 export const MIFFLIN_COEFFICIENTS = {
   WEIGHT: 10,
   HEIGHT: 6.25,
@@ -10,14 +10,14 @@ export const MIFFLIN_COEFFICIENTS = {
   MALE_OFFSET: 5,
 } as const;
 
-// Калорийность макронутриентов (ккал на 1 грамм)
+// Energy per gram of macronutrient, kcal
 export const CALORIES_PER_GRAM = {
   PROTEIN: 4,
   FAT: 9,
   CARB: 4,
 } as const;
 
-// BMI (ИМТ) пороговые значения по классификации ВОЗ
+// BMI thresholds (WHO classification) and the visual scale range
 export const BMI = {
   UNDERWEIGHT: 18.5,
   NORMAL: 25,
@@ -28,7 +28,7 @@ export const BMI = {
 
 export type BmiCategory = "underweight" | "normal" | "overweight" | "obese";
 
-// Диапазоны для белков и жиров на кг веса
+// Protein and fat per kg of body weight, g (slider ranges)
 export const PROTEIN_PER_KG = {
   MIN: 1.2,
   MAX: 2.5,
@@ -43,7 +43,7 @@ export const FAT_PER_KG = {
   DEFAULT: 1,
 } as const;
 
-// Допустимые диапазоны ввода. Значения вне диапазона не участвуют в расчётах
+// Accepted input ranges; out-of-range values are excluded from calculations
 export const INPUT_LIMITS = {
   WEIGHT: { MIN: 20, MAX: 300 },
   HEIGHT: { MIN: 100, MAX: 250 },

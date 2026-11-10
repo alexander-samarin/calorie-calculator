@@ -3,7 +3,7 @@ import { BMI, type BmiCategory } from "~/constants";
 import { useLocale } from "~/i18n";
 import { calculateBmi, getBmiCategory } from "~/lib/nutrition";
 
-// Статические значения, вычисляемые один раз при загрузке модуля
+// Static layout values, computed once at module load
 const BMI_SCALE_RANGE = BMI.SCALE_MAX - BMI.SCALE_MIN;
 
 const BMI_ZONE_WIDTHS = {
