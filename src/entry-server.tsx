@@ -3,6 +3,7 @@ import { createHandler, StartServer } from "@solidjs/start/server";
 import { getRequestEvent } from "solid-js/web";
 import { LOCALES, DEFAULT_LOCALE, type Locale } from "~/i18n";
 import { localeRedirectScript } from "~/i18n/redirectScript";
+import { themeInitScript } from "~/theme/script";
 
 const getLocaleFromPath = (path: string): Locale => {
   const segments = path.split("/").filter(Boolean);
@@ -34,6 +35,7 @@ export default createHandler(() => (
           <head>
             <meta charset="utf-8" />
             {pathname === "/" && <script innerHTML={localeRedirectScript} />}
+            <script innerHTML={themeInitScript} />
             {assets}
           </head>
           <body>

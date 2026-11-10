@@ -2,10 +2,10 @@ import { createSignal, onMount } from "solid-js";
 import { isServer } from "solid-js/web";
 import { storage } from "~/helpers";
 
-const STORAGE_KEY = "theme";
+export const STORAGE_KEY = "theme";
 const SYSTEM_THEME = "system" as const;
-const LIGHT_THEME = "light" as const;
-const DARK_THEME = "dark" as const;
+export const LIGHT_THEME = "light" as const;
+export const DARK_THEME = "dark" as const;
 
 export type Theme =
   | typeof SYSTEM_THEME
