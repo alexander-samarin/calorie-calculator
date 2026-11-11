@@ -2,155 +2,177 @@ export default () => {
   return (
     <>
       <h2 class="text-lg font-extrabold mb-[0.8em]">
-        Präziser Kalorien- und Makronährstoffrechner mit individuellen
-        Einstellungen
+        So berechnen Sie Ihren Kalorienbedarf und Ihre Makros
       </h2>
 
       <p>
-        <strong>CalorieCalc.cc</strong> ist ein fortschrittliches Tool zur
-        Ernährungsplanung. Im Gegensatz zu einfachen Rechnern können Sie hier
-        nicht nur Ihren Kalorienbedarf ermitteln, sondern Ihre Ziele flexibel
-        anpassen – vom sanften Abnehmen bis zur aggressiven Diät – sowie
-        individuelle Werte für{" "}
-        <strong>Eiweiß und Fette pro kg Körpergewicht</strong> festlegen.
+        Der Rechner ermittelt drei Werte: den Grundumsatz, den täglichen
+        Energieverbrauch und den Kalorienbedarf für Ihr Ziel. Daraus berechnet
+        er Eiweiß, Fett und Kohlenhydrate in Gramm und aus Gewicht und Größe den
+        Body-Mass-Index. Die Berechnung ist kostenlos und ohne Anmeldung, Ihre
+        Eingaben bleiben in Ihrem Browser.
       </p>
 
-      <h2 class="text-lg">1. Berücksichtigung der körperlichen Aktivität</h2>
+      <h3 class="text-lg">1. Grundumsatz: die Mifflin-St-Jeor-Formel</h3>
       <p>
-        Um den Grundumsatz (Mifflin-St.Jeor-Formel) genau zu berechnen, wählen
-        Sie Ihren Lebensstil:
+        Der Grundumsatz ist die Energie, die der Körper in Ruhe verbraucht: für
+        die Atmung und die Arbeit von Herz, Gehirn und anderen Organen. Er wird
+        mit der Mifflin-St-Jeor-Formel berechnet:
       </p>
       <ul>
         <li>
-          <strong>Sitzende Lebensweise:</strong> Bürojob, kein Sport, minimale
-          Bewegung im Alltag.
+          <strong>Frauen:</strong> 10 × Gewicht (kg) + 6,25 × Größe (cm) − 5 ×
+          Alter − 161
         </li>
         <li>
-          <strong>1-3 Trainingseinheiten pro Woche:</strong> Leichte Aktivität
-          (Fitness, lange Spaziergänge).
-        </li>
-        <li>
-          <strong>3-5 Trainingseinheiten pro Woche:</strong> Moderate Aktivität
-          (regelmäßiges Fitnessstudio, Joggen).
-        </li>
-        <li>
-          <strong>6-7 Trainingseinheiten pro Woche:</strong> Hohe Aktivität
-          (tägliches intensives Training).
-        </li>
-        <li>
-          <strong>Training 2-mal täglich:</strong> Extreme Belastung
-          (Leistungssport, schwere körperliche Arbeit).
+          <strong>Männer:</strong> 10 × Gewicht (kg) + 6,25 × Größe (cm) − 5 ×
+          Alter + 5
         </li>
       </ul>
 
-      <h2 class="text-lg">2. Zielwahl: Abnehmen, Aufbau oder Erhaltung</h2>
+      <h3 class="text-lg">2. Tagesverbrauch: der Aktivitätsfaktor</h3>
       <p>
-        Unser Service passt die Berechnung an Ihr aktuelles Ziel an. Wählen Sie
-        die Intensität der Gewichtsveränderung:
-      </p>
-
-      <h3 class="text-lg">📉 Gewichtsabnahme (Kaloriendefizit)</h3>
-      <ul>
-        <li>
-          <strong>Sanftes Abnehmen:</strong> Kleines Defizit (~10%). Ideal zum
-          Erhalt der Muskulatur und zur komfortablen Gewichtsreduktion ohne
-          Stress und Hunger.
-        </li>
-        <li>
-          <strong>Moderates Abnehmen:</strong> Optimaler Ausgleich (~15%
-          Defizit). Der "Goldstandard" für die meisten Diäten.
-        </li>
-        <li>
-          <strong>Aggressives Abnehmen:</strong> Großes Defizit (~20%). Geeignet
-          für schnelle Definition ("Cutting") über einen kurzen Zeitraum.
-          Erfordert eine hohe Proteinzufuhr.
-        </li>
-      </ul>
-
-      <h3 class="text-lg">📈 Muskelaufbau (Kalorienüberschuss / Massephase)</h3>
-      <ul>
-        <li>
-          <strong>Langsamer Aufbau:</strong> Minimaler Überschuss ("Lean Bulk").
-          Ermöglicht Muskelaufbau mit minimaler Fettzunahme.
-        </li>
-        <li>
-          <strong>Moderater Aufbau:</strong> Standardmodus für
-          Muskelhypertrophie.
-        </li>
-        <li>
-          <strong>Schneller Aufbau:</strong> Maximaler Überschuss. Geeignet für
-          "Hardgainer" (Ektomorphe), die nur schwer zunehmen.
-        </li>
-      </ul>
-
-      <p>
-        <strong>Gewicht halten:</strong> Berechnung der Erhaltungskalorien, bei
-        denen Ihr Gewicht stabil bleibt.
-      </p>
-
-      <h2 class="text-lg">
-        3. Professionelle Makro-Einstellungen (Proteine & Fette)
-      </h2>
-      <p>
-        Der Hauptvorteil von <strong>CalorieCalc.cc</strong> ist die
-        Möglichkeit, die Nährstoffmengen pro Kilogramm Körpergewicht manuell
-        festzulegen. Dies ist entscheidend für einen effektiven Ernährungsplan:
+        Der Grundumsatz wird mit einem Faktor multipliziert, der Training und
+        Bewegung im Alltag berücksichtigt:
       </p>
       <ul>
         <li>
-          <strong>Eiweiß pro kg Körpergewicht:</strong> Empfohlen werden meist{" "}
-          <i>1,2 bis 2,5 g/kg</i>. Beim Abnehmen und Training steigt der
-          Proteinbedarf, um die Muskeln vor dem Abbau (Katabolismus) zu
-          schützen.
+          <strong>Sitzende Tätigkeit</strong> — 1,2: Büroarbeit, kein Sport.
         </li>
         <li>
-          <strong>Fette pro kg Körpergewicht:</strong> Empfohlener Bereich liegt
-          bei <i>0,8 - 1,2 g/kg</i>. Fette sind essentiell für den
-          Hormonhaushalt. Wir empfehlen nicht, unter 0,7 g/kg zu gehen.
+          <strong>1–3 Trainings pro Woche</strong> — 1,375.
         </li>
         <li>
-          <strong>Kohlenhydrate:</strong> Werden automatisch aus den
-          verbleibenden Kalorien berechnet. Sie liefern Energie für intensives
-          Training.
+          <strong>3–5 Trainings pro Woche</strong> — 1,55.
+        </li>
+        <li>
+          <strong>6–7 Trainings pro Woche</strong> — 1,725.
+        </li>
+        <li>
+          <strong>2 Trainings pro Tag</strong> — 1,9: Profisport oder schwere
+          körperliche Arbeit.
         </li>
       </ul>
-
       <p>
-        <strong>Berechnung bei Übergewicht.</strong> Liegt Ihr BMI über 25,
-        werden Eiweiß und Fett nicht für das volle Körpergewicht berechnet,
-        sondern für das Gewicht, das bei Ihrer Größe einem BMI von 25
-        entspricht. Fettgewebe erhöht den Eiweißbedarf kaum, daher würde das
-        volle Gewicht den Bedarf überschätzen und keinen Platz für Kohlenhydrate
-        lassen. Bei 165 cm sind das zum Beispiel 68 kg.
+        Wenn Sie zwischen zwei Stufen schwanken, wählen Sie die niedrigere: Die
+        eigene Aktivität wird häufiger über- als unterschätzt.
       </p>
 
-      <h2 class="text-lg">4. Body-Mass-Index (BMI) Rechner</h2>
+      <h3 class="text-lg">3. Kalorienbedarf für Ihr Ziel</h3>
       <p>
-        Neben Kalorien und Makronährstoffen berechnet{" "}
-        <strong>CalorieCalc.cc</strong> automatisch Ihren{" "}
-        <strong>BMI (Body-Mass-Index)</strong> — einen Schlüsselindikator zur
-        Bewertung des Verhältnisses von Gewicht und Größe. Eine visuelle Skala
-        mit farbigen Zonen hilft Ihnen schnell zu verstehen, in welcher
-        Kategorie Sie sich befinden:
+        Der Tagesverbrauch wird mit dem Faktor des gewählten Ziels
+        multipliziert:
       </p>
       <ul>
         <li>
-          <strong>Untergewicht</strong> (BMI &lt; 18,5): Kann auf
-          Nährstoffmangel oder Gesundheitsprobleme hinweisen.
+          <strong>Gewicht halten</strong> — unverändert: So viele Kalorien
+          brauchen Sie, damit Ihr Gewicht gleich bleibt.
         </li>
         <li>
-          <strong>Normalgewicht</strong> (BMI 18,5–24,9): Optimaler Bereich für
-          die meisten Erwachsenen.
+          <strong>Leichtes Abnehmen</strong> — 10 % Defizit. Langsam, aber gut
+          durchzuhalten.
         </li>
         <li>
-          <strong>Übergewicht</strong> (BMI 25–29,9): Es wird empfohlen, auf
-          Ernährung und körperliche Aktivität zu achten.
+          <strong>Moderates Abnehmen</strong> — 15 % Defizit. Passt für die
+          meisten.
         </li>
         <li>
-          <strong>Adipositas</strong> (BMI ≥ 30): Erhöhtes Gesundheitsrisiko,
-          Beratung durch einen Spezialisten wird empfohlen.
+          <strong>Intensives Abnehmen</strong> — 20 % Defizit. Schneller, aber
+          anstrengender; bei diesem Defizit ist genug Eiweiß besonders wichtig.
+        </li>
+        <li>
+          <strong>Langsamer Masseaufbau</strong> — 10 % Überschuss. Am wenigsten
+          zusätzliches Fett.
+        </li>
+        <li>
+          <strong>Moderater Masseaufbau</strong> — 15 % Überschuss.
+        </li>
+        <li>
+          <strong>Schneller Masseaufbau</strong> — 20 % Überschuss. Das Gewicht
+          steigt schneller, aber mit den Muskeln kommt auch deutlich mehr Fett.
         </li>
       </ul>
+
+      <h3 class="text-lg">4. Eiweiß, Fett und Kohlenhydrate</h3>
+      <p>
+        Eiweiß und Fett werden in Gramm pro Kilogramm Körpergewicht festgelegt,
+        Kohlenhydrate füllen die übrigen Kalorien. 1 g Eiweiß oder Kohlenhydrate
+        hat 4 kcal, 1 g Fett hat 9 kcal.
+      </p>
+      <ul>
+        <li>
+          <strong>Eiweiß:</strong> 1,2 bis 2,5 g pro kg, standardmäßig 1,5. Beim
+          Abnehmen und bei Krafttraining nimmt man meist 1,6–2,2 g, um die
+          Muskeln zu erhalten.
+        </li>
+        <li>
+          <strong>Fett:</strong> 0,8 bis 1,2 g pro kg, standardmäßig 1,0. Fett
+          wird für die Hormonbildung gebraucht, deshalb sollte man es nicht
+          stark kürzen.
+        </li>
+        <li>
+          <strong>Kohlenhydrate:</strong> alles, was nach Eiweiß und Fett vom
+          Kalorienbedarf übrig bleibt.
+        </li>
+      </ul>
+      <p>
+        <strong>Liegt Ihr BMI über 25</strong>, werden Eiweiß und Fett nicht für
+        Ihr tatsächliches Gewicht berechnet, sondern für das Gewicht bei BMI 25
+        und Ihrer Größe: bei 165 cm zum Beispiel 68 kg. Fettgewebe erhöht den
+        Eiweißbedarf kaum, deshalb würde die Berechnung mit dem vollen Gewicht
+        den Bedarf überschätzen und keinen Platz für Kohlenhydrate lassen. Die
+        Kalorien werden weiterhin aus dem tatsächlichen Gewicht berechnet.
+      </p>
+
+      <h2 class="text-lg">Rechenbeispiel</h2>
+      <p>
+        Eine Frau, 30 Jahre, 165 cm, 60 kg, 1–3 Trainings pro Woche, Ziel:
+        moderates Abnehmen, Eiweiß 1,8 g/kg, Fett 1,0 g/kg:
+      </p>
+      <ol>
+        <li>
+          Grundumsatz: 10 × 60 + 6,25 × 165 − 5 × 30 − 161 ≈{" "}
+          <strong>1320 kcal</strong>.
+        </li>
+        <li>
+          Tagesverbrauch: 1320 × 1,375 ≈ <strong>1815 kcal</strong>.
+        </li>
+        <li>
+          Bedarf zum Abnehmen: 1815 × 0,85 ≈ <strong>1543 kcal</strong>.
+        </li>
+        <li>
+          Eiweiß: 60 × 1,8 = <strong>108 g</strong> (432 kcal). Fett: 60 × 1,0 ={" "}
+          <strong>60 g</strong> (540 kcal).
+        </li>
+        <li>
+          Kohlenhydrate: (1543 − 432 − 540) ÷ 4 ≈ <strong>143 g</strong>.
+        </li>
+      </ol>
+
+      <h2 class="text-lg">Body-Mass-Index (BMI)</h2>
+      <p>
+        Der BMI ist das Gewicht in Kilogramm geteilt durch die Körpergröße in
+        Metern zum Quadrat. Der Rechner zeigt ihn auf einer Skala mit den
+        WHO-Kategorien:
+      </p>
+      <ul>
+        <li>
+          <strong>unter 18,5</strong> — Untergewicht;
+        </li>
+        <li>
+          <strong>18,5–24,9</strong> — Normalgewicht;
+        </li>
+        <li>
+          <strong>25–29,9</strong> — Übergewicht;
+        </li>
+        <li>
+          <strong>ab 30</strong> — Adipositas.
+        </li>
+      </ul>
+      <p>
+        Der BMI unterscheidet nicht zwischen Muskeln und Fett, daher kann er bei
+        Sportlern mit viel Muskelmasse zu hoch ausfallen.
+      </p>
     </>
   );
 };

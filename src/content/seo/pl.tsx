@@ -2,154 +2,180 @@ export default () => {
   return (
     <>
       <h2 class="text-lg font-extrabold mb-[0.8em]">
-        Dokładny kalkulator kalorii i makroskładników z indywidualnymi
-        ustawieniami
+        Jak obliczyć zapotrzebowanie kaloryczne i makroskładniki
       </h2>
 
       <p>
-        <strong>CalorieCalc.cc</strong> to zaawansowane narzędzie do planowania
-        diety. W przeciwieństwie do prostych liczników, nasz kalkulator pozwala
-        nie tylko obliczyć zapotrzebowanie kaloryczne, ale także elastycznie
-        dopasować cele – od łagodnej redukcji po agresywne odchudzanie – oraz
-        ustalić indywidualne normy{" "}
-        <strong>białka i tłuszczów na 1 kg masy ciała</strong>.
+        Kalkulator liczy trzy wartości: podstawową przemianę materii, dzienne
+        zapotrzebowanie energetyczne i normę kalorii dla wybranego celu. Na jej
+        podstawie wylicza białko, tłuszcze i węglowodany w gramach, a z wagi i
+        wzrostu — wskaźnik masy ciała. Obliczenia są bezpłatne i nie wymagają
+        rejestracji, a wpisane dane zostają w Twojej przeglądarce.
       </p>
 
-      <h2 class="text-lg">1. Poziom aktywności fizycznej</h2>
+      <h3 class="text-lg">
+        1. Podstawowa przemiana materii: wzór Mifflina-St Jeora
+      </h3>
       <p>
-        Aby dokładnie obliczyć Podstawową Przemianę Materii (wzór Mifflina-St
-        Jeora), wybierz swój tryb życia:
+        Podstawowa przemiana materii (PPM) to energia, którą organizm zużywa w
+        spoczynku: na oddychanie oraz pracę serca, mózgu i innych narządów.
+        Oblicza się ją wzorem Mifflina-St Jeora:
       </p>
       <ul>
         <li>
-          <strong>Siedzący tryb życia:</strong> Praca biurowa, brak sportu,
-          minimalny ruch w ciągu dnia.
+          <strong>Kobiety:</strong> 10 × waga (kg) + 6,25 × wzrost (cm) − 5 ×
+          wiek − 161
         </li>
         <li>
-          <strong>1-3 treningi w tygodniu:</strong> Lekka aktywność (fitness,
-          długie spacery, rekreacja).
-        </li>
-        <li>
-          <strong>3-5 treningów w tygodniu:</strong> Umiarkowana aktywność
-          (regularna siłownia, bieganie).
-        </li>
-        <li>
-          <strong>6-7 treningów w tygodniu:</strong> Wysoka aktywność (codzienne
-          intensywne ćwiczenia).
-        </li>
-        <li>
-          <strong>Treningi 2 razy dziennie:</strong> Ekstremalne obciążenie
-          (sport zawodowy, ciężka praca fizyczna).
-        </li>
-      </ul>
-
-      <h2 class="text-lg">2. Wybór celu: Redukcja, Masa lub Utrzymanie</h2>
-      <p>
-        Nasz serwis adaptuje obliczenia do Twojego aktualnego celu. Wybierz
-        tempo zmiany wagi:
-      </p>
-
-      <h3 class="text-lg">📉 Dla utraty wagi (Deficyt kaloryczny)</h3>
-      <ul>
-        <li>
-          <strong>Łagodna redukcja:</strong> Mały deficyt (~10%). Idealna dla
-          zachowania mięśni i komfortowego chudnięcia bez stresu i głodu.
-        </li>
-        <li>
-          <strong>Umiarkowana redukcja:</strong> Optymalny balans (~15%
-          deficytu). Złoty środek dla większości osób odchudzających się.
-        </li>
-        <li>
-          <strong>Agresywna redukcja:</strong> Znaczny deficyt (~20%).
-          Odpowiednia dla szybkiej „wycinki” na krótki czas. Wymaga wysokiego
-          spożycia białka.
+          <strong>Mężczyźni:</strong> 10 × waga (kg) + 6,25 × wzrost (cm) − 5 ×
+          wiek + 5
         </li>
       </ul>
 
       <h3 class="text-lg">
-        📈 Dla budowania masy mięśniowej (Nadwyżka kaloryczna)
+        2. Dzienne zapotrzebowanie: współczynnik aktywności
       </h3>
-      <ul>
-        <li>
-          <strong>Powolne budowanie masy:</strong> Minimalna nadwyżka („czysta
-          masa”). Pozwala budować mięśnie z minimalnym przyrostem tkanki
-          tłuszczowej.
-        </li>
-        <li>
-          <strong>Umiarkowane budowanie masy:</strong> Standardowy tryb dla
-          wzrostu mięśni.
-        </li>
-        <li>
-          <strong>Szybkie budowanie masy:</strong> Maksymalna nadwyżka.
-          Odpowiednia dla ektomorfików, którym trudno przybrać na wadze.
-        </li>
-      </ul>
-
       <p>
-        <strong>Utrzymanie wagi:</strong> Obliczenie zera kalorycznego, przy
-        którym Twoja waga pozostanie stabilna.
-      </p>
-
-      <h2 class="text-lg">
-        3. Profesjonalne ustawienia makroskładników (Białka i Tłuszcze)
-      </h2>
-      <p>
-        Główną zaletą <strong>CalorieCalc.cc</strong> jest możliwość ręcznego
-        ustalenia ilości składników odżywczych na kilogram masy ciała. Jest to
-        kluczowe dla ułożenia skutecznego planu żywieniowego:
+        PPM mnoży się przez współczynnik, który uwzględnia treningi i ruch w
+        ciągu dnia:
       </p>
       <ul>
         <li>
-          <strong>Białko na 1 kg masy ciała:</strong> Zazwyczaj zaleca się od{" "}
-          <i>1.2 do 2.5 g/kg</i>. Podczas redukcji i treningów zapotrzebowanie
-          na białko wzrasta, aby chronić mięśnie przed rozpadem (katabolizmem).
+          <strong>Siedzący tryb życia</strong> — 1,2: praca biurowa, brak
+          sportu.
         </li>
         <li>
-          <strong>Tłuszcze na 1 kg masy ciała:</strong> Zalecana norma to{" "}
-          <i>0.8 - 1.2 g/kg</i>. Tłuszcze są niezbędne dla układu hormonalnego i
-          zdrowia skóry. Nie zalecamy schodzenia poniżej 0.7 g/kg.
+          <strong>1–3 treningi tygodniowo</strong> — 1,375.
         </li>
         <li>
-          <strong>Węglowodany:</strong> Obliczane automatycznie z reszty
-          kalorii. Dostarczają energii do intensywnych treningów.
+          <strong>3–5 treningów tygodniowo</strong> — 1,55.
+        </li>
+        <li>
+          <strong>6–7 treningów tygodniowo</strong> — 1,725.
+        </li>
+        <li>
+          <strong>2 treningi dziennie</strong> — 1,9: sport zawodowy lub ciężka
+          praca fizyczna.
         </li>
       </ul>
-
       <p>
-        <strong>Obliczenia przy nadwadze.</strong> Jeśli Twoje BMI przekracza
-        25, białko i tłuszcze są obliczane nie na pełną masę ciała, lecz na masę
-        odpowiadającą BMI 25 przy Twoim wzroście. Tkanka tłuszczowa prawie nie
-        zwiększa zapotrzebowania na białko, więc liczenie na pełną masę
-        zawyżałoby normę i nie zostawiałoby miejsca na węglowodany. Na przykład
-        przy wzroście 165 cm to 68 kg.
+        Jeśli wahasz się między dwiema opcjami, wybierz niższą: aktywność
+        częściej się przecenia, niż nie docenia.
       </p>
 
-      <h2 class="text-lg">4. Kalkulator wskaźnika masy ciała (BMI)</h2>
+      <h3 class="text-lg">3. Norma kalorii dla celu</h3>
       <p>
-        Oprócz kalorii i makroskładników, <strong>CalorieCalc.cc</strong>{" "}
-        automatycznie oblicza Twoje <strong>BMI (wskaźnik masy ciała)</strong> —
-        kluczowy wskaźnik do oceny stosunku masy ciała do wzrostu. Wizualna
-        skala z kolorowymi strefami pomoże Ci szybko zrozumieć, w której
-        kategorii się znajdujesz:
+        Dzienne zapotrzebowanie mnoży się przez współczynnik wybranego celu:
       </p>
       <ul>
         <li>
-          <strong>Niedowaga</strong> (BMI &lt; 18,5): Może wskazywać na
-          niedobory żywieniowe lub problemy zdrowotne.
+          <strong>Utrzymanie wagi</strong> — bez zmian: tyle kalorii, by waga
+          pozostała taka sama.
         </li>
         <li>
-          <strong>Norma</strong> (BMI 18,5–24,9): Optymalny zakres dla
-          większości dorosłych.
+          <strong>Łagodne odchudzanie</strong> — deficyt 10%. Powoli, ale łatwo
+          go utrzymać.
         </li>
         <li>
-          <strong>Nadwaga</strong> (BMI 25–29,9): Zaleca się zwrócić uwagę na
-          odżywianie i aktywność fizyczną.
+          <strong>Umiarkowane odchudzanie</strong> — deficyt 15%. Odpowiedni dla
+          większości osób.
         </li>
         <li>
-          <strong>Otyłość</strong> (BMI ≥ 30): Zwiększone ryzyko dla zdrowia,
-          zalecana konsultacja ze specjalistą.
+          <strong>Intensywne odchudzanie</strong> — deficyt 20%. Szybciej, ale
+          trudniej; przy takim deficycie szczególnie ważne jest odpowiednio dużo
+          białka.
+        </li>
+        <li>
+          <strong>Powolny przyrost masy</strong> — nadwyżka 10%. Najmniej
+          zbędnego tłuszczu.
+        </li>
+        <li>
+          <strong>Umiarkowany przyrost masy</strong> — nadwyżka 15%.
+        </li>
+        <li>
+          <strong>Szybki przyrost masy</strong> — nadwyżka 20%. Waga rośnie
+          szybciej, ale razem z mięśniami wyraźnie przybywa też tłuszczu.
         </li>
       </ul>
+
+      <h3 class="text-lg">4. Białko, tłuszcze i węglowodany</h3>
+      <p>
+        Białko i tłuszcze ustawia się w gramach na kilogram masy ciała, a
+        węglowodany wypełniają pozostałe kalorie. 1 g białka lub węglowodanów to
+        4 kcal, 1 g tłuszczu — 9 kcal.
+      </p>
+      <ul>
+        <li>
+          <strong>Białko:</strong> od 1,2 do 2,5 g na kg, domyślnie 1,5. Przy
+          odchudzaniu i treningu siłowym zwykle przyjmuje się 1,6–2,2 g, aby
+          zachować mięśnie.
+        </li>
+        <li>
+          <strong>Tłuszcze:</strong> od 0,8 do 1,2 g na kg, domyślnie 1,0.
+          Tłuszcze są potrzebne do produkcji hormonów, więc nie warto mocno ich
+          ograniczać.
+        </li>
+        <li>
+          <strong>Węglowodany:</strong> wszystko, co zostaje z normy kalorii po
+          białku i tłuszczach.
+        </li>
+      </ul>
+      <p>
+        <strong>Jeśli BMI przekracza 25</strong>, białko i tłuszcze liczone są
+        nie na faktyczną wagę, lecz na wagę odpowiadającą BMI 25 przy Twoim
+        wzroście: na przykład przy 165 cm to 68 kg. Tkanka tłuszczowa prawie nie
+        zwiększa zapotrzebowania na białko, więc liczenie na pełną wagę
+        zawyżałoby normę i nie zostawiało miejsca na węglowodany. Kalorie
+        liczone są od faktycznej wagi.
+      </p>
+
+      <h2 class="text-lg">Przykład obliczenia</h2>
+      <p>
+        Kobieta, 30 lat, wzrost 165 cm, waga 60 kg, 1–3 treningi tygodniowo, cel
+        — umiarkowane odchudzanie, białko 1,8 g/kg, tłuszcze 1,0 g/kg:
+      </p>
+      <ol>
+        <li>
+          PPM: 10 × 60 + 6,25 × 165 − 5 × 30 − 161 ≈ <strong>1320 kcal</strong>.
+        </li>
+        <li>
+          Dzienne zapotrzebowanie: 1320 × 1,375 ≈ <strong>1815 kcal</strong>.
+        </li>
+        <li>
+          Norma na odchudzanie: 1815 × 0,85 ≈ <strong>1543 kcal</strong>.
+        </li>
+        <li>
+          Białko: 60 × 1,8 = <strong>108 g</strong> (432 kcal). Tłuszcze: 60 ×
+          1,0 = <strong>60 g</strong> (540 kcal).
+        </li>
+        <li>
+          Węglowodany: (1543 − 432 − 540) ÷ 4 ≈ <strong>143 g</strong>.
+        </li>
+      </ol>
+
+      <h2 class="text-lg">Wskaźnik masy ciała (BMI)</h2>
+      <p>
+        BMI to waga w kilogramach podzielona przez kwadrat wzrostu w metrach.
+        Kalkulator pokazuje go na skali z kategoriami WHO:
+      </p>
+      <ul>
+        <li>
+          <strong>poniżej 18,5</strong> — niedowaga;
+        </li>
+        <li>
+          <strong>18,5–24,9</strong> — prawidłowa waga;
+        </li>
+        <li>
+          <strong>25–29,9</strong> — nadwaga;
+        </li>
+        <li>
+          <strong>30 i więcej</strong> — otyłość.
+        </li>
+      </ul>
+      <p>
+        BMI nie odróżnia mięśni od tłuszczu, więc u sportowców z dużą masą
+        mięśniową może być zawyżone.
+      </p>
     </>
   );
 };

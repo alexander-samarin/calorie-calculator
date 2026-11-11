@@ -4,7 +4,8 @@ export default {
     {
       "@type": "SoftwareApplication",
       name: "Calculateur de Calories CalorieCalc.cc",
-      url: "https://caloriecalc.cc",
+      url: "https://caloriecalc.cc/fr",
+      inLanguage: "fr",
       applicationCategory: "HealthApplication",
       operatingSystem: "Any",
       offers: {
@@ -13,13 +14,13 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Calculateur précis de Calories, Macros et IMC avec réglages personnalisés. Calculez les calories pour maigrir (perte douce, sèche aggressive) ou la prise de masse. Fonctions uniques : réglage des protéines et lipides par kg de poids, échelle visuelle de l'IMC.",
+        "Calculez vos besoins en calories et en macros pour perdre du poids, le maintenir ou prendre de la masse avec la formule de Mifflin-St Jeor. Protéines et lipides par kg de poids, IMC sur une échelle.",
       featureList: [
-        "Formule de Mifflin-St Jeor",
-        "Réglage des protéines et lipides par kg de poids",
-        "Calcul de l'IMC avec échelle visuelle",
-        "Modes : Sèche aggressive, Prise de masse sèche (Lean Bulk)",
-        "Calcul complet des Macros gratuit",
+        "Métabolisme de base avec la formule de Mifflin-St Jeor",
+        "Cinq niveaux d'activité",
+        "Sept buts : maintien du poids, trois modes de perte de poids et trois de prise de masse",
+        "Protéines et lipides par kg de poids, glucides à partir des calories restantes",
+        "Indice de masse corporelle sur une échelle avec les catégories de l'OMS",
       ],
     },
     {
@@ -27,42 +28,58 @@ export default {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Combien de protéines choisir pour maigrir ?",
+          name: "Que sont les macros et comment les calculer ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "En déficit calorique (surtout en « Sèche aggressive »), il est recommandé d'augmenter les protéines à 1.8–2.2 g par kg de poids pour que le corps brûle les graisses et non le tissu musculaire. Vous pouvez ajuster ce paramètre manuellement dans notre calculateur.",
+            text: "Les macros sont les protéines, les lipides et les glucides. On calcule d'abord le métabolisme de base avec la formule de Mifflin-St Jeor, puis on le multiplie par un coefficient d'activité et un coefficient de but. Les protéines et les lipides se règlent en grammes par kg de poids, les glucides occupent les calories restantes. Le calculateur fait tout cela automatiquement : il suffit d'indiquer sexe, poids, taille et âge.",
           },
         },
         {
           "@type": "Question",
-          name: "Que choisir : prise de masse lente ou rapide ?",
+          name: "Combien de calories par jour pour perdre du poids ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "La « Prise de masse rapide » conduit souvent à une prise de gras excessive. Si vous visez une musculature de qualité, choisissez « Prise de masse lente » ou « Modérée ».",
+            text: "Il faut manger moins que sa dépense journalière. Un déficit de 10–20 % convient à la plupart des gens : dans le calculateur, ce sont les pertes de poids légère, modérée et intensive. Par exemple, une femme de 30 ans mesurant 165 cm, pesant 60 kg et s'entraînant 1–3 fois par semaine a besoin d'environ 1540 kcal par jour avec un déficit de 15 %.",
           },
         },
         {
           "@type": "Question",
-          name: "Quelle est la précision de ce calculateur ?",
+          name: "À quelle vitesse vais-je perdre du poids ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Nous utilisons la formule de Mifflin-St Jeor, reconnue comme le « standard de référence ». Nous permettons également d'ajuster précisément l'activité et les macronutriments pour une personnalisation maximale.",
+            text: "1 kg de graisse corporelle représente environ 7700 kcal. Un déficit de 300 kcal par jour fait environ 2100 kcal par semaine, soit à peu près 0,3 kg de graisse. Les premiers jours, le poids peut baisser plus vite à cause de la perte d'eau, puis cela ralentit. Si votre poids ne bouge pas pendant 2–3 semaines, mangez un peu moins ou choisissez un déficit plus important.",
           },
         },
         {
           "@type": "Question",
-          name: "Qu'est-ce que l'IMC et à quoi sert-il ?",
+          name: "Combien de protéines pendant une perte de poids ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "L'IMC (Indice de Masse Corporelle) est un indicateur qui aide à évaluer le rapport entre votre poids et votre taille. Notre calculateur calcule automatiquement l'IMC et affiche le résultat sur une échelle visuelle avec des zones colorées : insuffisance pondérale, normal, surpoids, obésité.",
+            text: "En déficit calorique, surtout avec une perte de poids intensive, on recommande en général 1,6–2,2 g de protéines par kg de poids : cela aide à préserver les muscles. Vous pouvez régler cette valeur avec le curseur « protéines par 1 kg de poids ».",
           },
         },
         {
           "@type": "Question",
-          name: "Pourquoi, en cas de surpoids, les protéines ne sont-elles pas calculées sur mon poids réel ?",
+          name: "Quelle prise de masse choisir : lente ou rapide ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Si l’IMC dépasse 25, le calculateur utilise pour les protéines et les lipides le poids correspondant à un IMC de 25 pour votre taille. Les besoins en protéines dépendent surtout de la masse musculaire et non du tissu adipeux : le poids total les surestimerait. Les calories restent calculées à partir de votre poids réel.",
+            text: "Plus le surplus est grand, plus on prend de graisse avec le muscle. Pour gagner du muscle sans trop de graisse, choisissez une prise de masse lente ou modérée. La rapide convient à ceux qui ont du mal à prendre du poids.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelle est la précision du calcul ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Dans les études, la formule de Mifflin-St Jeor est plus précise que les autres formules courantes, mais cela reste une estimation : chez la plupart des gens, la dépense réelle s'écarte de la valeur calculée de 10 % ou moins. Prenez le résultat comme point de départ et ajustez-le selon l'évolution de votre poids sur 2–3 semaines.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi, en surpoids, les protéines ne sont-elles pas calculées sur mon poids ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si votre IMC dépasse 25, le calculateur calcule les protéines et les lipides sur le poids correspondant à un IMC de 25 pour votre taille. Les besoins en protéines dépendent surtout de la masse musculaire, pas du tissu adipeux, donc un calcul sur le poids total surestimerait l'objectif. Les calories restent calculées sur le poids réel.",
           },
         },
       ],

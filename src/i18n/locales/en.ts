@@ -52,8 +52,9 @@ export const en: BaseDict = {
 
   // App / SEO
   title: "Calorie Calculator",
+  seoTitle: "Calorie & Macro Calculator — Daily Calories for Weight Loss",
   description:
-    "Accurate calorie, macro and BMI calculator with visual scale. Free calculation from the Telegram channel «Zhirno ne budet 🥦»",
+    "Calorie and macro targets for weight loss, maintenance or muscle gain with the Mifflin-St Jeor equation. Protein and fat per kg, BMI. Free, no sign-up.",
   appName: "Calories",
 
   // Love

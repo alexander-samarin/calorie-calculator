@@ -2,150 +2,171 @@ export default () => {
   return (
     <>
       <h2 class="text-lg font-extrabold mb-[0.8em]">
-        Accurate Calorie & Macro Calculator with Custom Settings
+        How to calculate your calorie and macro needs
       </h2>
 
       <p>
-        <strong>CalorieCalc.cc</strong> is an advanced nutrition planning tool.
-        Unlike simple calorie counters, our calculator allows you to not only
-        find your daily energy needs but also flexibly adjust goals—from mild
-        weight loss to aggressive cutting—and set individual{" "}
-        <strong>protein and fat targets per kg of body weight</strong>.
+        The calculator gives you three numbers: your basal metabolic rate, your
+        daily energy expenditure and your calorie target for the chosen goal.
+        From the target it works out protein, fat and carbs in grams, and from
+        your weight and height, your body mass index. It is free, needs no
+        sign-up, and everything you enter stays in your browser.
       </p>
 
-      <h2 class="text-lg">1. Activity Level</h2>
+      <h3 class="text-lg">
+        1. Basal metabolic rate: the Mifflin-St Jeor equation
+      </h3>
       <p>
-        To accurately calculate your Basal Metabolic Rate (Mifflin-St Jeor
-        equation), select the option that best matches your lifestyle:
+        Basal metabolic rate (BMR) is the energy your body uses at rest: for
+        breathing and for keeping the heart, brain and other organs working. It
+        is calculated with the Mifflin-St Jeor equation:
       </p>
       <ul>
         <li>
-          <strong>Sedentary:</strong> Office job, no sports, minimal physical
-          movement.
+          <strong>Women:</strong> 10 × weight (kg) + 6.25 × height (cm) − 5 ×
+          age − 161
         </li>
         <li>
-          <strong>1-3 workouts per week:</strong> Light activity (fitness, long
-          walks, occasional exercise).
-        </li>
-        <li>
-          <strong>3-5 workouts per week:</strong> Moderate activity (regular gym
-          visits, running).
-        </li>
-        <li>
-          <strong>6-7 workouts per week:</strong> High activity (daily intense
-          training).
-        </li>
-        <li>
-          <strong>Workouts 2 times a day:</strong> Extreme activity
-          (professional athletes, heavy physical labor).
+          <strong>Men:</strong> 10 × weight (kg) + 6.25 × height (cm) − 5 × age
+          + 5
         </li>
       </ul>
 
-      <h2 class="text-lg">
-        2. Goal Selection: Weight Loss, Gain, or Maintenance
-      </h2>
+      <h3 class="text-lg">2. Daily expenditure: the activity factor</h3>
       <p>
-        Our service adapts the calculation to your specific goal. Choose your
-        preferred intensity:
-      </p>
-
-      <h3 class="text-lg">📉 For Weight Loss (Calorie Deficit)</h3>
-      <ul>
-        <li>
-          <strong>Mild Weight Loss:</strong> Small deficit (~10%). Ideal for
-          muscle preservation and comfortable weight reduction without stress or
-          hunger.
-        </li>
-        <li>
-          <strong>Moderate Weight Loss:</strong> Optimal balance (~15% deficit).
-          The "gold standard" for most dieters.
-        </li>
-        <li>
-          <strong>Aggressive Weight Loss:</strong> Significant deficit (~20%).
-          Suitable for quick "cutting" over a short period. Requires high
-          protein intake to protect muscles.
-        </li>
-      </ul>
-
-      <h3 class="text-lg">📈 For Muscle Gain (Calorie Surplus)</h3>
-      <ul>
-        <li>
-          <strong>Slow Bulk:</strong> Minimal surplus ("Lean Bulk"). Allows for
-          muscle growth with minimal fat accumulation.
-        </li>
-        <li>
-          <strong>Moderate Bulk:</strong> Standard mode for hypertrophy (muscle
-          growth).
-        </li>
-        <li>
-          <strong>Fast Bulk:</strong> Maximum surplus. Suitable for
-          "hardgainers" (ectomorphs) who struggle to gain weight.
-        </li>
-      </ul>
-
-      <p>
-        <strong>Maintenance:</strong> Calculates your TDEE (Total Daily Energy
-        Expenditure) to keep your weight stable.
-      </p>
-
-      <h2 class="text-lg">3. Professional Macro Settings (Protein & Fat)</h2>
-      <p>
-        The key advantage of <strong>CalorieCalc.cc</strong> is the ability to
-        manually set nutrient intake per kilogram of body weight. This is
-        critical for creating a professional nutrition plan:
+        BMR is multiplied by a factor that accounts for workouts and movement
+        during the day:
       </p>
       <ul>
         <li>
-          <strong>Protein per kg:</strong> Usually recommended between{" "}
-          <i>1.2 to 2.5 g/kg</i>. During weight loss (cutting), protein needs
-          increase to protect muscles from breakdown (catabolism).
+          <strong>Sedentary lifestyle</strong> — 1.2: office work, no sport.
         </li>
         <li>
-          <strong>Fat per kg:</strong> Recommended range is{" "}
-          <i>0.8 - 1.2 g/kg</i>. Dietary fats are essential for hormonal health.
-          We do not recommend dropping below 0.7 g/kg.
+          <strong>1–3 workouts per week</strong> — 1.375.
         </li>
         <li>
-          <strong>Carbs:</strong> Calculated automatically from the remaining
-          calories. Carbohydrates provide energy for high-intensity training and
-          brain function.
+          <strong>3–5 workouts per week</strong> — 1.55.
+        </li>
+        <li>
+          <strong>6–7 workouts per week</strong> — 1.725.
+        </li>
+        <li>
+          <strong>2 workouts per day</strong> — 1.9: professional sport or heavy
+          physical labour.
+        </li>
+      </ul>
+      <p>
+        If you are torn between two options, pick the lower one: people
+        overestimate their activity more often than they underestimate it.
+      </p>
+
+      <h3 class="text-lg">3. Calorie target for your goal</h3>
+      <p>Daily expenditure is multiplied by the factor of the chosen goal:</p>
+      <ul>
+        <li>
+          <strong>Maintenance</strong> — no change: the calories that keep your
+          weight where it is.
+        </li>
+        <li>
+          <strong>Mild weight loss</strong> — 10% deficit. Slow but easy to
+          stick to.
+        </li>
+        <li>
+          <strong>Moderate weight loss</strong> — 15% deficit. Suits most
+          people.
+        </li>
+        <li>
+          <strong>Aggressive weight loss</strong> — 20% deficit. Faster but
+          harder; at this deficit getting enough protein matters most.
+        </li>
+        <li>
+          <strong>Slow bulk</strong> — 10% surplus. The least extra fat.
+        </li>
+        <li>
+          <strong>Moderate bulk</strong> — 15% surplus.
+        </li>
+        <li>
+          <strong>Fast bulk</strong> — 20% surplus. Weight goes up faster, but
+          you gain noticeably more fat along with muscle.
         </li>
       </ul>
 
+      <h3 class="text-lg">4. Protein, fat and carbs</h3>
       <p>
-        <strong>Calculation for excess weight.</strong> If your BMI is above 25,
-        protein and fat are calculated not for your full body weight but for the
-        weight that corresponds to BMI 25 at your height. Fat tissue barely
-        raises protein needs, so using full body weight would overestimate the
-        norm and leave no room for carbs. For example, at 165 cm this is 68 kg.
-      </p>
-
-      <h2 class="text-lg">4. Body Mass Index (BMI) Calculator</h2>
-      <p>
-        In addition to calories and macros, <strong>CalorieCalc.cc</strong>{" "}
-        automatically calculates your <strong>BMI (Body Mass Index)</strong> — a
-        key indicator for assessing the relationship between weight and height.
-        A visual scale with colored zones helps you quickly understand which
-        category you fall into:
+        Protein and fat are set in grams per kilogram of body weight, and carbs
+        fill the remaining calories. 1 g of protein or carbs has 4 kcal, 1 g of
+        fat has 9 kcal.
       </p>
       <ul>
         <li>
-          <strong>Underweight</strong> (BMI &lt; 18.5): May indicate nutritional
-          deficiency or health issues.
+          <strong>Protein:</strong> 1.2 to 2.5 g per kg, 1.5 by default. When
+          losing weight or doing strength training, 1.6–2.2 g is commonly used
+          to preserve muscle.
         </li>
         <li>
-          <strong>Normal</strong> (BMI 18.5–24.9): Optimal range for most
-          adults.
+          <strong>Fat:</strong> 0.8 to 1.2 g per kg, 1.0 by default. Fat is
+          needed to produce hormones, so cutting it hard is not a good idea.
         </li>
         <li>
-          <strong>Overweight</strong> (BMI 25–29.9): Consider paying attention
-          to nutrition and physical activity.
-        </li>
-        <li>
-          <strong>Obesity</strong> (BMI ≥ 30): Increased health risks,
-          consultation with a specialist is recommended.
+          <strong>Carbs:</strong> whatever is left of the calorie target after
+          protein and fat.
         </li>
       </ul>
+      <p>
+        <strong>If your BMI is above 25</strong>, protein and fat are calculated
+        not for your actual weight but for the weight at BMI 25 for your height:
+        for example, 68 kg at 165 cm. Fat tissue barely raises protein needs, so
+        using the full weight would overstate the target and leave no room for
+        carbs. Calories are still based on your actual weight.
+      </p>
+
+      <h2 class="text-lg">Example calculation</h2>
+      <p>
+        A woman, 30 years old, 165 cm, 60 kg, 1–3 workouts per week, goal:
+        moderate weight loss, protein 1.8 g/kg, fat 1.0 g/kg:
+      </p>
+      <ol>
+        <li>
+          BMR: 10 × 60 + 6.25 × 165 − 5 × 30 − 161 ≈ <strong>1320 kcal</strong>.
+        </li>
+        <li>
+          Daily expenditure: 1320 × 1.375 ≈ <strong>1815 kcal</strong>.
+        </li>
+        <li>
+          Weight-loss target: 1815 × 0.85 ≈ <strong>1543 kcal</strong>.
+        </li>
+        <li>
+          Protein: 60 × 1.8 = <strong>108 g</strong> (432 kcal). Fat: 60 × 1.0 ={" "}
+          <strong>60 g</strong> (540 kcal).
+        </li>
+        <li>
+          Carbs: (1543 − 432 − 540) ÷ 4 ≈ <strong>143 g</strong>.
+        </li>
+      </ol>
+
+      <h2 class="text-lg">Body mass index (BMI)</h2>
+      <p>
+        BMI is your weight in kilograms divided by your height in metres
+        squared. The calculator shows it on a scale with the WHO categories:
+      </p>
+      <ul>
+        <li>
+          <strong>below 18.5</strong> — underweight;
+        </li>
+        <li>
+          <strong>18.5–24.9</strong> — normal weight;
+        </li>
+        <li>
+          <strong>25–29.9</strong> — overweight;
+        </li>
+        <li>
+          <strong>30 and above</strong> — obesity.
+        </li>
+      </ul>
+      <p>
+        BMI does not tell muscle from fat, so for athletes with a lot of muscle
+        it can read too high.
+      </p>
     </>
   );
 };

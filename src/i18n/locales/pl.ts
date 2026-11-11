@@ -52,8 +52,9 @@ export const pl: BaseDict = {
 
   // App / SEO
   title: "Kalkulator kalorii",
+  seoTitle: "Kalkulator kalorii i makro — zapotrzebowanie kaloryczne",
   description:
-    "Dokładny kalkulator kalorii, makroskładników i BMI z wizualną skalą. Bezpłatne obliczenie od kanału Telegram «Zhirno ne budet 🥦»",
+    "Zapotrzebowanie kaloryczne i makro na odchudzanie, utrzymanie wagi lub masę wg wzoru Mifflina-St Jeora. Białko i tłuszcze na kg, BMI. Bez rejestracji.",
   appName: "Kalorie",
 
   // Love

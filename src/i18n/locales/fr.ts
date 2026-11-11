@@ -52,8 +52,9 @@ export const fr: BaseDict = {
 
   // App / SEO
   title: "Calculateur de calories",
+  seoTitle: "Calculateur de calories et macros — besoins pour maigrir",
   description:
-    "Calculateur précis de calories, macros et IMC avec échelle visuelle. Calcul gratuit de la chaîne Telegram «Zhirno ne budet 🥦»",
+    "Calories et macros pour maigrir, maintenir son poids ou prendre de la masse (formule de Mifflin-St Jeor). Protéines et lipides par kg, IMC. Gratuit.",
   appName: "Calories",
 
   // Love

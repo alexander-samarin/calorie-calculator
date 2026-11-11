@@ -4,7 +4,8 @@ export default {
     {
       "@type": "SoftwareApplication",
       name: "Kalorienrechner CalorieCalc.cc",
-      url: "https://caloriecalc.cc",
+      url: "https://caloriecalc.cc/de",
+      inLanguage: "de",
       applicationCategory: "HealthApplication",
       operatingSystem: "Any",
       offers: {
@@ -13,13 +14,13 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Präziser Kalorien-, Makronährstoff- und BMI-Rechner mit individuellen Einstellungen. Berechnen Sie Kalorien zum Abnehmen (sanft, aggressiv) oder für den Muskelaufbau. Einzigartige Funktionen: Einstellung von Eiweiß und Fetten pro kg Körpergewicht, visuelle BMI-Skala.",
+        "Berechnen Sie Kalorienbedarf und Makros zum Abnehmen, Gewichthalten oder Muskelaufbau mit der Mifflin-St-Jeor-Formel. Eiweiß und Fett pro kg Körpergewicht, BMI auf einer Skala.",
       featureList: [
-        "Mifflin-St.Jeor-Formel",
-        "Einstellung von Eiweiß und Fetten pro kg Gewicht",
-        "BMI-Berechnung mit visueller Skala",
-        "Modi: Aggressives Abnehmen, Trockener Muskelaufbau (Lean Bulk)",
-        "Kostenlose Berechnung aller Makronährstoffe",
+        "Grundumsatz nach der Mifflin-St-Jeor-Formel",
+        "Fünf Aktivitätsstufen",
+        "Sieben Ziele: Gewicht halten, drei Stufen zum Abnehmen und drei zum Masseaufbau",
+        "Eiweiß und Fett pro kg Körpergewicht, Kohlenhydrate aus den übrigen Kalorien",
+        "Body-Mass-Index auf einer Skala mit den WHO-Kategorien",
       ],
     },
     {
@@ -27,42 +28,58 @@ export default {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Wie viel Protein sollte ich zum Abnehmen wählen?",
+          name: "Was sind Makros und wie berechne ich sie?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Im Kaloriendefizit (besonders beim 'Aggressiven Abnehmen') wird empfohlen, das Protein auf 1,8–2,2 g pro kg Körpergewicht zu erhöhen, damit der Körper Fett statt Muskelmasse verbrennt. In unserem Rechner können Sie diesen Parameter manuell einstellen.",
+            text: "Makros sind Eiweiß, Fett und Kohlenhydrate. Zuerst wird der Grundumsatz mit der Mifflin-St-Jeor-Formel berechnet, dann mit einem Aktivitäts- und einem Zielfaktor multipliziert. Eiweiß und Fett werden in Gramm pro kg Körpergewicht festgelegt, Kohlenhydrate füllen die übrigen Kalorien. Der Rechner erledigt das automatisch, Sie geben nur Geschlecht, Gewicht, Größe und Alter ein.",
           },
         },
         {
           "@type": "Question",
-          name: "Sollte ich langsamen oder schnellen Aufbau wählen?",
+          name: "Wie viele Kalorien am Tag brauche ich zum Abnehmen?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "'Schneller Aufbau' führt oft zu übermäßiger Fettzunahme. Wenn Sie eine hochwertige Muskulatur anstreben, wählen Sie 'Langsamen' oder 'Moderaten Aufbau'.",
+            text: "Sie müssen weniger essen, als Sie täglich verbrauchen. Für die meisten passt ein Defizit von 10–20 %: Im Rechner sind das leichtes, moderates und intensives Abnehmen. Eine 30-jährige Frau mit 165 cm, 60 kg und 1–3 Trainings pro Woche braucht bei 15 % Defizit zum Beispiel etwa 1540 kcal am Tag.",
           },
         },
         {
           "@type": "Question",
-          name: "Wie genau ist dieser Rechner?",
+          name: "Wie schnell nehme ich ab?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Wir verwenden die Mifflin-St.Jeor-Formel, die als 'Goldstandard' gilt. Zudem ermöglichen wir eine genaue Anpassung der Aktivität und Makronährstoffe für maximale Personalisierung.",
+            text: "1 kg Körperfett entspricht etwa 7700 kcal. Ein Defizit von 300 kcal am Tag ergibt rund 2100 kcal pro Woche, also etwa 0,3 kg Fett. In den ersten Tagen kann das Gewicht durch Wasserverlust schneller sinken, danach verlangsamt es sich. Ändert sich Ihr Gewicht 2–3 Wochen lang nicht, essen Sie etwas weniger oder wählen Sie ein größeres Defizit.",
           },
         },
         {
           "@type": "Question",
-          name: "Was ist der BMI und wozu dient er?",
+          name: "Wie viel Eiweiß brauche ich beim Abnehmen?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Der BMI (Body-Mass-Index) ist ein Indikator, der hilft, das Verhältnis zwischen Gewicht und Größe zu bewerten. Unser Rechner berechnet automatisch den BMI und zeigt das Ergebnis auf einer visuellen Skala mit farbigen Zonen: Untergewicht, Normalgewicht, Übergewicht, Adipositas.",
+            text: "Im Kaloriendefizit, besonders beim intensiven Abnehmen, werden meist 1,6–2,2 g Eiweiß pro kg Körpergewicht empfohlen: Das hilft, Muskeln zu erhalten. Den Wert stellen Sie mit dem Regler „Eiweiß pro 1 kg Körpergewicht“ ein.",
           },
         },
         {
           "@type": "Question",
-          name: "Warum wird Eiweiß bei Übergewicht nicht für mein tatsächliches Gewicht berechnet?",
+          name: "Welchen Masseaufbau soll ich wählen: langsam oder schnell?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Liegt der BMI über 25, berechnet der Rechner Eiweiß und Fett für das Gewicht, das bei Ihrer Größe einem BMI von 25 entspricht. Der Eiweißbedarf hängt vor allem von der Muskelmasse ab, nicht vom Fettgewebe, daher würde das volle Gewicht ihn überschätzen. Die Kalorien werden weiterhin aus dem tatsächlichen Gewicht berechnet.",
+            text: "Je größer der Überschuss, desto mehr Fett nehmen Sie zusammen mit den Muskeln zu. Für Muskelaufbau ohne viel zusätzliches Fett wählen Sie den langsamen oder moderaten Masseaufbau. Der schnelle eignet sich für alle, die nur schwer zunehmen.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Wie genau ist die Berechnung?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "In Studien ist die Mifflin-St-Jeor-Formel genauer als andere verbreitete Formeln, aber sie bleibt eine Schätzung: Bei den meisten Menschen weicht der tatsächliche Verbrauch um höchstens 10 % vom berechneten ab. Nutzen Sie das Ergebnis als Ausgangspunkt und passen Sie es an, je nachdem, wie sich Ihr Gewicht in 2–3 Wochen verändert.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Warum wird Eiweiß bei Übergewicht nicht für mein Gewicht berechnet?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Liegt Ihr BMI über 25, berechnet der Rechner Eiweiß und Fett für das Gewicht bei BMI 25 und Ihrer Größe. Der Eiweißbedarf hängt vor allem von der Muskelmasse ab, nicht vom Fettgewebe, deshalb würde die Berechnung mit dem vollen Gewicht den Bedarf überschätzen. Die Kalorien werden weiterhin aus dem tatsächlichen Gewicht berechnet.",
           },
         },
       ],

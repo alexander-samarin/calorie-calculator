@@ -52,8 +52,9 @@ export const de: BaseDict = {
 
   // App / SEO
   title: "Kalorienrechner",
+  seoTitle: "Kalorienrechner & Makrorechner — Kalorienbedarf zum Abnehmen",
   description:
-    "Präziser Kalorien-, Makronährstoff- und BMI-Rechner mit visueller Skala. Kostenlose Berechnung vom Telegram-Kanal «Zhirno ne budet 🥦»",
+    "Kalorienbedarf und Makros zum Abnehmen, Gewichthalten oder Muskelaufbau nach der Mifflin-St-Jeor-Formel. Eiweiß und Fett pro kg, BMI. Kostenlos, ohne Anmeldung.",
   appName: "Kalorien",
 
   // Love

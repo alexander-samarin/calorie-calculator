@@ -52,8 +52,9 @@ export const it: BaseDict = {
 
   // App / SEO
   title: "Calcolatore di calorie",
+  seoTitle: "Calcolatore di calorie e macro — calorie per dimagrire",
   description:
-    "Calcolatore preciso di calorie, macronutrienti e IMC con scala visiva. Calcolo gratuito dal canale Telegram «Zhirno ne budet 🥦»",
+    "Calorie e macro per dimagrire, mantenere il peso o mettere massa con la formula di Mifflin-St Jeor. Proteine e grassi per kg, IMC. Gratis, senza registrazione.",
   appName: "Calorie",
 
   // Love

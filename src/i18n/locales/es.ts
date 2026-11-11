@@ -52,8 +52,9 @@ export const es: BaseDict = {
 
   // App / SEO
   title: "Calculadora de calorías",
+  seoTitle: "Calculadora de calorías y macros — calorías para adelgazar",
   description:
-    "Calculadora precisa de calorías, macros e IMC con escala visual. Cálculo gratuito del canal de Telegram «Zhirno ne budet 🥦»",
+    "Calorías y macros para adelgazar, mantener el peso o ganar masa con la fórmula de Mifflin-St Jeor. Proteínas y grasas por kg, IMC. Gratis y sin registro.",
   appName: "Calorías",
 
   // Love

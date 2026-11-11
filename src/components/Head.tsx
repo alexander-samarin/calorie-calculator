@@ -11,6 +11,7 @@ import { getJsonLd } from "~/content/jsonld";
 
 const OG_IMAGE_URL = "https://caloriecalc.cc/og.png";
 const SITE_URL = "https://caloriecalc.cc";
+const SITE_NAME = "CalorieCalc.cc";
 
 /** Absolute URL of a locale's page (matches public/sitemap.xml) */
 const getLocaleUrl = (locale: Locale): string =>
@@ -39,19 +40,19 @@ function Head() {
 
   return (
     <>
-      <Title>{t().title}</Title>
+      <Title>{t().seoTitle}</Title>
       <Meta name="description" content={t().description} />
       {/* Static tags (viewport, icons, manifest, theme-color) live in
           src/entry-server.tsx so every page, including 404, has them */}
       <Meta name="apple-mobile-web-app-title" content={t().appName} />
 
       {/* Open Graph */}
-      <Meta property="og:title" content={t().title} />
+      <Meta property="og:title" content={t().seoTitle} />
       <Meta property="og:description" content={t().description} />
       <Meta property="og:image" content={OG_IMAGE_URL} />
       <Meta property="og:url" content={canonicalUrl()} />
       <Meta property="og:type" content="website" />
-      <Meta property="og:site_name" content={t().title} />
+      <Meta property="og:site_name" content={SITE_NAME} />
       <Meta property="og:locale" content={OG_LOCALES[locale()]} />
       <For each={LOCALES.filter((code) => code !== locale())}>
         {(code) => (

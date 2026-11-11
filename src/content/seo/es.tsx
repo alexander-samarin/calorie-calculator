@@ -2,160 +2,178 @@ export default () => {
   return (
     <>
       <h2 class="text-lg font-extrabold mb-[0.8em]">
-        Calculadora precisa de calorías y macronutrientes con ajustes
-        personalizados
+        Cómo calcular tus calorías y macros diarios
       </h2>
 
       <p>
-        <strong>CalorieCalc.cc</strong> es una herramienta avanzada para la
-        planificación nutricional. A diferencia de los contadores simples,
-        nuestra calculadora te permite no solo conocer tu requerimiento
-        calórico, sino también ajustar tus objetivos con flexibilidad — desde
-        una pérdida de peso ligera hasta una definición agresiva — y establecer
-        normas individuales de{" "}
-        <strong>proteínas y grasas por kg de peso</strong>.
+        La calculadora obtiene tres cifras: tu metabolismo basal, tu gasto
+        energético diario y tus calorías objetivo según la meta elegida. A
+        partir de ellas calcula proteínas, grasas y carbohidratos en gramos, y
+        con tu peso y estatura, el índice de masa corporal. Es gratis, sin
+        registro, y los datos que introduces se quedan en tu navegador.
       </p>
-
-      <h2 class="text-lg">1. Nivel de actividad física</h2>
-      <p>
-        Para calcular con precisión tu tasa metabólica basal (fórmula Mifflin-St
-        Jeor), selecciona tu estilo de vida:
-      </p>
-      <ul>
-        <li>
-          <strong>Vida sedentaria:</strong> Trabajo de oficina, sin deporte,
-          movimiento mínimo.
-        </li>
-        <li>
-          <strong>1-3 entrenamientos por semana:</strong> Actividad ligera
-          (fitness, caminatas largas).
-        </li>
-        <li>
-          <strong>3-5 entrenamientos por semana:</strong> Actividad moderada
-          (gimnasio regular, correr).
-        </li>
-        <li>
-          <strong>6-7 entrenamientos por semana:</strong> Actividad alta
-          (entrenamientos intensos diarios).
-        </li>
-        <li>
-          <strong>Entrenamientos 2 veces al día:</strong> Carga extrema (deporte
-          profesional, trabajo físico pesado).
-        </li>
-      </ul>
-
-      <h2 class="text-lg">
-        2. Selección del objetivo: Adelgazar, Ganar o Mantener
-      </h2>
-      <p>
-        Nuestro servicio adapta el cálculo a tu meta actual. Elige la intensidad
-        del cambio de peso:
-      </p>
-
-      <h3 class="text-lg">📉 Para perder peso (Déficit calórico)</h3>
-      <ul>
-        <li>
-          <strong>Pérdida ligera:</strong> Pequeño déficit (~10%). Ideal para
-          preservar la masa muscular y reducir peso cómodamente sin estrés ni
-          hambre.
-        </li>
-        <li>
-          <strong>Pérdida moderada:</strong> Equilibrio óptimo (~15% de
-          déficit). El "estándar de oro" para la mayoría de las dietas.
-        </li>
-        <li>
-          <strong>Pérdida agresiva:</strong> Déficit significativo (~20%+).
-          Adecuado para una "definición" rápida a corto plazo. Requiere un alto
-          consumo de proteínas.
-        </li>
-      </ul>
 
       <h3 class="text-lg">
-        📈 Para ganar masa muscular (Superávit calórico / Volumen)
+        1. Metabolismo basal: la fórmula de Mifflin-St Jeor
       </h3>
-      <ul>
-        <li>
-          <strong>Volumen lento:</strong> Superávit mínimo ("Volumen limpio").
-          Permite ganar músculo con la mínima acumulación de grasa.
-        </li>
-        <li>
-          <strong>Volumen moderado:</strong> Modo estándar para la hipertrofia
-          muscular.
-        </li>
-        <li>
-          <strong>Volumen rápido:</strong> Superávit máximo. Adecuado para
-          ectomorfos a los que les cuesta ganar peso.
-        </li>
-      </ul>
-
       <p>
-        <strong>Mantenimiento:</strong> Cálculo de calorías de mantenimiento,
-        con las que tu peso se mantendrá estable.
-      </p>
-
-      <h2 class="text-lg">
-        3. Ajuste profesional de Macros (Proteínas y Grasas)
-      </h2>
-      <p>
-        La principal ventaja de <strong>CalorieCalc.cc</strong> es la
-        posibilidad de configurar manualmente la cantidad de nutrientes por
-        kilogramo de peso corporal. Esto es crítico para crear un plan de
-        alimentación efectivo:
+        El metabolismo basal es la energía que el cuerpo gasta en reposo: para
+        respirar y mantener en funcionamiento el corazón, el cerebro y otros
+        órganos. Se calcula con la fórmula de Mifflin-St Jeor:
       </p>
       <ul>
         <li>
-          <strong>Proteínas por kg de peso:</strong> Generalmente se recomienda
-          entre <i>1.2 y 2.5 g/kg</i>. Al adelgazar y entrenar, la necesidad de
-          proteínas aumenta para proteger los músculos del catabolismo.
+          <strong>Mujeres:</strong> 10 × peso (kg) + 6,25 × estatura (cm) − 5 ×
+          edad − 161
         </li>
         <li>
-          <strong>Grasas por kg de peso:</strong> El rango recomendado es de{" "}
-          <i>0.8 - 1.2 g/kg</i>. Las grasas son esenciales para la salud
-          hormonal. No recomendamos bajar de 0.7 g/kg.
-        </li>
-        <li>
-          <strong>Carbohidratos:</strong> Se calculan automáticamente a partir
-          de las calorías restantes. Proporcionan energía para entrenamientos
-          intensos.
+          <strong>Hombres:</strong> 10 × peso (kg) + 6,25 × estatura (cm) − 5 ×
+          edad + 5
         </li>
       </ul>
 
+      <h3 class="text-lg">2. Gasto diario: el factor de actividad</h3>
       <p>
-        <strong>Cálculo con exceso de peso.</strong> Si tu IMC supera 25, las
-        proteínas y las grasas no se calculan sobre tu peso total, sino sobre el
-        peso que corresponde a un IMC de 25 para tu estatura. El tejido graso
-        apenas aumenta la necesidad de proteínas, así que usar el peso total
-        sobrestimaría la norma y no dejaría espacio para los carbohidratos. Por
-        ejemplo, con 165 cm son 68 kg.
-      </p>
-
-      <h2 class="text-lg">4. Calculadora del Índice de Masa Corporal (IMC)</h2>
-      <p>
-        Además de las calorías y los macronutrientes,{" "}
-        <strong>CalorieCalc.cc</strong> calcula automáticamente tu{" "}
-        <strong>IMC (Índice de Masa Corporal)</strong> — un indicador clave para
-        evaluar la relación entre el peso y la altura. Una escala visual con
-        zonas de colores te ayuda a entender rápidamente en qué categoría te
-        encuentras:
+        El metabolismo basal se multiplica por un factor que tiene en cuenta los
+        entrenamientos y el movimiento durante el día:
       </p>
       <ul>
         <li>
-          <strong>Bajo peso</strong> (IMC &lt; 18,5): Puede indicar deficiencia
-          nutricional o problemas de salud.
+          <strong>Estilo de vida sedentario</strong> — 1,2: trabajo de oficina,
+          sin deporte.
         </li>
         <li>
-          <strong>Normal</strong> (IMC 18,5–24,9): Rango óptimo para la mayoría
-          de los adultos.
+          <strong>1–3 entrenamientos por semana</strong> — 1,375.
         </li>
         <li>
-          <strong>Sobrepeso</strong> (IMC 25–29,9): Se recomienda prestar
-          atención a la nutrición y la actividad física.
+          <strong>3–5 entrenamientos por semana</strong> — 1,55.
         </li>
         <li>
-          <strong>Obesidad</strong> (IMC ≥ 30): Mayor riesgo para la salud, se
-          recomienda consultar a un especialista.
+          <strong>6–7 entrenamientos por semana</strong> — 1,725.
+        </li>
+        <li>
+          <strong>2 entrenamientos por día</strong> — 1,9: deporte profesional o
+          trabajo físico intenso.
         </li>
       </ul>
+      <p>
+        Si dudas entre dos opciones, elige la menor: la actividad se sobrestima
+        con más frecuencia de la que se subestima.
+      </p>
+
+      <h3 class="text-lg">3. Calorías objetivo según tu meta</h3>
+      <p>El gasto diario se multiplica por el factor de la meta elegida:</p>
+      <ul>
+        <li>
+          <strong>Mantenimiento</strong> — sin cambios: las calorías que
+          mantienen tu peso estable.
+        </li>
+        <li>
+          <strong>Pérdida de peso suave</strong> — déficit del 10%. Lenta, pero
+          fácil de sostener.
+        </li>
+        <li>
+          <strong>Pérdida de peso moderada</strong> — déficit del 15%. Adecuada
+          para la mayoría.
+        </li>
+        <li>
+          <strong>Pérdida de peso agresiva</strong> — déficit del 20%. Más
+          rápida, pero más dura; con este déficit es especialmente importante
+          comer suficiente proteína.
+        </li>
+        <li>
+          <strong>Volumen lento</strong> — superávit del 10%. La menor ganancia
+          de grasa.
+        </li>
+        <li>
+          <strong>Volumen moderado</strong> — superávit del 15%.
+        </li>
+        <li>
+          <strong>Volumen rápido</strong> — superávit del 20%. El peso sube más
+          rápido, pero junto con el músculo se gana bastante más grasa.
+        </li>
+      </ul>
+
+      <h3 class="text-lg">4. Proteínas, grasas y carbohidratos</h3>
+      <p>
+        Las proteínas y las grasas se fijan en gramos por kilo de peso corporal,
+        y los carbohidratos ocupan las calorías restantes. 1 g de proteína o de
+        carbohidratos aporta 4 kcal; 1 g de grasa, 9 kcal.
+      </p>
+      <ul>
+        <li>
+          <strong>Proteínas:</strong> de 1,2 a 2,5 g por kg, 1,5 por defecto. Al
+          perder peso o con entrenamiento de fuerza se suelen usar 1,6–2,2 g
+          para conservar el músculo.
+        </li>
+        <li>
+          <strong>Grasas:</strong> de 0,8 a 1,2 g por kg, 1,0 por defecto. Las
+          grasas son necesarias para producir hormonas, así que no conviene
+          recortarlas mucho.
+        </li>
+        <li>
+          <strong>Carbohidratos:</strong> todo lo que queda de las calorías
+          objetivo después de las proteínas y las grasas.
+        </li>
+      </ul>
+      <p>
+        <strong>Si tu IMC es superior a 25</strong>, las proteínas y las grasas
+        no se calculan con tu peso real, sino con el peso correspondiente a un
+        IMC de 25 para tu estatura: por ejemplo, 68 kg con 165 cm. El tejido
+        graso apenas aumenta la necesidad de proteína, así que calcular con el
+        peso completo inflaría el objetivo y no dejaría espacio para los
+        carbohidratos. Las calorías siguen calculándose con tu peso real.
+      </p>
+
+      <h2 class="text-lg">Ejemplo de cálculo</h2>
+      <p>
+        Mujer, 30 años, 165 cm, 60 kg, 1–3 entrenamientos por semana, meta:
+        pérdida de peso moderada, proteínas 1,8 g/kg, grasas 1,0 g/kg:
+      </p>
+      <ol>
+        <li>
+          Metabolismo basal: 10 × 60 + 6,25 × 165 − 5 × 30 − 161 ≈{" "}
+          <strong>1320 kcal</strong>.
+        </li>
+        <li>
+          Gasto diario: 1320 × 1,375 ≈ <strong>1815 kcal</strong>.
+        </li>
+        <li>
+          Objetivo para perder peso: 1815 × 0,85 ≈ <strong>1543 kcal</strong>.
+        </li>
+        <li>
+          Proteínas: 60 × 1,8 = <strong>108 g</strong> (432 kcal). Grasas: 60 ×
+          1,0 = <strong>60 g</strong> (540 kcal).
+        </li>
+        <li>
+          Carbohidratos: (1543 − 432 − 540) ÷ 4 ≈ <strong>143 g</strong>.
+        </li>
+      </ol>
+
+      <h2 class="text-lg">Índice de masa corporal (IMC)</h2>
+      <p>
+        El IMC es el peso en kilos dividido entre la estatura en metros al
+        cuadrado. La calculadora lo muestra en una escala con las categorías de
+        la OMS:
+      </p>
+      <ul>
+        <li>
+          <strong>menos de 18,5</strong> — bajo peso;
+        </li>
+        <li>
+          <strong>18,5–24,9</strong> — peso normal;
+        </li>
+        <li>
+          <strong>25–29,9</strong> — sobrepeso;
+        </li>
+        <li>
+          <strong>30 o más</strong> — obesidad.
+        </li>
+      </ul>
+      <p>
+        El IMC no distingue entre músculo y grasa, por lo que en deportistas con
+        mucha masa muscular puede salir demasiado alto.
+      </p>
     </>
   );
 };

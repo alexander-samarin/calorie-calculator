@@ -56,7 +56,10 @@ export type BaseDict = {
   maintenance: string;
 
   // App / SEO
+  /** Page heading (h1) */
   title: string;
+  /** <title> and og:title: longer, with search keywords */
+  seoTitle: string;
   description: string;
   appName: string;
 

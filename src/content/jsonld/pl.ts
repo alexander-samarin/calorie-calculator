@@ -4,7 +4,8 @@ export default {
     {
       "@type": "SoftwareApplication",
       name: "Kalkulator Kalorii CalorieCalc.cc",
-      url: "https://caloriecalc.cc",
+      url: "https://caloriecalc.cc/pl",
+      inLanguage: "pl",
       applicationCategory: "HealthApplication",
       operatingSystem: "Any",
       offers: {
@@ -13,13 +14,13 @@ export default {
         priceCurrency: "USD",
       },
       description:
-        "Dokładny kalkulator kalorii, makroskładników i BMI z indywidualnymi ustawieniami. Oblicz kalorie na redukcję (łagodną, agresywną) lub budowanie masy. Unikalne funkcje: ustawienie białka i tłuszczów na 1 kg masy ciała, wizualna skala BMI.",
+        "Oblicz zapotrzebowanie kaloryczne i makroskładniki na odchudzanie, utrzymanie wagi lub budowę masy wzorem Mifflina-St Jeora. Białko i tłuszcze na kg masy ciała, BMI na skali.",
       featureList: [
-        "Wzór Mifflina-St Jeora",
-        "Ustawienie białka i tłuszczów na kg masy ciała",
-        "Obliczanie BMI z wizualną skalą",
-        "Tryby: Agresywna redukcja, Czysta masa (Lean Bulk)",
-        "Pełne obliczenie makroskładników za darmo",
+        "Podstawowa przemiana materii wzorem Mifflina-St Jeora",
+        "Pięć poziomów aktywności",
+        "Siedem celów: utrzymanie wagi, trzy tryby odchudzania i trzy tryby budowy masy",
+        "Białko i tłuszcze na kg masy ciała, węglowodany z pozostałych kalorii",
+        "Wskaźnik masy ciała na skali z kategoriami WHO",
       ],
     },
     {
@@ -27,42 +28,58 @@ export default {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Jaki poziom białka wybrać na redukcję?",
+          name: "Czym są makroskładniki i jak je obliczyć?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Przy deficycie kalorycznym (zwłaszcza przy „Agresywnej redukcji”) zaleca się zwiększenie podaży białka do 1.8–2.2 g na kg wagi, aby organizm spalał tłuszcz, a nie tkankę mięśniową. W naszym kalkulatorze możesz ustawić ten parametr ręcznie.",
+            text: "Makroskładniki to białko, tłuszcze i węglowodany. Najpierw wzorem Mifflina-St Jeora liczy się podstawową przemianę materii, potem mnoży się ją przez współczynnik aktywności i współczynnik celu. Białko i tłuszcze ustawia się w gramach na kg masy ciała, a węglowodany wypełniają pozostałe kalorie. Kalkulator robi to wszystko automatycznie, wystarczy podać płeć, wagę, wzrost i wiek.",
           },
         },
         {
           "@type": "Question",
-          name: "Co wybrać: powolne czy szybkie budowanie masy?",
+          name: "Ile kalorii dziennie potrzebuję, żeby schudnąć?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "„Szybkie budowanie” często prowadzi do nadmiernego otłuszczenia. Jeśli zależy Ci na jakościowej muskulaturze, wybierz „Powolne” lub „Umiarkowane budowanie”.",
+            text: "Trzeba jeść mniej, niż wynosi dzienne zapotrzebowanie. Większości osób odpowiada deficyt 10–20%: w kalkulatorze to łagodne, umiarkowane i intensywne odchudzanie. Na przykład kobieta w wieku 30 lat, o wzroście 165 cm i wadze 60 kg, trenująca 1–3 razy w tygodniu, przy deficycie 15% potrzebuje około 1540 kcal dziennie.",
           },
         },
         {
           "@type": "Question",
-          name: "Jak dokładny jest ten kalkulator?",
+          name: "Jak szybko będę chudnąć?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Używamy wzoru Mifflina-St Jeora, uznawanego za „złoty standard”. Umożliwiamy również dokładne dostosowanie aktywności i makroskładników dla maksymalnej personalizacji.",
+            text: "1 kg tkanki tłuszczowej to około 7700 kcal. Deficyt 300 kcal dziennie daje mniej więcej 2100 kcal tygodniowo, czyli około 0,3 kg tłuszczu. W pierwszych dniach waga może spadać szybciej z powodu utraty wody, potem tempo maleje. Jeśli waga nie zmienia się przez 2–3 tygodnie, zmniejsz kaloryczność albo wybierz większy deficyt.",
           },
         },
         {
           "@type": "Question",
-          name: "Czym jest BMI i do czego służy?",
+          name: "Ile białka potrzeba podczas odchudzania?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "BMI (wskaźnik masy ciała) to wskaźnik, który pomaga ocenić stosunek masy ciała do wzrostu. Nasz kalkulator automatycznie oblicza BMI i wyświetla wynik na wizualnej skali z kolorowymi strefami: niedowaga, norma, nadwaga, otyłość.",
+            text: "Przy deficycie kalorii, zwłaszcza przy intensywnym odchudzaniu, zwykle zaleca się 1,6–2,2 g białka na kg masy ciała: pomaga to zachować mięśnie. Wartość ustawisz suwakiem „białka na 1 kg wagi”.",
           },
         },
         {
           "@type": "Question",
-          name: "Dlaczego przy nadwadze białko nie jest liczone na moją masę ciała?",
+          name: "Jaki przyrost masy wybrać: powolny czy szybki?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Jeśli BMI przekracza 25, kalkulator liczy białko i tłuszcze na masę odpowiadającą BMI 25 przy Twoim wzroście. Zapotrzebowanie na białko zależy głównie od masy mięśniowej, a nie od tkanki tłuszczowej, więc pełna masa ciała zawyżałaby normę. Kalorie są nadal liczone od rzeczywistej masy ciała.",
+            text: "Im większa nadwyżka, tym więcej tłuszczu przybywa razem z mięśniami. Aby budować mięśnie bez zbędnego tłuszczu, wybierz powolny lub umiarkowany przyrost masy. Szybki jest dla osób, którym trudno przytyć.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Na ile dokładne są obliczenia?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "W badaniach wzór Mifflina-St Jeora jest dokładniejszy od innych popularnych wzorów, ale to wciąż szacunek: u większości osób rzeczywiste zapotrzebowanie różni się od obliczonego o 10% lub mniej. Traktuj wynik jako punkt wyjścia i koryguj go na podstawie zmian wagi w ciągu 2–3 tygodni.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Dlaczego przy nadwadze białko nie jest liczone na moją wagę?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Jeśli BMI przekracza 25, kalkulator liczy białko i tłuszcze na wagę odpowiadającą BMI 25 przy Twoim wzroście. Zapotrzebowanie na białko zależy głównie od masy mięśniowej, a nie od tkanki tłuszczowej, więc liczenie na pełną wagę zawyżałoby normę. Kalorie liczone są przy tym od faktycznej wagi.",
           },
         },
       ],
