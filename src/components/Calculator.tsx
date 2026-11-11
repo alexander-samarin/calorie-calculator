@@ -202,9 +202,10 @@ function Calculator() {
 
       <BmiDisplay weightKg={weightKg()} heightCm={heightCm()} />
 
-      {/* Fixed-height slot (the former mt-8 gap): the hint never shifts layout.
+      {/* Fixed-height slot: the hint never shifts layout; py-2 keeps it clear
+          of the BMI scale and the gender buttons.
           Waits for hydration so returning visitors don't see it flash. */}
-      <div class="h-8 flex items-center">
+      <div class="h-12 py-2 flex items-center">
         <Show when={isHydrated() && isEmpty()}>
           <button
             type="button"
