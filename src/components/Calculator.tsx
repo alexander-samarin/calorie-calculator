@@ -35,19 +35,21 @@ function Calculator() {
   // A real 0 (carbs clamped to 0) must still show as 0
   const shown = (value: number) => (isEmpty() ? null : value);
 
-  let formRef: HTMLDivElement | undefined;
+  let weightInput: HTMLInputElement | undefined;
+  let heightInput: HTMLInputElement | undefined;
+  let ageInput: HTMLInputElement | undefined;
+
   const focusForm = () => {
-    const input = formRef?.querySelector<HTMLInputElement>("input[inputmode]");
-    if (!input) return;
+    if (!weightInput) return;
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    input.scrollIntoView({
+    weightInput.scrollIntoView({
       behavior: reduceMotion ? "auto" : "smooth",
       block: "center",
     });
     // Same tap, so mobile browsers open the keyboard
-    input.focus({ preventScroll: true });
+    weightInput.focus({ preventScroll: true });
   };
 
   // The summary bar appears once the result cards are scrolled past (above
@@ -181,13 +183,13 @@ function Calculator() {
         </Show>
       </div>
 
-      <div ref={formRef} class="flex flex-col gap-2 w-full max-w-md mx-auto">
-        <fieldset class="flex gap-2">
+      <div class="flex flex-col gap-2 w-full max-w-md mx-auto">
+        <fieldset class="grid grid-cols-2 gap-2">
           <legend class="sr-only">{t().gender}</legend>
           <For each={GENDER_OPTIONS}>
             {(option) => (
               <label
-                class="btn btn-lg has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-primary"
+                class="btn btn-lg has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-primary"
                 classList={{ "btn-primary": state.gender === option.value }}
               >
                 <input
@@ -205,6 +207,9 @@ function Calculator() {
         </fieldset>
 
         <NumberInput
+          ref={weightInput}
+          enterKeyHint="next"
+          onNext={() => heightInput?.focus()}
           label={t().weight}
           value={state.weight}
           onInput={(value) => setField("weight", value)}
@@ -214,6 +219,9 @@ function Calculator() {
         />
 
         <NumberInput
+          ref={heightInput}
+          enterKeyHint="next"
+          onNext={() => ageInput?.focus()}
           label={t().height}
           value={state.height}
           onInput={(value) => setField("height", value)}
@@ -223,6 +231,9 @@ function Calculator() {
         />
 
         <NumberInput
+          ref={ageInput}
+          inputMode="numeric"
+          enterKeyHint="done"
           label={t().age}
           value={state.age}
           onInput={(value) => setField("age", value)}

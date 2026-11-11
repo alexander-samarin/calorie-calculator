@@ -73,8 +73,12 @@ export const ACTIVITY_OPTIONS = [
   { labelKey: "veryHighActivity", value: 1.9 },
 ] as const;
 
-// Goals are shown grouped in the select; options without a group come last
+// Goals are shown grouped in the select; maintenance (ungrouped) comes first
 export const GOAL_GROUPS = [
+  {
+    labelKey: null,
+    options: [{ labelKey: "maintenance", value: 1 }],
+  },
   {
     labelKey: "goalGroupLoss",
     options: [
@@ -91,10 +95,6 @@ export const GOAL_GROUPS = [
       { labelKey: "fastBulk", value: 1.2 },
     ],
   },
-  {
-    labelKey: null,
-    options: [{ labelKey: "maintenance", value: 1 }],
-  },
 ] as const;
 
 type GoalOption = (typeof GOAL_GROUPS)[number]["options"][number];
@@ -102,6 +102,9 @@ type GoalOption = (typeof GOAL_GROUPS)[number]["options"][number];
 export const GOAL_OPTIONS: readonly GoalOption[] = GOAL_GROUPS.flatMap(
   (group): readonly GoalOption[] => group.options,
 );
+
+/** Preselected goal (mild weight loss); independent of the list order */
+export const DEFAULT_GOAL = 0.9 satisfies GoalOption["value"];
 
 // Exported types for constants
 export type GenderValue = (typeof GENDER_OPTIONS)[number]["value"];

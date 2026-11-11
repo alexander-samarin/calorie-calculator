@@ -39,7 +39,7 @@ function SummaryBar(props: SummaryBarProps) {
         <For each={macros()}>
           {(item) => (
             <div class="py-1 min-w-0">
-              <div class="text-xs text-base-content/70 hyphens-auto break-words">
+              <div class="text-xs text-base-content/70 hyphens-auto wrap-break-word">
                 {item.label}
               </div>
               <div class="font-bold">

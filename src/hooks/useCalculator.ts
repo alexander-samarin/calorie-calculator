@@ -10,6 +10,7 @@ import {
   GENDER_OPTIONS,
   ACTIVITY_OPTIONS,
   GOAL_OPTIONS,
+  DEFAULT_GOAL,
   PROTEIN_PER_KG,
   FAT_PER_KG,
   INPUT_LIMITS,
@@ -44,7 +45,7 @@ const DEFAULT_STATE: CalculatorState = {
   age: "",
   gender: GENDER_OPTIONS[0].value,
   activity: ACTIVITY_OPTIONS[0].value,
-  goal: GOAL_OPTIONS[0].value,
+  goal: DEFAULT_GOAL,
   proteinPerKg: PROTEIN_PER_KG.DEFAULT,
   fatPerKg: FAT_PER_KG.DEFAULT,
 };
