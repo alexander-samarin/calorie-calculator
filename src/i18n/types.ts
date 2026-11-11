@@ -72,9 +72,6 @@ export type BaseDict = {
   // Settings
   language: string;
   theme: string;
-  settings: string;
-  done: string;
-  close: string;
 
   // Footer
   copyright: string;

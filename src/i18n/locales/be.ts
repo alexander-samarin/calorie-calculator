@@ -68,9 +68,6 @@ export const be: BaseDict = {
   // Settings
   language: "Мова",
   theme: "Тэма",
-  settings: "Налады",
-  done: "Гатова",
-  close: "Закрыць",
 
   // Footer
   copyright:

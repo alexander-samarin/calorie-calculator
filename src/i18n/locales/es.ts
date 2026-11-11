@@ -68,9 +68,6 @@ export const es: BaseDict = {
   // Settings
   language: "Idioma",
   theme: "Tema",
-  settings: "Ajustes",
-  done: "Listo",
-  close: "Cerrar",
 
   // Footer
   copyright:

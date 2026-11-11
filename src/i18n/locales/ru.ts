@@ -68,9 +68,6 @@ export const ru: BaseDict = {
   // Settings
   language: "Язык",
   theme: "Тема",
-  settings: "Настройки",
-  done: "Готово",
-  close: "Закрыть",
 
   // Footer
   copyright:
