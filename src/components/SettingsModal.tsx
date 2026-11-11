@@ -10,7 +10,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost btn-square [--size:2.75rem] opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
+        class="absolute top-[env(safe-area-inset-top)] right-[env(safe-area-inset-right)] md:top-4 md:right-4 btn btn-ghost btn-square [--size:2.75rem] opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
         type="button"
         onClick={() => dialog?.showModal()}
         aria-label={t().settings}
