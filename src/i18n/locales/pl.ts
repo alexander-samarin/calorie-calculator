@@ -20,6 +20,8 @@ export const pl: BaseDict = {
   goal: "Cel",
   proteinPerKg: "białka na 1 kg wagi",
   fatPerKg: "tłuszczu na 1 kg wagi",
+  decrease: "Zmniejsz",
+  increase: "Zwiększ",
   macrosExceedWarning:
     "Białko i tłuszcze już przekraczają Twój limit kalorii, na węglowodany nic nie zostaje. Zmniejsz ilość białka lub tłuszczu na kg masy ciała.",
   macroWeightNote:

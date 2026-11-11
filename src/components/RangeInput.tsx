@@ -1,3 +1,6 @@
+import { createUniqueId } from "solid-js";
+import { useLocale } from "~/i18n";
+
 type RangeInputProps = {
   label: string;
   valueLabel: string;
@@ -8,22 +11,61 @@ type RangeInputProps = {
   onChange: (value: number) => void;
 };
 
+/** Slider with −/+ buttons for precise steps on touch screens */
 function RangeInput(props: RangeInputProps) {
+  const { t } = useLocale();
+  const id = createUniqueId();
+
+  const atMin = () => props.value <= props.min;
+  const atMax = () => props.value >= props.max;
+
+  const stepBy = (direction: 1 | -1) => {
+    // Round to whole steps: 1.5 + 0.1 must give 1.6, not 1.6000000000000001
+    const steps = Math.round(props.value / props.step) + direction;
+    const next = Number((steps * props.step).toFixed(10));
+    props.onChange(Math.min(props.max, Math.max(props.min, next)));
+  };
+
+  // aria-disabled instead of disabled: a disabled button would drop focus
+  const buttonClass =
+    "btn btn-ghost btn-circle [--size:2.75rem] text-xl font-normal shrink-0 aria-disabled:opacity-30 aria-disabled:cursor-default";
+
   return (
-    <label class="px-2 mt-2">
-      <span class="label pl-2 mb-1">
+    <div class="mt-2">
+      <label for={id} class="label pl-4 mb-1">
         <span class="font-bold">{props.valueLabel}</span> {props.label}
-      </span>
-      <input
-        class="range range-primary w-full"
-        type="range"
-        min={props.min}
-        max={props.max}
-        step={props.step}
-        value={props.value}
-        onInput={(e) => props.onChange(Number(e.currentTarget.value))}
-      />
-    </label>
+      </label>
+      <div class="flex items-center">
+        <button
+          type="button"
+          class={buttonClass}
+          aria-label={`${t().decrease}: ${props.label}`}
+          aria-disabled={atMin()}
+          onClick={() => !atMin() && stepBy(-1)}
+        >
+          −
+        </button>
+        <input
+          id={id}
+          class="range range-primary flex-1 min-w-0"
+          type="range"
+          min={props.min}
+          max={props.max}
+          step={props.step}
+          value={props.value}
+          onInput={(e) => props.onChange(Number(e.currentTarget.value))}
+        />
+        <button
+          type="button"
+          class={buttonClass}
+          aria-label={`${t().increase}: ${props.label}`}
+          aria-disabled={atMax()}
+          onClick={() => !atMax() && stepBy(1)}
+        >
+          +
+        </button>
+      </div>
+    </div>
   );
 }
 

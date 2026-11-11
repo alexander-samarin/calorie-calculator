@@ -20,6 +20,8 @@ export const be: BaseDict = {
   goal: "Мэта",
   proteinPerKg: "бялкоў на 1 кг вагі",
   fatPerKg: "тлушчаў на 1 кг вагі",
+  decrease: "Паменшыць",
+  increase: "Павялічыць",
   macrosExceedWarning:
     "Бялкі і тлушчы ўжо перавышаюць вашу норму калорый, на вугляводы нічога не застаецца. Зменшыце колькасць бялкоў або тлушчаў на кг вагі.",
   macroWeightNote:

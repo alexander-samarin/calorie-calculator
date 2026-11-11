@@ -20,6 +20,8 @@ export const de: BaseDict = {
   goal: "Ziel",
   proteinPerKg: "Eiweiß pro 1 kg Körpergewicht",
   fatPerKg: "Fett pro 1 kg Körpergewicht",
+  decrease: "Verringern",
+  increase: "Erhöhen",
   macrosExceedWarning:
     "Eiweiß und Fett allein überschreiten bereits Ihren Kalorienbedarf, für Kohlenhydrate bleibt nichts übrig. Verringern Sie Eiweiß oder Fett pro kg.",
   macroWeightNote:

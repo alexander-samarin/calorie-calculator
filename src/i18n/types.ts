@@ -26,6 +26,9 @@ export type BaseDict = {
   goal: string;
   proteinPerKg: string;
   fatPerKg: string;
+  /** Slider step buttons (screen-reader labels) */
+  decrease: string;
+  increase: string;
   macrosExceedWarning: string;
   macroWeightNote: string; // {weight} placeholder
 

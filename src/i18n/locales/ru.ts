@@ -20,6 +20,8 @@ export const ru: BaseDict = {
   goal: "Цель",
   proteinPerKg: "белков на 1 кг веса",
   fatPerKg: "жиров на 1 кг веса",
+  decrease: "Уменьшить",
+  increase: "Увеличить",
   macrosExceedWarning:
     "Белки и жиры уже превышают вашу норму калорий, на углеводы ничего не остаётся. Уменьшите количество белков или жиров на кг веса.",
   macroWeightNote:
