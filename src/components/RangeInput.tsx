@@ -28,14 +28,29 @@ function RangeInput(props: RangeInputProps) {
 
   // aria-disabled instead of disabled: a disabled button would drop focus
   const buttonClass =
-    "btn btn-ghost btn-circle [--size:2.75rem] text-xl font-normal shrink-0 aria-disabled:opacity-30 aria-disabled:cursor-default";
+    "btn btn-ghost btn-circle [--size:2.75rem] shrink-0 aria-disabled:opacity-30 aria-disabled:cursor-default";
+
+  /** Minus sign; the plus adds the vertical stroke */
+  const Icon = (iconProps: { plus?: boolean }) => (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      class="size-5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+    >
+      <path d={iconProps.plus ? "M5 12h14M12 5v14" : "M5 12h14"} />
+    </svg>
+  );
 
   return (
     <div class="mt-2">
       <label for={id} class="label pl-4 mb-1">
         <span class="font-bold">{props.valueLabel}</span> {props.label}
       </label>
-      <div class="flex items-center">
+      <div class="flex items-center gap-2">
         <button
           type="button"
           class={buttonClass}
@@ -43,7 +58,7 @@ function RangeInput(props: RangeInputProps) {
           aria-disabled={atMin()}
           onClick={() => !atMin() && stepBy(-1)}
         >
-          −
+          <Icon />
         </button>
         <input
           id={id}
@@ -62,7 +77,7 @@ function RangeInput(props: RangeInputProps) {
           aria-disabled={atMax()}
           onClick={() => !atMax() && stepBy(1)}
         >
-          +
+          <Icon plus />
         </button>
       </div>
     </div>
