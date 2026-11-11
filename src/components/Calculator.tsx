@@ -17,18 +17,54 @@ import {
   type InputLimits,
 } from "~/constants";
 import { useLocale, usePluralizeGrams } from "~/i18n";
-import { useCalculator } from "~/hooks/useCalculator";
+import { useCalculator, type CalculatorState } from "~/hooks/useCalculator";
 import { isOutOfRange, findOptionValue } from "~/helpers";
 
 /** Below this share of the result cards on screen the summary bar shows */
 const RESULTS_VISIBLE_RATIO = 0.25;
 
+/** How long the undo toast stays (paused while it has focus) */
+const UNDO_TIMEOUT_MS = 6000;
+
 function Calculator() {
   const { t } = useLocale();
   const pluralizeGrams = usePluralizeGrams();
 
-  const { state, setField, weightKg, heightCm, result, clearData, isHydrated } =
-    useCalculator();
+  const {
+    state,
+    setField,
+    weightKg,
+    heightCm,
+    result,
+    clearData,
+    restoreData,
+    isHydrated,
+  } = useCalculator();
+
+  // "Data cleared · Undo" toast: keeps the cleared values for a few seconds
+  const [undoSnapshot, setUndoSnapshot] = createSignal<CalculatorState | null>(
+    null,
+  );
+  let undoTimer: ReturnType<typeof setTimeout> | undefined;
+  const startUndoTimer = () => {
+    clearTimeout(undoTimer);
+    undoTimer = setTimeout(() => setUndoSnapshot(null), UNDO_TIMEOUT_MS);
+  };
+  onCleanup(() => clearTimeout(undoTimer));
+
+  const handleClear = () => {
+    const snapshot = clearData();
+    if (!snapshot) return;
+    setUndoSnapshot(snapshot);
+    startUndoTimer();
+  };
+
+  const handleUndo = () => {
+    const snapshot = undoSnapshot();
+    clearTimeout(undoTimer);
+    setUndoSnapshot(null);
+    if (snapshot) restoreData(snapshot);
+  };
 
   /** No valid weight/height/age yet: cards show dashes instead of zeros */
   const isEmpty = () => result().tdee === 0;
@@ -298,10 +334,33 @@ function Calculator() {
 
       <button
         class="btn btn-ghost btn-sm [--size:2.75rem] text-base-content/60 mt-4 max-w-fit"
-        onClick={clearData}
+        onClick={handleClear}
       >
         {t().clearData}
       </button>
+
+      {/* Always in the DOM so screen readers announce the message */}
+      <div
+        role="status"
+        class="toast toast-center toast-bottom z-20 pb-[calc(1rem+env(safe-area-inset-bottom))]"
+        onFocusIn={() => clearTimeout(undoTimer)}
+        onFocusOut={() => {
+          if (undoSnapshot()) startUndoTimer();
+        }}
+      >
+        <Show when={undoSnapshot()}>
+          <div class="alert bg-neutral text-neutral-content border-none shadow-lg gap-4 py-2 pr-2">
+            <span>{t().dataCleared}</span>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm [--size:2.75rem]"
+              onClick={handleUndo}
+            >
+              {t().undo}
+            </button>
+          </div>
+        </Show>
+      </div>
     </section>
   );
 }

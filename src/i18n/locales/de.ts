@@ -79,6 +79,8 @@ export const de: BaseDict = {
   privacyNote:
     "Alle Daten werden nur in Ihrem Browser gespeichert und niemals an einen Server gesendet.",
   clearData: "Daten löschen",
+  dataCleared: "Daten gelöscht",
+  undo: "Rückgängig",
 
   // BMI
   bmi: "BMI",

@@ -135,8 +135,21 @@ export function useCalculator() {
     value: CalculatorState[K],
   ) => setState(key, value);
 
-  /** Reset every field to its default (also clears localStorage) */
-  const clearData = () => setState({ ...DEFAULT_STATE });
+  /**
+   * Reset every field to its default (also clears localStorage).
+   * Returns the previous state for restoreData(), or null if nothing changed.
+   */
+  const clearData = (): CalculatorState | null => {
+    const snapshot = { ...state };
+    if (FIELDS.every((key) => snapshot[key] === DEFAULT_STATE[key])) {
+      return null;
+    }
+    setState({ ...DEFAULT_STATE });
+    return snapshot;
+  };
+
+  /** Undo clearData() */
+  const restoreData = (snapshot: CalculatorState) => setState(snapshot);
 
   return {
     state,
@@ -145,6 +158,7 @@ export function useCalculator() {
     heightCm,
     result,
     clearData,
+    restoreData,
     isHydrated,
   };
 }

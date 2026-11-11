@@ -81,6 +81,9 @@ export type BaseDict = {
   fillFormHint: string;
   privacyNote: string;
   clearData: string;
+  /** Toast after clearing, with an undo button */
+  dataCleared: string;
+  undo: string;
 
   // BMI
   bmi: string;
