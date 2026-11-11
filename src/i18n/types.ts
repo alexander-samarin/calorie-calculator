@@ -77,6 +77,8 @@ export type BaseDict = {
   copyright: string;
 
   // Privacy
+  /** Empty-state prompt that leads to the form */
+  fillFormHint: string;
   privacyNote: string;
   clearData: string;
 

@@ -1,6 +1,7 @@
 type StatCardProps = {
   title: string;
-  value: number | string;
+  /** null: nothing calculated yet (shown as a dash) */
+  value: number | null;
   unit?: string;
   isPrimary?: boolean;
 };
@@ -21,10 +22,10 @@ function StatCard(props: StatCardProps) {
         class="stat-value leading-none"
         classList={{
           "text-primary-content": props.isPrimary,
-          "opacity-50": props.value === 0,
+          "opacity-50": props.value === null,
         }}
       >
-        {props.value}
+        {props.value ?? "—"}
       </div>
       {props.unit && (
         <div

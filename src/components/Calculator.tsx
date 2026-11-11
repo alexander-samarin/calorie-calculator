@@ -27,8 +27,28 @@ function Calculator() {
   const { t } = useLocale();
   const pluralizeGrams = usePluralizeGrams();
 
-  const { state, setField, weightKg, heightCm, result, clearData } =
+  const { state, setField, weightKg, heightCm, result, clearData, isHydrated } =
     useCalculator();
+
+  /** No valid weight/height/age yet: cards show dashes instead of zeros */
+  const isEmpty = () => result().tdee === 0;
+  // A real 0 (carbs clamped to 0) must still show as 0
+  const shown = (value: number) => (isEmpty() ? null : value);
+
+  let formRef: HTMLDivElement | undefined;
+  const focusForm = () => {
+    const input = formRef?.querySelector<HTMLInputElement>("input[inputmode]");
+    if (!input) return;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    input.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "center",
+    });
+    // Same tap, so mobile browsers open the keyboard
+    input.focus({ preventScroll: true });
+  };
 
   // The summary bar appears once the result cards are scrolled past (above
   // the viewport) while the calculator itself is still on screen
@@ -95,17 +115,17 @@ function Calculator() {
           items={[
             {
               title: t().basalMetabolism,
-              value: Math.round(result().bmr),
+              value: shown(Math.round(result().bmr)),
               unit: t().kcal,
             },
             {
               title: t().dailyExpenditure,
-              value: result().baseTdee,
+              value: shown(result().baseTdee),
               unit: t().kcal,
             },
             {
               title: t().yourNorm,
-              value: result().tdee,
+              value: shown(result().tdee),
               unit: t().kcal,
               isPrimary: true,
             },
@@ -116,17 +136,17 @@ function Calculator() {
           items={[
             {
               title: t().proteins,
-              value: result().proteins,
+              value: shown(result().proteins),
               unit: pluralizeGrams(result().proteins),
             },
             {
               title: t().fats,
-              value: result().fats,
+              value: shown(result().fats),
               unit: pluralizeGrams(result().fats),
             },
             {
               title: t().carbs,
-              value: result().carbs,
+              value: shown(result().carbs),
               unit: pluralizeGrams(result().carbs),
             },
           ]}
@@ -144,7 +164,24 @@ function Calculator() {
 
       <BmiDisplay weightKg={weightKg()} heightCm={heightCm()} />
 
-      <div class="flex flex-col gap-2 w-full max-w-md mx-auto mt-8">
+      {/* Fixed-height slot (the former mt-8 gap): the hint never shifts layout.
+          Waits for hydration so returning visitors don't see it flash. */}
+      <div class="h-8 flex items-center">
+        <Show when={isHydrated() && isEmpty()}>
+          <button
+            type="button"
+            class="btn btn-ghost btn-sm font-medium text-base-content/80"
+            onClick={focusForm}
+          >
+            {t().fillFormHint}{" "}
+            <span aria-hidden="true" class="text-primary">
+              ↓
+            </span>
+          </button>
+        </Show>
+      </div>
+
+      <div ref={formRef} class="flex flex-col gap-2 w-full max-w-md mx-auto">
         <fieldset class="flex gap-2">
           <legend class="sr-only">{t().gender}</legend>
           <For each={GENDER_OPTIONS}>

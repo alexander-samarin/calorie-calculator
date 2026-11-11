@@ -75,6 +75,7 @@ export const es: BaseDict = {
     "Todos los derechos reservados. La información tiene fines meramente informativos y no sustituye la consulta médica.",
 
   // Privacy
+  fillFormHint: "Introduce peso, altura y edad",
   privacyNote:
     "Todos los datos se almacenan solo en su navegador y nunca se envían a un servidor.",
   clearData: "Borrar datos",

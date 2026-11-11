@@ -75,6 +75,7 @@ export const pl: BaseDict = {
     "Wszelkie prawa zastrzeżone. Informacje mają charakter wyłącznie informacyjny i nie zastępują porady lekarskiej.",
 
   // Privacy
+  fillFormHint: "Wpisz wagę, wzrost i wiek",
   privacyNote:
     "Wszystkie dane są przechowywane tylko w Twojej przeglądarce i nigdy nie są wysyłane na serwer.",
   clearData: "Wyczyść dane",

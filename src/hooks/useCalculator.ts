@@ -137,5 +137,13 @@ export function useCalculator() {
   /** Reset every field to its default (also clears localStorage) */
   const clearData = () => setState({ ...DEFAULT_STATE });
 
-  return { state, setField, weightKg, heightCm, result, clearData };
+  return {
+    state,
+    setField,
+    weightKg,
+    heightCm,
+    result,
+    clearData,
+    isHydrated,
+  };
 }

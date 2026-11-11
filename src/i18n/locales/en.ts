@@ -75,6 +75,7 @@ export const en: BaseDict = {
     "All rights reserved. This tool is for informational purposes only and does not constitute medical advice.",
 
   // Privacy
+  fillFormHint: "Enter your weight, height and age",
   privacyNote:
     "All data is stored only in your browser and is never sent to a server.",
   clearData: "Clear data",

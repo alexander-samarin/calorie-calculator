@@ -75,6 +75,7 @@ export const it: BaseDict = {
     "Tutti i diritti riservati. Le informazioni hanno carattere puramente informativo e non sostituiscono il parere medico.",
 
   // Privacy
+  fillFormHint: "Inserisci peso, altezza ed età",
   privacyNote:
     "Tutti i dati sono memorizzati solo nel tuo browser e non vengono mai inviati a un server.",
   clearData: "Cancella dati",

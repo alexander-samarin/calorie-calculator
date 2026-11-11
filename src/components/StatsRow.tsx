@@ -3,7 +3,7 @@ import StatCard from "./StatCard";
 
 interface StatItem {
   title: string;
-  value: number;
+  value: number | null;
   unit: string;
   isPrimary?: boolean;
 }
