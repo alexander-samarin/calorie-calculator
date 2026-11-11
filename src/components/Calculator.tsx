@@ -297,7 +297,7 @@ function Calculator() {
       </p>
 
       <button
-        class="btn btn-ghost btn-sm text-base-content/60 mt-4 max-w-fit"
+        class="btn btn-ghost btn-sm [--size:2.75rem] text-base-content/60 mt-4 max-w-fit"
         onClick={clearData}
       >
         {t().clearData}

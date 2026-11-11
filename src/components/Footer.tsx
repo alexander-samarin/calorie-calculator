@@ -13,15 +13,15 @@ function Footer() {
   };
 
   return (
-    <footer class="w-full border-t border-base-300 py-6">
+    <footer class="w-full border-t border-base-300 py-3">
       <nav class="max-w-2xl mx-auto px-4">
-        <ul class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+        <ul class="flex flex-wrap justify-center gap-x-4 text-sm">
           <For each={AVAILABLE_LOCALES}>
             {(lang) => (
               <li>
                 <a
                   href={getLocalePath(lang.value)}
-                  class="text-base-content/70 hover:text-primary transition-colors"
+                  class="inline-flex items-center min-h-11 text-base-content/70 hover:text-primary transition-colors"
                   hreflang={lang.value}
                   onClick={() => handleLangClick(lang.value)}
                 >
@@ -32,7 +32,7 @@ function Footer() {
           </For>
         </ul>
       </nav>
-      <p class="text-center text-xs text-base-content/50 mt-4 px-4">
+      <p class="text-center text-xs text-base-content/50 mt-2 px-4">
         © {currentYear} CalorieCalc.cc. {t().copyright}
       </p>
     </footer>

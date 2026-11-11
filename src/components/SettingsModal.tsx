@@ -10,7 +10,7 @@ function SettingsModal() {
   return (
     <>
       <button
-        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost p-0 aspect-square opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
+        class="absolute top-2 right-2 md:top-4 md:right-4 btn btn-ghost btn-square [--size:2.75rem] opacity-50 hover:opacity-100 active:opacity-100 transition-opacity"
         type="button"
         onClick={() => dialog?.showModal()}
         aria-label={t().settings}
@@ -54,7 +54,9 @@ function SettingsModal() {
 
           <div class="modal-action">
             <form method="dialog" class="w-full">
-              <button class="btn btn-primary w-full">{t().done}</button>
+              <button class="btn btn-primary w-full [--size:2.75rem]">
+                {t().done}
+              </button>
             </form>
           </div>
         </div>
